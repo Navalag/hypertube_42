@@ -336,7 +336,11 @@
 					<a href="#" class="dropdown-item"><i class="pg-settings_small"></i> Settings</a>
 					<a href="#" class="dropdown-item"><i class="pg-outdent"></i> Feedback</a>
 					<a href="#" class="dropdown-item"><i class="pg-signals"></i> Help</a>
-					<a href="#" class="clearfix bg-master-lighter dropdown-item">
+					<a href="{{ route('logout') }}" onclick="event.preventDefault();
+													 document.getElementById('logout-form').submit();" class="clearfix bg-master-lighter dropdown-item">
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+							@csrf
+						</form>
 						<span class="pull-left">Logout</span>
 						<span class="pull-right"><i class="pg-power"></i></span>
 					</a>
@@ -1170,8 +1174,8 @@
 		<!-- BEGIN Overlay Search Results, This part is for demo purpose, you can add anything you like !-->
 		<div class="container-fluid">
 			<span>
-						<strong>suggestions :</strong>
-				</span>
+				<strong>suggestions :</strong>
+			</span>
 			<span id="overlay-suggestions"></span>
 			<br>
 			<div class="search-results m-t-40">

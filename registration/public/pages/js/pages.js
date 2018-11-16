@@ -146,7 +146,7 @@
     }
 
     /** @function initDropDown
-    * @description Initialize Boot-Strap dropdown Menue
+    * @description Initialize Boot-Strap dropdown Menu
     * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
     * @requires bootstrap.js
     */
@@ -668,7 +668,7 @@
     /** @function secondarySidebar
     * @description dropdown Toggle and responive toggle for secondary sidebar
     */
-    Pages.prototype.secondarySidebar =function(){
+    Pages.prototype.secondarySidebar =function() {
         $('[data-init="secondary-sidebar"]').each(function() {
             $(this).on('click', '.main-menu li a', function(e) {
 
