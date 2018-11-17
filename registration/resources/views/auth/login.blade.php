@@ -34,12 +34,19 @@ window.onload = function()
 			<img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
 			<p class="p-t-35">Sign into your pages account</p>
 			<!-- START Login Form -->
-			<form id="form-login" class="p-t-15" role="form" action="index.html">
+			<form id="form-login" class="p-t-15" role="form" method="POST" action="{{ route('login') }}">
+				@csrf
+
 				<!-- START Form Control-->
 				<div class="form-group form-group-default">
 					<label>Login</label>
 					<div class="controls">
-						<input type="text" name="username" placeholder="User Name" class="form-control" required>
+						<input type="email" name="email" placeholder="Email" class="form-control" value="{{ old('email') }}" required>
+						@if ($errors->has('email'))
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->first('email') }}</strong>
+              </span>
+            @endif
 					</div>
 				</div>
 				<!-- END Form Control-->
@@ -48,13 +55,19 @@ window.onload = function()
 					<label>Password</label>
 					<div class="controls">
 						<input type="password" class="form-control" name="password" placeholder="Credentials" required>
+
+						@if ($errors->has('password'))
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->first('password') }}</strong>
+              </span>
+            @endif
 					</div>
 				</div>
 				<!-- START Form Control-->
 				<div class="row">
 					<div class="col-md-6 no-padding sm-p-l-10">
 						<div class="checkbox ">
-							<input type="checkbox" value="1" id="checkbox1">
+							<input type="checkbox" value="1" id="checkbox1" name="remember" {{ old('remember') ? 'checked' : '' }}>
 							<label for="checkbox1">Keep Me Signed in</label>
 						</div>
 					</div>
