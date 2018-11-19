@@ -1278,4 +1278,7 @@
 </div>
 <!-- END OVERLAY -->
 
+<script src="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/js/gallery.js') }}" type="text/javascript"></script>
+
 @endsection

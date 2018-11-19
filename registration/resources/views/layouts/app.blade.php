@@ -37,6 +37,7 @@
 		<link href="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.css') }}" rel="stylesheet" type="text/css" media="screen" />
 		<link href="{{ asset('pages/css/pages-icons.css') }}" rel="stylesheet" type="text/css">
 		<link class="main-stylesheet" href="{{ asset('pages/css/pages.css') }}" rel="stylesheet" type="text/css" />
+		<script src="{{ asset('assets/plugins/jquery/jquery-1.11.1.min.js') }}" type="text/javascript"></script>
 	</head>
 	<body class="fixed-header ">
 		
@@ -44,7 +45,6 @@
 
 		<!-- BEGIN VENDOR JS -->
 		<script src="{{ asset('assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script>
-		<script src="{{ asset('assets/plugins/jquery/jquery-1.11.1.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/modernizr.custom.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/tether/js/tether.min.js') }}" type="text/javascript"></script>
@@ -62,14 +62,13 @@
 		<script src="{{ asset('assets/plugins/jquery-isotope/isotope.pkgd.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/codrops-dialogFx/dialogFx.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.min.js') }}" type="text/javascript"></script>
-		<script src="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/jquery-nouislider/jquery.liblink.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('assets/plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
 		<!-- END VENDOR JS -->
 		<!-- BEGIN CORE TEMPLATE JS -->
 		<script src="{{ asset('pages/js/pages.min.js') }}"></script>
 		<!-- END CORE TEMPLATE JS -->
 		<!-- BEGIN PAGE LEVEL JS -->
-		<script src="{{ asset('assets/js/gallery.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/js/scripts.js') }}" type="text/javascript"></script>
 
 	</body>
