@@ -67,13 +67,21 @@ window.onload = function()
 						</div>
 					</div>
 					<div class="col-md-6 d-flex align-items-center justify-content-end">
-						<a href="/register" class="text-info small">Create an account</a>
+						<a href="/password/reset" class="text-info small">Forgot password?</a>
 					</div>
 				</div>
 				<!-- END Form Control-->
-				<button class="btn btn-primary btn-cons m-t-10 m-b-30" type="submit">Sign in</button>
+				<div class="row">
+					<!-- <div class="col-md-4"> -->
+						<button class="btn btn-primary btn-cons m-t-10 m-b-30" type="submit">Sign in</button>
+					<!-- </div> -->
+					<!-- <div class="col-md-6"> -->
+						<span class="m-t-15 m-l-15"> or <a href="/register">Register</a></span>
+					<!-- </div> -->
+				</div>
+				<!-- <button class="btn btn-primary btn-cons m-t-10 m-b-30" type="submit">Sign in</button> -->
 			</form>
-			
+
 			<button class="btn btn-block btn-info" type="button">
 				<span class="pull-left"><i class="fa fa-facebook"></i></span>
 				<span class="bold">Login with Facebook</span>
@@ -86,23 +94,6 @@ window.onload = function()
 				<span class="pull-left"><i class="fa fa-google-plus"></i></span>
 				<span class="bold">Login with Google+</span>
 			</button>
-			<!--END Login Form-->
-			<!-- <div class="pull-bottom sm-pull-bottom">
-				<div class="m-b-30 p-r-80 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">
-					<div class="col-sm-3 col-md-2 no-padding">
-						<img alt="" class="m-t-5" data-src="assets/img/demo/pages_icon.png" data-src-retina="assets/img/demo/pages_icon_2x.png" height="60" src="assets/img/demo/pages_icon.png" width="60">
-					</div>
-					<div class="col-sm-9 no-padding m-t-10">
-						<p>
-							<small>
-							Create a pages account. If you have a facebook account, log into it for this
-							process. Sign in with <a href="#" class="text-info">Facebook</a> or <a href="#"
-																																										 class="text-info">Google</a>
-						</small>
-						</p>
-					</div>
-				</div>
-			</div> -->
 		</div>
 	</div>
 	<!-- END Login Right Container-->
