@@ -37,9 +37,11 @@ window.onload = function()
 				@csrf
 
 				@if (session('status'))
-						<div class="alert alert-success" role="alert">
-								{{ session('status') }}
-						</div>
+					<div class="alert alert-info d-flex" role="alert">
+					  <p class="mr-auto overflow-ellipsis no-padding">{{ session('status') }}</p>
+					  <button class="close" data-dismiss="alert"></button>
+					  <div class="clearfix"></div>
+					</div>
 				@endif
 
 				<!-- START Form Control-->
