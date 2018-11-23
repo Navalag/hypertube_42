@@ -333,7 +333,7 @@
 					</span>
 				</button>
 				<div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-					<a href="#" class="dropdown-item"><i class="pg-settings_small"></i> Settings</a>
+					<a href="#" class="dropdown-item" data-target="#modalSlideLeft" data-toggle="modal"><i class="pg-settings_small"></i> Settings</a>
 					<a href="#" class="dropdown-item"><i class="pg-outdent"></i> Feedback</a>
 					<a href="#" class="dropdown-item"><i class="pg-signals"></i> Help</a>
 					<a href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -1126,7 +1126,7 @@
 				<p class="small no-margin pull-left sm-pull-reset">
 					<span class="hint-text">2018 &copy; </span>
 					<span class="font-montserrat"></span>
-					<span class="hint-text">Unit Factory (42 school) project.</span>
+					<span class="hint-text">UNIT Factory (42 school) project.</span>
 				</p>
 				<p class="small no-margin pull-right sm-pull-reset">
 					Developed with &#9825; by: <a target="_blank" href="https://github.com/Navalag">Navalag</a><span class="muted"> | </span><a target="_blank" href="https://github.com/vsyveniu">vsyveniu</a><span class="muted"> | </span><a target="_blank" href="https://github.com/IgorALLin">ichebota</a><span class="muted"> | </span><a target="_blank" href="https://github.com/lito747">mpytienk</a>
@@ -1277,6 +1277,176 @@
 	<!-- END Overlay Content !-->
 </div>
 <!-- END OVERLAY -->
+
+<!-- Modal -->
+<!-- MODAL STICK UP ALERT -->
+<div class="modal fade slide-right" id="modalSlideLeft" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-xl">
+		<div class="modal-content-wrapper">
+			<div class="modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+				</button>
+				<div class="container-xs-height full-height">
+					<div class="row-xs-height">
+						<div class="modal-body col-xs-height col-middle">
+							<!-- START CONTAINER FLUID -->
+							<!-- <div class=" container-fluid   container-fixed-lg"> -->
+								<!-- <div class="row"> -->
+									
+									<!-- <div class="col-md-7"> -->
+										<!-- START card -->
+										<div class="card card-transparent">
+											<div class="card-block">
+												<form id="form-project" role="form" autocomplete="off" novalidate>
+													<p>Basic Information</p>
+													<div class="form-group-attached">
+														<div class="form-group form-group-default">
+															<label>Username</label>
+															<input type="text" class="form-control" name="projectName" required>
+														</div>
+														<div class="row clearfix">
+															<div class="col-md-6">
+																<div class="form-group form-group-default">
+																	<label>First name</label>
+																	<input type="text" class="form-control" name="firstName" required>
+																</div>
+															</div>
+															<div class="col-md-6">
+																<div class="form-group form-group-default">
+																	<label>Last name</label>
+																	<input type="text" class="form-control" name="lastName">
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="m-t-10">
+														<!-- <form class="m-t-10" role="form"> -->
+				                      <div class="form-group form-group-default form-group-default-select2">
+				                        <label class="">Select prefered language</label>
+				                        <select class="full-width" id="select2insidemodal" data-init-plugin="select2">
+						                      <option value="sightseeing">Web-safe</option>
+						                      <option value="business">Helvetica</option>
+						                      <option value="honeymoon">SegeoUI</option>
+						                    </select>
+				                      </div>
+				                    <!-- </form> -->
+													</div>
+													<p class="m-t-10">Account Information</p>
+													<div class="form-group-attached">
+														<div class="form-group form-group-default">
+															<label>Email</label>
+															<input type="text" class="form-control" name="investor">
+														</div>
+														<div class="row clearfix">
+															<div class="col-md-6">
+																<div class="form-group form-group-default required">
+																	<label>Starting date</label>
+																	<input id="start-date" type="text" class="form-control date" name="startDate" required>
+																</div>
+															</div>
+															<div class="col-md-6">
+																<div class="form-group form-group-default">
+																	<label>Deadline</label>
+																	<input id="end-date" type="text" class="form-control date" name="endDate">
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-6">
+																<div class="form-group form-group-default required">
+																	<label>Website</label>
+																	<input type="text" class="form-control" name="url">
+																</div>
+															</div>
+															<div class="col-md-6">
+																<div class="form-group form-group-default input-group">
+																	<div class="form-input-group">
+																		<label class="inline">Availability</label>
+																	</div>
+																	<div class="input-group-addon bg-transparent h-c-50">
+																		<input type="checkbox" data-init-plugin="switchery" data-size="small" data-color="primary" checked="checked" />
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-4">
+																<div class="form-group form-group-default input-group">
+																	<div class="form-input-group">
+																		<label>Budget</label>
+																		<input type="text" class="form-control usd" required>
+																	</div>
+																	<div class="input-group-addon">
+																		USD
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="form-group form-group-default input-group">
+																	<div class="form-input-group">
+																		<label>Profit</label>
+																		<input type="text" class="form-control usd">
+																	</div>
+																	<div class="input-group-addon">
+																		USD
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4">
+																<div class="form-group form-group-default input-group">
+																	<div class="form-input-group">
+																		<label>Revenue</label>
+																		<input type="text" class="form-control usd">
+																	</div>
+																	<div class="input-group-addon">
+																		USD
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<br>
+													<div class="pull-left">
+														<div class="checkbox check-success  ">
+															<input type="checkbox" checked="checked" value="1" id="checkbox-agree">
+															<label for="checkbox-agree">I hereby certify that the information above is true and accurate
+															</label>
+														</div>
+													</div>
+													<br>
+													<button class="btn btn-success" type="submit">Submit</button>
+													<button class="btn btn-default"><i class="pg-close"></i> Clear</button>
+												</form>
+											</div>
+										</div>
+										<!-- END card -->
+									<!-- </div> -->
+								<!-- </div> -->
+							<!-- </div> -->
+							<!-- END CONTAINER FLUID -->
+							<!-- <h5 class="text-primary ">Before you <span class="semi-bold">proceed</span>, you have to login to make the necessary changes</h5>
+							<br>
+							<button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Continue</button>
+							<button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel</button> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- END MODAL STICK UP SMALL ALERT -->
+
+<script>
+	$(document).ready(function() {
+	  $("#select2insidemodal").select2({
+	    dropdownParent: $("#modalSlideLeft"),
+	    minimumResultsForSearch: -1
+	  });
+	});
+</script>
 
 <script src="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/js/gallery.js') }}" type="text/javascript"></script>

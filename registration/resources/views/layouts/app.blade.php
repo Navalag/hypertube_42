@@ -35,6 +35,7 @@
 		<link href="{{ asset('assets/plugins/codrops-dialogFx/dialog-sandra.css') }}" rel="stylesheet" type="text/css" media="screen" />
 		<link href="{{ asset('assets/plugins/owl-carousel/assets/owl.carousel.css') }}" rel="stylesheet" type="text/css" media="screen" />
 		<link href="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.css') }}" rel="stylesheet" type="text/css" media="screen" />
+
 		<link href="{{ asset('pages/css/pages-icons.css') }}" rel="stylesheet" type="text/css">
 		<link class="main-stylesheet" href="{{ asset('pages/css/pages.css') }}" rel="stylesheet" type="text/css" />
 		<script src="{{ asset('assets/plugins/jquery/jquery-1.11.1.min.js') }}" type="text/javascript"></script>
@@ -54,8 +55,8 @@
 		<script src="{{ asset('assets/plugins/jquery-ios-list/jquery.ioslist.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/jquery-actual/jquery.actual.min.js') }}"></script>
 		<script src="{{ asset('assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('assets/plugins/select2/js/select2.full.min.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('assets/plugins/classie/classie.js') }}"></script>
+		<script src="{{ asset('assets/plugins/select2/js/select2.full.min.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('assets/plugins/classie/classie.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/switchery/js/switchery.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/jquery-metrojs/MetroJs.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
@@ -66,10 +67,11 @@
 		<script src="{{ asset('assets/plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
 		<!-- END VENDOR JS -->
 		<!-- BEGIN CORE TEMPLATE JS -->
-		<script src="{{ asset('pages/js/pages.min.js') }}"></script>
+		<script src="{{ asset('pages/js/pages.js') }}"></script>
 		<!-- END CORE TEMPLATE JS -->
 		<!-- BEGIN PAGE LEVEL JS -->
 		<script src="{{ asset('assets/js/scripts.js') }}" type="text/javascript"></script>
+		<!-- <script src="{{ asset('assets/js/form_elements.js') }}" type="text/javascript"></script> -->
 
 	</body>
 </html>
