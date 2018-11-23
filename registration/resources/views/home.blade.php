@@ -1295,6 +1295,16 @@
 									
 									<!-- <div class="col-md-7"> -->
 										<!-- START card -->
+										<div class="col-md-12">
+											<div class="wrap-custom-file main-image">
+												<input type="file" name="photo" id="image1" accept=".gif, .jpg, .png" />
+												<label for="image1">
+													<span>Select Main Image</span>
+													<i class="fa fa-plus-circle"></i>
+													<a href="#" class="close"></a>
+												</label>
+											</div>
+										</div>
 										<div class="card card-transparent">
 											<div class="card-block">
 												<form id="form-project" role="form" autocomplete="off" novalidate>
@@ -1302,19 +1312,19 @@
 													<div class="form-group-attached">
 														<div class="form-group form-group-default">
 															<label>Username</label>
-															<input type="text" class="form-control" name="projectName" required>
+															<input type="text" class="form-control" name="userame" placeholder="your username" required>
 														</div>
 														<div class="row clearfix">
 															<div class="col-md-6">
 																<div class="form-group form-group-default">
 																	<label>First name</label>
-																	<input type="text" class="form-control" name="firstName" required>
+																	<input type="text" class="form-control" name="firstName" placeholder="John" required>
 																</div>
 															</div>
 															<div class="col-md-6">
 																<div class="form-group form-group-default">
 																	<label>Last name</label>
-																	<input type="text" class="form-control" name="lastName">
+																	<input type="text" class="form-control" name="lastName" placeholder="Smith" required>
 																</div>
 															</div>
 														</div>
@@ -1331,91 +1341,37 @@
 				                      </div>
 				                    <!-- </form> -->
 													</div>
+													<br>
 													<p class="m-t-10">Account Information</p>
+													<div class="m-t-10">
+			                      <div class="form-group form-group-default">
+			                        <label class="">Email</label>
+			                        <input type="email" class="form-control" name="email">
+			                      </div>
+													</div>
 													<div class="form-group-attached">
 														<div class="form-group form-group-default">
-															<label>Email</label>
-															<input type="text" class="form-control" name="investor">
+															<label>Old Password</label>
+															<input type="password" class="form-control" name="email">
 														</div>
 														<div class="row clearfix">
 															<div class="col-md-6">
-																<div class="form-group form-group-default required">
-																	<label>Starting date</label>
-																	<input id="start-date" type="text" class="form-control date" name="startDate" required>
+																<div class="form-group form-group-default">
+																	<label>New Password</label>
+																	<input type="password" class="form-control" name="startDate" placeholder="Minimum of 6 Charactors">
 																</div>
 															</div>
 															<div class="col-md-6">
 																<div class="form-group form-group-default">
-																	<label>Deadline</label>
-																	<input id="end-date" type="text" class="form-control date" name="endDate">
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-6">
-																<div class="form-group form-group-default required">
-																	<label>Website</label>
-																	<input type="text" class="form-control" name="url">
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="form-group form-group-default input-group">
-																	<div class="form-input-group">
-																		<label class="inline">Availability</label>
-																	</div>
-																	<div class="input-group-addon bg-transparent h-c-50">
-																		<input type="checkbox" data-init-plugin="switchery" data-size="small" data-color="primary" checked="checked" />
-																	</div>
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-4">
-																<div class="form-group form-group-default input-group">
-																	<div class="form-input-group">
-																		<label>Budget</label>
-																		<input type="text" class="form-control usd" required>
-																	</div>
-																	<div class="input-group-addon">
-																		USD
-																	</div>
-																</div>
-															</div>
-															<div class="col-md-4">
-																<div class="form-group form-group-default input-group">
-																	<div class="form-input-group">
-																		<label>Profit</label>
-																		<input type="text" class="form-control usd">
-																	</div>
-																	<div class="input-group-addon">
-																		USD
-																	</div>
-																</div>
-															</div>
-															<div class="col-md-4">
-																<div class="form-group form-group-default input-group">
-																	<div class="form-input-group">
-																		<label>Revenue</label>
-																		<input type="text" class="form-control usd">
-																	</div>
-																	<div class="input-group-addon">
-																		USD
-																	</div>
+																	<label>Repeat New Password</label>
+																	<input type="password" class="form-control" name="endDate" placeholder="Confirm new password">
 																</div>
 															</div>
 														</div>
 													</div>
 													<br>
-													<div class="pull-left">
-														<div class="checkbox check-success  ">
-															<input type="checkbox" checked="checked" value="1" id="checkbox-agree">
-															<label for="checkbox-agree">I hereby certify that the information above is true and accurate
-															</label>
-														</div>
-													</div>
 													<br>
-													<button class="btn btn-success" type="submit">Submit</button>
-													<button class="btn btn-default"><i class="pg-close"></i> Clear</button>
+													<button class="btn btn-success" type="submit">Update Profile</button>
 												</form>
 											</div>
 										</div>
