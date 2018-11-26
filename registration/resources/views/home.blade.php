@@ -1295,6 +1295,15 @@
 									
 									<!-- <div class="col-md-7"> -->
 										<!-- START card -->
+										@if ($errors->any())
+								      <div class="alert alert-danger">
+								        <ul>
+								            @foreach ($errors->all() as $error)
+								              <li>{{ $error }}</li>
+								            @endforeach
+								        </ul>
+								      </div><br />
+								    @endif
 										<div class="col-md-12">
 											<div class="wrap-custom-file main-image">
 												<input type="file" name="photo" id="image1" accept=".gif, .jpg, .png" />
@@ -1307,12 +1316,14 @@
 										</div>
 										<div class="card card-transparent">
 											<div class="card-block">
-												<form id="form-project" role="form" autocomplete="off" novalidate>
+												<form id="form-project" role="form" autocomplete="off" method="post" action="{{ route('edit_usr_prof') }}">
+													@csrf
+
 													<p>Basic Information</p>
 													<div class="form-group-attached">
 														<div class="form-group form-group-default">
 															<label>Username</label>
-															<input type="text" class="form-control" name="userame" value="{{ $user_info->username }}" required>
+															<input type="text" class="form-control" name="username" value="{{ $user_info->username }}" required>
 														</div>
 														<div class="row clearfix">
 															<div class="col-md-6">
@@ -1333,7 +1344,7 @@
 														<!-- <form class="m-t-10" role="form"> -->
 				                      <div class="form-group form-group-default form-group-default-select2">
 				                        <label class="">Select prefered language</label>
-				                        <select class="full-width" id="select2insidemodal" data-init-plugin="select2">
+				                        <select class="full-width" name="lang" id="select2insidemodal" data-init-plugin="select2">
 						                      <option value="en">English</option>
 						                      <option value="ua">Ukrainian</option>
 						                    </select>
@@ -1351,19 +1362,19 @@
 													<div class="form-group-attached">
 														<div class="form-group form-group-default">
 															<label>Old Password</label>
-															<input type="password" class="form-control" name="email" placeholder="To change password type an old one here">
+															<input type="password" class="form-control" name="oldPass" placeholder="To change password type an old one here">
 														</div>
 														<div class="row clearfix">
 															<div class="col-md-6">
 																<div class="form-group form-group-default">
 																	<label>New Password</label>
-																	<input type="password" class="form-control" name="startDate" placeholder="Minimum of 6 Charactors">
+																	<input type="password" class="form-control" name="newPass" placeholder="Minimum of 6 Charactors">
 																</div>
 															</div>
 															<div class="col-md-6">
 																<div class="form-group form-group-default">
 																	<label>Repeat New Password</label>
-																	<input type="password" class="form-control" name="endDate" placeholder="Confirm new password">
+																	<input type="password" class="form-control" name="newPass_confirmation" placeholder="Confirm new password">
 																</div>
 															</div>
 														</div>
