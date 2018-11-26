@@ -1368,13 +1368,13 @@
 															<div class="col-md-6">
 																<div class="form-group form-group-default">
 																	<label>New Password</label>
-																	<input type="password" class="form-control" name="newPass" placeholder="Minimum of 6 Charactors">
+																	<input type="password" class="form-control" name="newPassword" placeholder="Minimum of 6 Charactors">
 																</div>
 															</div>
 															<div class="col-md-6">
 																<div class="form-group form-group-default">
 																	<label>Repeat New Password</label>
-																	<input type="password" class="form-control" name="newPass_confirmation" placeholder="Confirm new password">
+																	<input type="password" class="form-control" name="newPassword_confirmation" placeholder="Confirm new password">
 																</div>
 															</div>
 														</div>
