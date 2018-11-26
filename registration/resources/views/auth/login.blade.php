@@ -72,9 +72,9 @@ window.onload = function()
 				</div>
 				<!-- END Form Control-->
 				<div class="row">
-					<!-- <div class="col-md-4"> -->
+					<div class="col-md-4">
 						<button class="btn btn-primary btn-cons m-t-10 m-b-30" type="submit">Sign in</button>
-					<!-- </div> -->
+					</div>
 					<!-- <div class="col-md-6"> -->
 						<span class="m-t-15 m-l-15"> or <a href="/register">Register</a></span>
 					<!-- </div> -->

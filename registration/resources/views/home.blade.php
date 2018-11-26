@@ -1312,19 +1312,19 @@
 													<div class="form-group-attached">
 														<div class="form-group form-group-default">
 															<label>Username</label>
-															<input type="text" class="form-control" name="userame" placeholder="your username" required>
+															<input type="text" class="form-control" name="userame" value="{{ $user_info->username }}" required>
 														</div>
 														<div class="row clearfix">
 															<div class="col-md-6">
 																<div class="form-group form-group-default">
 																	<label>First name</label>
-																	<input type="text" class="form-control" name="firstName" placeholder="John" required>
+																	<input type="text" class="form-control" name="firstName" value="{{ $user_info->first_name }}" required>
 																</div>
 															</div>
 															<div class="col-md-6">
 																<div class="form-group form-group-default">
 																	<label>Last name</label>
-																	<input type="text" class="form-control" name="lastName" placeholder="Smith" required>
+																	<input type="text" class="form-control" name="lastName" value="{{ $user_info->last_name }}" required>
 																</div>
 															</div>
 														</div>
@@ -1334,9 +1334,8 @@
 				                      <div class="form-group form-group-default form-group-default-select2">
 				                        <label class="">Select prefered language</label>
 				                        <select class="full-width" id="select2insidemodal" data-init-plugin="select2">
-						                      <option value="sightseeing">Web-safe</option>
-						                      <option value="business">Helvetica</option>
-						                      <option value="honeymoon">SegeoUI</option>
+						                      <option value="en">English</option>
+						                      <option value="ua">Ukrainian</option>
 						                    </select>
 				                      </div>
 				                    <!-- </form> -->
@@ -1346,13 +1345,13 @@
 													<div class="m-t-10">
 			                      <div class="form-group form-group-default">
 			                        <label class="">Email</label>
-			                        <input type="email" class="form-control" name="email">
+			                        <input type="email" class="form-control" value="{{ $user_info->email }}" name="email">
 			                      </div>
 													</div>
 													<div class="form-group-attached">
 														<div class="form-group form-group-default">
 															<label>Old Password</label>
-															<input type="password" class="form-control" name="email">
+															<input type="password" class="form-control" name="email" placeholder="To change password type an old one here">
 														</div>
 														<div class="row clearfix">
 															<div class="col-md-6">
