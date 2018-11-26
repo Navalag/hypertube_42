@@ -25,14 +25,12 @@ $(document).ready(function() {
 			var	tmppath = event.target.files[0];
 			var bg_img = URL.createObjectURL(tmppath);
 			var data = new FormData();
-			var tokenName =  $('input[name="csrf_name"]');
-			var tokenValue =  $('input[name="csrf_value"]');
+			var token =  $('input[name="_token"]');
 			data.append("photo", tmppath);
-			data.append("csrf_name", tokenName.attr('value'));
-			data.append("csrf_value", tokenValue.attr('value'));
+			data.append("_token", token.attr('value'));
 			// console.log(data);
 			$.ajax({
-				url: '/user/edit/photo_upload',
+				url: '/user/upload_avatar',
 				type: 'POST',
 				method: 'POST',
 				data: data,
@@ -44,8 +42,7 @@ $(document).ready(function() {
 				{
 					console.log('success');
 					var obj = JSON.parse(data);
-					tokenName.val(obj[0].csrf_name);
-					tokenValue.val(obj[0].csrf_value);
+					token.val(obj[0].csrf_name);
 					// STOP LOADING SPINNER
 					$label
 						.addClass('file-ok')
@@ -60,58 +57,49 @@ $(document).ready(function() {
 					// STOP LOADING SPINNER
 				}
 			});
-
-			//   $label
-			// 	.addClass('file-ok')
-			// 	.css('background-image', 'url(' + bg_img + ')');
-			// 		$labelText.text(fileName);
-			// } else {
-			// 	$label.removeClass('file-ok');
-			// 	$labelText.text(labelDefault);
-			// }
 		});
 
 		// When close link is clicked
-		$labelCloseLink.on('click', function(event) {
-			var imgSrc = $(this).parent().css('background-image');
-			imgSrc = imgSrc.replace('url(','').replace(')','').replace(/\"/gi, "");
-			var data = new FormData();
-			var tokenName =  $('input[name="csrf_name"]');
-			var tokenValue =  $('input[name="csrf_value"]');
-			data.append(imgSrc, "delphoto");
-			data.append("csrf_name", tokenName.attr('value'));
-			data.append("csrf_value", tokenValue.attr('value'));
-			// console.log(data);
-			$.ajax({
-				url: '/user/edit/photo_delete',
-				type: 'POST',
-				method: 'POST',
-				data: data,
-				cache: false,
-				// dataType: 'json',
-				processData: false, // Don't process the files
-				contentType: false, // Set content type to false as jQuery will tell the server its a query string request
-				success: function(data, textStatus, jqXHR)
-				{
-					console.log(data);
-					var obj = JSON.parse(data);
-					tokenName.val(obj.csrf_name);
-					tokenValue.val(obj.csrf_value);
-					$label.removeClass('file-ok')
-					.css('background-image', '');
-					$labelText.text(labelDefault);
-					$labelCloseLink.css('display', 'none');
-					$file.prop('disabled', false);
-					// STOP LOADING SPINNER
-				},
-				error: function(jqXHR, textStatus, errorThrown)
-				{
-					// Handle errors here
-					console.log('ERRORS: ' + textStatus);
-					// STOP LOADING SPINNER
-				}
-			});
-		});
+		// $labelCloseLink.on('click', function(event) {
+		// 	var imgSrc = $(this).parent().css('background-image');
+		// 	imgSrc = imgSrc.replace('url(','').replace(')','').replace(/\"/gi, "");
+		// 	var data = new FormData();
+		// 	var tokenName =  $('input[name="csrf_name"]');
+		// 	var tokenValue =  $('input[name="csrf_value"]');
+		// 	data.append(imgSrc, "delphoto");
+		// 	data.append("csrf_name", tokenName.attr('value'));
+		// 	data.append("csrf_value", tokenValue.attr('value'));
+		// 	// console.log(data);
+		// 	$.ajax({
+		// 		url: '/user/edit/photo_delete',
+		// 		type: 'POST',
+		// 		method: 'POST',
+		// 		data: data,
+		// 		cache: false,
+		// 		// dataType: 'json',
+		// 		processData: false, // Don't process the files
+		// 		contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+		// 		success: function(data, textStatus, jqXHR)
+		// 		{
+		// 			console.log(data);
+		// 			var obj = JSON.parse(data);
+		// 			tokenName.val(obj.csrf_name);
+		// 			tokenValue.val(obj.csrf_value);
+		// 			$label.removeClass('file-ok')
+		// 			.css('background-image', '');
+		// 			$labelText.text(labelDefault);
+		// 			$labelCloseLink.css('display', 'none');
+		// 			$file.prop('disabled', false);
+		// 			// STOP LOADING SPINNER
+		// 		},
+		// 		error: function(jqXHR, textStatus, errorThrown)
+		// 		{
+		// 			// Handle errors here
+		// 			console.log('ERRORS: ' + textStatus);
+		// 			// STOP LOADING SPINNER
+		// 		}
+		// 	});
+		// });
 		
 	// End loop of file input elements  
 	});

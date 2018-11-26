@@ -1306,17 +1306,18 @@
 								    @endif
 										<div class="col-md-12">
 											<div class="wrap-custom-file main-image">
-												<input type="file" name="photo" id="image1" accept=".gif, .jpg, .png" />
+												<input type="file" name="avatar" id="image" accept=".gif, .jpg, .png" />
 												<label for="image1">
-													<span>Select Main Image</span>
+													<span>Select Avatar Image</span>
 													<i class="fa fa-plus-circle"></i>
 													<a href="#" class="close"></a>
 												</label>
 											</div>
 										</div>
+
 										<div class="card card-transparent">
 											<div class="card-block">
-												<form id="form-project" role="form" autocomplete="off" method="post" action="{{ route('edit_usr_prof') }}">
+												<form id="form-project" role="form" autocomplete="off" method="post" action="{{ route('user.edit_prof') }}">
 													@csrf
 
 													<p>Basic Information</p>
@@ -1379,6 +1380,13 @@
 															</div>
 														</div>
 													</div>
+													<div class="form-group row">
+			                        <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Avatar (optional)') }}</label>
+
+			                        <div class="col-md-6">
+			                             <input type="file" class="form-control" name="avatar" id="avatar">
+			                        </div>
+			                    </div>
 													<br>
 													<br>
 													<button class="btn btn-success" type="submit">Update Profile</button>

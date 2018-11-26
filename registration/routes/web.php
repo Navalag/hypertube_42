@@ -15,4 +15,6 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes(['verify' => true]);
 
-Route::post('/edit_user_profile', 'User\EditUserInfo@edit')->name('edit_usr_prof');
+Route::post('/user/edit_profile', 'User\EditUserInfo@edit')->name('user.edit_prof');
+
+Route::post('/user/upload_avatar', 'User\EditUserInfo@uploadPhoto')->name('user.upload_avatar');

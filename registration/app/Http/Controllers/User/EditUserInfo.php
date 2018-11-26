@@ -50,8 +50,16 @@ class EditUserInfo extends Controller
 				return back()->withErrors('Old password is incorrect');
 			}
 		}
+		if (!empty($request->get('avatar'))) {
+            $user->addMediaFromRequest('avatar')->toMediaCollection('avatars');
+        }
 		$user->save();
 
 		return redirect('/')->with('user_info', $user);
+	}
+
+	public function uploadPhoto(Request $request)
+	{
+		
 	}
 }
