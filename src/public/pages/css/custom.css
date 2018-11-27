@@ -1,0 +1,79 @@
+ .super_wrapper
+        {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .common_wrapper
+        {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex: 1 0 auto;
+        }
+        .common_main
+        {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .common_footer
+        {
+            width: 100%;
+            border: 1px solid gold;
+            flex: 0 0 auto;
+        }
+        .thumbnails_container
+        {
+            width: 100%;
+            border: 1px solid blue;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .eachblock
+        {
+            width: 204px;
+            height: 400px;
+            padding: 1px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid chocolate;
+            margin-top: 2%;
+        }
+        .poster
+        {
+            width: 200px;
+            min-height: 300px;
+
+        }
+        .faded
+        {
+            animation-name: fade;
+            animation-duration: 1s;
+        }
+        @keyframes fade {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+.page-content-wrapper
+{
+    border: 1px solid coral;
+    width: 100%;
+}
+.content
+{
+    border: 1px solid gold;
+    width: 100%;
+}
+.gallery
+{
+    border: 3px solid blue;
+    width: 100% !important;
+}
+
