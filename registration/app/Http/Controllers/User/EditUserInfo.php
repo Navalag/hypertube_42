@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\User;
-// use Intervention\Image\ImageManager;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class EditUserInfo extends Controller
