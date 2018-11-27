@@ -6,13 +6,13 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ForgotPassword as ResetPasswordNotification;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
+// use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+// use Spatie\MediaLibrary\HasMedia\HasMedia;
 
-class User extends Authenticatable implements MustVerifyEmail, HasMedia
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
-    use HasMediaTrait;
+    // use HasMediaTrait;
 
     /**
      * The attributes that are mass assignable.

@@ -1380,17 +1380,44 @@
 															</div>
 														</div>
 													</div>
-													<div class="form-group row">
-			                        <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Avatar (optional)') }}</label>
-
-			                        <div class="col-md-6">
-			                             <input type="file" class="form-control" name="avatar" id="avatar">
-			                        </div>
-			                    </div>
 													<br>
 													<br>
 													<button class="btn btn-success" type="submit">Update Profile</button>
 												</form>
+
+												@if ($message = Session::get('success'))
+								        <div class="alert alert-success alert-block">
+								            <button type="button" class="close" data-dismiss="alert">×</button>
+								            <strong>{{ $message }}</strong>
+								        </div>
+								        <img src="avatar_img/{{ Session::get('image') }}">
+								        @endif
+
+								        @if (count($errors) > 0)
+								            <div class="alert alert-danger">
+								                <strong>Whoops!</strong> There were some problems with your input.
+								                <ul>
+								                    @foreach ($errors->all() as $error)
+								                        <li>{{ $error }}</li>
+								                    @endforeach
+								                </ul>
+								            </div>
+								        @endif
+
+								  
+
+								        <form action="{{ route('user.upload_avatar') }}" method="POST" enctype="multipart/form-data">
+							            @csrf
+							            <div class="row">
+							                <div class="col-md-6">
+							                  <input type="file" name="image" class="form-control">
+							                </div>
+							                <div class="col-md-6">
+							                  <button type="submit" class="btn btn-success">Upload</button>
+							                </div>
+							            </div>
+								        </form>
+
 											</div>
 										</div>
 										<!-- END card -->

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+// use Intervention\Image\ImageManager;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class EditUserInfo extends Controller
 {
@@ -50,9 +52,7 @@ class EditUserInfo extends Controller
 				return back()->withErrors('Old password is incorrect');
 			}
 		}
-		if (!empty($request->get('avatar'))) {
-            $user->addMediaFromRequest('avatar')->toMediaCollection('avatars');
-        }
+
 		$user->save();
 
 		return redirect('/')->with('user_info', $user);
@@ -60,6 +60,14 @@ class EditUserInfo extends Controller
 
 	public function uploadPhoto(Request $request)
 	{
-		
+		request()->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        Image::make(request()->image)->fit(50)->save('avatar_img/'.$imageName);
+
+        return back()
+            ->with('success','You have successfully upload image.')
+            ->with('image',$imageName);
 	}
 }
