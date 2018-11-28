@@ -303,21 +303,7 @@
 				<img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
 			</div>
 			<!-- START NOTIFICATION LIST -->
-			<ul class="hidden-md-down notification-list no-margin hidden-sm-down b-grey b-l b-r no-style p-l-30 p-r-20">
-				<li class="p-r-10 inline">
-					<div class="dropdown">
-						<a href="javascript:;" id="notification-center" class="header-icon pg pg-world" data-toggle="dropdown">
-							<span class="bubble"></span>
-						</a>
-					</div>
-				</li>
-				<li class="p-r-10 inline">
-					<a href="#" class="header-icon pg pg-link"></a>
-				</li>
-				<li class="p-r-10 inline">
-					<a href="#" class="header-icon pg pg-thumbs"></a>
-				</li>
-			</ul>
+			
 			<!-- END NOTIFICATIONS LIST -->
 			<a href="#" class="search-link hidden-md-down" data-toggle="search"><i class="pg-search"></i>Type anywhere to <span class="bold">search</span></a>
 		</div>
@@ -327,27 +313,28 @@
 				<span class="semi-bold">{{ $user_info->first_name }}</span> <span class="text-master">{{ $user_info->last_name }}</span>
 			</div>
 			<div class="dropdown pull-right hidden-md-down">
-				<button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<button class="profile-dropdown-toggle">
 					<span class="thumbnail-wrapper d32 circular inline">
 					<img src="{{ $user_info->photo_src }}" alt="" data-src="{{ $user_info->photo_src }}" data-src-retina="{{ $user_info->photo_src }}" width="32" height="32">
 					</span>
 				</button>
-				<div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-					<a href="#" class="dropdown-item" data-target="#modalSlideLeft" data-toggle="modal"><i class="pg-settings_small"></i> Settings</a>
-					<a href="#" class="dropdown-item"><i class="pg-outdent"></i> Feedback</a>
-					<a href="#" class="dropdown-item"><i class="pg-signals"></i> Help</a>
-					<a href="{{ route('logout') }}" onclick="event.preventDefault();
-													 document.getElementById('logout-form').submit();" class="clearfix bg-master-lighter dropdown-item">
+			</div>
+			<ul class="hidden-md-down notification-list no-margin hidden-sm-down b-grey b-l b-r no-style m-l-10 p-l-20 p-r-10">
+				<li class="p-r-10 inline">
+					<a href="#" class="header-icon pg pg-settings" data-target="#modalSlideLeft" data-toggle="modal"></a>
+				</li>
+				<li class="p-r-10 inline">
+					<!-- <a href="#" class="header-icon pg pg-power"></a> -->
+					<a class="header-icon pg pg-power" href="{{ route('logout') }}" onclick="event.preventDefault();
+													 document.getElementById('logout-form').submit();" class="clearfix">
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 							@csrf
 						</form>
-						<span class="pull-left">Logout</span>
-						<span class="pull-right"><i class="pg-power"></i></span>
+						<!-- <span class="pull-left">Logout</span> -->
+						<!-- <span class="pull-right"><i class="pg-power"></i></span> -->
 					</a>
-				</div>
-			</div>
-			<!-- END User Info-->
-			 <a href="#" class="header-icon pg pg-alt_menu btn-link m-l-10 sm-no-margin d-inline-block"></a><!--data-toggle="quickview" data-toggle-element="#quickview" -->
+				</li>
+			</ul>
 		</div>
 	</div>
 	<!-- END HEADER -->
@@ -1295,6 +1282,13 @@
 									
 									<!-- <div class="col-md-7"> -->
 										<!-- START card -->
+										@if ($message = Session::get('success'))
+							        <div class="alert alert-success alert-block">
+							          <button type="button" class="close" data-dismiss="alert">×</button>
+							          <strong>{{ $message }}</strong>
+							        </div>
+							        <img src="avatar_img/{{ Session::get('image') }}">
+						        @endif
 										@if ($errors->any())
 								      <div class="alert alert-danger">
 								        <ul>
@@ -1304,16 +1298,6 @@
 								        </ul>
 								      </div><br />
 								    @endif
-										<div class="col-md-12">
-											<div class="wrap-custom-file main-image">
-												<input type="file" name="avatar" id="image" accept=".gif, .jpg, .png" />
-												<label for="image1">
-													<span>Select Avatar Image</span>
-													<i class="fa fa-plus-circle"></i>
-													<a href="#" class="close"></a>
-												</label>
-											</div>
-										</div>
 
 										<div class="card card-transparent">
 											<div class="card-block">
@@ -1342,15 +1326,13 @@
 														</div>
 													</div>
 													<div class="m-t-10">
-														<!-- <form class="m-t-10" role="form"> -->
-				                      <div class="form-group form-group-default form-group-default-select2">
-				                        <label class="">Select prefered language</label>
-				                        <select class="full-width" name="lang" id="select2insidemodal" data-init-plugin="select2">
-						                      <option value="en">English</option>
-						                      <option value="ua">Ukrainian</option>
-						                    </select>
-				                      </div>
-				                    <!-- </form> -->
+			                      <div class="form-group form-group-default form-group-default-select2">
+			                        <label class="">Select prefered language</label>
+			                        <select class="full-width" name="lang" id="select2insidemodal" data-init-plugin="select2">
+					                      <option value="en" {{$user_info->lang=='en'?'selected':''}}>English</option>
+					                      <option value="ua" {{$user_info->lang=='ua'?'selected':''}}>Ukrainian</option>
+					                    </select>
+			                      </div>
 													</div>
 													<br>
 													<p class="m-t-10">Account Information</p>
@@ -1384,27 +1366,6 @@
 													<br>
 													<button class="btn btn-success" type="submit">Update Profile</button>
 												</form>
-
-												@if ($message = Session::get('success'))
-								        <div class="alert alert-success alert-block">
-								            <button type="button" class="close" data-dismiss="alert">×</button>
-								            <strong>{{ $message }}</strong>
-								        </div>
-								        <img src="avatar_img/{{ Session::get('image') }}">
-								        @endif
-
-								        @if (count($errors) > 0)
-								            <div class="alert alert-danger">
-								                <strong>Whoops!</strong> There were some problems with your input.
-								                <ul>
-								                    @foreach ($errors->all() as $error)
-								                        <li>{{ $error }}</li>
-								                    @endforeach
-								                </ul>
-								            </div>
-								        @endif
-
-								  
 
 								        <form action="{{ route('user.upload_avatar') }}" method="POST" enctype="multipart/form-data">
 							            @csrf
@@ -1447,6 +1408,7 @@
 	    minimumResultsForSearch: -1
 	  });
 	});
+	var userPhoto = {!! json_encode($user_info->photo_src, JSON_HEX_TAG) !!};
 </script>
 
 <script src="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.min.js') }}" type="text/javascript"></script>

@@ -63,7 +63,7 @@ class EditUserInfo extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $imageName = time().'.'.request()->image->getClientOriginalExtension();
-        Image::make(request()->image)->fit(50)->save('avatar_img/'.$imageName);
+        Image::make(request()->image)->fit(100)->save('avatar_img/'.$imageName);
 
         $user = User::find(\Auth::user()->id);
         if ($user->photo_src) {

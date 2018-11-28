@@ -15,8 +15,8 @@
 	text-align: center;
 }
 .main-image {
-	width: 211px;
-    height: 211px;
+	width: 100px;
+    height: 100px;
     /*margin-top: 50px;*/
 }
 .wrap-custom-file input[type="file"] {
