@@ -65,6 +65,10 @@ class EditUserInfo extends Controller
         $imageName = time().'.'.request()->image->getClientOriginalExtension();
         Image::make(request()->image)->fit(50)->save('avatar_img/'.$imageName);
 
+        $user = User::find(\Auth::user()->id);
+        $user->photo_src = 'avatar_img/'.$imageName;
+        $user->save();
+
         return back()
             ->with('success','You have successfully upload image.')
             ->with('image',$imageName);
