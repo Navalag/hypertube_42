@@ -1,11 +1,14 @@
 $(document).ready(function() {
+	$('#loader').hide();
 	$('button#updateProfile').click( function(e){
 		e.preventDefault();
 
+		$('#loader').show();
 		$.post('/user/edit_profile', $('form#form-project').serialize(), function(data) {
 				console.log(data);
 				$('#firstName').text(data.user_info.first_name);
 				$('#lastName').text(data.user_info.last_name);
+				$('#loader').hide();
 		});
 	});
 
@@ -16,6 +19,7 @@ $(document).ready(function() {
 		var data = new FormData();
 		data.append('image', img);
 		data.append("_token", token.attr('value'));
+		$('#loader').show();
 		$.ajax({
 			url: '/user/upload_avatar',
 			data: data,
@@ -25,7 +29,8 @@ $(document).ready(function() {
 			type: 'POST',
 			success:function(response) {
 				console.log(response);
-				$('#avatar').attr("src", response.image);;
+				$('#avatar').attr("src", response.image);
+				$('#loader').hide();
 			}
 		});
 	});
