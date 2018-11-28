@@ -313,25 +313,22 @@
 				<span class="semi-bold">{{ $user_info->first_name }}</span> <span class="text-master">{{ $user_info->last_name }}</span>
 			</div>
 			<div class="dropdown pull-right hidden-md-down">
-				<button class="profile-dropdown-toggle">
+				<button class="profile-dropdown-toggle p-r-15">
 					<span class="thumbnail-wrapper d32 circular inline">
 					<img src="{{ $user_info->photo_src }}" alt="" data-src="{{ $user_info->photo_src }}" data-src-retina="{{ $user_info->photo_src }}" width="32" height="32">
 					</span>
 				</button>
 			</div>
-			<ul class="hidden-md-down notification-list no-margin hidden-sm-down b-grey b-l b-r no-style m-l-10 p-l-20 p-r-10">
+			<ul class="hidden-md-down notification-list no-margin hidden-sm-down b-grey b-l b-r no-style p-l-10 p-r-10">
 				<li class="p-r-10 inline">
 					<a href="#" class="header-icon pg pg-settings" data-target="#modalSlideLeft" data-toggle="modal"></a>
 				</li>
-				<li class="p-r-10 inline">
-					<!-- <a href="#" class="header-icon pg pg-power"></a> -->
+				<li class="inline">
 					<a class="header-icon pg pg-power" href="{{ route('logout') }}" onclick="event.preventDefault();
 													 document.getElementById('logout-form').submit();" class="clearfix">
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 							@csrf
 						</form>
-						<!-- <span class="pull-left">Logout</span> -->
-						<!-- <span class="pull-right"><i class="pg-power"></i></span> -->
 					</a>
 				</li>
 			</ul>
