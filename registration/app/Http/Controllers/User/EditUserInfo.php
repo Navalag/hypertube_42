@@ -66,6 +66,10 @@ class EditUserInfo extends Controller
         Image::make(request()->image)->fit(50)->save('avatar_img/'.$imageName);
 
         $user = User::find(\Auth::user()->id);
+        if ($user->photo_src) {
+        	$src = $_SERVER["DOCUMENT_ROOT"].DIRECTORY_SEPARATOR.$user->photo_src;
+			unlink($src);
+        }
         $user->photo_src = 'avatar_img/'.$imageName;
         $user->save();
 
