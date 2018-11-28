@@ -1,3 +1,51 @@
+$(document).ready(function() {
+	$('button#updateProfile').click( function(e){
+		e.preventDefault();
+
+		$.post('/user/edit_profile', $('form#form-project').serialize(), function(data) {
+				console.log(data);
+				$('#firstName').text(data.user_info.first_name);
+				$('#lastName').text(data.user_info.last_name);
+		});
+	});
+
+	$('input#uploadAvatar').on('change', function(e){
+		var	img = e.target.files[0];
+		var token =  $('input[name="_token"]');
+		// console.log(img);
+		var data = new FormData();
+		data.append('image', img);
+		data.append("_token", token.attr('value'));
+		$.ajax({
+			url: '/user/upload_avatar',
+			data: data,
+			cache: false,
+			contentType: false,
+			processData: false,
+			type: 'POST',
+			success:function(response) {
+				console.log(response);
+				$('#avatar').attr("src", response.image);;
+			}
+		});
+	});
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // // ------------------------------------------------------ //
 // // CUSTOM FILE INPUTS FOR IMAGES
 // // Custom file inputs with image preview and 

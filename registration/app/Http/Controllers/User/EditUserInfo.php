@@ -28,6 +28,7 @@ class EditUserInfo extends Controller
 	{
 		// dd($request->all());
 		$request->validate([
+			// 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 			'username'=> ['required', 'string', 'max:255', 'unique:users,username,'.\Auth::user()->id],
 			'firstName'=> ['required', 'string', 'max:255'],
 			'lastName' => ['required', 'string', 'max:255'],
@@ -51,30 +52,33 @@ class EditUserInfo extends Controller
 				return back()->withErrors('Old password is incorrect');
 			}
 		}
-
 		$user->save();
 
-		return redirect('/')->with('user_info', $user);
+		return response()->json([
+		    'success' => 'Your account was updated',
+		    'user_info' => $user
+		]);
 	}
 
 	public function uploadPhoto(Request $request)
 	{
 		request()->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-        $imageName = time().'.'.request()->image->getClientOriginalExtension();
-        Image::make(request()->image)->fit(100)->save('avatar_img/'.$imageName);
+			'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+		]);
+		$imageName = time().'.'.request()->image->getClientOriginalExtension();
+		Image::make(request()->image)->fit(100)->save('avatar_img/'.$imageName);
 
-        $user = User::find(\Auth::user()->id);
-        if ($user->photo_src) {
-        	$src = $_SERVER["DOCUMENT_ROOT"].DIRECTORY_SEPARATOR.$user->photo_src;
+		$user = User::find(\Auth::user()->id);
+		if ($user->photo_src) {
+			$src = $_SERVER["DOCUMENT_ROOT"].DIRECTORY_SEPARATOR.$user->photo_src;
 			unlink($src);
-        }
-        $user->photo_src = 'avatar_img/'.$imageName;
-        $user->save();
+		}
+		$user->photo_src = 'avatar_img/'.$imageName;
+		$user->save();
 
-        return back()
-            ->with('success','You have successfully upload image.')
-            ->with('image',$imageName);
+		return response()->json([
+		    'success' => 'Your avatar was updated',
+		    'image' => $user->photo_src
+		]);
 	}
 }

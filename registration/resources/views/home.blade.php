@@ -294,8 +294,7 @@
 	<!-- START HEADER -->
 	<div class="header ">
 		<!-- START MOBILE SIDEBAR TOGGLE -->
-		<a href="#" class="btn-link toggle-sidebar hidden-lg-up pg pg-menu" data-toggle="sidebar">
-		</a>
+		<a href="#" class="btn-link toggle-sidebar hidden-lg-up pg pg-menu" data-toggle="sidebar"></a>
 		<!-- END MOBILE SIDEBAR TOGGLE -->
 		<div class="">
 			<div class="brand inline   ">
@@ -310,12 +309,12 @@
 		<div class="d-flex align-items-center">
 			<!-- START User Info-->
 			<div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
-				<span class="semi-bold">{{ $user_info->first_name }}</span> <span class="text-master">{{ $user_info->last_name }}</span>
+				<span class="semi-bold" id="firstName">{{ $user_info->first_name }}</span> <span class="text-master" id="lastName">{{ $user_info->last_name }}</span>
 			</div>
 			<div class="dropdown pull-right hidden-md-down">
 				<button class="profile-dropdown-toggle p-r-15">
 					<span class="thumbnail-wrapper d32 circular inline">
-					<img src="{{ $user_info->photo_src }}" alt="" data-src="{{ $user_info->photo_src }}" data-src-retina="{{ $user_info->photo_src }}" width="32" height="32">
+					<img id="avatar" src="{{ $user_info->photo_src }}" alt="" data-src="{{ $user_info->photo_src }}" data-src-retina="{{ $user_info->photo_src }}" width="32" height="32">
 					</span>
 				</button>
 			</div>
@@ -1280,28 +1279,34 @@
 									<!-- <div class="col-md-7"> -->
 										<!-- START card -->
 										@if ($message = Session::get('success'))
-							        <div class="alert alert-success alert-block">
-							          <button type="button" class="close" data-dismiss="alert">×</button>
-							          <strong>{{ $message }}</strong>
-							        </div>
-							        <img src="avatar_img/{{ Session::get('image') }}">
-						        @endif
+											<div class="alert alert-success alert-block">
+												<button type="button" class="close" data-dismiss="alert">×</button>
+												<strong>{{ $message }}</strong>
+											</div>
+											<img src="avatar_img/{{ Session::get('image') }}">
+										@endif
 										@if ($errors->any())
-								      <div class="alert alert-danger">
-								        <ul>
-								            @foreach ($errors->all() as $error)
-								              <li>{{ $error }}</li>
-								            @endforeach
-								        </ul>
-								      </div><br />
-								    @endif
+											<div class="alert alert-danger">
+												<ul>
+														@foreach ($errors->all() as $error)
+															<li>{{ $error }}</li>
+														@endforeach
+												</ul>
+											</div><br />
+										@endif
 
 										<div class="card card-transparent">
 											<div class="card-block">
 												<form id="form-project" role="form" autocomplete="off" method="post" action="{{ route('user.edit_prof') }}">
 													@csrf
 
-													<p>Basic Information</p>
+													<p>Avatar</p>
+													<div class="form-group form-group-default">
+														<label class="">Chouse profile photo</label>
+														<input type="file" name="image" id="uploadAvatar" class="form-control" style="padding-top: 3px;">
+													</div>
+													<br>
+													<p class="m-t-10">Basic Information</p>
 													<div class="form-group-attached">
 														<div class="form-group form-group-default">
 															<label>Username</label>
@@ -1323,21 +1328,21 @@
 														</div>
 													</div>
 													<div class="m-t-10">
-			                      <div class="form-group form-group-default form-group-default-select2">
-			                        <label class="">Select prefered language</label>
-			                        <select class="full-width" name="lang" id="select2insidemodal" data-init-plugin="select2">
-					                      <option value="en" {{$user_info->lang=='en'?'selected':''}}>English</option>
-					                      <option value="ua" {{$user_info->lang=='ua'?'selected':''}}>Ukrainian</option>
-					                    </select>
-			                      </div>
+														<div class="form-group form-group-default form-group-default-select2">
+															<label class="">Select prefered language</label>
+															<select class="full-width" name="lang" id="select2insidemodal" data-init-plugin="select2">
+																<option value="en" {{$user_info->lang=='en'?'selected':''}}>English</option>
+																<option value="ua" {{$user_info->lang=='ua'?'selected':''}}>Ukrainian</option>
+															</select>
+														</div>
 													</div>
 													<br>
 													<p class="m-t-10">Account Information</p>
 													<div class="m-t-10">
-			                      <div class="form-group form-group-default">
-			                        <label class="">Email</label>
-			                        <input type="email" class="form-control" value="{{ $user_info->email }}" name="email">
-			                      </div>
+														<div class="form-group form-group-default">
+															<label class="">Email</label>
+															<input type="email" class="form-control" value="{{ $user_info->email }}" name="email">
+														</div>
 													</div>
 													<div class="form-group-attached">
 														<div class="form-group form-group-default">
@@ -1361,20 +1366,25 @@
 													</div>
 													<br>
 													<br>
-													<button class="btn btn-success" type="submit">Update Profile</button>
+													<button class="btn btn-success" id="updateProfile" type="submit">Update Profile</button>
 												</form>
 
-								        <form action="{{ route('user.upload_avatar') }}" method="POST" enctype="multipart/form-data">
-							            @csrf
-							            <div class="row">
-							                <div class="col-md-6">
-							                  <input type="file" name="image" class="form-control">
-							                </div>
-							                <div class="col-md-6">
-							                  <button type="submit" class="btn btn-success">Upload</button>
-							                </div>
-							            </div>
-								        </form>
+												<form action="{{ route('user.upload_avatar') }}" method="POST" enctype="multipart/form-data">
+													@csrf
+													<p>Avatar</p>
+													<div class="form-group form-group-default">
+														<label class="">Chouse profile photo</label>
+														<input type="file" name="image" class="form-control" style="padding-top: 3px;">
+													</div>
+													<!-- <div class="row">
+															<div class="col-md-6">
+																<input type="file" name="image" class="form-control">
+															</div>
+															<div class="col-md-6">
+																<button type="submit" class="btn btn-success">Upload</button>
+															</div>
+													</div> -->
+												</form>
 
 											</div>
 										</div>
@@ -1400,10 +1410,10 @@
 
 <script>
 	$(document).ready(function() {
-	  $("#select2insidemodal").select2({
-	    dropdownParent: $("#modalSlideLeft"),
-	    minimumResultsForSearch: -1
-	  });
+		$("#select2insidemodal").select2({
+			dropdownParent: $("#modalSlideLeft"),
+			minimumResultsForSearch: -1
+		});
 	});
 	var userPhoto = {!! json_encode($user_info->photo_src, JSON_HEX_TAG) !!};
 </script>
