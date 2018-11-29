@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Library\SearchClass;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware(['auth', 'verified']);
     }
 
     /**
@@ -24,19 +25,31 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home')->with('user_info', \Auth::user());
     }
 
+    public function validate_search_request($params)
+    {
+        return true;
+    }
 
-    public function postSearch(Request $request)
+    public function postHome(Request $request)
     {
         $search = new SearchClass;
         $params = $request->all();
+        //htmlcharsrequest
         if($params['method'] == "search")
         {
-            $page = (int)$params['page'];
-            $data = $search->discover_request($page);
-            return($data);
+            if($this->validate_search_request($params)) {
+                $page = (int)$params['page'];
+                $data = $search->discover_request($page, $params['sort'], $params['years'], $params['rate'], $params['genres']);
+                return ($data);
+            }
+            else
+            {
+                //return penetration view;
+                return ;
+            }
         }
         if($params['method'] == "live_search")
         {

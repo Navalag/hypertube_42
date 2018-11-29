@@ -17,8 +17,20 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::post('/home', 'HomeController@postSearch');
+Route::post('/', 'HomeController@postHome');
 
 Route::get('/details/{id}', 'DetailsController@getDetails');
+
+Route::post('/details/', 'DetailsController@postDetails');
+
+Route::put('/details/', 'DetailsController@putDetails');
+
+
+
+Auth::routes(['verify' => true]);
+
+Route::post('/user/edit_profile', 'User\EditUserInfo@edit')->name('user.edit_prof');
+
+Route::post('/user/upload_avatar', 'User\EditUserInfo@uploadPhoto')->name('user.upload_avatar');
