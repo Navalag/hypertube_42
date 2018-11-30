@@ -119,7 +119,7 @@ function static_load(i)
 {
     $.ajax({
         type: 'POST',
-        url: baseUrl + '/src/public/search',
+        url: baseUrl + '/',
         data:
             {
                 'method': 'search',
@@ -176,7 +176,7 @@ function render(list, len) {
     for (var i = 0; i < len; i++) {
         //console.log(list.results[i]);
         var eachblock = document.createElement('div');
-        eachblock.setAttribute("class", "eachblock");
+        eachblock.setAttribute("class", "gallery-item"); //eachblock
         var link_block = document.createElement('div');
         var link = document.createElement('a');
         link.setAttribute("href", baseUrl + '/src/public/details/' + list[i].id);
@@ -228,7 +228,7 @@ function live_load(needle, page)
 
     $.ajax({
         type:'post',
-        url: baseUrl + '/src/public/search',
+        url: baseUrl + '/',
         data:
             {
                 'method': 'live_search',

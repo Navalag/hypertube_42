@@ -11407,11 +11407,9 @@ Main components
 .gallery-item {
   overflow: hidden;
   cursor: default;
-  background-color: #000;
   margin-bottom: 10px;
   position: relative;
   width: 280px;
-  height: 240px;
 }
 .gallery-item:hover {
   cursor: pointer;
@@ -12405,6 +12403,7 @@ Main components
 }
 .image-responsive-height {
   width: 100%;
+  min-height: 400px;
 }
 .image-responsive-width {
   height: 100%;

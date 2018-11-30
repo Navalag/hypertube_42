@@ -15,273 +15,130 @@
 		<ul class="menu-items">
 			<li class="m-t-30 ">
 				<a href="#" class="detailed">
-					<span class="title">Dashboard</span>
-					<span class="details">12 New Updates</span>
+					<span class="title">Genres</span>
 				</a>
-				<span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
+
+
+
+				<span class="bg-success icon-thumbnail"><i class="fas fa-film"></i></span>
 			</li>
 			<li class="">
-				<a href="#" class="detailed">
-					<span class="title">Email</span>
-					<span class="details">234 New Emails</span>
+				<a href="" class="genre_direct_link" >
+					<span class="title" data="Action">Action</span>
+					<!--<button class="add_button" data="Action">+</button>-->
 				</a>
 				<span class="icon-thumbnail"><i class="pg-mail"></i></span>
 			</li>
 			<li class="">
-				<a href="#"><span class="title">Social</span></a>
+				<a href="" class="genre_direct_link">
+					<span class="title" data="Adventure">Adventure</span>
+				</a>
 				<span class="icon-thumbnail"><i class="pg-social"></i></span>
 			</li>
 			<li>
-				<a href="javascript:;"><span class="title">Calendar</span>
-				<span class=" arrow"></span></a>
+				<a href="" class="genre_direct_link">
+					<span class="title" data="Animation">Animation</span>
+				</a>
 				<span class="icon-thumbnail"><i class="pg-calender"></i></span>
-				<ul class="sub-menu">
-					<li class="">
-						<a href="#">Basic</a>
-						<span class="icon-thumbnail">c</span>
-					</li>
-					<li class="">
-						<a href="#">Languages</a>
-						<span class="icon-thumbnail">L</span>
-					</li>
-					<li class="">
-						<a href="#">Month</a>
-						<span class="icon-thumbnail">M</span>
-					</li>
-					<li class="">
-						<a href="#">Lazy load</a>
-						<span class="icon-thumbnail">La</span>
-					</li>
-					<li class="">
-						<a href="#" target="_blank">Documentation</a>
-						<span class="icon-thumbnail">D</span>
-					</li>
-				</ul>
 			</li>
 			<li class="">
-				<a href="#">
-					<span class="title">Builder</span>
+				<a href="" class="genre_direct_link">
+					<span class="title" data="Comedy">Comedy</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-layouts"></i></span>
 			</li>
 			<li>
-				<a href="javascript:;"><span class="title">Layouts</span>
-				<span class=" arrow"></span></a>
+				<a href="" class="genre_direct_link">
+					<span class="title" data="Crime">Crime</span>
+				</a>
 				<span class="icon-thumbnail"><i class="pg-layouts2"></i></span>
-				<ul class="sub-menu">
-					<li class="">
-						<a href="#">Default</a>
-						<span class="icon-thumbnail">dl</span>
-					</li>
-					<li class="">
-						<a href="#">Secondary</a>
-						<span class="icon-thumbnail">sl</span>
-					</li>
-					<li class="">
-						<a href="#">Boxed</a>
-						<span class="icon-thumbnail">bl</span>
-					</li>
-					<li class="">
-						<a href="#">RTL</a>
-						<span class="icon-thumbnail">rl</span>
-					</li>
-				</ul>
 			</li>
 			<li>
-				<a href="javascript:;"><span class="title">UI Elements</span>
-				<span class=" arrow"></span></a>
+				<a href="" class="genre_direct_link">
+					<span class="title" data="Documentary">Documentary</span>
+				</a>
 				<span class="icon-thumbnail">Ui</span>
-				<ul class="sub-menu">
-					<li class="">
-						<a href="#">Color</a>
-						<span class="icon-thumbnail">c</span>
-					</li>
-					<li class="">
-						<a href="#">Typography</a>
-						<span class="icon-thumbnail">t</span>
-					</li>
-					<li class="">
-						<a href="#">Icons</a>
-						<span class="icon-thumbnail">i</span>
-					</li>
-					<li class="">
-						<a href="#">Buttons</a>
-						<span class="icon-thumbnail">b</span>
-					</li>
-					<li class="">
-						<a href="#">Notifications</a>
-						<span class="icon-thumbnail">n</span>
-					</li>
-					<li class="">
-						<a href="#">Modals</a>
-						<span class="icon-thumbnail">m</span>
-					</li>
-					<li class="">
-						<a href="#">Progress &amp; Activity</a>
-						<span class="icon-thumbnail">pa</span>
-					</li>
-					<li class="">
-						<a href="#">Tabs &amp; Accordions</a>
-						<span class="icon-thumbnail">ta</span>
-					</li>
-					<li class="">
-						<a href="#">Sliders</a>
-						<span class="icon-thumbnail">s</span>
-					</li>
-					<li class="">
-						<a href="#">Tree View</a>
-						<span class="icon-thumbnail">tv</span>
-					</li>
-					<li class="">
-						<a href="#">Nestable</a>
-						<span class="icon-thumbnail">ns</span>
-					</li>
-				</ul>
 			</li>
 			<li>
-				<a href="javascript:;">
-					<span class="title">Forms</span>
-					<span class=" arrow"></span>
+				<a href="" class="genre_direct_link">
+					<span class="title" data="Drama">Drama</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-form"></i></span>
-				<ul class="sub-menu">
-					<li class="">
-						<a href="#">Form Elements</a>
-						<span class="icon-thumbnail">fe</span>
-					</li>
-					<li class="">
-						<a href="#">Form Layouts</a>
-						<span class="icon-thumbnail">fl</span>
-					</li>
-					<li class="">
-						<a href="#">Form Wizard</a>
-						<span class="icon-thumbnail">fw</span>
-					</li>
-				</ul>
+
 			</li>
 			<li class="">
-				<a href="#">
-					<span class="title">Cards</span>
+				<a href="" class="genre_direct_link">
+					<span class="title" data="Family">Family</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
-				<a href="#">
-					<span class="title">Views</span>
+				<a href="" class="genre_direct_link">
+					<span class="title" data="Fantasy">Fantasy</span>
 				</a>
-				<span class="icon-thumbnail"><i class="pg pg-ui"></i></span>
-			</li>
-			<li>
-				<a href="javascript:;"><span class="title">Tables</span>
-				<span class=" arrow"></span></a>
-				<span class="icon-thumbnail"><i class="pg-tables"></i></span>
-				<ul class="sub-menu">
-					<li class="">
-						<a href="#">Basic Tables</a>
-						<span class="icon-thumbnail">bt</span>
-					</li>
-					<li class="">
-						<a href="#">Data Tables</a>
-						<span class="icon-thumbnail">dt</span>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<a href="javascript:;"><span class="title">Maps</span> 
-				<span class=" arrow"></span></a>
-				<span class="icon-thumbnail"><i class="pg-map"></i></span>
-				<ul class="sub-menu">
-					<li class="">
-						<a href="#">Google Maps</a>
-						<span class="icon-thumbnail">gm</span>
-					</li>
-					<li class="">
-						<a href="#">Vector Maps</a>
-						<span class="icon-thumbnail">vm</span>
-					</li>
-				</ul>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
-				<a href="#"><span class="title">Charts</span></a>
-				<span class="icon-thumbnail"><i class="pg-charts"></i></span>
-			</li>
-			<li>
-				<a href="javascript:;"><span class="title">Extra</span>
-				<span class=" arrow"></span></a>
-				<span class="icon-thumbnail"><i class="pg-bag"></i></span>
-				<ul class="sub-menu">
-					<li class="">
-						<a href="#">Invoice</a>
-						<span class="icon-thumbnail">in</span>
-					</li>
-					<li class="">
-						<a href="#">404 Page</a>
-						<span class="icon-thumbnail">pg</span>
-					</li>
-					<li class="">
-						<a href="#">500 Page</a>
-						<span class="icon-thumbnail">pg</span>
-					</li>
-					<li class="">
-						<a href="#">Blank Page</a>
-						<span class="icon-thumbnail">bp</span>
-					</li>
-					<li class="">
-						<a href="#">Login</a>
-						<span class="icon-thumbnail">l</span>
-					</li>
-					<li class="">
-						<a href="#">Register</a>
-						<span class="icon-thumbnail">re</span>
-					</li>
-					<li class="">
-						<a href="#">Lockscreen</a>
-						<span class="icon-thumbnail">ls</span>
-					</li>
-					<li class="">
-						<a href="#">Gallery</a>
-						<span class="icon-thumbnail">gl</span>
-					</li>
-					<li class="">
-						<a href="#">Timeline</a>
-						<span class="icon-thumbnail">t</span>
-					</li>
-				</ul>
+				<a href="" class="genre_direct_link">
+					<span class="title" data="History">History</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
-				<a href="javascript:;"><span class="title">Menu Levels</span>
-				<span class="arrow"></span></a>
-				<span class="icon-thumbnail"><i class="pg-menu_lv"></i></span>
-				<ul class="sub-menu">
-					<li>
-						<a href="javascript:;">Level 1</a>
-						<span class="icon-thumbnail">L1</span>
-					</li>
-					<li>
-						<a href="javascript:;"><span class="title">Level 2</span>
-						<span class="arrow"></span></a>
-						<span class="icon-thumbnail">L2</span>
-						<ul class="sub-menu">
-							<li>
-								<a href="javascript:;">Sub Menu</a>
-								<span class="icon-thumbnail">Sm</span>
-							</li>
-							<li>
-								<a href="ujavascript:;">Sub Menu</a>
-								<span class="icon-thumbnail">Sm</span>
-							</li>
-						</ul>
-					</li>
-				</ul>
+				<a href="" class="genre_direct_link">
+					<span class="title" data="Horror">Horror</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
-				<a href="#"><span class="title">Docs</span></a>
-				<span class="icon-thumbnail"><i class="pg-note"></i></span>
+				<a href="" class="genre_direct_link">
+					<span class="title" data="Music">Music</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
-				<a href="#"><span class="title">Changelog</span></a>
-				<span class="icon-thumbnail">Cl</span>
+				<a href="" class="genre_direct_link">
+					<span class="title" data="Mystery">Mystery</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
+			<li class="">
+				<a href="" class="genre_direct_link">
+					<span class="title" data="Romance">Romance</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
+			</li>
+			<li class="">
+				<a href="" class="genre_direct_link">
+					<span class="title" data="Science Fiction">Science Fiction</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
+			</li>
+			<li class="">
+				<a href="" class="genre_direct_link">
+					<span class="title" data="TV movie">TV movie</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
+			</li>
+			<li class="">
+				<a href="" class="genre_direct_link">
+					<span class="title" data="Thriller">Thriller</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
+			</li>
+			<li class="">
+				<a href="" class="genre_direct_link">
+					<span class="title" data="War">War</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
+			</li>
+			<li class="">
+				<a href="" class="genre_direct_link">
+					<span class="title" data="Western">Western</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
+			</li>
+
 		</ul>
 		<div class="clearfix"></div>
 	</div>
@@ -303,23 +160,11 @@
 				<img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
 			</div>
 			<!-- START NOTIFICATION LIST -->
-			<ul class="hidden-md-down notification-list no-margin hidden-sm-down b-grey b-l b-r no-style p-l-30 p-r-20">
-				<li class="p-r-10 inline">
-					<div class="dropdown">
-						<a href="javascript:;" id="notification-center" class="header-icon pg pg-world" data-toggle="dropdown">
-							<span class="bubble"></span>
-						</a>
-					</div>
-				</li>
-				<li class="p-r-10 inline">
-					<a href="#" class="header-icon pg pg-link"></a>
-				</li>
-				<li class="p-r-10 inline">
-					<a href="#" class="header-icon pg pg-thumbs"></a>
-				</li>
-			</ul>
 			<!-- END NOTIFICATIONS LIST -->
-			<a href="#" class="search-link hidden-md-down" data-toggle="search"><i class="pg-search"></i>Type anywhere to <span class="bold">search</span></a>
+		</div>
+		<div class="live_load_container">
+			<input id="live_search_input" type="text" name="live_search" placeholder="Fuck" value="" class="live_search" autocomplete="on">
+			<button id="reset_button">Reset</button>
 		</div>
 		<div class="d-flex align-items-center">
 			<!-- START User Info-->
@@ -333,10 +178,14 @@
 					</span>
 				</button>
 				<div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-					<a href="#" class="dropdown-item"><i class="pg-settings_small"></i> Settings</a>
+					<a href="#" class="dropdown-item" data-target="#modalSlideLeft" data-toggle="modal"><i class="pg-settings_small"></i> Settings</a>
 					<a href="#" class="dropdown-item"><i class="pg-outdent"></i> Feedback</a>
 					<a href="#" class="dropdown-item"><i class="pg-signals"></i> Help</a>
-					<a href="#" class="clearfix bg-master-lighter dropdown-item">
+					<a href="{{ route('logout') }}" onclick="event.preventDefault();
+													 document.getElementById('logout-form').submit();" class="clearfix bg-master-lighter dropdown-item">
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+							@csrf
+						</form>
 						<span class="pull-left">Logout</span>
 						<span class="pull-right"><i class="pg-power"></i></span>
 					</a>
@@ -345,6 +194,7 @@
 			<!-- END User Info-->
 			 <a href="#" class="header-icon pg pg-alt_menu btn-link m-l-10 sm-no-margin d-inline-block"></a><!--data-toggle="quickview" data-toggle-element="#quickview" -->
 		</div>
+
 	</div>
 	<!-- END HEADER -->
 	<!-- START PAGE CONTENT WRAPPER -->
@@ -353,633 +203,88 @@
 		<div class="content ">
 			<div class=" container-fluid   container-fixed-lg sm-p-l-0 sm-p-r-0">
 				<!-- START CATEGORY -->
+				<div class="search_field">
+					<form method="POST" class="search_form" id="main_form">
+                        <div class="sort_field">
+                            <select name="sort" id="sort_select">
+                                <option>none</option>
+                                <option>Title Ascending</option>
+                                <option>Title Descending</option>
+                                <option>Rating Ascending</option>
+                                <option>Rating Descending</option>
+                                <option>Popularity Ascending</option>
+                                <option>Popularity Descending</option>
+                                <option>Release Date Ascending</option>
+                                <option>Release Date Descending</option>
+                                <option>Revenue Ascending</option>
+                                <option>Revenue Descending</option>
+                            </select>
+                        </div>
+                        <div class="gap_field">
+
+                            <input  name="year_gap" id="year_gap">
+                            <div class = "slider-range_wrapper" id="slider-range_year"></div>
+                        </div>
+                        <div class="gap_field">
+
+                            <input  name="rate_gap" id="rate_gap">
+                            <div class = "slider-range_wrapper" id="slider-range_rate"></div>
+
+                        </div>
+                        <div class="genres_field">
+							<select multiple class="chosen-select" name="genre" id="genre_select">
+								<option>Action</option>
+								<option>Adventure</option>
+								<option>Animation</option>
+								<option>Comedy</option>
+								<option>Crime</option>
+								<option>Documentary</option>
+								<option>Drama</option>
+								<option>Family</option>
+								<option>Fantasy</option>
+								<option>History</option>
+								<option>Horror</option>
+								<option>Music</option>
+								<option>Mystery</option>
+								<option>Romance</option>
+								<option>Science Fiction</option>
+								<option>TV Movie</option>
+								<option>Thriller</option>
+								<option>War</option>
+								<option>Western</option>
+							</select>
+							<!--<div class="chosen-container chosen-container-multi chosen-drop chosen-container-active">
+								<ul class="chosen-choices">
+									<li class="search-field>">
+
+									</li>
+								</ul>
+								<div class="chosen-drop"></div>
+								<ul class="chosen-results"></ul>
+							</div>-->
+
+                        </div>
+                        <div>
+                            <button id="search_submit">search</button>
+                        </div>
+
+                    </form>
+					<div id="form-response"></div>
+
+				</div>
 				<div class="gallery">
-					<div class="gallery-filters p-t-20 p-b-10">
-						<ul class="list-inline text-right">
-							<li class="hint-text">Sort by: </li>
-							<li><a href="#" class="active text-master p-r-5 p-l-5">Name</a></li>
-							<li><a href="#" class="text-master hint-text p-r-5 p-l-5">Views</a></li>
-							<li><a href="#" class="text-master hint-text p-r-5 p-l-5">Cost</a></li>
-							<li>
-								<button class="btn btn-primary m-l-10" data-toggle="filters">More filters</button>
-							</li>
-						</ul>
+					<div id="load_gif" class="load_gif_container">
+						<img src="{{ asset('assets/img/load.gif') }}">
 					</div>
-					<section id="response"></section>
+					<section id="response">
+
+                    </section>
 					<!-- START GALLERY ITEM -->
-					<!-- 
-								FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN 
-								FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT 
+					<!--
+								FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN
+								FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT
 						-->
-					<div class="gallery-item first" data-width="1" data-height="1">
-						<!-- START PREVIEW -->
-						<img src="assets/img/gallery/1.jpg" alt="" class="image-responsive-height">
-						<!-- END PREVIEW -->
-						<!-- START ITEM OVERLAY DESCRIPTION -->
-						<div class="overlayer bottom-left full-width">
-							<div class="overlayer-wrapper item-info ">
-								<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-									<div class="">
-										<p class="pull-left bold text-white fs-14 p-t-10">Happy Ninja</p>
-										<h5 class="pull-right semi-bold text-white font-montserrat bold">$25.00</h5>
-										<div class="clearfix"></div>
-									</div>
-									<div class="m-t-10">
-										<div class="thumbnail-wrapper d32 circular m-t-5">
-											<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-										</div>
-										<div class="inline m-l-10">
-											<p class="no-margin text-white fs-12">Designed by Alex Nester</p>
-											<p class="rating">
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star"></i>
-											</p>
-										</div>
-										<div class="pull-right m-t-10">
-											<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- END PRODUCT OVERLAY DESCRIPTION -->
-					</div>
-					<!-- END GALLERY ITEM -->
-					<!-- START GALLERY ITEM -->
-					<!-- 
-								FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN 
-								FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT 
-						-->
-					<div class="gallery-item " data-width="2" data-height="2">
-						<!-- START PREVIEW -->
-						<div class="live-tile slide" data-speed="750" data-delay="4000" data-mode="carousel">
-							<div class="slide-front">
-								<img src="assets/img/gallery/2_1.jpg" alt="" class="image-responsive-height">
-							</div>
-							<div class="slide-back">
-								<img src="assets/img/gallery/2_2.jpg" alt="" class="image-responsive-height">
-							</div>
-						</div>
-						<!-- END PREVIEW -->
-						<!-- START ITEM OVERLAY DESCRIPTION -->
-						<div class="overlayer bottom-left full-width">
-							<div class="overlayer-wrapper item-info more-content">
-								<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-									<div class="">
-										<h3 class="pull-left bold text-white no-margin">Happy Ninja</h3>
-										<h3 class="pull-right semi-bold text-white font-montserrat bold no-margin">$25.00</h3>
-										<div class="clearfix"></div>
-										<span class="hint-text pull-left text-white">Hand and mind crafted</span>
-										<div class="clearfix"></div>
-									</div>
-									<div class="">
-										<h5 class="text-white light">Most Sold Item in the marketplace</h5>
-									</div>
-									<div class="m-t-10">
-										<div class="thumbnail-wrapper d32 circular m-t-5">
-											<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-										</div>
-										<div class="inline m-l-10">
-											<p class="no-margin text-white fs-12">Designed by Alex Nester</p>
-											<p class="rating">
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star"></i>
-											</p>
-										</div>
-										<div class="pull-right m-t-10">
-											<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- END PRODUCT OVERLAY DESCRIPTION -->
-					</div>
-					<!-- END GALLERY ITEM -->
-					<!-- START GALLERY ITEM -->
-					<!-- 
-								FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN 
-								FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT 
-						-->
-					<div class="gallery-item " data-width="1" data-height="1">
-						<!-- START PREVIEW -->
-						<img src="assets/img/gallery/3.jpg" alt="" class="image-responsive-height">
-						<!-- END PREVIEW -->
-						<!-- START ITEM OVERLAY DESCRIPTION -->
-						<div class="overlayer bottom-left full-width">
-							<div class="overlayer-wrapper item-info ">
-								<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-									<div class="">
-										<p class="pull-left bold text-white fs-14 p-t-10">Happy Ninja</p>
-										<h5 class="pull-right semi-bold text-white font-montserrat bold">$25.00</h5>
-										<div class="clearfix"></div>
-									</div>
-									<div class="m-t-10">
-										<div class="thumbnail-wrapper d32 circular m-t-5">
-											<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-										</div>
-										<div class="inline m-l-10">
-											<p class="no-margin text-white fs-12">Designed by Alex Nester</p>
-											<p class="rating">
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star"></i>
-											</p>
-										</div>
-										<div class="pull-right m-t-10">
-											<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- END PRODUCT OVERLAY DESCRIPTION -->
-					</div>
-					<!-- END GALLERY ITEM -->
-					<!-- START GALLERY ITEM -->
-					<!-- 
-								FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN 
-								FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT 
-						-->
-					<div class="gallery-item " data-width="1" data-height="1">
-						<!-- START PREVIEW -->
-						<img src="assets/img/gallery/4.jpg" alt="" class="image-responsive-height">
-						<!-- END PREVIEW -->
-						<!-- START ITEM OVERLAY DESCRIPTION -->
-						<div class="overlayer bottom-left full-width">
-							<div class="overlayer-wrapper item-info ">
-								<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-									<div class="">
-										<p class="pull-left bold text-white fs-14 p-t-10">Happy Ninja</p>
-										<h5 class="pull-right semi-bold text-white font-montserrat bold">$25.00</h5>
-										<div class="clearfix"></div>
-									</div>
-									<div class="m-t-10">
-										<div class="thumbnail-wrapper d32 circular m-t-5">
-											<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-										</div>
-										<div class="inline m-l-10">
-											<p class="no-margin text-white fs-12">Designed by Alex Nester</p>
-											<p class="rating">
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star"></i>
-											</p>
-										</div>
-										<div class="pull-right m-t-10">
-											<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- END PRODUCT OVERLAY DESCRIPTION -->
-					</div>
-					<!-- END GALLERY ITEM -->
-					<!-- START GALLERY ITEM -->
-					<!-- 
-								FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN 
-								FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT 
-						-->
-					<div class="gallery-item " data-width="1" data-height="1">
-						<!-- START PREVIEW -->
-						<img src="assets/img/gallery/5.jpg" alt="" class="image-responsive-height">
-						<!-- END PREVIEW -->
-						<!-- START ITEM OVERLAY DESCRIPTION -->
-						<div class="overlayer bottom-left full-width">
-							<div class="overlayer-wrapper item-info ">
-								<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-									<div class="">
-										<p class="pull-left bold text-white fs-14 p-t-10">Happy Ninja</p>
-										<h5 class="pull-right semi-bold text-white font-montserrat bold">$25.00</h5>
-										<div class="clearfix"></div>
-									</div>
-									<div class="m-t-10">
-										<div class="thumbnail-wrapper d32 circular m-t-5">
-											<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-										</div>
-										<div class="inline m-l-10">
-											<p class="no-margin text-white fs-12">Designed by Alex Nester</p>
-											<p class="rating">
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star"></i>
-											</p>
-										</div>
-										<div class="pull-right m-t-10">
-											<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- END PRODUCT OVERLAY DESCRIPTION -->
-					</div>
-					<!-- END GALLERY ITEM -->
-					<!-- START GALLERY ITEM -->
-					<!-- 
-								FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN 
-								FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT 
-						-->
-					<div class="gallery-item " data-width="1" data-height="1">
-						<!-- START PREVIEW -->
-						<img src="assets/img/gallery/6.jpg" alt="" class="image-responsive-height">
-						<!-- END PREVIEW -->
-						<!-- START ITEM OVERLAY DESCRIPTION -->
-						<div class="overlayer bottom-left full-width">
-							<div class="overlayer-wrapper item-info ">
-								<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-									<div class="">
-										<p class="pull-left bold text-white fs-14 p-t-10">Happy Ninja</p>
-										<h5 class="pull-right semi-bold text-white font-montserrat bold">$25.00</h5>
-										<div class="clearfix"></div>
-									</div>
-									<div class="m-t-10">
-										<div class="thumbnail-wrapper d32 circular m-t-5">
-											<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-										</div>
-										<div class="inline m-l-10">
-											<p class="no-margin text-white fs-12">Designed by Alex Nester</p>
-											<p class="rating">
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star"></i>
-											</p>
-										</div>
-										<div class="pull-right m-t-10">
-											<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- END PRODUCT OVERLAY DESCRIPTION -->
-					</div>
-					<!-- END GALLERY ITEM -->
-					<!-- START GALLERY ITEM -->
-					<!-- 
-								FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN 
-								FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT 
-						-->
-					<div class="gallery-item " data-width="1" data-height="1">
-						<!-- START PREVIEW -->
-						<img src="assets/img/gallery/7.jpg" alt="" class="image-responsive-height">
-						<!-- END PREVIEW -->
-						<!-- START ITEM OVERLAY DESCRIPTION -->
-						<div class="overlayer bottom-left full-width">
-							<div class="overlayer-wrapper item-info ">
-								<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-									<div class="">
-										<p class="pull-left bold text-white fs-14 p-t-10">Happy Ninja</p>
-										<h5 class="pull-right semi-bold text-white font-montserrat bold">$25.00</h5>
-										<div class="clearfix"></div>
-									</div>
-									<div class="m-t-10">
-										<div class="thumbnail-wrapper d32 circular m-t-5">
-											<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-										</div>
-										<div class="inline m-l-10">
-											<p class="no-margin text-white fs-12">Designed by Alex Nester</p>
-											<p class="rating">
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star"></i>
-											</p>
-										</div>
-										<div class="pull-right m-t-10">
-											<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- END PRODUCT OVERLAY DESCRIPTION -->
-					</div>
-					<!-- END GALLERY ITEM -->
-					<!-- START GALLERY ITEM -->
-					<!-- 
-								FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN 
-								FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT 
-						-->
-					<div class="gallery-item " data-width="1" data-height="1">
-						<!-- START PREVIEW -->
-						<img src="assets/img/gallery/8.jpg" alt="" class="image-responsive-height">
-						<!-- END PREVIEW -->
-						<!-- START ITEM OVERLAY DESCRIPTION -->
-						<div class="overlayer bottom-left full-width">
-							<div class="overlayer-wrapper item-info ">
-								<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-									<div class="">
-										<p class="pull-left bold text-white fs-14 p-t-10">Happy Ninja</p>
-										<h5 class="pull-right semi-bold text-white font-montserrat bold">$25.00</h5>
-										<div class="clearfix"></div>
-									</div>
-									<div class="m-t-10">
-										<div class="thumbnail-wrapper d32 circular m-t-5">
-											<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-										</div>
-										<div class="inline m-l-10">
-											<p class="no-margin text-white fs-12">Designed by Alex Nester</p>
-											<p class="rating">
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star"></i>
-											</p>
-										</div>
-										<div class="pull-right m-t-10">
-											<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- END PRODUCT OVERLAY DESCRIPTION -->
-					</div>
-					<!-- END GALLERY ITEM -->
-					<!-- START GALLERY ITEM -->
-					<!-- 
-								FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN 
-								FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT 
-						-->
-					<div class="gallery-item " data-width="1" data-height="1">
-						<!-- START PREVIEW -->
-						<img src="assets/img/gallery/9.jpg" alt="" class="image-responsive-height">
-						<!-- END PREVIEW -->
-						<!-- START ITEM OVERLAY DESCRIPTION -->
-						<div class="overlayer bottom-left full-width">
-							<div class="overlayer-wrapper item-info ">
-								<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-									<div class="">
-										<p class="pull-left bold text-white fs-14 p-t-10">Happy Ninja</p>
-										<h5 class="pull-right semi-bold text-white font-montserrat bold">$25.00</h5>
-										<div class="clearfix"></div>
-									</div>
-									<div class="m-t-10">
-										<div class="thumbnail-wrapper d32 circular m-t-5">
-											<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-										</div>
-										<div class="inline m-l-10">
-											<p class="no-margin text-white fs-12">Designed by Alex Nester</p>
-											<p class="rating">
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star"></i>
-											</p>
-										</div>
-										<div class="pull-right m-t-10">
-											<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- END PRODUCT OVERLAY DESCRIPTION -->
-					</div>
-					<!-- END GALLERY ITEM -->
-					<!-- START GALLERY ITEM -->
-					<!-- 
-								FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN 
-								FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT 
-						-->
-					<div class="gallery-item " data-width="1" data-height="1">
-						<!-- START PREVIEW -->
-						<img src="assets/img/gallery/10.jpg" alt="" class="image-responsive-height">
-						<!-- END PREVIEW -->
-						<!-- START ITEM OVERLAY DESCRIPTION -->
-						<div class="overlayer bottom-left full-width">
-							<div class="overlayer-wrapper item-info ">
-								<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-									<div class="">
-										<p class="pull-left bold text-white fs-14 p-t-10">Happy Ninja</p>
-										<h5 class="pull-right semi-bold text-white font-montserrat bold">$25.00</h5>
-										<div class="clearfix"></div>
-									</div>
-									<div class="m-t-10">
-										<div class="thumbnail-wrapper d32 circular m-t-5">
-											<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-										</div>
-										<div class="inline m-l-10">
-											<p class="no-margin text-white fs-12">Designed by Alex Nester</p>
-											<p class="rating">
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star"></i>
-											</p>
-										</div>
-										<div class="pull-right m-t-10">
-											<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- END PRODUCT OVERLAY DESCRIPTION -->
-					</div>
-					<!-- END GALLERY ITEM -->
-					<!-- START GALLERY ITEM -->
-					<!-- 
-								FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN 
-								FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT 
-						-->
-					<div class="gallery-item " data-width="1" data-height="1">
-						<!-- START PREVIEW -->
-						<img src="assets/img/gallery/11.jpg" alt="" class="image-responsive-height">
-						<!-- END PREVIEW -->
-						<!-- START ITEM OVERLAY DESCRIPTION -->
-						<div class="overlayer bottom-left full-width">
-							<div class="overlayer-wrapper item-info ">
-								<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-									<div class="">
-										<p class="pull-left bold text-white fs-14 p-t-10">Happy Ninja</p>
-										<h5 class="pull-right semi-bold text-white font-montserrat bold">$25.00</h5>
-										<div class="clearfix"></div>
-									</div>
-									<div class="m-t-10">
-										<div class="thumbnail-wrapper d32 circular m-t-5">
-											<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-										</div>
-										<div class="inline m-l-10">
-											<p class="no-margin text-white fs-12">Designed by Alex Nester</p>
-											<p class="rating">
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star"></i>
-											</p>
-										</div>
-										<div class="pull-right m-t-10">
-											<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- END PRODUCT OVERLAY DESCRIPTION -->
-					</div>
-					<!-- END GALLERY ITEM -->
-					<!-- START GALLERY ITEM -->
-					<!-- 
-								FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN 
-								FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT 
-						-->
-					<div class="gallery-item " data-width="1" data-height="1">
-						<!-- START PREVIEW -->
-						<img src="assets/img/gallery/12.jpg" alt="" class="image-responsive-height">
-						<!-- END PREVIEW -->
-						<!-- START ITEM OVERLAY DESCRIPTION -->
-						<div class="overlayer bottom-left full-width">
-							<div class="overlayer-wrapper item-info ">
-								<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-									<div class="">
-										<p class="pull-left bold text-white fs-14 p-t-10">Happy Ninja</p>
-										<h5 class="pull-right semi-bold text-white font-montserrat bold">$25.00</h5>
-										<div class="clearfix"></div>
-									</div>
-									<div class="m-t-10">
-										<div class="thumbnail-wrapper d32 circular m-t-5">
-											<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-										</div>
-										<div class="inline m-l-10">
-											<p class="no-margin text-white fs-12">Designed by Alex Nester</p>
-											<p class="rating">
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star"></i>
-											</p>
-										</div>
-										<div class="pull-right m-t-10">
-											<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- END PRODUCT OVERLAY DESCRIPTION -->
-					</div>
-					<!-- END GALLERY ITEM -->
-					<!-- START GALLERY ITEM -->
-					<!-- 
-								FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN 
-								FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT 
-						-->
-					<div class="gallery-item " data-width="1" data-height="1">
-						<!-- START PREVIEW -->
-						<img src="assets/img/gallery/13.jpg" alt="" class="image-responsive-height">
-						<!-- END PREVIEW -->
-						<!-- START ITEM OVERLAY DESCRIPTION -->
-						<div class="overlayer bottom-left full-width">
-							<div class="overlayer-wrapper item-info ">
-								<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-									<div class="">
-										<p class="pull-left bold text-white fs-14 p-t-10">Happy Ninja</p>
-										<h5 class="pull-right semi-bold text-white font-montserrat bold">$25.00</h5>
-										<div class="clearfix"></div>
-									</div>
-									<div class="m-t-10">
-										<div class="thumbnail-wrapper d32 circular m-t-5">
-											<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-										</div>
-										<div class="inline m-l-10">
-											<p class="no-margin text-white fs-12">Designed by Alex Nester</p>
-											<p class="rating">
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star"></i>
-											</p>
-										</div>
-										<div class="pull-right m-t-10">
-											<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- END PRODUCT OVERLAY DESCRIPTION -->
-					</div>
-					<!-- END GALLERY ITEM -->
-					<!-- START GALLERY ITEM -->
-					<!-- 
-								FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN 
-								FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT 
-						-->
-					<div class="gallery-item " data-width="1" data-height="1">
-						<!-- START PREVIEW -->
-						<img src="assets/img/gallery/14.jpg" alt="" class="image-responsive-height">
-						<!-- END PREVIEW -->
-						<!-- START ITEM OVERLAY DESCRIPTION -->
-						<div class="overlayer bottom-left full-width">
-							<div class="overlayer-wrapper item-info ">
-								<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-									<div class="">
-										<p class="pull-left bold text-white fs-14 p-t-10">Happy Ninja</p>
-										<h5 class="pull-right semi-bold text-white font-montserrat bold">$25.00</h5>
-										<div class="clearfix"></div>
-									</div>
-									<div class="m-t-10">
-										<div class="thumbnail-wrapper d32 circular m-t-5">
-											<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-										</div>
-										<div class="inline m-l-10">
-											<p class="no-margin text-white fs-12">Designed by Alex Nester</p>
-											<p class="rating">
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star rated"></i>
-												<i class="fa fa-star"></i>
-											</p>
-										</div>
-										<div class="pull-right m-t-10">
-											<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- END PRODUCT OVERLAY DESCRIPTION -->
-					</div>
-					<!-- END GALLERY ITEM -->
+
 				</div>
 				<!-- END CATEGORY -->
 			</div>
@@ -1123,7 +428,7 @@
 				<p class="small no-margin pull-left sm-pull-reset">
 					<span class="hint-text">2018 &copy; </span>
 					<span class="font-montserrat"></span>
-					<span class="hint-text">Unit Factory (42 school) project.</span>
+					<span class="hint-text">UNIT Factory (42 school) project.</span>
 				</p>
 				<p class="small no-margin pull-right sm-pull-reset">
 					Developed with &#9825; by: <a target="_blank" href="https://github.com/Navalag">Navalag</a><span class="muted"> | </span><a target="_blank" href="https://github.com/vsyveniu">vsyveniu</a><span class="muted"> | </span><a target="_blank" href="https://github.com/IgorALLin">ichebota</a><span class="muted"> | </span><a target="_blank" href="https://github.com/lito747">mpytienk</a>
@@ -1155,7 +460,6 @@
 		<!-- END Overlay Header !-->
 		<div class="container-fluid">
 			<!-- BEGIN Overlay Controls !-->
-			<input id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="Search..." autocomplete="off" spellcheck="false">
 			<br>
 			<div class="inline-block">
 				<div class="checkbox right">
@@ -1171,8 +475,8 @@
 		<!-- BEGIN Overlay Search Results, This part is for demo purpose, you can add anything you like !-->
 		<div class="container-fluid">
 			<span>
-						<strong>suggestions :</strong>
-				</span>
+				<strong>suggestions :</strong>
+			</span>
 			<span id="overlay-suggestions"></span>
 			<br>
 			<div class="search-results m-t-40">
@@ -1275,4 +579,181 @@
 </div>
 <!-- END OVERLAY -->
 
+<!-- Modal -->
+<!-- MODAL STICK UP ALERT -->
+<div class="modal fade slide-right" id="modalSlideLeft" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-xl">
+		<div class="modal-content-wrapper">
+			<div class="modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+				</button>
+				<div class="container-xs-height full-height">
+					<div class="row-xs-height">
+						<div class="modal-body col-xs-height col-middle">
+							<!-- START CONTAINER FLUID -->
+							<!-- <div class=" container-fluid   container-fixed-lg"> -->
+								<!-- <div class="row"> -->
+									
+									<!-- <div class="col-md-7"> -->
+										<!-- START card -->
+										@if ($errors->any())
+								      <div class="alert alert-danger">
+								        <ul>
+								            @foreach ($errors->all() as $error)
+								              <li>{{ $error }}</li>
+								            @endforeach
+								        </ul>
+								      </div><br />
+								    @endif
+										<div class="col-md-12">
+											<div class="wrap-custom-file main-image">
+												<input type="file" name="avatar" id="image" accept=".gif, .jpg, .png" />
+												<label for="image1">
+													<span>Select Avatar Image</span>
+													<i class="fa fa-plus-circle"></i>
+													<a href="#" class="close"></a>
+												</label>
+											</div>
+										</div>
+
+										<div class="card card-transparent">
+											<div class="card-block">
+												<form id="form-project" role="form" autocomplete="off" method="post" action="{{ route('user.edit_prof') }}">
+													@csrf
+
+													<p>Basic Information</p>
+													<div class="form-group-attached">
+														<div class="form-group form-group-default">
+															<label>Username</label>
+															<input type="text" class="form-control" name="username" value="{{ $user_info->username }}" required>
+														</div>
+														<div class="row clearfix">
+															<div class="col-md-6">
+																<div class="form-group form-group-default">
+																	<label>First name</label>
+																	<input type="text" class="form-control" name="firstName" value="{{ $user_info->first_name }}" required>
+																</div>
+															</div>
+															<div class="col-md-6">
+																<div class="form-group form-group-default">
+																	<label>Last name</label>
+																	<input type="text" class="form-control" name="lastName" value="{{ $user_info->last_name }}" required>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="m-t-10">
+														<!-- <form class="m-t-10" role="form"> -->
+				                      <div class="form-group form-group-default form-group-default-select2">
+				                        <label class="">Select prefered language</label>
+				                        <select class="full-width" name="lang" id="select2insidemodal" data-init-plugin="select2">
+						                      <option value="en">English</option>
+						                      <option value="ua">Ukrainian</option>
+						                    </select>
+				                      </div>
+				                    <!-- </form> -->
+													</div>
+													<br>
+													<p class="m-t-10">Account Information</p>
+													<div class="m-t-10">
+			                      <div class="form-group form-group-default">
+			                        <label class="">Email</label>
+			                        <input type="email" class="form-control" value="{{ $user_info->email }}" name="email">
+			                      </div>
+													</div>
+													<div class="form-group-attached">
+														<div class="form-group form-group-default">
+															<label>Old Password</label>
+															<input type="password" class="form-control" name="oldPass" placeholder="To change password type an old one here">
+														</div>
+														<div class="row clearfix">
+															<div class="col-md-6">
+																<div class="form-group form-group-default">
+																	<label>New Password</label>
+																	<input type="password" class="form-control" name="newPassword" placeholder="Minimum of 6 Charactors">
+																</div>
+															</div>
+															<div class="col-md-6">
+																<div class="form-group form-group-default">
+																	<label>Repeat New Password</label>
+																	<input type="password" class="form-control" name="newPassword_confirmation" placeholder="Confirm new password">
+																</div>
+															</div>
+														</div>
+													</div>
+													<br>
+													<br>
+													<button class="btn btn-success" type="submit">Update Profile</button>
+												</form>
+
+												@if ($message = Session::get('success'))
+								        <div class="alert alert-success alert-block">
+								            <button type="button" class="close" data-dismiss="alert">×</button>
+								            <strong>{{ $message }}</strong>
+								        </div>
+								        <img src="avatar_img/{{ Session::get('image') }}">
+								        @endif
+
+								        @if (count($errors) > 0)
+								            <div class="alert alert-danger">
+								                <strong>Whoops!</strong> There were some problems with your input.
+								                <ul>
+								                    @foreach ($errors->all() as $error)
+								                        <li>{{ $error }}</li>
+								                    @endforeach
+								                </ul>
+								            </div>
+								        @endif
+
+								  
+
+								        <form action="{{ route('user.upload_avatar') }}" method="POST" enctype="multipart/form-data">
+							            @csrf
+							            <div class="row">
+							                <div class="col-md-6">
+							                  <input type="file" name="image" class="form-control">
+							                </div>
+							                <div class="col-md-6">
+							                  <button type="submit" class="btn btn-success">Upload</button>
+							                </div>
+							            </div>
+								        </form>
+
+											</div>
+										</div>
+										<!-- END card -->
+									<!-- </div> -->
+								<!-- </div> -->
+							<!-- </div> -->
+							<!-- END CONTAINER FLUID -->
+							<!-- <h5 class="text-primary ">Before you <span class="semi-bold">proceed</span>, you have to login to make the necessary changes</h5>
+							<br>
+							<button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Continue</button>
+							<button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel</button> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- END MODAL STICK UP SMALL ALERT -->
+
+<script>
+	$(document).ready(function() {
+	  $("#select2insidemodal").select2({
+	    dropdownParent: $("#modalSlideLeft"),
+	    minimumResultsForSearch: -1
+	  });
+	});
+</script>
+
+<script src="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/js/gallery.js') }}" type="text/javascript"></script>
+
 @endsection
+@push('scripts')
+	<script src="{{ asset('assets/js/gallery.js') }}" type="text/javascript"></script>
+@endpush

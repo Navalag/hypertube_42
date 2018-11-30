@@ -35,9 +35,17 @@
 		<link href="{{ asset('assets/plugins/codrops-dialogFx/dialog-sandra.css') }}" rel="stylesheet" type="text/css" media="screen" />
 		<link href="{{ asset('assets/plugins/owl-carousel/assets/owl.carousel.css') }}" rel="stylesheet" type="text/css" media="screen" />
 		<link href="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.css') }}" rel="stylesheet" type="text/css" media="screen" />
+		<!-- <link href="{{ asset('assets/plugins/dropzone/css/dropzone.css') }}" rel="stylesheet" type="text/css" /> -->
+
 		<link href="{{ asset('pages/css/pages-icons.css') }}" rel="stylesheet" type="text/css">
 		<link href="{{ asset('pages/css/custom.css') }}" rel="stylesheet" type="text/css">
+
+		<link href="{{ asset('assets/js/chosen/chosen.css') }}" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet" type="text/css">
 		<link class="main-stylesheet" href="{{ asset('pages/css/pages.css') }}" rel="stylesheet" type="text/css" />
+		<script src="{{ asset('js/app.js') }}"></script>
+		@stack('scripts')
 	</head>
 	<body class="fixed-header ">
 		
@@ -65,14 +73,22 @@
 		<script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/jquery-nouislider/jquery.liblink.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('assets/plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
+		<!-- <script src="{{ asset('assets/plugins/dropzone/dropzone.min.js') }}" type="text/javascript"></script> -->
 		<!-- END VENDOR JS -->
 		<!-- BEGIN CORE TEMPLATE JS -->
 		<script src="{{ asset('pages/js/pages.min.js') }}"></script>
-		<script src="{{ asset('pages/js/search.js') }}"></script>
 		<!-- END CORE TEMPLATE JS -->
 		<!-- BEGIN PAGE LEVEL JS -->
-		<script src="{{ asset('assets/js/gallery.js') }}" type="text/javascript"></script>
+
 		<script src="{{ asset('assets/js/scripts.js') }}" type="text/javascript"></script>
 		 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+		<script src="{{ asset('assets/js/chosen/chosen.jquery.js') }}"></script>
+		<script src="{{ asset('pages/js/search.js') }}"></script>
+		<script src="{{ asset('pages/js/gap.js') }}"></script>
+
+
+
 	</body>
 </html>
