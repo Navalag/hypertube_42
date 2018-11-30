@@ -37,6 +37,7 @@ class EditUserInfo extends Controller
 			'oldPass' => ['nullable', 'string'],
 			'newPassword' => ['nullable', 'string', 'min:6', 'confirmed'],
 		]);
+		
 
 		$user = User::find(\Auth::user()->id);
 		$user->username = $request->get('username');

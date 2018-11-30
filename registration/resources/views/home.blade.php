@@ -1273,13 +1273,12 @@
 					<div class="row-xs-height">
 						<div class="modal-body col-xs-height col-middle">
 							<!-- START card -->
-							@if ($message = Session::get('success'))
-								<div class="alert alert-success alert-block">
-									<button type="button" class="close" data-dismiss="alert">×</button>
-									<strong>{{ $message }}</strong>
-								</div>
-								<img src="avatar_img/{{ Session::get('image') }}">
-							@endif
+							<div id="alertNotification"></div>
+							<!-- <div class="" id="alertNotification" role="alert" style="display: none;"> -->
+								<!-- <p class="mr-auto overflow-ellipsis no-padding" id="alerText"></p> -->
+								<!-- <button class="close" data-dismiss="alert"></button> -->
+								<!-- <div class="clearfix"></div> -->
+							<!-- </div> -->
 							@if ($errors->any())
 								<div class="alert alert-danger">
 									<ul>
@@ -1362,7 +1361,7 @@
 										<br>
 										<br>
 										<button class="btn btn-success" id="updateProfile" type="submit">Update Profile</button>
-										<div class="progress-circle-indeterminate m-t-10" id="loader"></div>
+										<!-- <div class="progress-circle-indeterminate m-t-10" id="loader"></div> -->
 									</form>
 
 								</div>
