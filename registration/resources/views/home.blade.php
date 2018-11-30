@@ -1274,21 +1274,6 @@
 						<div class="modal-body col-xs-height col-middle">
 							<!-- START card -->
 							<div id="alertNotification"></div>
-							<!-- <div class="" id="alertNotification" role="alert" style="display: none;"> -->
-								<!-- <p class="mr-auto overflow-ellipsis no-padding" id="alerText"></p> -->
-								<!-- <button class="close" data-dismiss="alert"></button> -->
-								<!-- <div class="clearfix"></div> -->
-							<!-- </div> -->
-							@if ($errors->any())
-								<div class="alert alert-danger">
-									<ul>
-											@foreach ($errors->all() as $error)
-												<li>{{ $error }}</li>
-											@endforeach
-									</ul>
-								</div><br />
-							@endif
-
 							<div class="card card-transparent">
 								<div class="card-block">
 									<form id="form-project" role="form" autocomplete="off" method="post" action="{{ route('user.edit_prof') }}">
@@ -1361,7 +1346,6 @@
 										<br>
 										<br>
 										<button class="btn btn-success" id="updateProfile" type="submit">Update Profile</button>
-										<!-- <div class="progress-circle-indeterminate m-t-10" id="loader"></div> -->
 									</form>
 
 								</div>
@@ -1385,7 +1369,7 @@
 			minimumResultsForSearch: -1
 		});
 	});
-	var userPhoto = {!! json_encode($user_info->photo_src, JSON_HEX_TAG) !!};
+	// var userPhoto = {!! json_encode($user_info->photo_src, JSON_HEX_TAG) !!};
 </script>
 
 <script src="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.min.js') }}" type="text/javascript"></script>

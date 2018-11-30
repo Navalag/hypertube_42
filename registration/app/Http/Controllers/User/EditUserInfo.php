@@ -28,7 +28,6 @@ class EditUserInfo extends Controller
 	{
 		// dd($request->all());
 		$request->validate([
-			// 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 			'username'=> ['required', 'string', 'max:255', 'unique:users,username,'.\Auth::user()->id],
 			'firstName'=> ['required', 'string', 'max:255'],
 			'lastName' => ['required', 'string', 'max:255'],
@@ -37,7 +36,6 @@ class EditUserInfo extends Controller
 			'oldPass' => ['nullable', 'string'],
 			'newPassword' => ['nullable', 'string', 'min:6', 'confirmed'],
 		]);
-		
 
 		$user = User::find(\Auth::user()->id);
 		$user->username = $request->get('username');
