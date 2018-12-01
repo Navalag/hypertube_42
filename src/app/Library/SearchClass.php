@@ -1,4 +1,6 @@
-<?php namespace App\Library;
+<?php 
+
+namespace App\Library;
 
 class SearchClass
 {

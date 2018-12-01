@@ -301,9 +301,6 @@
 				<!-- <h3>HyperTube 42</h3> -->
 				<img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
 			</div>
-			<!-- START NOTIFICATION LIST -->
-			
-			<!-- END NOTIFICATIONS LIST -->
 			<a href="#" class="search-link hidden-md-down" data-toggle="search"><i class="pg-search"></i>Type anywhere to <span class="bold">search</span></a>
 		</div>
 		<div class="d-flex align-items-center">

@@ -74,10 +74,13 @@ window.onload = function()
 	<!-- END Login Right Container-->
 </div>
 
-<script>
-$(function()
-{
-	$('#form-login').validate()
-})
-</script>
 @endsection
+
+@push('scripts')
+<script>
+	$(function()
+	{
+		$('#form-login').validate()
+	})
+</script>
+@endpush

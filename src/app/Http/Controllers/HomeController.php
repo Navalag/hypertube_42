@@ -57,7 +57,7 @@ class HomeController extends Controller
              $needle = $params['needle'];
              $data = $search->search_request($needle, $page);
              return($data);
-         }
+        }
            // $id_request = 'https://api.themoviedb.org/3/movie/'.(int)$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442';
            // $movie_id = file_get_contents($id_request);
 
@@ -70,8 +70,4 @@ class HomeController extends Controller
 
        return view('home');
     }
-
-
-
-
 }

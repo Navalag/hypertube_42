@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -26,7 +26,6 @@ Route::get('/details/{id}', 'DetailsController@getDetails');
 Route::post('/details/', 'DetailsController@postDetails');
 
 Route::put('/details/', 'DetailsController@putDetails');
-
 
 
 Auth::routes(['verify' => true]);

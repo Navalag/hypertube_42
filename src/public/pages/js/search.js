@@ -486,7 +486,7 @@ $('#search_submit').click(function (e)
     xhr_filters.send(formdata);*/
 
 
-});_
+});
 
 
 

@@ -88,11 +88,13 @@
 	</div>
 </div>
 
-<script>
-$(function()
-{
-	$('#form-register').validate()
-})
-</script>
-
 @endsection
+
+@push('scripts')
+	<script>
+	$(function()
+	{
+		$('#form-register').validate()
+	})
+	</script>
+@endpush
