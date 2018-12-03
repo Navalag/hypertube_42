@@ -296,28 +296,28 @@
 									<form id="form-project" role="form" autocomplete="off" method="post" action="{{ route('user.edit_prof') }}">
 										@csrf
 
-										<p>Avatar</p>
+										<p>{{ __('Avatar') }}</p>
 										<div class="form-group form-group-default">
-											<label class="">Chouse profile photo</label>
+											<label class="">{{ __('Chouse profile photo') }}</label>
 											<input type="file" name="image" id="uploadAvatar" class="form-control" style="padding-top: 3px;">
 										</div>
 										<br>
-										<p class="m-t-10">Basic Information</p>
+										<p class="m-t-10">{{ __('Basic Information') }}</p>
 										<div class="form-group-attached">
 											<div class="form-group form-group-default">
-												<label>Username</label>
+												<label>{{ __('Username') }}</label>
 												<input type="text" class="form-control" name="username" value="{{ $user_info->username }}" required>
 											</div>
 											<div class="row clearfix">
 												<div class="col-md-6">
 													<div class="form-group form-group-default">
-														<label>First name</label>
+														<label>{{ __('First name') }}</label>
 														<input type="text" class="form-control" name="firstName" value="{{ $user_info->first_name }}" required>
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group form-group-default">
-														<label>Last name</label>
+														<label>{{ __('Last name') }}</label>
 														<input type="text" class="form-control" name="lastName" value="{{ $user_info->last_name }}" required>
 													</div>
 												</div>
@@ -325,36 +325,36 @@
 										</div>
 										<div class="m-t-10">
 											<div class="form-group form-group-default form-group-default-select2">
-												<label class="">Select prefered language</label>
+												<label class="">{{ __('Select prefered language') }}</label>
 												<select class="full-width" name="lang" id="select2insidemodal" data-init-plugin="select2">
-													<option value="en" {{$user_info->lang=='en'?'selected':''}}>English</option>
-													<option value="ua" {{$user_info->lang=='ua'?'selected':''}}>Ukrainian</option>
+													<option value="en" {{$user_info->lang=='en'?'selected':''}}>{{ __('English') }}</option>
+													<option value="ua" {{$user_info->lang=='ua'?'selected':''}}>{{ __('Ukrainian') }}</option>
 												</select>
 											</div>
 										</div>
 										<br>
-										<p class="m-t-10">Account Information</p>
+										<p class="m-t-10">{{ __('Account Information') }}</p>
 										<div class="m-t-10">
 											<div class="form-group form-group-default">
-												<label class="">Email</label>
+												<label class="">{{ __('Email') }}</label>
 												<input type="email" class="form-control" value="{{ $user_info->email }}" name="email">
 											</div>
 										</div>
 										<div class="form-group-attached">
 											<div class="form-group form-group-default">
-												<label>Old Password</label>
+												<label>{{ __('Old Password') }}</label>
 												<input type="password" class="form-control" name="oldPass" placeholder="To change password type an old one here">
 											</div>
 											<div class="row clearfix">
 												<div class="col-md-6">
 													<div class="form-group form-group-default">
-														<label>New Password</label>
+														<label>{{ __('New Password') }}</label>
 														<input type="password" class="form-control" name="newPassword" placeholder="Minimum of 6 Charactors">
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group form-group-default">
-														<label>Repeat New Password</label>
+														<label>{{ __('Repeat New Password') }}</label>
 														<input type="password" class="form-control" name="newPassword_confirmation" placeholder="Confirm new password">
 													</div>
 												</div>
@@ -362,7 +362,7 @@
 										</div>
 										<br>
 										<br>
-										<button class="btn btn-success" id="updateProfile" type="submit">Update Profile</button>
+										<button class="btn btn-success" id="updateProfile" type="submit">{{ __('Update Profile') }}</button>
 									</form>
 
 								</div>
