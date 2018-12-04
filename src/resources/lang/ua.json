@@ -30,7 +30,7 @@
 	"Login with Google+": "Зайти через Google+",
 
 
-	"Create a HyperTube account. If you have a facebook account, log into it for this process. Sign in with ": "Створіть новий акаунт в HyperTube. Або Ви можете зайти за допомогою ",
+	"Create a HyperTube account. If you have a facebook account, log into it for this process. Sign in with ": "Створіть новий акаунт в HyperTube. Чи зайдіть за допомогою ",
 	"John": "Петро",
 	"Smith": "Іванов",
 	"HyperTube User name": "Ім'я користувача",
@@ -40,11 +40,49 @@
 	"Confirm Password": "Підтвердити пароль",
 	"Confirm password above": "Повторіть пароль ще раз...",
 	"Already have an acount?": "Вже маєте акаунт?",
+	"Sign In": "Ввійти",
 	"Create a new account": "Створити новий акаунт",
 
 
 	"Reset password": "Відновити пароль",
 	"Return to Signin": "Повернутися назад",
 	"Send Password Reset Link": "Відправити посилання для відновлення пароля",
-	"E-Mail Address": "Електронна адреса"
+	"E-Mail Address": "Електронна адреса",
+
+
+	"Genres": "Жанри",
+	"Action": "Бойовик",
+	"Adventure": "Пригоди",
+	"Animation": "Мультфільм",
+	"Comedy": "Комедія",
+	"Crime": "Кримінал",
+	"Documentary": "Документальний",
+	"Drama": "Драма",
+	"Family": "Сімейний",
+	"Fantasy": "Фантастика",
+	"History": "Історичний",
+	"Horror": "Жахи",
+	"Music": "Мюзикл",
+	"Mystery": "Детектив",
+	"Romance": "Романтичний",
+	"Science Fiction": "Наукова фантастика",
+	"TV movie": "Телефільм",
+	"Thriller": "Трилер",
+	"War": "Військовий",
+	"Western": "Вестерн",
+
+	"none": "-",
+	"Title Ascending": "Назва (А-Я)",
+	"Title Descending": "Назва (Я-А)",
+	"Rating Ascending": "Рейтинг високий",
+	"Rating Descending": "Рейтинг низький",
+	"Popularity Ascending": "Популярність висока",
+	"Popularity Descending": "Популярність низька",
+	"Release Date Ascending": "Реліз свіжий",
+	"Release Date Descending": "Реліз давній",
+	"Revenue Ascending": "Бюджет зростання",
+	"Revenue Descending": "Бюджет спадання",
+
+	"search": "пошук",
+	"Type here to search...": "Натисніть тут для пошуку..."
 }
