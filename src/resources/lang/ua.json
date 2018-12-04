@@ -8,9 +8,43 @@
 	"Select prefered language": "Виберіть мову",
 	"Ukrainian": "українська",
 	"Account Information": "Налаштування приватності",
-	"Email": "Електронна пошта",
+	"Email": "Електронна адреса",
 	"Old Password": "Старий пароль",
 	"New Password": "Новий пароль",
 	"Repeat New Password": "Повторіть новий пароль",
-	"Update Profile": "Підтвердити зміни"
+	"Update Profile": "Підтвердити зміни",
+
+
+	"A web application that allows users to research and watch videos": "Веб додаток, що дає можливість знаходити та переглядати відео",
+	"Sign in to see all the movies on this planet": "Заходь та отримай доступ до всіх фільмів планети",
+	"Enter your email": "Введіть електронну адресу",
+	"Password": "Пароль",
+	"Credentials": "Введіть всій пароль",
+	"Keep Me Signed in": "Запам'ятати мене",
+	"Forgot password?": "Забув(ла) пароль?",
+	"Sign in": "Зайти",
+	"or": "або",
+	"Register": "Зареєструватись",
+	"Login with Facebook": "Зайти через Facebook",
+	"Login with Twitter": "Зайти через Twitter",
+	"Login with Google+": "Зайти через Google+",
+
+
+	"Create a HyperTube account. If you have a facebook account, log into it for this process. Sign in with ": "Створіть новий акаунт в HyperTube. Або Ви можете зайти за допомогою ",
+	"John": "Петро",
+	"Smith": "Іванов",
+	"HyperTube User name": "Ім'я користувача",
+	"your.username (this can be changed later)": "your.username (можна змінити пізніше в налаштуваннях)",
+	"We will send loging details to you": "Ми вишлемо деталі для входу на вказану адресу",
+	"Minimum of 6 Charactors": "Мінімум 6 символів",
+	"Confirm Password": "Підтвердити пароль",
+	"Confirm password above": "Повторіть пароль ще раз...",
+	"Already have an acount?": "Вже маєте акаунт?",
+	"Create a new account": "Створити новий акаунт",
+
+
+	"Reset password": "Відновити пароль",
+	"Return to Signin": "Повернутися назад",
+	"Send Password Reset Link": "Відправити посилання для відновлення пароля",
+	"E-Mail Address": "Електронна адреса"
 }

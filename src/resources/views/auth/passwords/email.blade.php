@@ -18,8 +18,7 @@ window.onload = function()
 		<!-- END Background Pic-->
 		<!-- START Background Caption-->
 		<div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
-			<h2 class="semi-bold text-white">
-			A web application that allows users to research and watch videos</h2>
+			<h2 class="semi-bold text-white">{{ __('A web application that allows users to research and watch videos') }}</h2>
 			<p class="small">
 				Developed with &#9825; by: <a style="color: white;" target="_blank" href="https://github.com/Navalag">Navalag</a><span class="muted"> | </span><a style="color: white;" target="_blank" href="https://github.com/vsyveniu">vsyveniu</a><span class="muted"> | </span><a style="color: white;" target="_blank" href="https://github.com/IgorALLin">ichebota</a><span class="muted"> | </span><a style="color: white;" target="_blank" href="https://github.com/lito747">mpytienk</a></br> © 2018 UNIT FACTORY (42 school) project.
 			</p>
@@ -31,7 +30,7 @@ window.onload = function()
 	<div class="login-container bg-white">
 		<div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
 			<img src="{{ asset('assets/img/logo.png') }}" alt="logo" data-src="{{ asset('assets/img/logo.png') }}" data-src-retina="{{ asset('assets/img/logo_2x.png') }}" width="78" height="22">
-			<p class="p-t-35">Reset password</p>
+			<p class="p-t-35">{{ __('Reset password') }}</p>
 			<!-- START Login Form -->
 			<form id="form-login" class="p-t-15" role="form" method="POST" action="{{ route('password.email') }}">
 				@csrf
@@ -46,9 +45,9 @@ window.onload = function()
 
 				<!-- START Form Control-->
 				<div class="form-group form-group-default">
-					<label>Email</label>
+					<label>{{ __('Email') }}</label>
 					<div class="controls">
-						<input type="email" name="email" placeholder="Email" class="form-control" value="{{ old('email') }}" required>
+						<input type="email" name="email" placeholder="{{ __('Enter your email') }}" class="form-control" value="{{ old('email') }}" required>
 					</div>
 				</div>
 				@if ($errors->has('email'))
@@ -62,11 +61,11 @@ window.onload = function()
 						
 					</div>
 					<div class="col-md-6 d-flex align-items-center justify-content-end">
-						<a href="/login" class="text-info small">Return to Signin</a>
+						<a href="/login" class="text-info small">{{ __('Return to Signin') }}</a>
 					</div>
 				</div>
 				<!-- END Form Control-->
-				<button class="btn btn-primary btn-cons m-t-10 m-b-30" type="submit">Send Password Reset Link</button>
+				<button class="btn btn-primary btn-cons m-t-10 m-b-30" type="submit">{{ __('Send Password Reset Link') }}</button>
 			</form>
 
 		</div>
