@@ -24,117 +24,117 @@
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link" >
-					<span class="title" data="Action">{{ __('Action') }}</span>
+					<span class="title_aside" data="Action">{{ __('Action') }}</span>
 					<!--<button class="add_button" data="Action">+</button>-->
 				</a>
 				<span class="icon-thumbnail"><i class="pg-mail"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title" data="Adventure">{{ __('Adventure') }}</span>
+					<span class="title_aside" data="Adventure">{{ __('Adventure') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-social"></i></span>
 			</li>
 			<li>
 				<a href="" class="genre_direct_link">
-					<span class="title" data="Animation">{{ __('Animation') }}</span>
+					<span class="title_aside" data="Animation">{{ __('Animation') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-calender"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title" data="Comedy">{{ __('Comedy') }}</span>
+					<span class="title_aside" data="Comedy">{{ __('Comedy') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-layouts"></i></span>
 			</li>
 			<li>
 				<a href="" class="genre_direct_link">
-					<span class="title" data="Crime">{{ __('Crime') }}</span>
+					<span class="title_aside" data="Crime">{{ __('Crime') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-layouts2"></i></span>
 			</li>
 			<li>
 				<a href="" class="genre_direct_link">
-					<span class="title" data="Documentary">{{ __('Documentary') }}</span>
+					<span class="title_aside" data="Documentary">{{ __('Documentary') }}</span>
 				</a>
 				<span class="icon-thumbnail">Ui</span>
 			</li>
 			<li>
 				<a href="" class="genre_direct_link">
-					<span class="title" data="Drama">{{ __('Drama') }}</span>
+					<span class="title_aside" data="Drama">{{ __('Drama') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-form"></i></span>
 
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title" data="Family">{{ __('Family') }}</span>
+					<span class="title_aside" data="Family">{{ __('Family') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title" data="Fantasy">{{ __('Fantasy') }}</span>
+					<span class="title_aside" data="Fantasy">{{ __('Fantasy') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title" data="History">{{ __('History') }}</span>
+					<span class="title_aside" data="History">{{ __('History') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title" data="Horror">{{ __('Horror') }}</span>
+					<span class="title_aside" data="Horror">{{ __('Horror') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title" data="Music">{{ __('Music') }}</span>
+					<span class="title_aside" data="Music">{{ __('Music') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-				<span class="title" data="Mystery">{{ __('Mystery') }}</span>
+				<span class="title_aside" data="Mystery">{{ __('Mystery') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-				<span class="title" data="Romance">{{ __('Romance') }}</span>
+				<span class="title_aside" data="Romance">{{ __('Romance') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title" data="Science Fiction">{{ __('Science Fiction') }}</span>
+					<span class="title_aside" data="Science Fiction">{{ __('Science Fiction') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title" data="TV movie">{{ __('TV movie') }}</span>
+					<span class="title_aside" data="TV movie">{{ __('TV movie') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title" data="Thriller">{{ __('Thriller') }}</span>
+					<span class="title_aside" data="Thriller">{{ __('Thriller') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title" data="War">{{ __('War') }}</span>
+					<span class="title_aside" data="War">{{ __('War') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title" data="Western">{{ __('Western') }}</span>
+					<span class="title_aside" data="Western">{{ __('Western') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
