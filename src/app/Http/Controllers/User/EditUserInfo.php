@@ -26,7 +26,6 @@ class EditUserInfo extends Controller
 	 */
 	public function edit(Request $request)
 	{
-		// dd($request->all());
 		$request->validate([
 			'username'=> ['required', 'string', 'max:255', 'unique:users,username,'.\Auth::user()->id],
 			'firstName'=> ['required', 'string', 'max:255'],
@@ -43,6 +42,8 @@ class EditUserInfo extends Controller
 		$user->first_name = $request->get('firstName');
 		$user->last_name = $request->get('lastName');
 		$user->lang = $request->get('lang') == 'en' ? 'en' : 'ua';
+		// update language
+		session(['locale' => $user->lang]);
 		if (!empty($request->get('oldPass')))
 		{
 			if (Hash::check($request->get('oldPass'), \Auth::user()->password)) {
