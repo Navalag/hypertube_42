@@ -486,7 +486,7 @@ body.menu-pin .overlay .overlay-brand {
 .page-sidebar .sidebar-menu .menu-items > li > a > .badge {
   margin-top: 12px;
 }
-.page-sidebar .sidebar-menu .menu-items > li > a > .title {
+.page-sidebar .sidebar-menu .menu-items > li > a > .title_aside {
   float: left;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -499,7 +499,7 @@ body.menu-pin .overlay .overlay-brand {
   display: block;
   clear: both;
 }
-.page-sidebar .sidebar-menu .menu-items > li > a.detailed > .title {
+.page-sidebar .sidebar-menu .menu-items > li > a.detailed > .title_aside {
   line-height: 28px;
 }
 .page-sidebar .sidebar-menu .menu-items > li > a.detailed > .details {
@@ -698,15 +698,12 @@ body.menu-pin .overlay .overlay-brand {
 .secondary-sidebar ul li a.active {
   color: #2c2c2c;
 }
-.secondary-sidebar ul li a > .title {
+.secondary-sidebar ul li a > .title_aside {
   width: 100%;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center;
-}
-.secondary-sidebar ul li a > .title:after {
-  display: none;
 }
 .secondary-sidebar ul li a > .badge {
   -webkit-align-self: center;
@@ -1641,7 +1638,6 @@ body.menu-pin .overlay .overlay-brand {
 .page-container .page-content-wrapper .content {
   /* Content holder */
   z-index: 10;
-  padding-top: 60px;
   padding-bottom: 69px;
   min-height: 100%;
   -webkit-transition: all 0.3s ease;
@@ -2815,7 +2811,6 @@ p {
   font-weight: normal;
   letter-spacing: 0.01em;
   line-height: 22px;
-  margin: 0px 0px 10px 0px;
   font-style: normal;
   white-space: normal;
 }
@@ -9359,7 +9354,7 @@ table.dataTable.table-condensed .sorting_desc:after {
   right: 0;
   width: auto;
 }
-#tab-rickshaw-slider .chart .x_tick.plain .title {
+#tab-rickshaw-slider .chart .x_tick.plain .title_aside {
   font-family: 'Montserrat';
   font-size: 11px;
 }
@@ -9373,7 +9368,7 @@ table.dataTable.table-condensed .sorting_desc:after {
 #tab-rickshaw-slider .rickshaw_graph .x_tick {
   border-color: transparent;
 }
-#tab-rickshaw-slider .rickshaw_graph .x_tick .title {
+#tab-rickshaw-slider .rickshaw_graph .x_tick .title_aside {
   bottom: -24px;
   left: -15px;
 }

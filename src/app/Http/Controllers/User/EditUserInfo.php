@@ -26,6 +26,7 @@ class EditUserInfo extends Controller
 	 */
 	public function edit(Request $request)
 	{
+		// dd($request->all());
 		$request->validate([
 			'username'=> ['required', 'string', 'max:255', 'unique:users,username,'.\Auth::user()->id],
 			'firstName'=> ['required', 'string', 'max:255'],
@@ -52,6 +53,7 @@ class EditUserInfo extends Controller
 				return back()->withErrors('Old password is incorrect');
 			}
 		}
+
 		$user->save();
 
 		return response()->json([

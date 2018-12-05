@@ -1,6 +1,7 @@
-<?php 
+<?php namespace App\Library;
 
-namespace App\Library;
+use TorrentAPI\TorrentAPI;
+use Xurumelous\TorrentScraper\TorrentScraperService;
 
 class SearchClass
 {
@@ -81,11 +82,114 @@ class SearchClass
 
     public function search_request($needle, $page)
     {
-
         $str = 'https://api.themoviedb.org/3/search/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language=en-US&query='.urlencode($needle).'&page='.$page.'&include_adult=true';
         $data = file_get_contents($str);
         return ($data);
     }
+
+    public function details_request($id)
+    {
+        $detailed = 'https://api.themoviedb.org/3/movie/'.$id.'?api_key=838ad56065a20c3380e39bdcd7c02442&language=en-US&append_to_response=videos';
+
+        $detailed_res = file_get_contents($detailed);
+
+        return ($detailed_res);
+    }
+
+    public function getcast_request($id)
+    {
+        $cast = 'https://api.themoviedb.org/3/movie/'.$id.'/credits?api_key=838ad56065a20c3380e39bdcd7c02442&language=en-US';
+
+        $cast_res = file_get_contents($cast);
+
+        return ($cast_res);
+    }
+
+
+    public function links_request($id)
+    {
+        $pop_str = 'https://tv-v2.api-fetch.website/movie/'.$id;
+        $pop_data = json_decode(file_get_contents($pop_str), true);
+        $res = [];
+        $i = 0;
+        $title = $pop_data['title'];
+        $pop_torrents = $pop_data['torrents'];
+
+        foreach ($pop_torrents as $key => $value) {
+            $new = [];
+            $new['lang'] = $key;
+            $res[$i] = $new;
+            foreach ($value as $key => $subvalue)
+            {
+                $new = [];
+                /* echo "<pre>";
+                     print_r($value);
+                     echo "<hr>";
+                 echo "<pre>";*/
+                $new['resolution'] = $key;
+                $new['data'] = $subvalue;
+                $new['data']['title'] = $title;
+                $new['data']['imdb'] = $id;
+                array_push($res[$i], $new);
+            }
+            // array_push($res[], $value);
+            $i++;
+        }
+
+       // $more_str = 'https://hydramovies.com/api-v2/?source=http://hydramovies.com/api-v2/current-Movie-Data.csv&imdb_id='.$id;
+       // $more_data = json_decode(file_get_contents($more_str), true);
+
+       /* $torrentAPI = new TorrentAPI('Hypertube');
+
+        $popularMovies = $torrentAPI->query([
+            "mode" => "search",
+            "search_string" => $title,
+            "category" => "movie",
+
+        ]);*/
+
+
+      // $token = file_get_contents('https://torrentapi.org/pubapi_v2.php?get_token=get_token');
+      // dd($token);
+
+      /*  curl(-X POST --header "Content-Type: application/json" --header "Accept: application/json" --header "Authorization: Bearer 859ea2450228a5d655e3a8c2f9a5aedc30b591df" --header "Accept-Language: en" -d "{
+          \"jsonrpc\": \"2.0\",
+          \"method\": \"shows.GetById\",
+          \"params\": {
+            \"showId\": 1,
+            \"withEpisodes\": true
+          },
+          \"id\": 1
+        }"); "https://api.myshows.me/v2/rpc/");*/
+
+     // $API_URL = 'https://api.myshows.me/v2/rpc/';
+     /* $params = array();
+      $params['jsonrpc'] = '2.0';
+      $params['method'] = 'shows.Top';
+      $params['params'] = array();
+      $params['params']['mode'] = 'all';
+      $params['params']['count'] = 500;
+      $data = json_encode($params);
+
+        $ch = curl_init('https://api.myshows.me/v2/rpc/');
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($data))
+        );
+        $final_result = curl_exec($ch);
+        curl_close($ch);
+
+
+
+        echo "<pre>";
+        print_r($final_result);
+        echo "<pre>";*/
+        return (json_encode($res));
+    }
+
 
     public function get_subtitles_list($title, $imdb)
     {

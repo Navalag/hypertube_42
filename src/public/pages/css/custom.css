@@ -3,6 +3,10 @@
 * Override Pages default styles or create your own styles here
 
 */
+p
+{
+    margin: 0;
+}
 .super_wrapper
 {
     display: flex;
@@ -88,6 +92,7 @@
 .search_field
 {
     margin-top: 3%;
+    padding-top: 60px;
 }
 .search_form
 {
@@ -132,4 +137,150 @@ html {
 #load_gif
 {
     display: none;
+}
+
+/*details page styles*/
+
+.movie-info_container
+{
+    padding: 1%;
+}
+.tag_container
+{
+ display: flex;
+}
+
+.movie-overview-links_container
+{
+ display: flex;
+
+}
+.movie-overview_response
+{
+    width: 100%;
+    flex: 1;
+    margin-left: 1%;
+}
+
+.movie-links_response
+{
+    flex: 1;
+    display: flex;
+    margin-left: 1%;
+    margin-right: 1%;
+    flex-direction: column;
+}
+
+/* Basic 15 actors-card styles */
+.cast-trailer_wrapper
+{
+    margin-top: 50px;
+}
+.movie-cast-trailer_container
+{
+    display: flex;
+}
+.cast-crew_wrapper
+{
+    flex: 1;
+    margin-left: 1%;
+}
+.cast_container
+{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cast_card
+{
+    width: 140px;
+    margin-left: 20px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+.cast_img
+{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.cast_inner_container
+{
+
+    display: flex;
+    flex-direction: column;
+}
+.castname
+{
+    font-weight: bold;
+    margin-top: 5px;
+    margin-left: 5px;
+
+}
+.rolename
+{
+    margin-left: 5px;
+}
+.show_cast, .show_crew
+{
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.show_cast
+{
+    margin-left: 10px;
+}
+.show_cast
+{
+    display: none;
+}
+
+
+/* Full cast mini-cards styles */
+
+.cast_container_mini
+{
+    width: 100%;
+    margin-left: 2%;
+    display: flex;
+    max-height: 700px;
+    overflow-y: auto;
+    flex-wrap: nowrap;
+}
+.cast_column
+{
+    flex: 1;
+}
+.mini_cast_card
+{
+    display: flex;
+    margin-top: 5px;
+}
+.mini_cast_img
+{
+    height: 120px;
+}
+.crew_column
+{
+    flex: 1;
+}
+
+/* media for cast */
+
+@media (max-width: 768px)
+{
+    .movie-cast-trailer_container
+    {
+        flex-direction: column;
+    }
+}
+
+
+.comments_container
+{
+    flex: 1;
+    margin-left: 1%;
+    margin-right: 1%;
 }

@@ -305,7 +305,7 @@ if (response)
             img.setAttribute("class", "image-responsive-height lozad");
             if (list[i].poster_path != null) {
                 img.setAttribute("src", baseUrl + '/assets/img/blur2.png');
-                img.setAttribute("data-src", 'https://image.tmdb.org/t/p/w500/' + list[i].poster_path);
+                img.setAttribute("data-src", 'https://image.tmdb.org/t/p/original/' + list[i].poster_path);
             }
             else
                 img.setAttribute("data-src", baseUrl + '/public/img/blur2.png');
@@ -486,7 +486,7 @@ $('#search_submit').click(function (e)
     xhr_filters.send(formdata);*/
 
 
-});
+});_
 
 
 
@@ -494,7 +494,7 @@ $('.genre_direct_link').click(function (e)
 {
     e.preventDefault();
     var target = e.target;
-    if(target.className == "title")
+    if(target.className == "title_aside")
     {
         var genres = target.getAttribute('data');
         var res = genres.split(" ");

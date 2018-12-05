@@ -1,5 +1,4 @@
-<?php 
-namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -45,6 +44,7 @@ class DetailsController extends Controller {
     {
         $search = new SearchClass;
         $params = $request->all();
+        $res = [];
         if($params['method'] == "ignition")
         {
             $str = 'https://api.themoviedb.org/3/movie/' .(int)$params['id']. '/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442';
@@ -52,49 +52,30 @@ class DetailsController extends Controller {
             $imdb_arr = json_decode($data, true);
             $imdb_id = $imdb_arr['imdb_id'];
 
-
-            return ($imdb_id);
+            $res[0] = $params['id'];
+            $res[1] = $imdb_id;
+            return ($res);
         }
         if($params['method'] == "details")
         {
 
-            $detailed = 'https://api.themoviedb.org/3/find/'.$params['id']. '?api_key=838ad56065a20c3380e39bdcd7c02442&language=en-US&external_source=imdb_id';
+            $detailed = $search->details_request($params['id']);
 
-            $detailed_res = file_get_contents($detailed);
+            return ($detailed);
+        }
+        if($params['method'] == "getcast")
+        {
 
-            return ($detailed_res);
+            $movie_cast = $search->getcast_request($params['id']);
+
+            return ($movie_cast);
         }
         if($params['method'] == "link")
         {
-            $pop_str = 'https://tv-v2.api-fetch.website/movie/'.$params['id'];
-            $pop_data = json_decode(file_get_contents($pop_str), true);
-            $res = [];
-            $i = 0;
-            $title = $pop_data['title'];
-            $pop_torrents = $pop_data['torrents'];
 
-            foreach ($pop_torrents as $key => $value) {
-                $new = [];
-                $new['lang'] = $key;
-                $res[$i] = $new;
-                    foreach ($value as $key => $subvalue)
-                    {
-                        $new = [];
-                       /* echo "<pre>";
-                            print_r($value);
-                            echo "<hr>";
-                        echo "<pre>";*/
-                        $new['resolution'] = $key;
-                        $new['data'] = $subvalue;
-                        $new['data']['title'] = $title;
-                        $new['data']['imdb'] = $params['id'];
-                        array_push($res[$i], $new);
-                    }
-               // array_push($res[], $value);
-                $i++;
-            }
+            $links = $search->links_request($params['id']);
 
-            return (json_encode($res));
+          return ($links);
         }
          //   $title = $detailed_res['movie_results'][0]['title'];
         /*echo "<pre>";

@@ -122,6 +122,7 @@ window.onload = function()
 	<!-- END Login Right Container-->
 </div>
 
+
 @endsection
 
 @push('scripts')
