@@ -15,7 +15,7 @@
 		<ul class="menu-items">
 			<li class="m-t-30 ">
 				<a href="#" class="detailed">
-					<span class="title_aside">Genres</span>
+					<span class="title">{{ __('Genres') }}</span>
 				</a>
 
 
@@ -24,117 +24,117 @@
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link" >
-					<span class="title_aside" data="Action">Action</span>
+					<span class="title" data="Action">{{ __('Action') }}</span>
 					<!--<button class="add_button" data="Action">+</button>-->
 				</a>
 				<span class="icon-thumbnail"><i class="pg-mail"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Adventure">Adventure</span>
+					<span class="title" data="Adventure">{{ __('Adventure') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-social"></i></span>
 			</li>
 			<li>
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Animation">Animation</span>
+					<span class="title" data="Animation">{{ __('Animation') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-calender"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Comedy">Comedy</span>
+					<span class="title" data="Comedy">{{ __('Comedy') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-layouts"></i></span>
 			</li>
 			<li>
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Crime">Crime</span>
+					<span class="title" data="Crime">{{ __('Crime') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-layouts2"></i></span>
 			</li>
 			<li>
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Documentary">Documentary</span>
+					<span class="title" data="Documentary">{{ __('Documentary') }}</span>
 				</a>
 				<span class="icon-thumbnail">Ui</span>
 			</li>
 			<li>
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Drama">Drama</span>
+					<span class="title" data="Drama">{{ __('Drama') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-form"></i></span>
 
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Family">Family</span>
+					<span class="title" data="Family">{{ __('Family') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Fantasy">Fantasy</span>
+					<span class="title" data="Fantasy">{{ __('Fantasy') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="History">History</span>
+					<span class="title" data="History">{{ __('History') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Horror">Horror</span>
+					<span class="title" data="Horror">{{ __('Horror') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Music">Music</span>
+					<span class="title" data="Music">{{ __('Music') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Mystery">Mystery</span>
+				<span class="title" data="Mystery">{{ __('Mystery') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Romance">Romance</span>
+				<span class="title" data="Romance">{{ __('Romance') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Science Fiction">Science Fiction</span>
+					<span class="title" data="Science Fiction">{{ __('Science Fiction') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="TV movie">TV movie</span>
+					<span class="title" data="TV movie">{{ __('TV movie') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Thriller">Thriller</span>
+					<span class="title" data="Thriller">{{ __('Thriller') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="War">War</span>
+					<span class="title" data="War">{{ __('War') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Western">Western</span>
+					<span class="title" data="Western">{{ __('Western') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
@@ -155,7 +155,7 @@
 		</a>
 		<!-- END MOBILE SIDEBAR TOGGLE -->
 		<div class="">
-			<div class="brand inline   ">
+			<div class="brand inline">
 				<!-- <h3>HyperTube 42</h3> -->
 				<img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
 			</div>
@@ -163,11 +163,20 @@
 			<!-- END NOTIFICATIONS LIST -->
 		</div>
 		<div class="live_load_container">
-			<input id="live_search_input" type="text" name="live_search" placeholder="Fuck" value="" class="live_search" autocomplete="on">
-			<button id="reset_button">Reset</button>
+		<input id="live_search_input" type="text" name="live_search" placeholder="{{ __('Type here to search...') }}" value="" class="live_search" autocomplete="on">
+			<button id="reset_button">{{ __('search') }}</button>
 		</div>
 		<div class="d-flex align-items-center">
 			<!-- START User Info-->
+		<div class="dropdown dropdown-default m-r-20">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{Session::get('locale')=='ua' ? 'Українська' : 'English'}}
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/user/set_lang?lang=en">English</a>
+          <a class="dropdown-item" href="/user/set_lang?lang=ua">Українська</a>
+        </div>
+      </div>
 			<div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
 				<span class="semi-bold">David</span> <span class="text-master">Nest</span>
 			</div>
@@ -207,17 +216,17 @@
 					<form method="POST" class="search_form" id="main_form">
                         <div class="sort_field">
                             <select name="sort" id="sort_select">
-                                <option>none</option>
-                                <option>Title Ascending</option>
-                                <option>Title Descending</option>
-                                <option>Rating Ascending</option>
-                                <option>Rating Descending</option>
-                                <option>Popularity Ascending</option>
-                                <option>Popularity Descending</option>
-                                <option>Release Date Ascending</option>
-                                <option>Release Date Descending</option>
-                                <option>Revenue Ascending</option>
-                                <option>Revenue Descending</option>
+                            	<option>{{ __('none') }}</option>
+								<option>{{ __('Title Ascending') }}</option>
+								<option>{{ __('Title Descending') }}</option>
+								<option>{{ __('Rating Ascending') }}</option>
+								<option>{{ __('Rating Descending') }}</option>
+								<option>{{ __('Popularity Ascending') }}</option>
+								<option>{{ __('Popularity Descending') }}</option>
+								<option>{{ __('Release Date Ascending') }}</option>
+								<option>{{ __('Release Date Descending') }}</option>
+								<option>{{ __('Revenue Ascending') }}</option>
+								<option>{{ __('Revenue Descending') }}</option>
                             </select>
                         </div>
                         <div class="gap_field">
@@ -233,25 +242,25 @@
                         </div>
                         <div class="genres_field">
 							<select multiple class="chosen-select" name="genre" id="genre_select">
-								<option>Action</option>
-								<option>Adventure</option>
-								<option>Animation</option>
-								<option>Comedy</option>
-								<option>Crime</option>
-								<option>Documentary</option>
-								<option>Drama</option>
-								<option>Family</option>
-								<option>Fantasy</option>
-								<option>History</option>
-								<option>Horror</option>
-								<option>Music</option>
-								<option>Mystery</option>
-								<option>Romance</option>
-								<option>Science Fiction</option>
-								<option>TV Movie</option>
-								<option>Thriller</option>
-								<option>War</option>
-								<option>Western</option>
+							<option>{{ __('Action') }}</option>
+								<option>{{ __('Adventure') }}</option>
+								<option>{{ __('Animation') }}</option>
+								<option>{{ __('Comedy') }}</option>
+								<option>{{ __('Crime') }}</option>
+								<option>{{ __('Documentary') }}</option>
+								<option>{{ __('Drama') }}</option>
+								<option>{{ __('Family') }}</option>
+								<option>{{ __('Fantasy') }}</option>
+								<option>{{ __('History') }}</option>
+								<option>{{ __('Horror') }}</option>
+								<option>{{ __('Music') }}</option>
+								<option>{{ __('Mystery') }}</option>
+								<option>{{ __('Romance') }}</option>
+								<option>{{ __('Science Fiction') }}</option>
+								<option>{{ __('TV Movie') }}</option>
+								<option>{{ __('Thriller') }}</option>
+								<option>{{ __('War') }}</option>
+								<option>{{ __('Western') }}</option>
 							</select>
 							<!--<div class="chosen-container chosen-container-multi chosen-drop chosen-container-active">
 								<ul class="chosen-choices">
@@ -265,7 +274,7 @@
 
                         </div>
                         <div>
-                            <button id="search_submit">search</button>
+                         <button id="search_submit">{{ __('search') }}</button>
                         </div>
 
                     </form>
@@ -653,6 +662,7 @@
 				                      </div>
 				                    <!-- </form> -->
 													</div>
+<<<<<<< HEAD
 													<br>
 													<p class="m-t-10">Account Information</p>
 													<div class="m-t-10">
@@ -660,6 +670,29 @@
 			                        <label class="">Email</label>
 			                        <input type="email" class="form-control" value="{{ $user_info->email }}" name="email">
 			                      </div>
+=======
+												</div>
+											</div>
+										</div>
+										<br>
+										<p class="m-t-10">{{ __('Account Information') }}</p>
+										<div class="m-t-10">
+											<div class="form-group form-group-default">
+												<label class="">{{ __('Email') }}</label>
+												<input type="email" class="form-control" value="{{ $user_info->email }}" name="email">
+											</div>
+										</div>
+										<div class="form-group-attached">
+											<div class="form-group form-group-default">
+												<label>{{ __('Old Password') }}</label>
+												<input type="password" class="form-control" name="oldPass" placeholder="To change password type an old one here">
+											</div>
+											<div class="row clearfix">
+												<div class="col-md-6">
+													<div class="form-group form-group-default">
+														<label>{{ __('New Password') }}</label>
+														<input type="password" class="form-control" name="newPassword" placeholder="Minimum of 6 Charactors">
+>>>>>>> 9fe214a47d4817f5530dbad166a7d58facb1e88a
 													</div>
 													<div class="form-group-attached">
 														<div class="form-group form-group-default">

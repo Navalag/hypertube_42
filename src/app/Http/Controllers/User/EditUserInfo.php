@@ -31,7 +31,6 @@ class EditUserInfo extends Controller
 			'username'=> ['required', 'string', 'max:255', 'unique:users,username,'.\Auth::user()->id],
 			'firstName'=> ['required', 'string', 'max:255'],
 			'lastName' => ['required', 'string', 'max:255'],
-			'lang' => ['required', 'string', 'max:2'],
 			'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.\Auth::user()->id],
 			'oldPass' => ['nullable', 'string'],
 			'newPassword' => ['nullable', 'string', 'min:6', 'confirmed'],
@@ -42,9 +41,6 @@ class EditUserInfo extends Controller
 		$user->email = $request->get('email');
 		$user->first_name = $request->get('firstName');
 		$user->last_name = $request->get('lastName');
-		$user->lang = $request->get('lang') == 'en' ? 'en' : 'ua';
-		// update language
-		session(['locale' => $user->lang]);
 		if (!empty($request->get('oldPass')))
 		{
 			if (Hash::check($request->get('oldPass'), \Auth::user()->password)) {
@@ -60,6 +56,20 @@ class EditUserInfo extends Controller
 		    'success' => 'Your account was updated',
 		    'user_info' => $user
 		]);
+	}
+
+	public function setLanguage(Request $request)
+	{
+		$request->validate([
+			'lang' => ['required', 'string', 'max:2'],
+		]);
+
+		$user = User::find(\Auth::user()->id);
+		$user->lang = $request->get('lang') == 'en' ? 'en' : 'ua';
+		$user->save();
+		session(['locale' => $user->lang]);
+
+		return back();
 	}
 
 	public function uploadPhoto(Request $request)

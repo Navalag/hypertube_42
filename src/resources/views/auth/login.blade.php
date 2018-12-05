@@ -35,31 +35,16 @@ window.onload = function()
 			<!-- START Login Form -->
 			<form class="p-t-15" role="form" method="POST" action="{{ route('setLanguage') }}">
 				@csrf
-
-				<!-- <div class="form-group form-group-default form-group-default-select2"> -->
-					<div class="radio radio-primary">
-            <input type="radio" {{Session::get('locale')=='en'?'checked=checked':''}} value="en" name="lang" id="en">
-            <label for="en">English</label>
-            <input type="radio" {{Session::get('locale')=='ua'?'checked=checked':''}} value="ua" name="lang" id="ua">
-            <label for="ua">Українська</label>
-            <button class="btn btn-tag  btn-tag-dark btn-tag-rounded m-r-20" type="submit">{{ __('Select') }}</button>
-          </div>
-					<!-- <select class="full-width" name="lang" id="select2insidemodal" data-disable-search="true" data-init-plugin="select2">
-						<option value="en" {{Session::get('locale')[0]=='en'?'selected':''}}>{{ __('English') }}</option>
-						<option value="ua" {{Session::get('locale')[0]=='ua'?'selected':''}}>{{ __('Ukrainian') }}</option>
-					</select> -->
-				<!-- </div> -->
-				<!-- <div class="row"> -->
-					<!-- <div class="col-md-4"> -->
-
-						<!-- <button class="btn btn-secondary btn-cons m-t-10 m-b-30" type="submit">{{ __('ok') }}</button> -->
-					<!-- </div> -->
-				<!-- </div> -->
-
+				<div class="radio radio-primary">
+					<input type="radio" {{Session::get('locale')=='en'||!Session::get('locale')?'checked=checked':''}} value="en" name="lang" id="en">
+					<label for="en">English</label>
+					<input type="radio" {{Session::get('locale')=='ua'?'checked=checked':''}} value="ua" name="lang" id="ua">
+					<label for="ua">Українська</label>
+					<button class="btn btn-tag  btn-tag-dark btn-tag-rounded m-r-20" type="submit">{{ __('Select') }}</button>
+				</div>
 			</form>
 			<form id="form-login" class="p-t-15" role="form" method="POST" action="{{ route('login') }}">
 				@csrf
-
 				<!-- START Form Control-->
 				<div class="form-group form-group-default">
 					<label>{{ __('Email') }}</label>
