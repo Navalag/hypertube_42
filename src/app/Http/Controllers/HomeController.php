@@ -42,7 +42,7 @@ class HomeController extends Controller
         {
             if($this->validate_search_request($params)) {
                 $page = (int)$params['page'];
-                $data = $search->discover_request($page, $params['sort'], $params['years'], $params['rate'], $params['genres']);
+                $data = $search->discover_request($page, $params['sort'], $params['years'], $params['rate'], $params['genres'], $params['type']);
                 return ($data);
             }
             else

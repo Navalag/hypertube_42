@@ -5,33 +5,40 @@ use Xurumelous\TorrentScraper\TorrentScraperService;
 
 class SearchClass
 {
-    public function discover_request($page, $sort, $years, $rate, $genres)
+    public function discover_request($page, $sort, $years, $rate, $genres, $type)
     {
         $res = [];
         if ($genres != null) {
 
-            $i = 0;
-            foreach ($genres as $value) {
-                ($value == "Action") ? $res[$i] = '28' : 0;
-                ($value == "Adventure") ? $res[$i] = '12' : 0;
-                ($value == "Animation") ? $res[$i] = '16' : 0;
-                ($value == "Comedy") ? $res[$i] = '35' : 0;
-                ($value == "Crime") ? $res[$i] = '80' : 0;
-                ($value == "Documentary") ? $res[$i] = '99' : 0;
-                ($value == "Drama") ? $res[$i] = '18' : 0;
-                ($value == "Family") ? $res[$i] = '10751' : 0;
-                ($value == "Fantasy") ? $res[$i] = '14' : 0;
-                ($value == "History") ? $res[$i] = '36' : 0;
-                ($value == "Horror") ? $res[$i] = '27' : 0;
-                ($value == "Music") ? $res[$i] = '10402' : 0;
-                ($value == "Mystery") ? $res[$i] = '9648' : 0;
-                ($value == "Romance") ? $res[$i] = '10749' : 0;
-                ($value == "Science Fiction") ? $res[$i] = '878' : 0;
-                ($value == "TV Movie") ? $res[$i] = '10770' : 0;
-                ($value == "Thriller") ? $res[$i] = '53' : 0;
-                ($value == "War") ? $res[$i] = '10752' : 0;
-                ($value == "Western") ? $res[$i] = '37' : 0;
-                $i++;
+
+            if($type == "movies") {
+                $i = 0;
+                foreach ($genres as $value) {
+                    ($value == "Action") ? $res[$i] = '28' : 0;
+                    ($value == "Adventure") ? $res[$i] = '12' : 0;
+                    ($value == "Animation") ? $res[$i] = '16' : 0;
+                    ($value == "Comedy") ? $res[$i] = '35' : 0;
+                    ($value == "Crime") ? $res[$i] = '80' : 0;
+                    ($value == "Documentary") ? $res[$i] = '99' : 0;
+                    ($value == "Drama") ? $res[$i] = '18' : 0;
+                    ($value == "Family") ? $res[$i] = '10751' : 0;
+                    ($value == "Fantasy") ? $res[$i] = '14' : 0;
+                    ($value == "History") ? $res[$i] = '36' : 0;
+                    ($value == "Horror") ? $res[$i] = '27' : 0;
+                    ($value == "Music") ? $res[$i] = '10402' : 0;
+                    ($value == "Mystery") ? $res[$i] = '9648' : 0;
+                    ($value == "Romance") ? $res[$i] = '10749' : 0;
+                    ($value == "Science Fiction") ? $res[$i] = '878' : 0;
+                    ($value == "TV Movie") ? $res[$i] = '10770' : 0;
+                    ($value == "Thriller") ? $res[$i] = '53' : 0;
+                    ($value == "War") ? $res[$i] = '10752' : 0;
+                    ($value == "Western") ? $res[$i] = '37' : 0;
+                    $i++;
+                }
+            }
+            else if($type == "tvshows")
+            {
+
             }
         }
         $genres_str = null;
@@ -43,7 +50,10 @@ class SearchClass
 
         $lang = "en-US";
 
-        $str = 'https://api.themoviedb.org/3/discover/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language='.$lang;
+        ($type == "movies") ? $str = 'https://api.themoviedb.org/3/discover/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language='.$lang : 0;
+        ($type == "tvshows") ? $str = 'https://api.themoviedb.org/3/discover/tv?api_key=838ad56065a20c3380e39bdcd7c02442&language='.$lang : 0;
+
+
         if($sort != null)
         {
             ($sort == "Popularity Descending") ? $sort = 'popularity.desc' : 0;
@@ -152,41 +162,35 @@ class SearchClass
       // $token = file_get_contents('https://torrentapi.org/pubapi_v2.php?get_token=get_token');
       // dd($token);
 
-      /*  curl(-X POST --header "Content-Type: application/json" --header "Accept: application/json" --header "Authorization: Bearer 859ea2450228a5d655e3a8c2f9a5aedc30b591df" --header "Accept-Language: en" -d "{
-          \"jsonrpc\": \"2.0\",
-          \"method\": \"shows.GetById\",
-          \"params\": {
-            \"showId\": 1,
-            \"withEpisodes\": true
-          },
-          \"id\": 1
-        }"); "https://api.myshows.me/v2/rpc/");*/
 
      // $API_URL = 'https://api.myshows.me/v2/rpc/';
-     /* $params = array();
-      $params['jsonrpc'] = '2.0';
-      $params['method'] = 'shows.Top';
-      $params['params'] = array();
-      $params['params']['mode'] = 'all';
-      $params['params']['count'] = 500;
-      $data = json_encode($params);
 
-        $ch = curl_init('https://api.myshows.me/v2/rpc/');
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                'Content-Type: application/json',
-                'Content-Length: ' . strlen($data))
-        );
-        $final_result = curl_exec($ch);
-        curl_close($ch);
+        //working request to myshows api
+       /* $ch = curl_init();
 
+        curl_setopt($ch, CURLOPT_URL, "https://api.myshows.me/v2/rpc/");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "
+        {\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"shows.Top\",\n  \"params\": {\n    \"mode\": \"all\",\n    \"count\": 500\n  },\n  \"id\": 1\n\n}");
+        curl_setopt($ch, CURLOPT_POST, 1);
 
+        $headers = array();
+        $headers[] = "Content-Type: application/json";
+        $headers[] = "Accept: application/json";
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        echo "<pre>";
-        print_r($final_result);
+        $result = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+        }
+        curl_close ($ch);*/
+
+     //   $str = 'https://tv-v2.api-fetch.website/animes/page?sort=rating&order=-1&genre=all';
+      //  $result = file_get_contents($str);
+      /*  echo "<pre>";
+        print_r(json_decode($result));
         echo "<pre>";*/
+
         return (json_encode($res));
     }
 

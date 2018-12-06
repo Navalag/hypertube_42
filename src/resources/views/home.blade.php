@@ -15,7 +15,7 @@
 		<ul class="menu-items">
 			<li class="m-t-30 ">
 				<a href="#" class="detailed">
-					<span class="title">{{ __('Genres') }}</span>
+					<span class="title_aside">{{ __('Genres') }}</span>
 				</a>
 
 
@@ -212,7 +212,12 @@
 		<div class="content ">
 			<div class=" container-fluid   container-fixed-lg sm-p-l-0 sm-p-r-0">
 				<!-- START CATEGORY -->
+
 				<div class="search_field">
+					<div class="switch_buttons">
+						<button class="switch button is-active" onclick="switch_type(event);" id="movie_switch" data="movies">Movies</button>
+						<button class="switch button" onclick="switch_type(event);" id="tvshows_switch" data="tvshows">TV Shows</button>
+					</div>
 					<form method="POST" class="search_form" id="main_form">
                         <div class="sort_field">
                             <select name="sort" id="sort_select">

@@ -23,8 +23,11 @@ var storedGenres = sessionStorage.getItem('genres');
 if(storedPage == 0 || storedPage == null)
     storedPage = 1;
 var storedArr = JSON.parse(sessionStorage.getItem('arr'));
+var switcher = {data: null};
+var storedSwitcher = sessionStorage.getItem('switcher');
 
-
+console.log('switcher data', switcher.data);
+console.log('stored switcher', storedSwitcher);
 
 
 
@@ -82,7 +85,7 @@ if (response)
         });
 
         if (storedMethod == null)
-            static_load(1, null, null, null, null);
+            static_load(1, null, null, null, null, "movies");
         else if (storedMethod === "static_load" && storedArr) {
 
            //// console.log('Bitch');
@@ -129,10 +132,10 @@ if (response)
                   //  console.log("stored rate:", storedRate);
                   //  console.log("stored genres:", storedGenres);
 
-                    if(sortparam.data != null || yearsparam.data != null || rateparam != null || genresparam != null)
-                        static_load(storedPage, sortparam.data, yearsparam.data, rateparam.data, genresparam.data);
+                    if(sortparam.data != null || yearsparam.data != null || rateparam.data != null || genresparam.data != null)
+                        static_load(storedPage, sortparam.data, yearsparam.data, rateparam.data, genresparam.data, switcher.data);
                     else
-                        static_load(storedPage, storedSort, storedYears, storedRate, storedGenres);
+                        static_load(storedPage, storedSort, storedYears, storedRate, storedGenres, storedSwitcher);
                 }
                 else if (storedMethod == "live_load" || trigger.data == "live_load") {
                    //// console.log("in live_load");
@@ -187,7 +190,7 @@ if (response)
         static_load(1, null, null, null, null);
     });
 
-    function static_load(i, sort, years, rate, genres) {
+    function static_load(i, sort, years, rate, genres, type) {
         $.ajax({
             type: 'POST',
             url: baseUrl + '/',
@@ -198,7 +201,8 @@ if (response)
                     'sort': sort,
                     'years': years,
                     'rate': rate,
-                    'genres': genres
+                    'genres': genres,
+                    'type': type
                 },
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -503,25 +507,9 @@ $('.genre_direct_link').click(function (e)
         sessionStorage.setItem("genres", res);
         genresparam.data = res;
         document.getElementById("response").innerHTML = "";
-        static_load(1, null, null, null, res);
+        static_load(1, null, null, null, res, storedSwitcher);
     }
-   /* else if(target.className == "add_button")
-    {
-        var genres = target.getAttribute('data');
-        var container = document.querySelector('.chosen-choices');
-        var append_li = document.createElement('li');
-        var append_span = document.createElement('span');
-        var append_a = document.createElement('a');
-        append_a.setAttribute("class", "search-choice-close");
-        append_a.setAttribute("data-option-array-index", 5);
-        append_li.setAttribute("class", "search-choice");
-        append_span.innerHTML = genres;
-        append_li.append(append_span);
-        append_li.append(append_a);
-        container.prepend(append_li);
-        console.log(container);
-      //  console.log(genres);
-    }*/
+
 });
 /*$('.search-choice-close').click( function (e)
 {
@@ -529,3 +517,32 @@ $('.genre_direct_link').click(function (e)
     var target = e.target;
     Node.remove(target);
 });*/
+
+function switch_type(event)
+{
+    var movie_switch = document.getElementById('movie_switch');
+    var shows_switch = document.getElementById('tvshows_switch');
+    var target = event.target;
+    var type = target.getAttribute('data');
+    switcher.data = type;
+    sessionStorage.setItem("switcher", type);
+    console.log('switcher on change: ', switcher.data);
+    console.log('storedSwitcher on change: ', sessionStorage.getItem('switcher'));
+    if(target.getAttribute('id') == "movie_switch")
+    {
+        movie_switch.setAttribute("class", "button is-active");
+        shows_switch.removeAttribute("class", "is-active");
+        shows_switch.setAttribute("class", "button");
+        document.getElementById("response").innerHTML = "";
+        static_load(1, null, null, null, null, type);
+    }
+    else if(target.getAttribute('id') == "tvshows_switch")
+    {
+        shows_switch.setAttribute("class", "button is-active");
+        movie_switch.removeAttribute("class", "is-active");
+        movie_switch.setAttribute("class", "button");
+        document.getElementById("response").innerHTML = "";
+        static_load(1, null, null, null, null, type);
+
+    }
+}

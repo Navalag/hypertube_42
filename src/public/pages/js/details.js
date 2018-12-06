@@ -255,7 +255,7 @@ function get_movie_link_by_id(movie_id)
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function (response) {
-             //document.getElementById('links_response').innerHTML = response;
+           //  document.getElementById('links_response').innerHTML = response;
             var list = JSON.parse(response);
             var  len = Object.keys(list).length;
             var container = document.getElementById('links_response');
@@ -288,6 +288,7 @@ function get_movie_link_by_id(movie_id)
         }
     });
 }
+
 
 function playButton(event)
 {
