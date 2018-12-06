@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\User;
@@ -45,7 +46,7 @@ class EditUserInfo extends Controller
 			if (Hash::check($request->get('oldPass'), \Auth::user()->password)) {
 				$user->password = Hash::make($request->get('newPassword'));
 			} else {
-				return back()->withErrors('Old password is incorrect');
+				return response()->json(['errors' => ['oldPassword' => 'Old password is incorrect']], 422);
 			}
 		}
 		$user->save();

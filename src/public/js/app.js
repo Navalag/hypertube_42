@@ -3,7 +3,7 @@ $(document).ready(function() {
 		e.preventDefault();
 
 		$.post('/user/edit_profile', $('form#form-project').serialize(), function(data) {
-				// console.log(data);
+				console.log(data);
 				$('#firstName').text(data.user_info.first_name);
 				$('#lastName').text(data.user_info.last_name);
 				// success notification
@@ -17,6 +17,7 @@ $(document).ready(function() {
 		}).fail(function(response) {
 				// show error notifications
 		    var msg = '';
+		    console.log(response.responseJSON.errors);
 		    $.each(response.responseJSON.errors, function(index, item) {
 				  msg += '<p class="mr-auto overflow-ellipsis no-padding" id="alerText">'+item+'</p>'
 				});
