@@ -11,7 +11,7 @@ class SearchClass
         if ($genres != null) {
 
 
-            if($type == "movies") {
+            if ($type == "movies") {
                 $i = 0;
                 foreach ($genres as $value) {
                     ($value == "Action") ? $res[$i] = '28' : 0;
@@ -35,23 +35,24 @@ class SearchClass
                     ($value == "Western") ? $res[$i] = '37' : 0;
                     $i++;
                 }
-            }
-            else if($type == "tvshows")
-            {
+            } else if ($type == "tvshows") {
 
             }
         }
         $genres_str = null;
-        foreach ($res as $value)
-        {
-            $genres_str .= $value.',';
+        foreach ($res as $value) {
+            $genres_str .= $value . ',';
         }
         $genres_str = trim($genres_str, ',');
 
         $lang = "en-US";
 
-        ($type == "movies") ? $str = 'https://api.themoviedb.org/3/discover/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language='.$lang : 0;
-        ($type == "tvshows") ? $str = 'https://api.themoviedb.org/3/discover/tv?api_key=838ad56065a20c3380e39bdcd7c02442&language='.$lang : 0;
+        if ($type != null) {
+            ($type == "movies") ? $str = 'https://api.themoviedb.org/3/discover/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
+            ($type == "tvshows") ? $str = 'https://api.themoviedb.org/3/discover/tv?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
+        }
+        else
+            $str = 'https://api.themoviedb.org/3/discover/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang;
 
 
         if($sort != null)

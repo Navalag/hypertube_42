@@ -207,9 +207,9 @@
 	</div>
 	<!-- END HEADER -->
 	<!-- START PAGE CONTENT WRAPPER -->
-	<div class="page-content-wrapper ">
+	<div class="">
 		<!-- START PAGE CONTENT -->
-		<div class="content ">
+		<div class="">
 			<div class=" container-fluid   container-fixed-lg sm-p-l-0 sm-p-r-0">
 				<!-- START CATEGORY -->
 
@@ -303,103 +303,6 @@
 				<!-- END CATEGORY -->
 			</div>
 			<!-- START DIALOG -->
-			<div id="itemDetails" class="dialog item-details">
-				<div class="dialog__overlay"></div>
-				<div class="dialog__content">
-					<div class="container-fluid">
-						<div class="row dialog__overview">
-							<div class="col-md-7 no-padding item-slideshow-wrapper full-height">
-								<div class="item-slideshow full-height">
-									<div class="slide" data-image="assets/img/gallery/item-square.jpg">
-									</div>
-									<div class="slide" data-image="assets/img/gallery/item-square.jpg">
-									</div>
-								</div>
-							</div>
-							<div class="col-md-12 hidden-md-up bg-info-dark">
-								<div class="container-xs-height">
-									<div class="row row-xs-height">
-										<div class="col-8 col-xs-height col-middle no-padding">
-											<div class="thumbnail-wrapper d32 circular inline">
-												<img width="32" height="32" src="assets/img/profiles/2.jpg" data-src="assets/img/profiles/2.jpg" data-src-retina="assets/img/profiles/2x.jpg" alt="">
-											</div>
-											<div class="inline m-l-15">
-												<p class="text-white no-margin">Alex Nester</p>
-												<p class="hint-text text-white no-margin fs-12">Senior UI/UX designer</p>
-											</div>
-										</div>
-										<div class="col-4 col-xs-height col-middle text-right  no-padding">
-											<h2 class="bold text-white price font-montserrat">$20.00</h2>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-5 p-r-35 p-t-35 p-l-35 full-height item-description">
-								<h2 class="semi-bold no-margin font-montserrat">Happy Ninja</h2>
-								<p class="rating fs-12 m-t-5">
-									<i class="fa fa-star "></i>
-									<i class="fa fa-star "></i>
-									<i class="fa fa-star "></i>
-									<i class="fa fa-star-o"></i>
-									<i class="fa fa-star-o"></i>
-								</p>
-								<p class="fs-13">When it comes to digital design, the lines between functionality, aesthetics, and psychology are inseparably blurred. Without the constraints of the physical world, there’s no natural form to fall back on, and every bit of constraint and affordance must be introduced intentionally. Good design makes a product useful.
-								</p>
-								<div class="row m-b-20 m-t-20">
-									<div class="col-6"><span class="font-montserrat all-caps fs-11">Price ranges</span>
-									</div>
-									<div class="col-6 text-right">$20.00 - $40.00</div>
-								</div>
-								<div class="row m-t-20 m-b-10">
-									<div class="col-6"><span class="font-montserrat all-caps fs-11">Paint sizes</span>
-									</div>
-								</div>
-								<button class="btn btn-white">S</button>
-								<button class="btn btn-white">M</button>
-								<button class="btn btn-white">L</button>
-								<button class="btn btn-white">XL</button>
-								<br>
-								<button class="btn btn-primary buy-now">Buy Now</button>
-							</div>
-						</div>
-						<div class="row dialog__footer bg-info-dark hidden-sm-down">
-							<div class="col-md-7 full-height separator">
-								<div class="container-xs-height">
-									<div class="row row-xs-height">
-										<div class="col-7 col-xs-height col-middle no-padding">
-											<div class="thumbnail-wrapper d48 circular inline">
-												<img width="48" height="48" src="assets/img/profiles/2.jpg" data-src="assets/img/profiles/2.jpg" data-src-retina="assets/img/profiles/2x.jpg" alt="">
-											</div>
-											<div class="inline m-l-15">
-												<p class="text-white no-margin">Alex Nester</p>
-												<p class="hint-text text-white no-margin fs-12">Senior UI/UX designer</p>
-											</div>
-										</div>
-										<div class="col-5 col-xs-height col-middle text-right  no-padding">
-											<h2 class="bold text-white price font-montserrat">$20.00</h2>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-5 full-height">
-								<ul class="recommended list-inline pull-right m-t-10 m-b-0">
-									<li>
-										<a href="#"><img src="assets/img/gallery/thumb-1.jpg"></a>
-									</li>
-									<li>
-										<a href="#"><img src="assets/img/gallery/thumb-2.jpg"></a>
-									</li>
-									<li>
-										<a href="#"><img src="assets/img/gallery/thumb-3.jpg"></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<button class="close action top-right" data-dialog-close><i class="pg-close fs-14"></i>
-					</button>
-				</div>
-			</div>
 			<!-- END DIALOG -->
 			<div class="quickview-wrapper" id="filters">
 				<div class="padding-40 ">
@@ -437,7 +340,7 @@
 		<!-- START COPYRIGHT -->
 		<!-- START CONTAINER FLUID -->
 		<!-- START CONTAINER FLUID -->
-		<div class=" container-fluid  container-fixed-lg footer">
+		<div class="">
 			<div class="copyright sm-text-center">
 				<p class="small no-margin pull-left sm-pull-reset">
 					<span class="hint-text">2018 &copy; </span>
@@ -457,141 +360,7 @@
 <!-- END PAGE CONTAINER -->
 
 <!-- START OVERLAY -->
-<div class="overlay hide" data-pages="search">
-	<!-- BEGIN Overlay Content !-->
-	<div class="overlay-content has-results m-t-20">
-		<!-- BEGIN Overlay Header !-->
-		<div class="container-fluid">
-			<!-- BEGIN Overlay Logo !-->
-			<img class="overlay-brand" src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
-			<!-- END Overlay Logo !-->
-			<!-- BEGIN Overlay Close !-->
-			<a href="#" class="close-icon-light overlay-close text-black fs-16">
-				<i class="pg-close"></i>
-			</a>
-			<!-- END Overlay Close !-->
-		</div>
-		<!-- END Overlay Header !-->
-		<div class="container-fluid">
-			<!-- BEGIN Overlay Controls !-->
-			<br>
-			<div class="inline-block">
-				<div class="checkbox right">
-					<input id="checkboxn" type="checkbox" value="1" checked="checked">
-					<label for="checkboxn"><i class="fa fa-search"></i> Search within page</label>
-				</div>
-			</div>
-			<div class="inline-block m-l-10">
-				<p class="fs-13">Press enter to search</p>
-			</div>
-			<!-- END Overlay Controls !-->
-		</div>
-		<!-- BEGIN Overlay Search Results, This part is for demo purpose, you can add anything you like !-->
-		<div class="container-fluid">
-			<span>
-				<strong>suggestions :</strong>
-			</span>
-			<span id="overlay-suggestions"></span>
-			<br>
-			<div class="search-results m-t-40">
-				<p class="bold">Pages Search Results</p>
-				<div class="row">
-					<div class="col-md-6">
-						<!-- BEGIN Search Result Item !-->
-						<div class="">
-							<!-- BEGIN Search Result Item Thumbnail !-->
-							<div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
-								<div>
-									<img width="50" height="50" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-								</div>
-							</div>
-							<!-- END Search Result Item Thumbnail !-->
-							<div class="p-l-10 inline p-t-5">
-								<h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on pages</h5>
-								<p class="hint-text">via john smith</p>
-							</div>
-						</div>
-						<!-- END Search Result Item !-->
-						<!-- BEGIN Search Result Item !-->
-						<div class="">
-							<!-- BEGIN Search Result Item Thumbnail !-->
-							<div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
-								<div>T</div>
-							</div>
-							<!-- END Search Result Item Thumbnail !-->
-							<div class="p-l-10 inline p-t-5">
-								<h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> related topics</h5>
-								<p class="hint-text">via pages</p>
-							</div>
-						</div>
-						<!-- END Search Result Item !-->
-						<!-- BEGIN Search Result Item !-->
-						<div class="">
-							<!-- BEGIN Search Result Item Thumbnail !-->
-							<div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
-								<div><i class="fa fa-headphones large-text "></i>
-								</div>
-							</div>
-							<!-- END Search Result Item Thumbnail !-->
-							<div class="p-l-10 inline p-t-5">
-								<h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> music</h5>
-								<p class="hint-text">via pagesmix</p>
-							</div>
-						</div>
-						<!-- END Search Result Item !-->
-					</div>
-					<div class="col-md-6">
-						<!-- BEGIN Search Result Item !-->
-						<div class="">
-							<!-- BEGIN Search Result Item Thumbnail !-->
-							<div class="thumbnail-wrapper d48 circular bg-info text-white inline m-t-10">
-								<div><i class="fa fa-facebook large-text "></i>
-								</div>
-							</div>
-							<!-- END Search Result Item Thumbnail !-->
-							<div class="p-l-10 inline p-t-5">
-								<h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on facebook</h5>
-								<p class="hint-text">via facebook</p>
-							</div>
-						</div>
-						<!-- END Search Result Item !-->
-						<!-- BEGIN Search Result Item !-->
-						<div class="">
-							<!-- BEGIN Search Result Item Thumbnail !-->
-							<div class="thumbnail-wrapper d48 circular bg-complete text-white inline m-t-10">
-								<div><i class="fa fa-twitter large-text "></i>
-								</div>
-							</div>
-							<!-- END Search Result Item Thumbnail !-->
-							<div class="p-l-10 inline p-t-5">
-								<h5 class="m-b-5">Tweats on<span class="semi-bold result-name"> ice cream</span></h5>
-								<p class="hint-text">via twitter</p>
-							</div>
-						</div>
-						<!-- END Search Result Item !-->
-						<!-- BEGIN Search Result Item !-->
-						<div class="">
-							<!-- BEGIN Search Result Item Thumbnail !-->
-							<div class="thumbnail-wrapper d48 circular text-white bg-danger inline m-t-10">
-								<div><i class="fa fa-google-plus large-text "></i>
-								</div>
-							</div>
-							<!-- END Search Result Item Thumbnail !-->
-							<div class="p-l-10 inline p-t-5">
-								<h5 class="m-b-5">Circles on<span class="semi-bold result-name"> ice cream</span></h5>
-								<p class="hint-text">via google plus</p>
-							</div>
-						</div>
-						<!-- END Search Result Item !-->
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- END Overlay Search Results !-->
-	</div>
-	<!-- END Overlay Content !-->
-</div>
-<!-- END OVERLAY -->
+
 
 <!-- Modal -->
 <!-- MODAL STICK UP ALERT -->
@@ -667,7 +436,6 @@
 				                      </div>
 				                    <!-- </form> -->
 													</div>
-<<<<<<< HEAD
 													<br>
 													<p class="m-t-10">Account Information</p>
 													<div class="m-t-10">
@@ -675,7 +443,6 @@
 			                        <label class="">Email</label>
 			                        <input type="email" class="form-control" value="{{ $user_info->email }}" name="email">
 			                      </div>
-=======
 												</div>
 											</div>
 										</div>
@@ -697,7 +464,6 @@
 													<div class="form-group form-group-default">
 														<label>{{ __('New Password') }}</label>
 														<input type="password" class="form-control" name="newPassword" placeholder="Minimum of 6 Charactors">
->>>>>>> 9fe214a47d4817f5530dbad166a7d58facb1e88a
 													</div>
 													<div class="form-group-attached">
 														<div class="form-group form-group-default">

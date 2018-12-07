@@ -10,6 +10,8 @@ var page = {data: 1};
 var storedMethod = sessionStorage.getItem('method');
 var storedPage = +sessionStorage.getItem('page');
 var scrollPos = sessionStorage.getItem('scroll');
+if(scrollPos === null)
+    scrollPos = 0;
 var storedNeedle = sessionStorage.getItem('needle');
 var storedLimit = sessionStorage.getItem('limit');
 var sortparam = {data: null};
@@ -25,11 +27,12 @@ if(storedPage == 0 || storedPage == null)
 var storedArr = JSON.parse(sessionStorage.getItem('arr'));
 var switcher = {data: null};
 var storedSwitcher = sessionStorage.getItem('switcher');
-
+var movie_switch = document.getElementById('movie_switch');
+var shows_switch = document.getElementById('tvshows_switch');
 console.log('switcher data', switcher.data);
 console.log('stored switcher', storedSwitcher);
-
-
+console.log('stored method', storedMethod);
+console.log('stored arr', storedArr);
 
 //////console.log(trigger.data);
 //////console.log(baseUrl + '/registration/public/home');
@@ -47,8 +50,22 @@ var response = document.getElementById('response');
 
 function setformdata()
 {
-    if(storedSort != null || storedYears != null || storedRate != null)
+    if(storedSwitcher != null)
     {
+        if(storedSwitcher === "movies")
+        {
+            movie_switch.setAttribute("class", "button is-active");
+            shows_switch.removeAttribute("class", "is-active");
+            shows_switch.setAttribute("class", "button");
+            sessionStorage.setItem("switcher", "movies");
+        }
+        else if(storedSwitcher === "tvshows")
+        {
+            shows_switch.setAttribute("class", "button is-active");
+            movie_switch.removeAttribute("class", "is-active");
+            movie_switch.setAttribute("class", "button");
+            sessionStorage.setItem("switcher", "tvshows");
+        }
 
     }
 }
@@ -64,6 +81,8 @@ if (response)
 
     $(document).ready(function () {
 
+
+
       //  console.log("sort on ready:", sortparam.data);
       //  console.log("years on ready:", yearsparam.data);
       //  console.log("rate: on ready", rateparam.data);
@@ -73,31 +92,29 @@ if (response)
       //  console.log("stored rate on ready:", storedRate);
       //  console.log("stored genres on ready:", storedGenres);
         // observer.observe();
-        ////console.log(scrollPos);
        //// console.log(sessionStorage.getItem('scroll'));
-       // window.scrollTo(0, 5);
-       // set_formdata();
-
+        setformdata();
         $(document).ajaxStart(function () {
             $("#load_gif").show();
         }).ajaxStop(function () {
             $("#load_gif").hide();
         });
 
-        if (storedMethod == null)
+        if (storedMethod == null) {
             static_load(1, null, null, null, null, "movies");
+        }
         else if (storedMethod === "static_load" && storedArr) {
 
            //// console.log('Bitch');
             var len = Object.keys(storedArr).length;
             render(storedArr, len);
-            window.scrollTo(0, scrollPos);
+          //  window.scrollTo(0, scrollPos);
 
         }
         else if (storedMethod === "live_load" && storedArr) {
             var len = Object.keys(storedArr).length;
             render(storedArr, len);
-            window.scrollTo(0, scrollPos);
+           //  window.scrollTo(0, scrollPos);
 
         }
         //live_load(needle.data, storedPage);
@@ -106,62 +123,79 @@ if (response)
 
     var win = $(window);
 
-    win.scroll(function () {
-        var pos = win.scrollTop();
+    var scrolling = false;
 
-        sessionStorage.setItem('scroll', pos);
-
-        if ($(document).height() - win.height() == win.scrollTop()) {
-            console.log('in');
-           //// console.log("page: ", storedPage);
-           //// console.log("limit: ", storedLimit);
-           //// console.log("limit.data: ", limit.data);
-            if ((limit.data == 0 || (limit.data > 0 && storedPage < limit.data)) && storedPage < 1000) {
-                storedPage += 1;
-                // //// console.log("page in: ", storedPage);
-               //// console.log("trigger.data:", trigger.data);
-                if ((storedMethod == "static_load" && trigger.data != "live_load") || trigger.data == "static_load") {
-                    ////// console.log("in static_load");
-                    sessionStorage.setItem('page', storedPage);
-                  //  console.log("sort:", sortparam.data);
-                  //  console.log("years:", yearsparam.data);
-                  //  console.log("rate:", rateparam.data);
-                  //  console.log("genres:", genresparam.data);
-                  //  console.log("stored sort:", storedSort);
-                  //  console.log("stored years:", storedYears);
-                  //  console.log("stored rate:", storedRate);
-                  //  console.log("stored genres:", storedGenres);
-
-                    if(sortparam.data != null || yearsparam.data != null || rateparam.data != null || genresparam.data != null)
-                        static_load(storedPage, sortparam.data, yearsparam.data, rateparam.data, genresparam.data, switcher.data);
-                    else
-                        static_load(storedPage, storedSort, storedYears, storedRate, storedGenres, storedSwitcher);
-                }
-                else if (storedMethod == "live_load" || trigger.data == "live_load") {
-                   //// console.log("in live_load");
-                   //// console.log("page in live_load: ", storedPage);
-                   //// console.log("storedNeedle :", storedNeedle);
-                   //// console.log("needle.data: ", needle.data);
-                    sessionStorage.setItem('page', storedPage);
-                    if (needle.data == '' && storedNeedle != null)
-                        live_load(storedNeedle, storedPage);
-                    else if (storedNeedle == null && needle.data != '')
-                        live_load(needle.data, storedPage);
-                }
-            }
-            // render(i);
+    $( window ).scroll( function() {
+        if(win.scrollTop() < 2)
+        {
+            window.scrollTo(0, 3);
         }
+        scrolling = true;
     });
+
+    setInterval( function() {
+        if ( scrolling ) {
+            scrolling = false;
+            // Do your thang!
+
+            if ($(document).height() - win.height() == win.scrollTop()) {
+
+                console.log('inscroll');
+                //// console.log("page: ", storedPage);
+                //// console.log("limit: ", storedLimit);
+                //// console.log("limit.data: ", limit.data);
+                if ((limit.data == 0 || (limit.data > 0 && storedPage < limit.data)) && storedPage < 1000) {
+                    storedPage += 1;
+                    // //// console.log("page in: ", storedPage);
+                    //// console.log("trigger.data:", trigger.data);
+                    if ((storedMethod == "static_load" && trigger.data != "live_load") || trigger.data == "static_load") {
+                        ////// console.log("in static_load");
+                        sessionStorage.setItem('page', storedPage);
+                        //  console.log("sort:", sortparam.data);
+                        //  console.log("years:", yearsparam.data);
+                        //  console.log("rate:", rateparam.data);
+                        //  console.log("genres:", genresparam.data);
+                        //  console.log("stored sort:", storedSort);
+                        //  console.log("stored years:", storedYears);
+                        //  console.log("stored rate:", storedRate);
+                        //  console.log("stored genres:", storedGenres);
+
+                        if (sortparam.data != null || yearsparam.data != null || rateparam.data != null || genresparam.data != null || switcher.data != null) {
+                            static_load(storedPage, sortparam.data, yearsparam.data, rateparam.data, genresparam.data, switcher.data);
+                        }
+                        else
+                        {
+                            static_load(storedPage, storedSort, storedYears, storedRate, storedGenres, storedSwitcher);
+                        }
+                    }
+                    else if (storedMethod == "live_load" || trigger.data == "live_load") {
+                        //// console.log("in live_load");
+                        //// console.log("page in live_load: ", storedPage);
+                        //// console.log("storedNeedle :", storedNeedle);
+                        //// console.log("needle.data: ", needle.data);
+                        sessionStorage.setItem('page', storedPage);
+                        if (needle.data == '' && storedNeedle != null)
+                            live_load(storedNeedle, storedPage);
+                        else if (storedNeedle == null && needle.data != '')
+                            live_load(needle.data, storedPage);
+                    }
+                }
+                // render(i);
+            }
+        }
+    }, 750 );
+
 
 
     function reset()
     {
         sessionStorage.clear();
         sessionStorage.removeItem('method');
+        sessionStorage.removeItem('switcher');
         storedMethod = null;
         storedPage = 1;
         //scrollPos = 5;
-        sessionStorage.setItem('scroll', 5);
+        sessionStorage.setItem('scroll', 0);
         storedNeedle = null;
         storedLimit = null;
         limit.data = 0;
@@ -173,6 +207,7 @@ if (response)
         storedYears = null;
         storedRate = null;
         storedGenres = null;
+
     }
 
     $('#reset_button').click(function () {
@@ -187,7 +222,9 @@ if (response)
        //// console.log("limit: ", storedLimit);
        //// console.log("limit.data in reset: ", limit.data);
         document.getElementById("response").innerHTML = "";
-        static_load(1, null, null, null, null);
+        (switcher.data != null) ?  static_load(1, null, null, null, null, switcher.data) : 0;
+        (switcher.data == null) ?  static_load(1, null, null, null, null, storedSwitcher) : 0;
+
     });
 
     function static_load(i, sort, years, rate, genres, type) {
@@ -222,7 +259,8 @@ if (response)
                 trigger.data = "static_load";
                 sessionStorage.setItem('method', 'static_load');
                 sessionArr = sessionStorage.getItem('arr');
-                if (sessionArr) {
+                console.log('type: ' ,type);
+                if (sessionArr && (switcher.data === type || storedSwitcher === type)) {
                     var arr1 = JSON.parse(sessionArr);
                     // //// console.log(arr1);
                     var arr2 = arr1.concat(list.results);
@@ -418,7 +456,7 @@ if (response)
                 storedArr = null;
                 storedMethod = null;
                 storedPage = 1;
-                scrollPos = null;
+                //scrollPos = null;
                 storedNeedle = null;
                 storedLimit = null;
                 limit.data = 0;
@@ -520,8 +558,7 @@ $('.genre_direct_link').click(function (e)
 
 function switch_type(event)
 {
-    var movie_switch = document.getElementById('movie_switch');
-    var shows_switch = document.getElementById('tvshows_switch');
+
     var target = event.target;
     var type = target.getAttribute('data');
     switcher.data = type;
@@ -534,6 +571,7 @@ function switch_type(event)
         shows_switch.removeAttribute("class", "is-active");
         shows_switch.setAttribute("class", "button");
         document.getElementById("response").innerHTML = "";
+        sessionStorage.removeItem('arr');
         static_load(1, null, null, null, null, type);
     }
     else if(target.getAttribute('id') == "tvshows_switch")
@@ -541,6 +579,7 @@ function switch_type(event)
         shows_switch.setAttribute("class", "button is-active");
         movie_switch.removeAttribute("class", "is-active");
         movie_switch.setAttribute("class", "button");
+        sessionStorage.removeItem('arr');
         document.getElementById("response").innerHTML = "";
         static_load(1, null, null, null, null, type);
 
