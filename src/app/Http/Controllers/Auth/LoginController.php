@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Socialite;
+use App\User;
+
 
 class LoginController extends Controller
 {
@@ -68,8 +70,32 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('github')->user();
+        $user = $this->findOrCreateGitHubUser(
+            Socialite::driver('github')->user()
+        );
+        auth()->login($user);
+        return redirect('/');
+    }
 
-        dd($user->token);
+    /**
+     * Fetch the GitHub user.
+     *
+     * @param  object $githubUser
+     * @return \App\User
+     */
+    protected function findOrCreateGitHubUser($githubUser)
+    {
+        // dd($githubUser);
+        $user = User::firstOrNew(['oauth_id' => $githubUser->id]);
+        if ($user->exists) return $user;
+        
+        $user->fill([
+            'username'  => $githubUser->nickname,
+            'first_name'  => $githubUser->name,
+            'email'     => $githubUser->email,
+            'photo_src' => $githubUser->avatar,
+            'email_verified_at' => date("Y-m-d H:i:s"),
+        ])->save();
+        return $user;
     }
 }
