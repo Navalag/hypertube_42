@@ -736,19 +736,19 @@
         this.initFormGroupDefault();
         this.initSlidingTabs();
         this.initNotificationCenter();
- //       this.initProgressBars();
+        this.initProgressBars();
         this.initHorizontalMenu();
         // init plugins
         this.initTooltipPlugin();
         this.initSelect2Plugin();
-    //    this.initScrollBarPlugin();
+        this.initScrollBarPlugin();
         this.initSwitcheryPlugin();
         this.initSelectFxPlugin();
         this.initUnveilPlugin();
         this.initValidatorPlugin();
         this.initListView();
         this.initInputFile();
-      //  this.reponsiveTabs();
+        this.reponsiveTabs();
         this.secondarySidebar();
     }
 

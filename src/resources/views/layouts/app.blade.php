@@ -53,13 +53,13 @@
 		@yield('content')
 
 		<!-- BEGIN VENDOR JS -->
-		<!--<script src="{{ asset('assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script>-->
+		<script src="{{ asset('assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/jquery/jquery-1.11.1.min.js') }}" type="text/javascript"></script>
-	<!--	<script src="{{ asset('assets/plugins/modernizr.custom.js') }}" type="text/javascript"></script>-->
+		<script src="{{ asset('assets/plugins/modernizr.custom.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.js') }}" type="text/javascript"></script>
-	<!--	<script src="{{ asset('assets/plugins/tether/js/tether.min.js') }}" type="text/javascript"></script>-->
-		<!--<script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>-->
-		<!--<script src="{{ asset('assets/plugins/jquery/jquery-easy.js') }}" type="text/javascript"></script>-->
+		<script src="{{ asset('assets/plugins/tether/js/tether.min.js') }}" type="text/javascript"></script>
+	<!--	<script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>-->
+		<script src="{{ asset('assets/plugins/jquery/jquery-easy.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/jquery-unveil/jquery.unveil.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/jquery-ios-list/jquery.ioslist.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/jquery-actual/jquery.actual.min.js') }}"></script>
@@ -70,15 +70,15 @@
 		<script src="{{ asset('assets/plugins/jquery-metrojs/MetroJs.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
 		<script src="{{ asset('assets/plugins/jquery-isotope/isotope.pkgd.min.js') }}" type="text/javascript"></script>
-		<!--<script src="{{ asset('assets/plugins/codrops-dialogFx/dialogFx.js') }}" type="text/javascript"></script>-->
-	<!--	<script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.min.js') }}" type="text/javascript"></script>-->
+		<script src="{{ asset('assets/plugins/codrops-dialogFx/dialogFx.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/jquery-nouislider/jquery.liblink.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('assets/plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
 		<!-- <script src="{{ asset('assets/plugins/dropzone/dropzone.min.js') }}" type="text/javascript"></script> -->
 		<!-- END VENDOR JS -->
 		<!-- BEGIN CORE TEMPLATE JS -->
-	<!--	<script src="{{ asset('pages/js/pages.js') }}"></script>-->
+		<script src="{{ asset('pages/js/pages.js') }}"></script>
 		<!-- END CORE TEMPLATE JS -->
 		<!-- BEGIN PAGE LEVEL JS -->
 
