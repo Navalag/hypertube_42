@@ -78,6 +78,30 @@ class LoginController extends Controller
     }
 
     /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function redirectToProviderGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallbackGoogle()
+    {
+        $user = $this->findOrCreateGitHubUser(
+            Socialite::driver('google')->user()
+        );
+        auth()->login($user);
+        return redirect('/');
+    }
+
+    /**
      * Fetch the GitHub user.
      *
      * @param  object $githubUser
@@ -90,7 +114,7 @@ class LoginController extends Controller
         if ($user->exists) return $user;
         
         $user->fill([
-            'username'  => $githubUser->nickname,
+            'username'  => $githubUser->nickname == null ? 'test' : $githubUser->nickname,
             'first_name'  => $githubUser->name,
             'email'     => $githubUser->email,
             'photo_src' => $githubUser->avatar,

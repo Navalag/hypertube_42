@@ -32,7 +32,12 @@ Route::group(['middleware' => ['language']], function () {
 });
 
 /*
-** OAuth routes
+** OAuth routes [GitHub]
 */
 Route::get('login/github', 'Auth\LoginController@redirectToProvider');
 Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
+/*
+** OAuth routes [Google+]
+*/
+Route::get('login/google', 'Auth\LoginController@redirectToProviderGoogle');
+Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallbackGoogle');

@@ -91,6 +91,7 @@ window.onload = function()
 			</form>
 
 			<a href="login/github" class="m-t-10 m-b-30">GitHub</a>
+			<a href="login/google" class="m-t-10 m-b-30">Google+</a>
 			<button class="btn btn-block btn-info" type="button">
 				<span class="pull-left"><i class="fa fa-facebook"></i></span>
 				<span class="bold">{{ __('Login with Facebook') }}</span>
