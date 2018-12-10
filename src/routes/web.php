@@ -41,3 +41,9 @@ Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback
 */
 Route::get('login/google', 'Auth\LoginController@redirectToProviderGoogle');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallbackGoogle');
+
+/*
+** OAuth routes [42]
+*/
+Route::get('login/42', 'Auth\LoginController@redirectToProvider42');
+Route::get('login/42/callback', 'Auth\LoginController@handleProviderCallback42');
