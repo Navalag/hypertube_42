@@ -120,74 +120,94 @@ class LoginController extends Controller
      */
     public function handleProviderCallback42(Request $request)
     {
-        if ($request->get('code')) {
-            $code = $request->get('code');
+        $code = $request->get('code');
 
-            $data1 = [
-                'grant_type' => 'authorization_code',
-                'client_id' => 'd09541ef67f0d52638c2e89899f79c6165b57e1fea5e032d386a673ce9913c7d',
-                'client_secret' => '3af5c01251f5ada3ce59b84b15aab884f83f12d5058219d99329afe242e21830',
-                'code' => $code,
-                'redirect_uri' => 'http://hypertube42.com/login/42/callback'
-            ];
+        $data1 = [
+            'grant_type' => 'authorization_code',
+            'client_id' => 'd09541ef67f0d52638c2e89899f79c6165b57e1fea5e032d386a673ce9913c7d',
+            'client_secret' => '3af5c01251f5ada3ce59b84b15aab884f83f12d5058219d99329afe242e21830',
+            'code' => $code,
+            'redirect_uri' => 'http://hypertube42.com/login/42/callback'
+        ];
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.intra.42.fr/oauth/token",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30000,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => json_encode($data1),
+            CURLOPT_HTTPHEADER => array(
+                "accept: */*",
+                "accept-language: en-US,en;q=0.8",
+                "content-type: application/json",
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            dd("cURL Error #:" . $err);
+        } else {
+            $data = json_decode($response);
+            // dd($data->access_token);
 
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-                CURLOPT_URL => "https://api.intra.42.fr/oauth/token",
+                CURLOPT_URL => "https://api.intra.42.fr/v2/me",
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => "",
-                CURLOPT_MAXREDIRS => 10,
                 CURLOPT_TIMEOUT => 30000,
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "POST",
-                CURLOPT_POSTFIELDS => json_encode($data1),
+                CURLOPT_CUSTOMREQUEST => "GET",
                 CURLOPT_HTTPHEADER => array(
-                    // Set here requred headers
-                    "accept: */*",
-                    "accept-language: en-US,en;q=0.8",
-                    "content-type: application/json",
+                    'Content-Type: application/json',
+                    'Authorization: Bearer '.$data->access_token,
                 ),
             ));
-
             $response = curl_exec($curl);
             $err = curl_error($curl);
-
             curl_close($curl);
 
             if ($err) {
-                dd("cURL Error #:" . $err);
+                echo "cURL Error #:" . $err;
             } else {
                 $data = json_decode($response);
-                // dd($data->access_token);
+                $user_id = $data->id;
+                $username = $data->login;
+                $first_name = $data->first_name;
+                $last_name = $data->last_name;
+                $email = $data->email;
+                $photo_src = $data->image_url;
 
-                $curl = curl_init();
 
-                curl_setopt_array($curl, array(
-                    CURLOPT_URL => "https://api.intra.42.fr/v2/me",
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_ENCODING => "",
-                    CURLOPT_TIMEOUT => 30000,
-                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                    CURLOPT_CUSTOMREQUEST => "GET",
-                    CURLOPT_HTTPHEADER => array(
-                        // Set Here Your Requesred Headers
-                        'Content-Type: application/json',
-                        'Authorization: Bearer '.$data->access_token,
-                    ),
-                ));
-                $response = curl_exec($curl);
-                $err = curl_error($curl);
-                curl_close($curl);
-
-                if ($err) {
-                    echo "cURL Error #:" . $err;
-                } else {
-                    dd(json_decode($response));
+                $user = User::firstOrNew(['oauth_id' => $user_id]);
+                if ($user->exists) {
+                    auth()->login($user);
+                    return redirect('/');
                 }
+                
+                $user->fill([
+                    'username'  => $username,
+                    'first_name'  => $first_name,
+                    'last_name'  => $last_name,
+                    'email'     => $email,
+                    'photo_src' => $photo_src,
+                    'email_verified_at' => date("Y-m-d H:i:s"),
+                ])->save();
+                
+                auth()->login($user);
+                return redirect('/');
+                // dd($user_id, $username, $first_name, $last_name, $email, $photo_src);
             }
-        } else {
-            dd($request->get('access_token'));
         }
         
         // dd($code);
