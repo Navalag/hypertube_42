@@ -30,7 +30,8 @@ window.onload = function()
 	<!-- START Login Right Container-->
 	<div class="login-container bg-white">
 		<div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
-			<img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
+			<!-- <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22"> -->
+			<h2 class="logo"><b>HyperTube</b><i class="logo-fa fas fa-play-circle"></i></h1>
 			<p class="p-t-35">{{ __('Sign in to see all the movies on this planet') }}</p>
 			<!-- START Login Form -->
 			<form class="p-t-15" role="form" method="POST" action="{{ route('setLanguage') }}">
@@ -83,21 +84,15 @@ window.onload = function()
 					<div class="col-md-4">
 						<button class="btn btn-primary btn-cons m-t-10 m-b-30" type="submit">{{ __('Sign in') }}</button>
 					</div>
-					<!-- <div class="col-md-6"> -->
-						<span class="m-t-15 m-l-15"> {{ __('or') }} <a href="/register">{{ __('Register') }}</a></span>
-					<!-- </div> -->
+					<span class="m-t-15 m-l-15"> {{ __('or') }} <a href="/register">{{ __('Register') }}</a></span>
 				</div>
-				<!-- <button class="btn btn-primary btn-cons m-t-10 m-b-30" type="submit">Sign in</button> -->
 			</form>
 
-			<!-- <a href="login/github" class="m-t-10 m-b-30">GitHub</a>
-			<a href="login/google" class="m-t-10 m-b-30">Google</a>
-			<a href="login/42" class="m-t-10 m-b-30">42 Intranet</a> -->
 			<button class="btn btn-block btn-info" type="button" onclick="location.href='login/github'">
 				<span class="pull-left"><i class="fab fa-github-alt"></i></span>
 				<span class="bold">{{ __('Login with') }} GitHub</span>
 			</button>
-			<button class="btn btn-block btn-primary" type="button" onclick="location.href='login/42'">
+			<button class="btn btn-block btn-success" type="button" onclick="location.href='login/42'">
 				<span class="pull-left"><img src="{{ asset('assets/img/42-logo.svg') }}" style="width: 17px;"></span>
 				<span class="bold">{{ __('Login with') }} 42 Intranet</span>
 			</button>

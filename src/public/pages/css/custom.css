@@ -1,8 +1,27 @@
 /*
-
 * Override Pages default styles or create your own styles here
-
 */
+
+/*  --  Logo styles  --  */
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+    margin: 0;
+}
+.logo.white {
+    color: white;
+    padding: 7px 0;
+}
+.logo-fa {
+    padding-left: 5px;
+}
+.header .brand {
+    vertical-align: middle;
+    width: 337px;
+    text-align: center;
+}
+/*  --  End logo styles  --  */
+
 .super_wrapper
 {
     display: flex;
