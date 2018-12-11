@@ -16,7 +16,6 @@ Route::group(['middleware' => ['auth.language']], function () {
 	Route::post('/set_locale', 'Auth\LoginController@setLanguage')->name('setLanguage');
 });
 
-
 Route::group(['middleware' => ['language']], function () {
 
     Route::get('/', 'HomeController@index')->name('home');
@@ -32,18 +31,7 @@ Route::group(['middleware' => ['language']], function () {
 });
 
 /*
-** OAuth routes [GitHub]
+** OAuth routes
 */
-Route::get('login/github', 'Auth\LoginController@redirectToProvider');
-Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
-/*
-** OAuth routes [Google+]
-*/
-Route::get('login/google', 'Auth\LoginController@redirectToProviderGoogle');
-Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallbackGoogle');
-
-/*
-** OAuth routes [42]
-*/
-Route::get('login/42', 'Auth\LoginController@redirectToProvider42');
-Route::get('login/42/callback', 'Auth\LoginController@handleProviderCallback42');
+Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
