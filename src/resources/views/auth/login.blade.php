@@ -92,7 +92,7 @@ window.onload = function()
 
 			<a href="login/github" class="m-t-10 m-b-30">GitHub</a>
 			<a href="login/google" class="m-t-10 m-b-30">Google+</a>
-			<a href="login/42" class="m-t-10 m-b-30">42</a>
+			<a href="login/42" class="m-t-10 m-b-30">42 Intranet</a>
 			<button class="btn btn-block btn-info" type="button">
 				<span class="pull-left"><i class="fa fa-facebook"></i></span>
 				<span class="bold">{{ __('Login with Facebook') }}</span>

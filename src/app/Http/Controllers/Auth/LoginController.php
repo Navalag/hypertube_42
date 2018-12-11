@@ -110,7 +110,8 @@ class LoginController extends Controller
      */
     public function redirectToProvider42()
     {
-        return redirect('https://api.intra.42.fr/oauth/authorize?client_id=d09541ef67f0d52638c2e89899f79c6165b57e1fea5e032d386a673ce9913c7d&redirect_uri=http%3A%2F%2Fhypertube42.com%2Flogin%2F42%2Fcallback&response_type=code');
+        // return redirect('https://api.intra.42.fr/oauth/authorize?client_id=d09541ef67f0d52638c2e89899f79c6165b57e1fea5e032d386a673ce9913c7d&redirect_uri=http%3A%2F%2Fhypertube42.com%2Flogin%2F42%2Fcallback&response_type=code');
+        return redirect('https://api.intra.42.fr/oauth/authorize?client_id=f1e8125dbb7b24fe051543f88b5eda52abfd5e2707a93a1954d11fcf6761171a&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Flogin%2F42%2Fcallback&response_type=code');
     }
 
     /**
@@ -124,10 +125,13 @@ class LoginController extends Controller
 
         $data1 = [
             'grant_type' => 'authorization_code',
-            'client_id' => 'd09541ef67f0d52638c2e89899f79c6165b57e1fea5e032d386a673ce9913c7d',
-            'client_secret' => '3af5c01251f5ada3ce59b84b15aab884f83f12d5058219d99329afe242e21830',
+            // 'client_id' => 'd09541ef67f0d52638c2e89899f79c6165b57e1fea5e032d386a673ce9913c7d',
+            'client_id' => 'f1e8125dbb7b24fe051543f88b5eda52abfd5e2707a93a1954d11fcf6761171a',
+            // 'client_secret' => '3af5c01251f5ada3ce59b84b15aab884f83f12d5058219d99329afe242e21830',
+            'client_secret' => 'a57bed67bd260c777fb5c19a5a78ae7e75a0d1f2ca6c7c670e1acefb5046edd3',
             'code' => $code,
-            'redirect_uri' => 'http://hypertube42.com/login/42/callback'
+            // 'redirect_uri' => 'http://hypertube42.com/login/42/callback',
+            'redirect_uri' => 'http://127.0.0.1:8000/login/42/callback'
         ];
 
         $curl = curl_init();
@@ -157,7 +161,6 @@ class LoginController extends Controller
             dd("cURL Error #:" . $err);
         } else {
             $data = json_decode($response);
-            // dd($data->access_token);
 
             $curl = curl_init();
 
@@ -206,35 +209,8 @@ class LoginController extends Controller
                 
                 auth()->login($user);
                 return redirect('/');
-                // dd($user_id, $username, $first_name, $last_name, $email, $photo_src);
             }
         }
-        
-        // dd($code);
-
-        // $endpoint = "https://api.intra.42.fr/oauth/token";
-        // $client = new Client();
-
-        // $response = $client->request('POST', 'https://api.intra.42.fr/oauth/token', ['form_params' => [
-        //     'grant_type' => 'authorization_code', 
-        //     'client_id' => 'd09541ef67f0d52638c2e89899f79c6165b57e1fea5e032d386a673ce9913c7d',
-        //     'client_secret' => '3af5c01251f5ada3ce59b84b15aab884f83f12d5058219d99329afe242e21830',
-        //     'code' => $code,
-        //     'redirect_uri' => 'http://hypertube42.com/login/42/callback'
-        // ]]);
-
-        
-        // dd($data1);
-
-        
-
-        // $client = new Client(['headers' => ['Authorization: Bearer' => '59a4c9dc8c725e00991b527aa928e3210fa171f32c39787136d79fb2b5ad08ad']]);
-
-        // $response = $client->request('GET', 'https://api.intra.42.fr/v2/me');
-
-        // $statusCode = $response->getStatusCode();
-        // $content = $response->getBody();
-        // dd($response, $content);
 
         return redirect('/');
     }
