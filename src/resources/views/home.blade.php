@@ -12,134 +12,231 @@
 	<!-- START SIDEBAR MENU -->
 	<div class="sidebar-menu">
 		<!-- BEGIN SIDEBAR MENU ITEMS-->
-		<ul class="menu-items">
+		<ul class="menu-items movie-list" id="movies_list">
 			<li class="m-t-30 ">
 				<a href="#" class="detailed">
 					<span class="title_aside">{{ __('Genres') }}</span>
 				</a>
-
-
-
 				<span class="bg-success icon-thumbnail"><i class="fas fa-film"></i></span>
 			</li>
-			<li class="">
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link" >
 					<span class="title_aside" data="Action">{{ __('Action') }}</span>
 					<!--<button class="add_button" data="Action">+</button>-->
 				</a>
 				<span class="icon-thumbnail"><i class="pg-mail"></i></span>
 			</li>
-			<li class="">
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="Adventure">{{ __('Adventure') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-social"></i></span>
 			</li>
-			<li>
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="Animation">{{ __('Animation') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-calender"></i></span>
 			</li>
-			<li class="">
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="Comedy">{{ __('Comedy') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-layouts"></i></span>
 			</li>
-			<li>
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="Crime">{{ __('Crime') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-layouts2"></i></span>
 			</li>
-			<li>
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="Documentary">{{ __('Documentary') }}</span>
 				</a>
 				<span class="icon-thumbnail">Ui</span>
 			</li>
-			<li>
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="Drama">{{ __('Drama') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-form"></i></span>
 
 			</li>
-			<li class="">
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="Family">{{ __('Family') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
-			<li class="">
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="Fantasy">{{ __('Fantasy') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
-			<li class="">
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="History">{{ __('History') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
-			<li class="">
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="Horror">{{ __('Horror') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
-			<li class="">
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="Music">{{ __('Music') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
-			<li class="">
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
-				<span class="title_aside" data="Mystery">{{ __('Mystery') }}</span>
+					<span class="title_aside" data="Mystery">{{ __('Mystery') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
-			<li class="">
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
-				<span class="title_aside" data="Romance">{{ __('Romance') }}</span>
+					<span class="title_aside" data="Romance">{{ __('Romance') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
-			<li class="">
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="Science Fiction">{{ __('Science Fiction') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
-			<li class="">
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="TV movie">{{ __('TV movie') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
-			<li class="">
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="Thriller">{{ __('Thriller') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
-			<li class="">
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="War">{{ __('War') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
-			<li class="">
+			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="Western">{{ __('Western') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
+			<li class="tv_genre">
+				<a href="" class="genre_direct_link" >
+					<span class="title_aside" data="Action">{{ __('Action & Adventure') }}</span>
+					<!--<button class="add_button" data="Action">+</button>-->
+				</a>
+				<span class="icon-thumbnail"><i class="pg-mail"></i></span>
+			</li>
+			<li class="tv_genre">
+				<a href="" class="genre_direct_link">
+					<span class="title_aside" data="Adventure">{{ __('Animation') }}</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-social"></i></span>
+			</li>
+			<li class="tv_genre">
+				<a href="" class="genre_direct_link">
+					<span class="title_aside" data="Animation">{{ __('Comedy') }}</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-calender"></i></span>
+			</li>
+			<li class="tv_genre">
+				<a href="" class="genre_direct_link">
+					<span class="title_aside" data="Comedy">{{ __('Crime') }}</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-layouts"></i></span>
+			</li>
+			<li class="tv_genre">
+				<a href="" class="genre_direct_link">
+					<span class="title_aside" data="Crime">{{ __('Documentary') }}</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-layouts2"></i></span>
+			</li>
+			<li class="tv_genre">
+				<a href="" class="genre_direct_link">
+					<span class="title_aside" data="Documentary">{{ __('Drama') }}</span>
+				</a>
+				<span class="icon-thumbnail">Ui</span>
+			</li>
+			<li class="tv_genre">
+				<a href="" class="genre_direct_link">
+					<span class="title_aside" data="Drama">{{ __('Family') }}</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-form"></i></span>
+
+			</li>
+			<li class="tv_genre">
+				<a href="" class="genre_direct_link">
+					<span class="title_aside" data="Family">{{ __('Kids') }}</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
+			</li>
+			<li class="tv_genre">
+				<a href="" class="genre_direct_link">
+					<span class="title_aside" data="Fantasy">{{ __('Mystery') }}</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
+			</li>
+			<li class="tv_genre">
+				<a href="" class="genre_direct_link">
+					<span class="title_aside" data="History">{{ __('News') }}</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
+			</li>
+			<li class="tv_genre">
+				<a href="" class="genre_direct_link">
+					<span class="title_aside" data="Horror">{{ __('Reality') }}</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
+			</li>
+			<li class="tv_genre">
+				<a href="" class="genre_direct_link">
+					<span class="title_aside" data="Music">{{ __('Sci-Fi & Fantasy') }}</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
+			</li>
+			<li class="tv_genre">
+				<a href="" class="genre_direct_link">
+					<span class="title_aside" data="Mystery">{{ __('Soap') }}</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
+			</li>
+			<li class="tv_genre">
+				<a href="" class="genre_direct_link">
+					<span class="title_aside" data="Romance">{{ __('Talk') }}</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
+			</li>
+			<li class="tv_genre">
+				<a href="" class="genre_direct_link">
+					<span class="title_aside" data="Science Fiction">{{ __('War & Politics') }}</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
+			</li>
+			<li class="tv_genre">
+				<a href="" class="genre_direct_link">
+					<span class="title_aside" data="TV movie">{{ __('Western') }}</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
+			</li>
 
 		</ul>
+		<!--TV shosw-->
+
 		<div class="clearfix"></div>
 	</div>
 	<!-- END SIDEBAR MENU -->
@@ -151,24 +248,21 @@
 	<!-- START HEADER -->
 	<div class="header ">
 		<!-- START MOBILE SIDEBAR TOGGLE -->
-		<a href="#" class="btn-link toggle-sidebar hidden-lg-up pg pg-menu" data-toggle="sidebar">
-		</a>
+		<a href="#" class="btn-link toggle-sidebar hidden-lg-up pg pg-menu" data-toggle="sidebar"></a>
 		<!-- END MOBILE SIDEBAR TOGGLE -->
 		<div class="">
 			<div class="brand inline">
 				<!-- <h3>HyperTube 42</h3> -->
 				<img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
 			</div>
-			<!-- START NOTIFICATION LIST -->
-			<!-- END NOTIFICATIONS LIST -->
 		</div>
 		<div class="live_load_container">
-		<input id="live_search_input" type="text" name="live_search" placeholder="{{ __('Type here to search...') }}" value="" class="live_search" autocomplete="on">
+			<input id="live_search_input" type="text" name="live_search" placeholder="{{ __('Type here to search...') }}" value="" class="live_search" autocomplete="on">
 			<button id="reset_button">{{ __('search') }}</button>
 		</div>
 		<div class="d-flex align-items-center">
 			<!-- START User Info-->
-		<div class="dropdown dropdown-default m-r-20">
+			<div class="dropdown dropdown-default m-r-20">
         <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{Session::get('locale')=='ua' ? 'Українська' : 'English'}}
         </button>
@@ -178,50 +272,46 @@
         </div>
       </div>
 			<div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
-				<span class="semi-bold">David</span> <span class="text-master">Nest</span>
+				<span class="semi-bold" id="firstName">{{ $user_info->first_name }}</span> <span class="text-master" id="lastName">{{ $user_info->last_name }}</span>
 			</div>
 			<div class="dropdown pull-right hidden-md-down">
-				<button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<button class="profile-dropdown-toggle p-r-15">
 					<span class="thumbnail-wrapper d32 circular inline">
-					<img src="assets/img/profiles/avatar.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
+					<img id="avatar" src="{{ $user_info->photo_src }}" alt="" data-src="{{ $user_info->photo_src }}" data-src-retina="{{ $user_info->photo_src }}" width="32" height="32">
 					</span>
 				</button>
-				<div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-					<a href="#" class="dropdown-item" data-target="#modalSlideLeft" data-toggle="modal"><i class="pg-settings_small"></i> Settings</a>
-					<a href="#" class="dropdown-item"><i class="pg-outdent"></i> Feedback</a>
-					<a href="#" class="dropdown-item"><i class="pg-signals"></i> Help</a>
-					<a href="{{ route('logout') }}" onclick="event.preventDefault();
-													 document.getElementById('logout-form').submit();" class="clearfix bg-master-lighter dropdown-item">
+			</div>
+			<ul class="hidden-md-down notification-list no-margin hidden-sm-down b-grey b-l b-r no-style p-l-10 p-r-10">
+				<li class="p-r-10 inline">
+					<a href="#" class="header-icon pg pg-settings" data-target="#modalSlideLeft" data-toggle="modal"></a>
+				</li>
+				<li class="inline">
+					<a class="header-icon pg pg-power" href="{{ route('logout') }}" onclick="event.preventDefault();
+													 document.getElementById('logout-form').submit();" class="clearfix">
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 							@csrf
 						</form>
-						<span class="pull-left">Logout</span>
-						<span class="pull-right"><i class="pg-power"></i></span>
 					</a>
-				</div>
-			</div>
-			<!-- END User Info-->
-			 <a href="#" class="header-icon pg pg-alt_menu btn-link m-l-10 sm-no-margin d-inline-block"></a><!--data-toggle="quickview" data-toggle-element="#quickview" -->
+				</li>
+			</ul>
 		</div>
-
 	</div>
 	<!-- END HEADER -->
 	<!-- START PAGE CONTENT WRAPPER -->
-	<div class="">
+	<div class="page-content-wrapper ">
 		<!-- START PAGE CONTENT -->
-		<div class="">
-			<div class=" container-fluid   container-fixed-lg sm-p-l-0 sm-p-r-0">
+		<div class="content ">
+			<div class=" container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
 				<!-- START CATEGORY -->
-
 				<div class="search_field">
 					<div class="switch_buttons">
 						<button class="switch button is-active" onclick="switch_type(event);" id="movie_switch" data="movies">Movies</button>
 						<button class="switch button" onclick="switch_type(event);" id="tvshows_switch" data="tvshows">TV Shows</button>
 					</div>
 					<form method="POST" class="search_form" id="main_form">
-                        <div class="sort_field">
-                            <select name="sort" id="sort_select">
-                            	<option>{{ __('none') }}</option>
+						<div class="sort_field">
+							<select name="sort" id="sort_select">
+								<option>{{ __('none') }}</option>
 								<option>{{ __('Title Ascending') }}</option>
 								<option>{{ __('Title Descending') }}</option>
 								<option>{{ __('Rating Ascending') }}</option>
@@ -232,22 +322,19 @@
 								<option>{{ __('Release Date Descending') }}</option>
 								<option>{{ __('Revenue Ascending') }}</option>
 								<option>{{ __('Revenue Descending') }}</option>
-                            </select>
-                        </div>
-                        <div class="gap_field">
-
-                            <input  name="year_gap" id="year_gap">
-                            <div class = "slider-range_wrapper" id="slider-range_year"></div>
-                        </div>
-                        <div class="gap_field">
-
-                            <input  name="rate_gap" id="rate_gap">
-                            <div class = "slider-range_wrapper" id="slider-range_rate"></div>
-
-                        </div>
-                        <div class="genres_field">
+							</select>
+						</div>
+						<div class="gap_field">
+							<input  name="year_gap" id="year_gap">
+							<div class="slider-range_wrapper" id="slider-range_year"></div>
+						</div>
+						<div class="gap_field">
+							<input  name="rate_gap" id="rate_gap">
+							<div class = "slider-range_wrapper" id="slider-range_rate"></div>
+						</div>
+						<div class="genres_field">
 							<select multiple class="chosen-select" name="genre" id="genre_select">
-							<option>{{ __('Action') }}</option>
+								<option>{{ __('Action') }}</option>
 								<option>{{ __('Adventure') }}</option>
 								<option>{{ __('Animation') }}</option>
 								<option>{{ __('Comedy') }}</option>
@@ -267,100 +354,42 @@
 								<option>{{ __('War') }}</option>
 								<option>{{ __('Western') }}</option>
 							</select>
-							<!--<div class="chosen-container chosen-container-multi chosen-drop chosen-container-active">
-								<ul class="chosen-choices">
-									<li class="search-field>">
-
-									</li>
-								</ul>
-								<div class="chosen-drop"></div>
-								<ul class="chosen-results"></ul>
-							</div>-->
-
-                        </div>
-                        <div>
-                         <button id="search_submit">{{ __('search') }}</button>
-                        </div>
-
-                    </form>
+						</div>
+						<div>
+							<button id="search_submit">{{ __('search') }}</button>
+						</div>
+					</form>
 					<div id="form-response"></div>
-
 				</div>
 				<div class="gallery">
 					<div id="load_gif" class="load_gif_container">
 						<img src="{{ asset('assets/img/load.gif') }}">
 					</div>
 					<section id="response">
-
-                    </section>
-					<!-- START GALLERY ITEM -->
-					<!--
-								FOR DEMO PURPOSES, FIRST GALLERY ITEM (.first) IS HIDDEN
-								FOR SCREENS <920px. PLEASE REMOVE THE CLASS 'first' WHEN YOU IMPLEMENT
-						-->
-
+					</section>
 				</div>
 				<!-- END CATEGORY -->
 			</div>
-			<!-- START DIALOG -->
-			<!-- END DIALOG -->
-			<div class="quickview-wrapper" id="filters">
-				<div class="padding-40 ">
-					<a class="builder-close quickview-toggle pg-close" data-toggle="quickview" data-toggle-element="#filters" href="#"></a>
-					<form class="" role="form">
-						<h5 class="all-caps font-montserrat fs-12 m-b-20">Advance filters</h5>
-						<div class="form-group form-group-default ">
-							<label>Project</label>
-							<input type="email" class="form-control" placeholder="Type of select a label">
-						</div>
-						<h5 class="all-caps font-montserrat fs-12 m-b-20 m-t-25">Advance filters</h5>
-						<div class="radio radio-danger">
-							<input type="radio" checked="checked" value="1" name="filter" id="asc">
-							<label for="asc">Ascending order</label>
-							<br>
-							<input type="radio" value="2" name="filter" id="views">
-							<label for="views">Most viewed</label>
-							<br>
-							<input type="radio" value="3" name="filter" id="cost">
-							<label for="cost">Cost</label>
-							<br>
-							<input type="radio" value="4" name="filter" id="latest">
-							<label for="latest">Latest</label>
-						</div>
-						<h5 class="all-caps font-montserrat fs-12 m-b-20 m-t-25">Price range</h5>
-						<div class="bg-danger m-b-10" id="slider-margin">
-						</div>
-						<button class="pull-right btn btn-danger btn-cons m-t-40">Apply</button>
-					</form>
+			<!-- END PAGE CONTENT -->
+			<!-- START COPYRIGHT -->
+			<div class=" container-fluid  container-fixed-lg footer">
+				<div class="copyright sm-text-center">
+					<p class="small no-margin pull-left sm-pull-reset">
+						<span class="hint-text">2018 &copy; </span>
+						<span class="font-montserrat"></span>
+						<span class="hint-text">UNIT Factory (42 school) project.</span>
+					</p>
+					<p class="small no-margin pull-right sm-pull-reset">
+						Developed with &#9825; by: <a target="_blank" href="https://github.com/Navalag">Navalag</a><span class="muted"> | </span><a target="_blank" href="https://github.com/vsyveniu">vsyveniu</a><span class="muted"> | </span><a target="_blank" href="https://github.com/IgorALLin">ichebota</a><span class="muted"> | </span><a target="_blank" href="https://github.com/lito747">mpytienk</a>
+					</p>
+					<div class="clearfix"></div>
 				</div>
 			</div>
+			<!-- END COPYRIGHT -->
 		</div>
-		<!-- END PAGE CONTENT -->
-		<!-- END PAGE CONTENT -->
-		<!-- START COPYRIGHT -->
-		<!-- START CONTAINER FLUID -->
-		<!-- START CONTAINER FLUID -->
-		<div class="">
-			<div class="copyright sm-text-center">
-				<p class="small no-margin pull-left sm-pull-reset">
-					<span class="hint-text">2018 &copy; </span>
-					<span class="font-montserrat"></span>
-					<span class="hint-text">UNIT Factory (42 school) project.</span>
-				</p>
-				<p class="small no-margin pull-right sm-pull-reset">
-					Developed with &#9825; by: <a target="_blank" href="https://github.com/Navalag">Navalag</a><span class="muted"> | </span><a target="_blank" href="https://github.com/vsyveniu">vsyveniu</a><span class="muted"> | </span><a target="_blank" href="https://github.com/IgorALLin">ichebota</a><span class="muted"> | </span><a target="_blank" href="https://github.com/lito747">mpytienk</a>
-				</p>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<!-- END COPYRIGHT -->
-	</div>
 	<!-- END PAGE CONTENT WRAPPER -->
 </div>
 <!-- END PAGE CONTAINER -->
-
-<!-- START OVERLAY -->
-
 
 <!-- Modal -->
 <!-- MODAL STICK UP ALERT -->
@@ -373,76 +402,37 @@
 				<div class="container-xs-height full-height">
 					<div class="row-xs-height">
 						<div class="modal-body col-xs-height col-middle">
-							<!-- START CONTAINER FLUID -->
-							<!-- <div class=" container-fluid   container-fixed-lg"> -->
-								<!-- <div class="row"> -->
+							<!-- START card -->
+							<div id="alertNotification"></div>
+							<div class="card card-transparent">
+								<div class="card-block">
+									<form id="form-project" role="form" autocomplete="off" method="post" action="{{ route('user.edit_prof') }}">
+										@csrf
 
-									<!-- <div class="col-md-7"> -->
-										<!-- START card -->
-										@if ($errors->any())
-								      <div class="alert alert-danger">
-								        <ul>
-								            @foreach ($errors->all() as $error)
-								              <li>{{ $error }}</li>
-								            @endforeach
-								        </ul>
-								      </div><br />
-								    @endif
-										<div class="col-md-12">
-											<div class="wrap-custom-file main-image">
-												<input type="file" name="avatar" id="image" accept=".gif, .jpg, .png" />
-												<label for="image1">
-													<span>Select Avatar Image</span>
-													<i class="fa fa-plus-circle"></i>
-													<a href="#" class="close"></a>
-												</label>
-											</div>
+										<p>{{ __('Avatar') }}</p>
+										<div class="form-group form-group-default">
+											<label class="">{{ __('Chouse profile photo') }}</label>
+											<input type="file" name="image" id="uploadAvatar" class="form-control" style="padding-top: 3px;">
 										</div>
-
-										<div class="card card-transparent">
-											<div class="card-block">
-												<form id="form-project" role="form" autocomplete="off" method="post" action="{{ route('user.edit_prof') }}">
-													@csrf
-
-													<p>Basic Information</p>
-													<div class="form-group-attached">
-														<div class="form-group form-group-default">
-															<label>Username</label>
-															<input type="text" class="form-control" name="username" value="{{ $user_info->username }}" required>
-														</div>
-														<div class="row clearfix">
-															<div class="col-md-6">
-																<div class="form-group form-group-default">
-																	<label>First name</label>
-																	<input type="text" class="form-control" name="firstName" value="{{ $user_info->first_name }}" required>
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="form-group form-group-default">
-																	<label>Last name</label>
-																	<input type="text" class="form-control" name="lastName" value="{{ $user_info->last_name }}" required>
-																</div>
-															</div>
-														</div>
+										<br>
+										<p class="m-t-10">{{ __('Basic Information') }}</p>
+										<div class="form-group-attached">
+											<div class="form-group form-group-default">
+												<label>{{ __('Username') }}</label>
+												<input type="text" class="form-control" name="username" value="{{ $user_info->username }}" required>
+											</div>
+											<div class="row clearfix">
+												<div class="col-md-6">
+													<div class="form-group form-group-default">
+														<label>{{ __('First name') }}</label>
+														<input type="text" class="form-control" name="firstName" value="{{ $user_info->first_name }}" required>
 													</div>
-													<div class="m-t-10">
-														<!-- <form class="m-t-10" role="form"> -->
-				                      <div class="form-group form-group-default form-group-default-select2">
-				                        <label class="">Select prefered language</label>
-				                        <select class="full-width" name="lang" id="select2insidemodal" data-init-plugin="select2">
-						                      <option value="en">English</option>
-						                      <option value="ua">Ukrainian</option>
-						                    </select>
-				                      </div>
-				                    <!-- </form> -->
+												</div>
+												<div class="col-md-6">
+													<div class="form-group form-group-default">
+														<label>{{ __('Last name') }}</label>
+														<input type="text" class="form-control" name="lastName" value="{{ $user_info->last_name }}" required>
 													</div>
-													<br>
-													<p class="m-t-10">Account Information</p>
-													<div class="m-t-10">
-			                      <div class="form-group form-group-default">
-			                        <label class="">Email</label>
-			                        <input type="email" class="form-control" value="{{ $user_info->email }}" name="email">
-			                      </div>
 												</div>
 											</div>
 										</div>
@@ -465,75 +455,23 @@
 														<label>{{ __('New Password') }}</label>
 														<input type="password" class="form-control" name="newPassword" placeholder="Minimum of 6 Charactors">
 													</div>
-													<div class="form-group-attached">
-														<div class="form-group form-group-default">
-															<label>Old Password</label>
-															<input type="password" class="form-control" name="oldPass" placeholder="To change password type an old one here">
-														</div>
-														<div class="row clearfix">
-															<div class="col-md-6">
-																<div class="form-group form-group-default">
-																	<label>New Password</label>
-																	<input type="password" class="form-control" name="newPassword" placeholder="Minimum of 6 Charactors">
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="form-group form-group-default">
-																	<label>Repeat New Password</label>
-																	<input type="password" class="form-control" name="newPassword_confirmation" placeholder="Confirm new password">
-																</div>
-															</div>
-														</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group form-group-default">
+														<label>{{ __('Repeat New Password') }}</label>
+														<input type="password" class="form-control" name="newPassword_confirmation" placeholder="Confirm new password">
 													</div>
-													<br>
-													<br>
-													<button class="btn btn-success" type="submit">Update Profile</button>
-												</form>
-
-												@if ($message = Session::get('success'))
-								        <div class="alert alert-success alert-block">
-								            <button type="button" class="close" data-dismiss="alert">×</button>
-								            <strong>{{ $message }}</strong>
-								        </div>
-								        <img src="avatar_img/{{ Session::get('image') }}">
-								        @endif
-
-								        @if (count($errors) > 0)
-								            <div class="alert alert-danger">
-								                <strong>Whoops!</strong> There were some problems with your input.
-								                <ul>
-								                    @foreach ($errors->all() as $error)
-								                        <li>{{ $error }}</li>
-								                    @endforeach
-								                </ul>
-								            </div>
-								        @endif
-
-
-
-								        <form action="{{ route('user.upload_avatar') }}" method="POST" enctype="multipart/form-data">
-							            @csrf
-							            <div class="row">
-							                <div class="col-md-6">
-							                  <input type="file" name="image" class="form-control">
-							                </div>
-							                <div class="col-md-6">
-							                  <button type="submit" class="btn btn-success">Upload</button>
-							                </div>
-							            </div>
-								        </form>
-
+												</div>
 											</div>
 										</div>
-										<!-- END card -->
-									<!-- </div> -->
-								<!-- </div> -->
-							<!-- </div> -->
-							<!-- END CONTAINER FLUID -->
-							<!-- <h5 class="text-primary ">Before you <span class="semi-bold">proceed</span>, you have to login to make the necessary changes</h5>
-							<br>
-							<button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Continue</button>
-							<button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel</button> -->
+										<br>
+										<br>
+										<button class="btn btn-success" id="updateProfile" type="submit">{{ __('Update Profile') }}</button>
+									</form>
+
+								</div>
+							</div>
+							<!-- END card -->
 						</div>
 					</div>
 				</div>
@@ -545,19 +483,20 @@
 </div>
 <!-- END MODAL STICK UP SMALL ALERT -->
 
-<script>
-	$(document).ready(function() {
-	  $("#select2insidemodal").select2({
-	    dropdownParent: $("#modalSlideLeft"),
-	    minimumResultsForSearch: -1
-	  });
-	});
-</script>
-
-<script src="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/js/gallery.js') }}" type="text/javascript"></script>
-
 @endsection
+
 @push('scripts')
+	<script>
+		$(document).ready(function() {
+			$("#select2insidemodal").select2({
+				dropdownParent: $("#modalSlideLeft"),
+				minimumResultsForSearch: -1
+			});
+		});
+	</script>
+
+	<script src="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.min.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('assets/js/gallery.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('pages/js/search.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('js/app.js') }}"></script>
 @endpush

@@ -11,7 +11,6 @@ class DetailsController extends Controller {
 
     public function getDetails($id)
     {
-
         return view('details')->with('movie_id', $id);
     }
 
@@ -44,21 +43,38 @@ class DetailsController extends Controller {
     {
         $search = new SearchClass;
         $params = $request->all();
+        if(isset($params['raw_id']))
+        {
+            $id_arr = explode('_', $params['raw_id']);
+            $type = $id_arr[0];
+            $id = (int)$id_arr[1];
+        }
+        /*echo "<pre>";
+            print_r($params);
+            echo $type."<br>";
+            echo $id;
+        echo "<pre>";*/
+
         $res = [];
         if($params['method'] == "ignition")
         {
-            $str = 'https://api.themoviedb.org/3/movie/' .(int)$params['id']. '/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442';
-            $data = file_get_contents($str);
-            $imdb_arr = json_decode($data, true);
-            $imdb_id = $imdb_arr['imdb_id'];
+            if($id != null)
+            {
 
-            $res[0] = $params['id'];
-            $res[1] = $imdb_id;
-            return ($res);
+                $str = 'https://api.themoviedb.org/3/movie/' . $id . '/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442';
+                $data = file_get_contents($str);
+                $imdb_arr = json_decode($data, true);
+                $imdb_id = $imdb_arr['imdb_id'];
+
+                $res[0] = $id;
+                $res[1] = $imdb_id;
+                return ($res);
+            }
+            else
+                return ;
         }
         if($params['method'] == "details")
         {
-
             $detailed = $search->details_request($params['id']);
 
             return ($detailed);
@@ -72,7 +88,6 @@ class DetailsController extends Controller {
         }
         if($params['method'] == "link")
         {
-
             $links = $search->links_request($params['id']);
 
           return ($links);

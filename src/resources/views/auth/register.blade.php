@@ -76,7 +76,6 @@
 				</div>
 			</div>
 			<div class="row m-t-10">
-				
 				<div class="offset-lg-6 col-lg-6 text-right">
 					<p><small>{{ __('Already have an acount?') }}</small> <a href="/login" class="text-info small">{{ __('Sign In') }}</a></p>
 				</div>

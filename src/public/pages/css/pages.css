@@ -486,7 +486,7 @@ body.menu-pin .overlay .overlay-brand {
 .page-sidebar .sidebar-menu .menu-items > li > a > .badge {
   margin-top: 12px;
 }
-.page-sidebar .sidebar-menu .menu-items > li > a > .title_aside {
+.page-sidebar .sidebar-menu .menu-items > li > a > .title {
   float: left;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -499,7 +499,7 @@ body.menu-pin .overlay .overlay-brand {
   display: block;
   clear: both;
 }
-.page-sidebar .sidebar-menu .menu-items > li > a.detailed > .title_aside {
+.page-sidebar .sidebar-menu .menu-items > li > a.detailed > .title {
   line-height: 28px;
 }
 .page-sidebar .sidebar-menu .menu-items > li > a.detailed > .details {
@@ -698,12 +698,15 @@ body.menu-pin .overlay .overlay-brand {
 .secondary-sidebar ul li a.active {
   color: #2c2c2c;
 }
-.secondary-sidebar ul li a > .title_aside {
+.secondary-sidebar ul li a > .title {
   width: 100%;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center;
+}
+.secondary-sidebar ul li a > .title:after {
+  display: none;
 }
 .secondary-sidebar ul li a > .badge {
   -webkit-align-self: center;
@@ -1637,7 +1640,12 @@ body.menu-pin .overlay .overlay-brand {
 }
 .page-container .page-content-wrapper .content {
   /* Content holder */
-
+  z-index: 10;
+  padding-top: 60px;
+  padding-bottom: 69px;
+  min-height: 100%;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 .page-container .page-content-wrapper .content.full-width {
   width: 100%;
@@ -2716,7 +2724,7 @@ body {
   -webkit-font-feature-settings: "kern" 1;
   -moz-font-feature-settings: "kern" 1;
 }
-/* Headings
+/* Headings 
 ------------------------------------
 */
 h1,
@@ -2807,6 +2815,7 @@ p {
   font-weight: normal;
   letter-spacing: 0.01em;
   line-height: 22px;
+  margin: 0px 0px 10px 0px;
   font-style: normal;
   white-space: normal;
 }
@@ -2897,7 +2906,7 @@ hr.double {
 hr.dotted {
   border-style: dotted none none;
 }
-/* Font Sizes
+/* Font Sizes 
 ------------------------------------
 */
 .small-text {
@@ -2924,7 +2933,7 @@ hr.dotted {
 .light {
   font-weight: 300 !important;
 }
-/* Misc
+/* Misc 
 ------------------------------------
 */
 .logo {
@@ -2987,7 +2996,7 @@ hr.dotted {
 .bg-primary-lighter {
   background-color: #e2deef;
 }
-/* Complete
+/* Complete 
 ------------------------------------
 */
 .bg-complete {
@@ -3005,7 +3014,7 @@ hr.dotted {
 .bg-complete-lighter {
   background-color: #daeffd;
 }
-/* Success
+/* Success 
 ------------------------------------
 */
 .bg-success {
@@ -3041,7 +3050,7 @@ hr.dotted {
 .bg-info-lighter {
   background-color: #d8dadc;
 }
-/* Danger
+/* Danger 
 ------------------------------------
 */
 .bg-danger {
@@ -3080,7 +3089,7 @@ hr.dotted {
 /* More Color Options
 ------------------------------------
 */
-/* Menu
+/* Menu 
 ------------------------------------
 */
 .bg-menu-dark {
@@ -3349,7 +3358,7 @@ hr.dotted {
     line-height: 17px;
   }
 }
-/* For Windows : Fixes
+/* For Windows : Fixes 
 ------------------------------------
 */
 .windows body,
@@ -5170,7 +5179,7 @@ body > .pgn-wrapper {
 .progress-striped .bar-info {
   background-color: #3b4752;
 }
-/* Circular Progress : indeterminate
+/* Circular Progress : indeterminate 
 ------------------------------------
 */
 .progress-circle-indeterminate {
@@ -5198,7 +5207,7 @@ body > .pgn-wrapper {
 .progress-circle-indeterminate.progress-circle-complete {
   background-image: url('../img/progress/progress-circle-complete.svg');
 }
-/* Circular Progress
+/* Circular Progress 
 ------------------------------------
 */
 .progress-circle {
@@ -5304,7 +5313,7 @@ body > .pgn-wrapper {
   /*&.in{
 				.modal-dialog{
 					.translate3d(0,0,0);
-				}
+				}	
 			}*/
 }
 .modal.fade.stick-up .modal-dialog {
@@ -5630,7 +5639,7 @@ body > .pgn-wrapper {
   -ms-flex: 1;
   -ms-flex-negative: 0;
 }
-/* Tabs : Simple
+/* Tabs : Simple 
 ------------------------------------
 */
 .nav-tabs-simple {
@@ -5824,7 +5833,7 @@ body > .pgn-wrapper {
     font-size: 0.6em;
   }
 }
-/* Tabs : Fill-up
+/* Tabs : Fill-up 
 ------------------------------------
 */
 .nav-tabs-fillup {
@@ -8657,7 +8666,7 @@ div.cs-skin-slide .cs-options ul li.cs-selected span {
 /*------------------------------------------------------------------
 [16. Tables and Datatables]
 */
-/* Generic Tables
+/* Generic Tables 
 ------------------------------------
 */
 .table {
@@ -8803,7 +8812,7 @@ div.cs-skin-slide .cs-options ul li.cs-selected span {
 .fht-table {
   margin-bottom: 0 !important;
 }
-/* Data-tables
+/* Data-tables 
 ------------------------------------
 */
 .table.dataTable.no-footer {
@@ -9350,7 +9359,7 @@ table.dataTable.table-condensed .sorting_desc:after {
   right: 0;
   width: auto;
 }
-#tab-rickshaw-slider .chart .x_tick.plain .title_aside {
+#tab-rickshaw-slider .chart .x_tick.plain .title {
   font-family: 'Montserrat';
   font-size: 11px;
 }
@@ -9364,7 +9373,7 @@ table.dataTable.table-condensed .sorting_desc:after {
 #tab-rickshaw-slider .rickshaw_graph .x_tick {
   border-color: transparent;
 }
-#tab-rickshaw-slider .rickshaw_graph .x_tick .title_aside {
+#tab-rickshaw-slider .rickshaw_graph .x_tick .title {
   bottom: -24px;
   left: -15px;
 }
@@ -10882,7 +10891,7 @@ Responsive Util
   position: absolute;
   top: 50%;
 }
-/* Responsive Handlers : Lockscreen
+/* Responsive Handlers : Lockscreen 
 ------------------------------------
 */
 @media (max-width: 767px) {
@@ -10917,7 +10926,7 @@ Responsive Util
   Adapted from Vertical Timeline by Sebastiano Guerriero
   http://codyhouse.co/gem/vertical-timeline/
 */
-/* --------------------------------
+/* -------------------------------- 
 
 Modules - reusable parts of our design
 
@@ -10944,9 +10953,9 @@ Modules - reusable parts of our design
   background-color: #fff;
   z-index: 10;
 }
-/* --------------------------------
+/* -------------------------------- 
 
-Main components
+Main components 
 
 -------------------------------- */
 .timeline {
@@ -13320,7 +13329,7 @@ Main components
 .previewer {
   height: 35px;
 }
-/* Demo Widths For GIF Animations
+/* Demo Widths For GIF Animations 
 ------------------------------------
 */
 .demo-bg-hinted {

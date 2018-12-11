@@ -307,6 +307,7 @@
                     <section class="player_container">
                         <div id="player"></div>
                     </section>
+                    <section id="details_response"></section>
                     <!-- END JUMBOTRON -->
 
     <!-- END PAGE CONTENT WRAPPER -->
@@ -317,7 +318,7 @@
 @endsection
 @push('scripts')
     <script type="text/javascript">
-        var movie_id = {{ $movie_id }};
+        var movie_id = "{{ $movie_id }}";
     </script>
     <script src="{{ asset('pages/js/details.js') }}"></script>
 @endpush

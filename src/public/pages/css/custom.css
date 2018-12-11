@@ -288,3 +288,12 @@ html {
     margin-left: 1%;
     margin-right: 1%;
 }
+
+.hidden_genres_list
+{
+    display: none;
+}
+.showed_genres_list
+{
+    display: block;
+}

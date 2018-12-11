@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Socialite;
+use App\User;
+
 
 class LoginController extends Controller
 {
@@ -48,5 +51,75 @@ class LoginController extends Controller
         session(['locale' => $lang]);
 
         return back();
+    }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('github')->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback()
+    {
+        $user = $this->findOrCreateGitHubUser(
+            Socialite::driver('github')->user()
+        );
+        auth()->login($user);
+        return redirect('/');
+    }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function redirectToProviderGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallbackGoogle()
+    {
+        $user = $this->findOrCreateGitHubUser(
+            Socialite::driver('google')->user()
+        );
+        auth()->login($user);
+        return redirect('/');
+    }
+
+    /**
+     * Fetch the GitHub user.
+     *
+     * @param  object $githubUser
+     * @return \App\User
+     */
+    protected function findOrCreateGitHubUser($githubUser)
+    {
+        // dd($githubUser);
+        $user = User::firstOrNew(['oauth_id' => $githubUser->id]);
+        if ($user->exists) return $user;
+        
+        $user->fill([
+            'username'  => $githubUser->nickname == null ? 'test' : $githubUser->nickname,
+            'first_name'  => $githubUser->name,
+            'email'     => $githubUser->email,
+            'photo_src' => $githubUser->avatar,
+            'email_verified_at' => date("Y-m-d H:i:s"),
+        ])->save();
+        return $user;
     }
 }

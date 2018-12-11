@@ -1,31 +1,31 @@
 var getUrl = window.location;
 var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
 
+console.log(movie_id);
 $(document).ready(function() {
 
     get_movie_data(movie_id);
-
-
 
 });
 
 
 function get_movie_data(movie_id)
 {
+
     $.ajax({
         type: 'POST',
         url: baseUrl + '/',
         data:
             {
                 'method': 'ignition',
-                'id': movie_id
+                'raw_id': movie_id
             },
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function (response) {
             var idarr = response;
-
+            console.log(idarr);
             get_movie_data_by_id(idarr[0], idarr[1]);
             get_movie_link_by_id(idarr[1]);
             get_movie_cast(idarr[0]);
@@ -225,7 +225,7 @@ function get_movie_data_by_id(movie_id, imdb_id)
         },
         success: function (response) {
             var list = JSON.parse(response);
-           //  console.log(list);
+             console.log(list);
              backdrop.style.cssText = "background-image: url(https://image.tmdb.org/t/p/original/" + list.backdrop_path + ");";
            // var  len = Object.keys(list.results).length;
             title.innerHTML = list.original_title;

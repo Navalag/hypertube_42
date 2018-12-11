@@ -30,3 +30,14 @@ Route::group(['middleware' => ['language']], function () {
 	Route::get('/user/set_lang', 'User\EditUserInfo@setLanguage')->name('user.set_lang');
 	Route::post('/user/upload_avatar', 'User\EditUserInfo@uploadPhoto')->name('user.upload_avatar');
 });
+
+/*
+** OAuth routes [GitHub]
+*/
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
+/*
+** OAuth routes [Google+]
+*/
+Route::get('login/google', 'Auth\LoginController@redirectToProviderGoogle');
+Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallbackGoogle');
