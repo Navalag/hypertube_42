@@ -90,20 +90,20 @@ window.onload = function()
 				<!-- <button class="btn btn-primary btn-cons m-t-10 m-b-30" type="submit">Sign in</button> -->
 			</form>
 
-			<a href="login/github" class="m-t-10 m-b-30">GitHub</a>
-			<a href="login/google" class="m-t-10 m-b-30">Google+</a>
-			<a href="login/42" class="m-t-10 m-b-30">42 Intranet</a>
-			<button class="btn btn-block btn-info" type="button">
-				<span class="pull-left"><i class="fa fa-facebook"></i></span>
-				<span class="bold">{{ __('Login with Facebook') }}</span>
+			<!-- <a href="login/github" class="m-t-10 m-b-30">GitHub</a>
+			<a href="login/google" class="m-t-10 m-b-30">Google</a>
+			<a href="login/42" class="m-t-10 m-b-30">42 Intranet</a> -->
+			<button class="btn btn-block btn-info" type="button" onclick="location.href='login/github'">
+				<span class="pull-left"><i class="fab fa-github-alt"></i></span>
+				<span class="bold">{{ __('Login with') }} GitHub</span>
 			</button>
-			<button class="btn btn-block btn-primary" type="button">
-				<span class="pull-left"><i class="fa fa-twitter"></i></span>
-				<span class="bold">{{ __('Login with Twitter') }}</span>
+			<button class="btn btn-block btn-primary" type="button" onclick="location.href='login/42'">
+				<span class="pull-left"><img src="{{ asset('assets/img/42-logo.svg') }}" style="width: 15px;"></span>
+				<span class="bold">{{ __('Login with') }} 42 Intranet</span>
 			</button>
-			<button class="btn btn-block btn-danger" type="button">
-				<span class="pull-left"><i class="fa fa-google-plus"></i></span>
-				<span class="bold">{{ __('Login with Google+') }}</span>
+			<button class="btn btn-block btn-danger" type="button" onclick="location.href='login/google'">
+				<span class="pull-left"><i class="fab fa-google-plus-g"></i></span>
+				<span class="bold">{{ __('Login with') }} Google+</span>
 			</button>
 		</div>
 	</div>
