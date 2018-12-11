@@ -98,7 +98,7 @@ window.onload = function()
 				<span class="bold">{{ __('Login with') }} GitHub</span>
 			</button>
 			<button class="btn btn-block btn-primary" type="button" onclick="location.href='login/42'">
-				<span class="pull-left"><img src="{{ asset('assets/img/42-logo.svg') }}" style="width: 15px;"></span>
+				<span class="pull-left"><img src="{{ asset('assets/img/42-logo.svg') }}" style="width: 17px;"></span>
 				<span class="bold">{{ __('Login with') }} 42 Intranet</span>
 			</button>
 			<button class="btn btn-block btn-danger" type="button" onclick="location.href='login/google'">
