@@ -106,7 +106,7 @@ class LoginController extends Controller
         if ($user->exists) return $user;
         
         $user->fill([
-            'username'  => $oauthUser->nickname == null ? 'test' : $oauthUser->nickname,
+            'username'  => $oauthUser->nickname == null ? $oauthUser->name : $oauthUser->nickname,
             'first_name'  => $oauthUser->name,
             'email'     => $oauthUser->email,
             'photo_src' => $oauthUser->avatar,
