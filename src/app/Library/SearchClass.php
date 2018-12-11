@@ -8,6 +8,7 @@ class SearchClass
     public function discover_request($page, $sort, $years, $rate, $genres, $type)
     {
         $res = [];
+
         if ($genres != null) {
 
 
@@ -35,7 +36,29 @@ class SearchClass
                     ($value == "Western") ? $res[$i] = '37' : 0;
                     $i++;
                 }
-            } else if ($type == "tvshows") {
+            }
+            else if ($type == "tvshows")
+            {
+                $i = 0;
+                foreach ($genres as $value) {
+                    ($value == "Action & Adventure") ? $res[$i] = '10759' : 0;
+                    ($value == "Animation") ? $res[$i] = '16' : 0;
+                    ($value == "Comedy") ? $res[$i] = '35' : 0;
+                    ($value == "Crime") ? $res[$i] = '80' : 0;
+                    ($value == "Documentary") ? $res[$i] = '99' : 0;
+                    ($value == "Drama") ? $res[$i] = '18' : 0;
+                    ($value == "Family") ? $res[$i] = '10751' : 0;
+                    ($value == "Kids") ? $res[$i] = '10762' : 0;
+                    ($value == "Mystery") ? $res[$i] = '9648' : 0;
+                    ($value == "News") ? $res[$i] = '10763' : 0;
+                    ($value == "Reality") ? $res[$i] = '10764' : 0;
+                    ($value == "Sci-Fi & Fantasy") ? $res[$i] = '10765' : 0;
+                    ($value == "Soap") ? $res[$i] = '10766' : 0;
+                    ($value == "Talk") ? $res[$i] = '10767' : 0;
+                    ($value == "War & Politics") ? $res[$i] = '10768' : 0;
+                    ($value == "Western") ? $res[$i] = '37' : 0;
+                    $i++;
+                }
 
             }
         }
@@ -51,23 +74,37 @@ class SearchClass
             ($type == "movies") ? $str = 'https://api.themoviedb.org/3/discover/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
             ($type == "tvshows") ? $str = 'https://api.themoviedb.org/3/discover/tv?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
         }
-        else
-            $str = 'https://api.themoviedb.org/3/discover/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang;
+        //else
+          //  $str = 'https://api.themoviedb.org/3/discover/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang;
 
 
         if($sort != null)
         {
-            ($sort == "Popularity Descending") ? $sort = 'popularity.desc' : 0;
-            ($sort == "Popularity Ascending") ? $sort = 'popularity.asc' : 0;
-            ($sort == "Rating Descending") ? $sort = 'vote_average.desc' : 0;
-            ($sort == "Rating Ascending") ? $sort = 'vote_average.asc' : 0;
-            ($sort == "Release Date Descending") ? $sort = 'primary_release_date.desc' : 0;
-            ($sort == "Release Date Ascending") ? $sort = 'primary_release_date.asc' : 0;
-            ($sort == "Title Descending") ? $sort = 'original_title.desc' : 0;
-            ($sort == "Title Ascending") ? $sort = 'original_title.asc' : 0;
-            ($sort == "Revenue Descending") ? $sort = 'revenue.desc' : 0;
-            ($sort == "Revenue Ascending") ? $sort = 'revenue.asc' : 0;
-            ($sort != "none") ? $str .= '&sort_by='.$sort : 0;
+            if($type == "movies") {
+                ($sort == "Popularity Descending") ? $sort = 'popularity.desc' : 0;
+                ($sort == "Popularity Ascending") ? $sort = 'popularity.asc' : 0;
+                ($sort == "Rating Descending") ? $sort = 'vote_average.desc' : 0;
+                ($sort == "Rating Ascending") ? $sort = 'vote_average.asc' : 0;
+                ($sort == "Release Date Descending") ? $sort = 'primary_release_date.desc' : 0;
+                ($sort == "Release Date Ascending") ? $sort = 'primary_release_date.asc' : 0;
+                ($sort == "Title Descending") ? $sort = 'original_title.desc' : 0;
+                ($sort == "Title Ascending") ? $sort = 'original_title.asc' : 0;
+                ($sort == "Revenue Descending") ? $sort = 'revenue.desc' : 0;
+                ($sort == "Revenue Ascending") ? $sort = 'revenue.asc' : 0;
+                ($sort != "none") ? $str .= '&sort_by=' . $sort : 0;
+            }
+            else if($type == "tvshows")
+            {
+                ($sort == "Popularity Descending") ? $sort = 'popularity.desc' : 0;
+                ($sort == "Popularity Ascending") ? $sort = 'popularity.asc' : 0;
+                ($sort == "Rating Descending") ? $sort = 'vote_average.desc' : 0;
+                ($sort == "Rating Ascending") ? $sort = 'vote_average.asc' : 0;
+                ($sort == "Release Date Descending") ? $sort = 'first_air_date.desc' : 0;
+                ($sort == "Release Date Ascending") ? $sort = 'first_air_date.asc' : 0;
+                ($sort == "Title Descending") ? $sort = 'original_title.desc' : 0;
+                ($sort == "Title Ascending") ? $sort = 'original_title.asc' : 0;
+                ($sort != "none") ? $str .= '&sort_by=' . $sort : 0;
+            }
         }
         $str .= '&include_adult=false&include_video=false&page='.$page;
         if($years != null)
@@ -76,7 +113,9 @@ class SearchClass
             $years = explode(' ', $years);
             $years_arr['min'] = $years[0].'-01-01';
             $years_arr['max'] = $years[2].'-12-31';
-            $str .='&primary_release_date.gte='.$years_arr['min'].'&primary_release_date.lte='.$years_arr['max'];
+            ($type == "movies") ? $str .='&primary_release_date.gte='.$years_arr['min'].'&primary_release_date.lte='.$years_arr['max'] : 0;
+            ($type == "tvshows") ? $str .='&first_air_date.gte='.$years_arr['min'].'&first_air_date.lte='.$years_arr['max'] : 0;
+
         }
         if($rate != null)
         {
@@ -91,9 +130,12 @@ class SearchClass
         return ($data);
     }
 
-    public function search_request($needle, $page)
+    public function search_request($needle, $page, $type)
     {
-        $str = 'https://api.themoviedb.org/3/search/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language=en-US&query='.urlencode($needle).'&page='.$page.'&include_adult=true';
+
+        ($type == "movies") ? $str = 'https://api.themoviedb.org/3/search/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language=en-US&query='.urlencode($needle).'&page='.$page.'&include_adult=true' : 0;
+        ($type == "tvshows") ? $str = 'https://api.themoviedb.org/3/search/tv?api_key=838ad56065a20c3380e39bdcd7c02442&language=en-US&query='.urlencode($needle).'&page='.$page.'&include_adult=true' : 0;
+
         $data = file_get_contents($str);
         return ($data);
     }

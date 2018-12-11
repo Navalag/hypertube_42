@@ -113,7 +113,7 @@
 			</li>
 			<li class="movie_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="TV movie">{{ __('TV movie') }}</span>
+					<span class="title_aside" data="TV Movie">{{ __('TV Movie') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
@@ -137,99 +137,99 @@
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link" >
-					<span class="title_aside" data="Action">{{ __('Action & Adventure') }}</span>
+					<span class="title_aside" data="Action & Adventure">{{ __('Action & Adventure') }}</span>
 					<!--<button class="add_button" data="Action">+</button>-->
 				</a>
 				<span class="icon-thumbnail"><i class="pg-mail"></i></span>
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Adventure">{{ __('Animation') }}</span>
+					<span class="title_aside" data="Animation">{{ __('Animation') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-social"></i></span>
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Animation">{{ __('Comedy') }}</span>
+					<span class="title_aside" data="Comedy">{{ __('Comedy') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-calender"></i></span>
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Comedy">{{ __('Crime') }}</span>
+					<span class="title_aside" data="Crime">{{ __('Crime') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-layouts"></i></span>
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Crime">{{ __('Documentary') }}</span>
+					<span class="title_aside" data="Documentary">{{ __('Documentary') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-layouts2"></i></span>
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Documentary">{{ __('Drama') }}</span>
+					<span class="title_aside" data="Drama">{{ __('Drama') }}</span>
 				</a>
 				<span class="icon-thumbnail">Ui</span>
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Drama">{{ __('Family') }}</span>
+					<span class="title_aside" data="Family">{{ __('Family') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-form"></i></span>
 
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Family">{{ __('Kids') }}</span>
+					<span class="title_aside" data="Kids">{{ __('Kids') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Fantasy">{{ __('Mystery') }}</span>
+					<span class="title_aside" data="Mystery">{{ __('Mystery') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="History">{{ __('News') }}</span>
+					<span class="title_aside" data="News">{{ __('News') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Horror">{{ __('Reality') }}</span>
+					<span class="title_aside" data="Reality">{{ __('Reality') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Music">{{ __('Sci-Fi & Fantasy') }}</span>
+					<span class="title_aside" data="Sci-Fi & Fantasy">{{ __('Sci-Fi & Fantasy') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Mystery">{{ __('Soap') }}</span>
+					<span class="title_aside" data="Soap">{{ __('Soap') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Romance">{{ __('Talk') }}</span>
+					<span class="title_aside" data="Talk">{{ __('Talk') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Science Fiction">{{ __('War & Politics') }}</span>
+					<span class="title_aside" data="War & Politics">{{ __('War & Politics') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="TV movie">{{ __('Western') }}</span>
+					<span class="title_aside" data="Western">{{ __('Western') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
@@ -308,7 +308,7 @@
 						<button class="switch button is-active" onclick="switch_type(event);" id="movie_switch" data="movies">Movies</button>
 						<button class="switch button" onclick="switch_type(event);" id="tvshows_switch" data="tvshows">TV Shows</button>
 					</div>
-					<form method="POST" class="search_form" id="main_form">
+					<form method="POST" class="search_form" id="movie_form">
 						<div class="sort_field">
 							<select name="sort" id="sort_select">
 								<option>{{ __('none') }}</option>
@@ -357,6 +357,52 @@
 						</div>
 						<div>
 							<button id="search_submit">{{ __('search') }}</button>
+						</div>
+					</form>
+					<form method="POST" class="search_form" id="tv_form">
+						<div class="sort_field">
+							<select name="sort" id="sort_select_tv">
+								<option>{{ __('none') }}</option>
+								<option>{{ __('Title Ascending') }}</option>
+								<option>{{ __('Title Descending') }}</option>
+								<option>{{ __('Rating Ascending') }}</option>
+								<option>{{ __('Rating Descending') }}</option>
+								<option>{{ __('Popularity Ascending') }}</option>
+								<option>{{ __('Popularity Descending') }}</option>
+								<option>{{ __('Release Date Ascending') }}</option>
+								<option>{{ __('Release Date Descending') }}</option>
+							</select>
+						</div>
+						<div class="gap_field">
+							<input  name="year_gap" id="year_gap_tv">
+							<div class="slider-range_wrapper" id="slider-range_year_tv"></div>
+						</div>
+						<div class="gap_field">
+							<input  name="rate_gap" id="rate_gap_tv">
+							<div class = "slider-range_wrapper" id="slider-range_rate_tv"></div>
+						</div>
+						<div class="genres_field">
+							<select multiple class="chosen-select" name="genre" id="genre_select_tv">
+								<option>{{ __('Action & Adventure') }}</option>
+								<option>{{ __('Animation') }}</option>
+								<option>{{ __('Comedy') }}</option>
+								<option>{{ __('Crime') }}</option>
+								<option>{{ __('Documentary') }}</option>
+								<option>{{ __('Drama') }}</option>
+								<option>{{ __('Family') }}</option>
+								<option>{{ __('Kids') }}</option>
+								<option>{{ __('Mystery') }}</option>
+								<option>{{ __('News') }}</option>
+								<option>{{ __('Reality') }}</option>
+								<option>{{ __('Sci-Fi & Fantasy') }}</option>
+								<option>{{ __('Soap') }}</option>
+								<option>{{ __('Talk') }}</option>
+								<option>{{ __('War & Politics') }}</option>
+								<option>{{ __('Western') }}</option>
+							</select>
+						</div>
+						<div>
+							<button id="search_submit_tv">{{ __('search') }}</button>
 						</div>
 					</form>
 					<div id="form-response"></div>

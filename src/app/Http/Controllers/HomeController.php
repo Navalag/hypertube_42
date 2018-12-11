@@ -55,7 +55,8 @@ class HomeController extends Controller
         {
              $page = (int)$params['page'];
              $needle = $params['needle'];
-             $data = $search->search_request($needle, $page);
+             $type = $params['type'];
+             $data = $search->search_request($needle, $page, $type);
              return($data);
          }
            // $id_request = 'https://api.themoviedb.org/3/movie/'.(int)$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442';
