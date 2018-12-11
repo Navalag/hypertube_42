@@ -100,10 +100,12 @@ p
     display: flex;
     justify-content: space-around;
 }
-.sort_field
-{
 
+#tv_form
+{
+    display: none;
 }
+
 .filters_field
 {
     border: 1px solid gold;

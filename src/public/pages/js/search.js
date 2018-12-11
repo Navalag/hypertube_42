@@ -240,7 +240,9 @@ if (response)
         document.getElementById("response").innerHTML = "";
         //hide_show_genres_list(type, movies_genres, tv_genres);
         (switcher.data != null) ?  static_load(1, null, null, null, null, switcher.data) : 0;
-        (switcher.data == null) ?  static_load(1, null, null, null, null, storedSwitcher) : 0;
+        (switcher.data == null && storedSwitcher != null) ?  static_load(1, null, null, null, null, storedSwitcher) : 0;
+        (switcher.data == null && storedSwitcher == null) ?  static_load(1, null, null, null, null, "movies") : 0;
+
 
     });
 

@@ -8,7 +8,6 @@ class SearchClass
     public function discover_request($page, $sort, $years, $rate, $genres, $type)
     {
         $res = [];
-
         if ($genres != null) {
 
 
