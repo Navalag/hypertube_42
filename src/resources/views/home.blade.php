@@ -5,8 +5,8 @@
 <nav class="page-sidebar" data-pages="sidebar">
 	<!-- BEGIN SIDEBAR MENU HEADER-->
 	<div class="sidebar-header">
-		<!-- <h3 class="brand">HyperTube 42</h3> -->
-		<img src="assets/img/logo_white.png" alt="logo" class="brand" data-src="assets/img/logo_white.png" data-src-retina="assets/img/logo_white_2x.png" width="78" height="22">
+		<h2 class="logo white"><b>HyperTube</b><i class="logo-fa fas fa-play-circle"></i></h1>
+		<!-- <img src="assets/img/logo_white.png" alt="logo" class="brand" data-src="assets/img/logo_white.png" data-src-retina="assets/img/logo_white_2x.png" width="78" height="22"> -->
 	</div>
 	<!-- END SIDEBAR MENU HEADER-->
 	<!-- START SIDEBAR MENU -->
@@ -252,8 +252,8 @@
 		<!-- END MOBILE SIDEBAR TOGGLE -->
 		<div class="">
 			<div class="brand inline">
-				<!-- <h3>HyperTube 42</h3> -->
-				<img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
+				<h2 class="logo"><b>HyperTube</b><i class="logo-fa fas fa-play-circle"></i></h1>
+				<!-- <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22"> -->
 			</div>
 		</div>
 		<div class="live_load_container">

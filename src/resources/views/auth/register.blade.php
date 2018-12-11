@@ -3,10 +3,11 @@
 @section('content')
 <div class="register-container full-height sm-p-t-30">
 	<div class="d-flex justify-content-center flex-column full-height ">
-		<img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
+		<!-- <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22"> -->
+		<h2 class="logo"><b>HyperTube</b><i class="logo-fa fas fa-play-circle"></i></h1>
 		<h3>{{ __('A web application that allows users to research and watch videos') }}</h3>
 		<p>
-			{{ __('Create a HyperTube account. If you have a facebook account, log into it for this process. Sign in with ') }}<a href="#" class="text-info">Facebook</a> {{ __('or') }} <a href="#" class="text-info">Google.</a>
+			{{ __('Create a HyperTube account. If you have a facebook account, log into it for this process. Sign in with ') }}<a href="login/github" class="text-info">GitHub</a>, <a href="login/42" class="text-info">42 Intranet</a> {{ __('or') }} <a href="login/google" class="text-info">Google.</a>
 		</p>
 		<form id="form-register" class="p-t-15" role="form" method="POST" action="{{ route('register') }}">
 			@csrf
