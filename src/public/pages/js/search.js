@@ -37,6 +37,7 @@ var movie_form = document.getElementById('movie_form');
 var tv_form = document.getElementById('tv_form');
 var general_type = {data: null};
 
+
 //const observer = lozad(); // lazy loads elements with default selector as ".lozad"
 //observer.observe();
 
@@ -65,15 +66,45 @@ function setformdata()
             hide_show_filters("tvshows");
         }
 
+
     }
     else if(switcher.data == null)
     {
        hide_show_genres_list("movies", movies_genres, tv_genres);
     }
+    set_filters_on_reload_page();
 }
 
 
+function set_filters_on_reload_page()
+{
 
+    var genres_list = document.getElementById('genre_response');
+    if(storedGenres != "null" && storedGenres != null)
+    {
+        console.log('fuck');
+        genres_list.innerHTML = storedGenres.replace(/,/g, '/');
+    }
+    else
+      genres_list.innerHTML = "";
+    (storedSort != null && storedSwitcher === "movies") ? document.getElementById('sort_select').value = storedSort : 0;
+    (storedSort != null && storedSwitcher === "tvshows") ? document.getElementById('sort_select_tv').value = storedSort : 0;
+    if(storedYears != null)
+    {
+        var years = storedYears.split('-');
+        (storedSwitcher === "movies") ? year_gap(years[0], years[1]) : 0;
+        (storedSwitcher === "tvshows") ? year_gap_tv(years[0], years[1]) : 0;
+    }
+    if(storedRate != null)
+    {
+        var rate = storedRate.split('-');
+
+        (storedSwitcher === "movies") ? rate_gap(rate[0], rate[1]) : 0;
+        (storedSwitcher === "tvshows") ? rate_gap_tv(rate[0], rate[1]) : 0;
+    }
+    //(storedYears != null && storedSwitcher === "movies") ? document.getElementById('year_gap').value = storedYears : 0;
+
+}
 
 
 
@@ -168,11 +199,17 @@ if (response)
                         //  console.log("stored genres:", storedGenres);
 
                         if (sortparam.data != null || yearsparam.data != null || rateparam.data != null || genresparam.data != null || switcher.data != null) {
+                            console.log('fuck');
                             static_load(storedPage, sortparam.data, yearsparam.data, rateparam.data, genresparam.data, general_type.data);
                         }
                         else
                         {
-                            static_load(storedPage, storedSort, storedYears, storedRate, storedGenres, general_type.data);
+                            console.log('bitch');
+                            console.log(storedGenres);
+                            var res = null;
+                            if(storedGenres)
+                                 res = storedGenres.split(',');
+                            static_load(storedPage, storedSort, storedYears, storedRate, res, general_type.data);
                         }
                     }
                     else if (storedMethod == "live_load" || trigger.data == "live_load") {
@@ -222,12 +259,25 @@ if (response)
         storedYears = null;
         storedRate = null;
         storedGenres = null;
+        var genres_list = document.getElementById('genre_response');
+        genres_list.innerHTML = "";
+
+
+
+
 
     }
 
     $('#reset_button').click(function () {
 
         reset();
+        year_gap(1888, 2018);
+        year_gap_tv(1928, 2018);
+        rate_gap(0, 10);
+        rate_gap_tv(0, 10);
+        $(".chosen-select").val('').trigger("chosen:updated");
+        document.getElementById('sort_select').value = "none";
+        document.getElementById('sort_select_tv').value = "none";
         //var type = null;
         //// console.log("method: ", storedMethod);
        //// console.log("page: ", storedPage);
@@ -540,6 +590,7 @@ $('#search_submit').click(function (e)
     var sort = $('#sort_select').val();
     var years = $('#year_gap').val();
     var rate = $('#rate_gap').val();
+    var genres_list = document.getElementById('genre_response');
     reset();
     sessionStorage.setItem("sort", sort);
     sessionStorage.setItem("years", years);
@@ -551,6 +602,9 @@ $('#search_submit').click(function (e)
     genresparam.data = genres;
     document.getElementById("response").innerHTML = "";
     static_load(1, sort, years, rate, genres, general_type.data);
+    (genres != null) ? genres_list.innerHTML = genres.join().replace(/,/g,'/') : 0;
+    (genres == null) ? genres_list.innerHTML = "" : 0;
+
 });
 
 $('#search_submit_tv').click(function (e)
@@ -560,6 +614,7 @@ $('#search_submit_tv').click(function (e)
     var sort = $('#sort_select_tv').val();
     var years = $('#year_gap_tv').val();
     var rate = $('#rate_gap_tv').val();
+    var genres_list = document.getElementById('genre_response');
     reset();
     sessionStorage.setItem("sort", sort);
     sessionStorage.setItem("years", years);
@@ -571,6 +626,8 @@ $('#search_submit_tv').click(function (e)
     genresparam.data = genres;
     document.getElementById("response").innerHTML = "";
     static_load(1, sort, years, rate, genres, general_type.data);
+    (genres != null) ? genres_list.innerHTML = genres.join().replace(/,/g,'/') : 0;
+    (genres == null) ? genres_list.innerHTML = "" : 0;
 });
 
 
@@ -583,7 +640,6 @@ $('.genre_direct_link').click(function (e)
     {
         var genres = target.getAttribute('data');
         var res = [genres];
-        console.log(res[0]);
         reset();
         sessionStorage.setItem("genres", res);
         genresparam.data = res;
@@ -607,8 +663,29 @@ function switch_type(event)
     switcher.data = type;
     general_type.data = type;
     sessionStorage.setItem("switcher", type);
-    console.log('switcher on change: ', switcher.data);
-    console.log('storedSwitcher on change: ', sessionStorage.getItem('switcher'));
+    reset();
+    year_gap(1888, 2018);
+    year_gap_tv(1928, 2018);
+    rate_gap(0, 10);
+    rate_gap_tv(0, 10);
+    /*var remove_choice = document.querySelectorAll('.search-choice');
+    if (remove_choice)
+    {
+        for (var i = 0; i < remove_choice.length; i++)
+            remove_choice[i].remove();
+    }
+    var active_choice = document.querySelectorAll('.result-selected');
+    if (active_choice)
+    {
+        for (var i = 0; i < active_choice.length; i++)
+        {
+            console.log(i);
+            active_choice[i].setAttribute("class", "active-result");
+        }
+    }*/
+    $(".chosen-select").val('').trigger("chosen:updated");
+    document.getElementById('sort_select').value = "none";
+    document.getElementById('sort_select_tv').value = "none";
     if(target.getAttribute('id') == "movie_switch")
     {
         movie_switch.setAttribute("class", "button is-active");

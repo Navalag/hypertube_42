@@ -103,7 +103,7 @@ p
 
 #tv_form
 {
-    display: none;
+    display: flex;
 }
 
 .filters_field
@@ -294,4 +294,10 @@ html {
 .showed_genres_list
 {
     display: block;
+}
+.genre_list
+{
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 3%;
 }

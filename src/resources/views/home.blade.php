@@ -408,6 +408,7 @@
 					<div id="form-response"></div>
 				</div>
 				<div class="gallery">
+					<div class="genre_list" id="genre_response"></div>
 					<div id="load_gif" class="load_gif_container">
 						<img src="{{ asset('assets/img/load.gif') }}">
 					</div>
