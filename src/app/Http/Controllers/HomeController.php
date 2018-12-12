@@ -42,7 +42,7 @@ class HomeController extends Controller
         {
             if($this->validate_search_request($params)) {
                 $page = (int)$params['page'];
-                $data = $search->discover_request($page, $params['sort'], $params['years'], $params['rate'], $params['genres'], $params['type']);
+                $data = $search->discover_request($page, $params['sort'], $params['years'], $params['rate'], $params['genres'], $params['type'], $params['lang']);
                 return ($data);
             }
             else
@@ -56,7 +56,7 @@ class HomeController extends Controller
              $page = (int)$params['page'];
              $needle = $params['needle'];
              $type = $params['type'];
-             $data = $search->search_request($needle, $page, $type);
+             $data = $search->search_request($needle, $page, $type, $params['lang']);
              return($data);
          }
            // $id_request = 'https://api.themoviedb.org/3/movie/'.(int)$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442';

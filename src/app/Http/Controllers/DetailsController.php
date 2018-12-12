@@ -43,31 +43,30 @@ class DetailsController extends Controller {
     {
         $search = new SearchClass;
         $params = $request->all();
+
         if(isset($params['raw_id']))
         {
             $id_arr = explode('_', $params['raw_id']);
+
             $type = $id_arr[0];
             $id = (int)$id_arr[1];
-        }
-        /*echo "<pre>";
-            print_r($params);
-            echo $type."<br>";
-            echo $id;
-        echo "<pre>";*/
 
+        }
         $res = [];
         if($params['method'] == "ignition")
         {
             if($id != null)
             {
 
-                $str = 'https://api.themoviedb.org/3/movie/' . $id . '/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442';
+                ($type == "movies") ? $str = 'https://api.themoviedb.org/3/movie/'.$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
+                ($type == "tvshows") ? $str = 'https://api.themoviedb.org/3/tv/'.$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
                 $data = file_get_contents($str);
                 $imdb_arr = json_decode($data, true);
                 $imdb_id = $imdb_arr['imdb_id'];
 
                 $res[0] = $id;
                 $res[1] = $imdb_id;
+                $res[2] = $type;
                 return ($res);
             }
             else
@@ -75,20 +74,19 @@ class DetailsController extends Controller {
         }
         if($params['method'] == "details")
         {
-            $detailed = $search->details_request($params['id']);
+            $detailed = $search->details_request($params['id'], $params['type'], $params['lang']);
 
             return ($detailed);
         }
         if($params['method'] == "getcast")
         {
-
-            $movie_cast = $search->getcast_request($params['id']);
+            $movie_cast = $search->getcast_request($params['id'], $params['type']);
 
             return ($movie_cast);
         }
         if($params['method'] == "link")
         {
-            $links = $search->links_request($params['id']);
+            $links = $search->links_request($params['id'], $params['type'], $params['lang']);
 
           return ($links);
         }

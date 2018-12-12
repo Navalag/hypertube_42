@@ -5,7 +5,7 @@ use Xurumelous\TorrentScraper\TorrentScraperService;
 
 class SearchClass
 {
-    public function discover_request($page, $sort, $years, $rate, $genres, $type)
+    public function discover_request($page, $sort, $years, $rate, $genres, $type, $lang)
     {
         $res = [];
        // dd($genres);
@@ -68,11 +68,10 @@ class SearchClass
         }
         $genres_str = trim($genres_str, ',');
 
-        $lang = "en-US";
 
         if ($type != null) {
-            ($type == "movies") ? $str = 'https://api.themoviedb.org/3/discover/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
-            ($type == "tvshows") ? $str = 'https://api.themoviedb.org/3/discover/tv?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
+            ($type == "movies") ? $str = 'https://api.themoviedb.org/3/discover/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language='.$lang : 0;
+            ($type == "tvshows") ? $str = 'https://api.themoviedb.org/3/discover/tv?api_key=838ad56065a20c3380e39bdcd7c02442&language='.$lang : 0;
         }
         //else
           //  $str = 'https://api.themoviedb.org/3/discover/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang;
@@ -106,7 +105,7 @@ class SearchClass
                 ($sort != "none") ? $str .= '&sort_by=' . $sort : 0;
             }
         }
-        $str .= '&include_adult=false&include_video=false&page='.$page;
+
         if($years != null)
         {
             $years_arr = [];
@@ -126,32 +125,44 @@ class SearchClass
             $str .='&vote_average.gte='.$rate_arr['min'].'&vote_average.lte='.$rate_arr['max'];
         }
         ($genres_str != null) ? $str .= '&with_genres='.$genres_str : 0;
+        $str .= '&include_adult=false&include_video=false&page='.$page;
         $data = file_get_contents($str);
         return ($data);
     }
 
-    public function search_request($needle, $page, $type)
+    public function search_request($needle, $page, $type, $lang)
     {
 
-        ($type == "movies") ? $str = 'https://api.themoviedb.org/3/search/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language=en-US&query='.urlencode($needle).'&page='.$page.'&include_adult=true' : 0;
-        ($type == "tvshows") ? $str = 'https://api.themoviedb.org/3/search/tv?api_key=838ad56065a20c3380e39bdcd7c02442&language=en-US&query='.urlencode($needle).'&page='.$page.'&include_adult=true' : 0;
+        ($type == "movies") ? $str = 'https://api.themoviedb.org/3/search/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language=en-US&query='.urlencode($needle).'&language='.$lang.'&page='.$page.'&include_adult=true' : 0;
+        ($type == "tvshows") ? $str = 'https://api.themoviedb.org/3/search/tv?api_key=838ad56065a20c3380e39bdcd7c02442&language=en-US&query='.urlencode($needle).'&language='.$lang.'&page='.$page.'&include_adult=true' : 0;
 
         $data = file_get_contents($str);
         return ($data);
     }
 
-    public function details_request($id)
+    public function details_request($id, $type, $lang)
     {
-        $detailed = 'https://api.themoviedb.org/3/movie/'.$id.'?api_key=838ad56065a20c3380e39bdcd7c02442&language=en-US&append_to_response=videos';
 
-        $detailed_res = file_get_contents($detailed);
+        if($type != null)
+        {
+            ($type == "movies") ? $detailed = 'https://api.themoviedb.org/3/movie/' . $id . '?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
+            ($type == "tvshows") ? $detailed = 'https://api.themoviedb.org/3/tv/' . $id . '?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
 
-        return ($detailed_res);
+            $detailed_res = file_get_contents($detailed);
+
+            return ($detailed_res);
+        }
+        else
+            return ;
     }
 
-    public function getcast_request($id)
+    public function getcast_request($id, $type)
     {
-        $cast = 'https://api.themoviedb.org/3/movie/'.$id.'/credits?api_key=838ad56065a20c3380e39bdcd7c02442&language=en-US';
+
+        //other language then en-us is not supported!
+        ($type == "movies") ? $cast = 'https://api.themoviedb.org/3/movie/'.$id.'/credits?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
+        ($type == "tvshows") ? $cast = 'https://api.themoviedb.org/3/tv/'.$id.'/credits?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
+
 
         $cast_res = file_get_contents($cast);
 
@@ -159,36 +170,42 @@ class SearchClass
     }
 
 
-    public function links_request($id)
+    public function links_request($id, $type, $lang)
     {
-        $pop_str = 'https://tv-v2.api-fetch.website/movie/'.$id;
-        $pop_data = json_decode(file_get_contents($pop_str), true);
-        $res = [];
-        $i = 0;
-        $title = $pop_data['title'];
-        $pop_torrents = $pop_data['torrents'];
 
-        foreach ($pop_torrents as $key => $value) {
-            $new = [];
-            $new['lang'] = $key;
-            $res[$i] = $new;
-            foreach ($value as $key => $subvalue)
-            {
+        if($type == "movies")
+        {
+            $pop_str = 'https://tv-v2.api-fetch.website/movie/' . $id;
+            $pop_data = json_decode(file_get_contents($pop_str), true);
+            $res = [];
+            $i = 0;
+            $title = $pop_data['title'];
+            $pop_torrents = $pop_data['torrents'];
+
+            foreach ($pop_torrents as $key => $value) {
                 $new = [];
-                /* echo "<pre>";
-                     print_r($value);
-                     echo "<hr>";
-                 echo "<pre>";*/
-                $new['resolution'] = $key;
-                $new['data'] = $subvalue;
-                $new['data']['title'] = $title;
-                $new['data']['imdb'] = $id;
-                array_push($res[$i], $new);
+                $new['lang'] = $key;
+                $res[$i] = $new;
+                foreach ($value as $key => $subvalue) {
+                    $new = [];
+                    /* echo "<pre>";
+                         print_r($value);
+                         echo "<hr>";
+                     echo "<pre>";*/
+                    $new['resolution'] = $key;
+                    $new['data'] = $subvalue;
+                    $new['data']['title'] = $title;
+                    $new['data']['imdb'] = $id;
+                    array_push($res[$i], $new);
+                }
+                // array_push($res[], $value);
+                $i++;
             }
-            // array_push($res[], $value);
-            $i++;
         }
+        else if ($type == "tvshows")
+        {
 
+        }
        // $more_str = 'https://hydramovies.com/api-v2/?source=http://hydramovies.com/api-v2/current-Movie-Data.csv&imdb_id='.$id;
        // $more_data = json_decode(file_get_contents($more_str), true);
 

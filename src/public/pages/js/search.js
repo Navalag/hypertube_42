@@ -36,6 +36,9 @@ var tv_len = tv_genres.length;
 var movie_form = document.getElementById('movie_form');
 var tv_form = document.getElementById('tv_form');
 var general_type = {data: null};
+var lang = "uk-UA";
+//var lang = "en-US";
+
 
 
 //const observer = lozad(); // lazy loads elements with default selector as ".lozad"
@@ -71,6 +74,7 @@ function setformdata()
     else if(switcher.data == null)
     {
        hide_show_genres_list("movies", movies_genres, tv_genres);
+        hide_show_filters("movies");
     }
     set_filters_on_reload_page();
 }
@@ -139,7 +143,7 @@ if (response)
         });
 
         if (storedMethod == null) {
-            static_load(1, null, null, null, null, "movies");
+            static_load(1, null, null, null, null, "movies", lang);
         }
         else if (storedMethod === "static_load" && storedArr) {
 
@@ -200,7 +204,7 @@ if (response)
 
                         if (sortparam.data != null || yearsparam.data != null || rateparam.data != null || genresparam.data != null || switcher.data != null) {
                             console.log('fuck');
-                            static_load(storedPage, sortparam.data, yearsparam.data, rateparam.data, genresparam.data, general_type.data);
+                            static_load(storedPage, sortparam.data, yearsparam.data, rateparam.data, genresparam.data, general_type.data, lang);
                         }
                         else
                         {
@@ -209,7 +213,7 @@ if (response)
                             var res = null;
                             if(storedGenres)
                                  res = storedGenres.split(',');
-                            static_load(storedPage, storedSort, storedYears, storedRate, res, general_type.data);
+                            static_load(storedPage, storedSort, storedYears, storedRate, res, general_type.data, lang);
                         }
                     }
                     else if (storedMethod == "live_load" || trigger.data == "live_load") {
@@ -219,9 +223,9 @@ if (response)
                         //// console.log("needle.data: ", needle.data);
                         sessionStorage.setItem('page', storedPage);
                         if (needle.data == '' && storedNeedle != null)
-                            live_load(storedNeedle, storedPage);
+                            live_load(storedNeedle, storedPage, lang);
                         else if (storedNeedle == null && needle.data != '')
-                            live_load(needle.data, storedPage);
+                            live_load(needle.data, storedPage, lang);
                     }
                 }
                 // render(i);
@@ -290,13 +294,13 @@ if (response)
         document.getElementById("response").innerHTML = "";
         //hide_show_genres_list(type, movies_genres, tv_genres);
         (switcher.data != null) ?  static_load(1, null, null, null, null, switcher.data) : 0;
-        (switcher.data == null && storedSwitcher != null) ?  static_load(1, null, null, null, null, storedSwitcher) : 0;
-        (switcher.data == null && storedSwitcher == null) ?  static_load(1, null, null, null, null, "movies") : 0;
+        (switcher.data == null && storedSwitcher != null) ?  static_load(1, null, null, null, null, storedSwitcher, lang) : 0;
+        (switcher.data == null && storedSwitcher == null) ?  static_load(1, null, null, null, null, "movies", lang) : 0;
 
 
     });
 
-    function static_load(i, sort, years, rate, genres, type) {
+    function static_load(i, sort, years, rate, genres, type, lang) {
         $.ajax({
             type: 'POST',
             url: baseUrl + '/',
@@ -308,7 +312,8 @@ if (response)
                     'years': years,
                     'rate': rate,
                     'genres': genres,
-                    'type': type
+                    'type': type,
+                    'lang' : lang
                 },
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -329,7 +334,10 @@ if (response)
                 sessionStorage.setItem('method', 'static_load');
                 sessionArr = sessionStorage.getItem('arr');
                 console.log('type: ' ,type);
-                if (sessionArr && (switcher.data === type || storedSwitcher === type)) {
+                console.log('switcher.data', switcher.data);
+                console.log('storedSwitcher', storedSwitcher);
+                console.log('gen', general_type.data);
+                if (sessionArr && (general_type.data === type)) {
                     var arr1 = JSON.parse(sessionArr);
                     // //// console.log(arr1);
                     var arr2 = arr1.concat(list.results);
@@ -494,7 +502,7 @@ if (response)
 
     }
 
-    function live_load(needle, page) {
+    function live_load(needle, page, lang) {
 
         $.ajax({
             type: 'post',
@@ -504,7 +512,8 @@ if (response)
                     'method': 'live_search',
                     'page': page,
                     'needle': needle,
-                    'type': general_type.data
+                    'type': general_type.data,
+                    'lang': lang
                 },
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -567,14 +576,15 @@ if (response)
                 storedNeedle = null;
                 storedLimit = null;
                 limit.data = 0;
-                live_load(needle.data, 1);
+                live_load(needle.data, 1, lang);
             }, 500);
         }
         if (this.value.length < 1) {
             clearTimeout(timer);
             timer = setTimeout(function () {
                 document.getElementById("response").innerHTML = "";
-                static_load(1, null, null, null, null, general_type.data);
+                reset();
+                static_load(1, null, null, null, null, general_type.data, lang);
             }, 500);
         }
     });
@@ -601,7 +611,7 @@ $('#search_submit').click(function (e)
     rateparam.data = rate;
     genresparam.data = genres;
     document.getElementById("response").innerHTML = "";
-    static_load(1, sort, years, rate, genres, general_type.data);
+    static_load(1, sort, years, rate, genres, general_type.data, lang);
     (genres != null) ? genres_list.innerHTML = genres.join().replace(/,/g,'/') : 0;
     (genres == null) ? genres_list.innerHTML = "" : 0;
 
@@ -625,7 +635,7 @@ $('#search_submit_tv').click(function (e)
     rateparam.data = rate;
     genresparam.data = genres;
     document.getElementById("response").innerHTML = "";
-    static_load(1, sort, years, rate, genres, general_type.data);
+    static_load(1, sort, years, rate, genres, general_type.data, lang);
     (genres != null) ? genres_list.innerHTML = genres.join().replace(/,/g,'/') : 0;
     (genres == null) ? genres_list.innerHTML = "" : 0;
 });
@@ -644,7 +654,7 @@ $('.genre_direct_link').click(function (e)
         sessionStorage.setItem("genres", res);
         genresparam.data = res;
         document.getElementById("response").innerHTML = "";
-        static_load(1, null, null, null, res, general_type.data);
+        static_load(1, null, null, null, res, general_type.data, lang);
     }
 
 });
@@ -695,7 +705,7 @@ function switch_type(event)
         hide_show_genres_list(type, movies_genres, tv_genres);
         sessionStorage.removeItem('arr');
         hide_show_filters(type);
-        static_load(1, null, null, null, null, type);
+        static_load(1, null, null, null, null, type, lang);
     }
     else if(target.getAttribute('id') == "tvshows_switch")
     {
@@ -706,7 +716,7 @@ function switch_type(event)
         document.getElementById("response").innerHTML = "";
         hide_show_genres_list(type, movies_genres, tv_genres);
         hide_show_filters(type);
-        static_load(1, null, null, null, null, type);
+        static_load(1, null, null, null, null, type, lang);
 
     }
 }

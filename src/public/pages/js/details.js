@@ -1,5 +1,6 @@
 var getUrl = window.location;
 var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+var lang = "uk-UA";
 
 console.log(movie_id);
 $(document).ready(function() {
@@ -18,29 +19,25 @@ function get_movie_data(movie_id)
         data:
             {
                 'method': 'ignition',
-                'raw_id': movie_id
+                'raw_id': movie_id,
+                'lang': lang
             },
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function (response) {
             var idarr = response;
-            console.log(idarr);
-            get_movie_data_by_id(idarr[0], idarr[1]);
-            get_movie_link_by_id(idarr[1]);
-            get_movie_cast(idarr[0]);
-           // get_trailers(idarr[0]);
-            //document.getElementById('details_response').innerHTML = response;
-            // var  len = Object.keys(list.results).length;
-
-
+            //idarr[0] - tmdb_id, adarr[1] - imdb_id, idarr[2] - type(movies or tvshows)
+            get_movie_data_by_id(idarr[0], idarr[1], idarr[2], lang);
+            get_movie_link_by_id(idarr[1], idarr[2], lang);
+            get_movie_cast(idarr[0], idarr[2]);
         }
     });
 }
 
 
 
-function get_movie_cast(movie_id)
+function get_movie_cast(movie_id, type)
 {
     var cast_container = document.getElementById('cast-info');
     $.ajax({
@@ -50,6 +47,7 @@ function get_movie_cast(movie_id)
             {
                 'method': 'getcast',
                 'id': movie_id,
+                'type': type
             },
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -98,19 +96,23 @@ function get_short_movie_cast()
     document.querySelector('.show_cast').style.display = "none";
     var cast_container = document.getElementById('cast-info');
     cast_container.innerHTML = "";
-    get_movie_cast(movie_id);
+    var arr = movie_id.split('_');
+    console.log(arr);
+    get_movie_cast(arr[1], arr[0]);
 }
 
 function get_full_movie_cast()
 {
-
+    var arr = movie_id.split('_');
+    console.log(arr);
     $.ajax({
         type: 'POST',
         url: baseUrl + '/',
         data:
             {
                 'method': 'getcast',
-                'id': movie_id,
+                'id': arr[1],
+                'type': arr[0]
             },
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -199,7 +201,7 @@ function get_full_movie_cast()
 
 
 
-function get_movie_data_by_id(movie_id, imdb_id)
+function get_movie_data_by_id(movie_id, imdb_id, type, language)
 {
     var backdrop = document.getElementById('backdrop_im');
     var title = document.getElementById('details_movie-title');
@@ -218,7 +220,8 @@ function get_movie_data_by_id(movie_id, imdb_id)
             {
                 'method': 'details',
                 'id': movie_id,
-                'imdb': imdb_id
+                'type': type,
+                'lang': language
             },
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -228,7 +231,7 @@ function get_movie_data_by_id(movie_id, imdb_id)
              console.log(list);
              backdrop.style.cssText = "background-image: url(https://image.tmdb.org/t/p/original/" + list.backdrop_path + ");";
            // var  len = Object.keys(list.results).length;
-            title.innerHTML = list.original_title;
+            title.innerHTML = list.title;
             tagline.innerHTML = list.tagline;
             overview.innerHTML = list.overview;
             year.innerHTML = list.release_date;
@@ -241,7 +244,7 @@ function get_movie_data_by_id(movie_id, imdb_id)
         }
     });
 }
-function get_movie_link_by_id(movie_id)
+function get_movie_link_by_id(imdb_id, type, language)
 {
     $.ajax({
         type: 'POST',
@@ -249,7 +252,9 @@ function get_movie_link_by_id(movie_id)
         data:
             {
                 'method': 'link',
-                'id': movie_id
+                'id': imdb_id,
+                'type': type,
+                'lang': language
             },
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -259,7 +264,6 @@ function get_movie_link_by_id(movie_id)
             var list = JSON.parse(response);
             var  len = Object.keys(list).length;
             var container = document.getElementById('links_response');
-            console.log(list);
             for(var i = 0; i < len; i++)
             {
 
