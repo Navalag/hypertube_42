@@ -20,7 +20,7 @@
 		<meta content="" name="author" />
 
 		<!--  -->
-		<link class="main-stylesheet" href="{{ asset('assets/css/bulma.css') }}" rel="stylesheet" type="text/css" />
+		<!-- <link class="main-stylesheet" href="{{ asset('assets/css/bulma.css') }}" rel="stylesheet" type="text/css" /> -->
 		<link href="{{ asset('assets/plugins/pace/pace-theme-flash.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('assets/plugins/font-awesome/css/font-awesome.css') }}" rel="stylesheet" type="text/css" />
@@ -34,6 +34,8 @@
 		<link href="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.css') }}" rel="stylesheet" type="text/css" media="screen" />
 		<link href="{{ asset('pages/css/custom.css') }}" rel="stylesheet" type="text/css">
 		<link href="{{ asset('pages/css/pages-icons.css') }}" rel="stylesheet" type="text/css">
+		<link href="{{ asset('assets/plugins/codrops-stepsform/css/component.css') }}" rel="stylesheet" type="text/css">
+		<link href="{{ asset('assets/plugins/switchery/css/switchery.min.css') }}" rel="stylesheet" type="text/css">
 
 		<link href="{{ asset('assets/js/chosen/chosen.css') }}" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
