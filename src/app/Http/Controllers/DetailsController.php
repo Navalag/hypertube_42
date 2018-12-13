@@ -20,7 +20,9 @@ class DetailsController extends Controller {
 
     public function getDetails($id)
     {
-        return view('details')->with('movie_id', $id);
+        return view('details')
+             ->with('movie_id', $id)
+             ->with('user_info', \Auth::user());
     }
 
 
