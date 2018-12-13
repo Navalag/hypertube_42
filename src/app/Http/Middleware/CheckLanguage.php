@@ -20,7 +20,7 @@ class CheckLanguage
 
         if ($lang != null) {
             app()->setLocale($lang);
-        } else {
+        } else if (\Auth::user()) {
             $user = User::find(\Auth::user()->id);
             app()->setLocale($user->lang);
         }
