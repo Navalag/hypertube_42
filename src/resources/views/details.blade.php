@@ -113,7 +113,8 @@
 									<div class="circle" data-toggle="tooltip" title="Label" data-container="body">
 									</div>
 									<h5>David Nester updated his status
-					<span class="hint-text">few seconds ago</span></h5>
+										<span class="hint-text">few seconds ago</span>
+									</h5>
 									<h2>Earned my first salary bonus for the best design of the year award.</h2>
 									<ul class="reactions">
 										<li><a href="#">5,345 <i class="fa fa-comment-o"></i></a>
@@ -128,9 +129,6 @@
 									<div class="card-description">
 										<div id="cast-info" class="cast_container"></div>
 									</div>
-									<!-- <div class="card-content">
-										<div id="cast-info" class="cast_container"></div>
-									</div> -->
 								</div>
 								<!-- END ITEM -->
 								<!-- START ITEM -->
@@ -322,8 +320,7 @@
 									<div class="card-description">
 										<h5 class='hint-text no-margin'>Apple Inc.</h5>
 										<h5 class="small hint-text no-margin">NASDAQ: AAPL - Nov 13 8:37 AM ET</h5>
-										<h3>111.25 <span class="text-success"><i class="fa fa-sort-up small text-success"></i> 0.15 (0.13%)</span>
-					</h3>
+										<h3>111.25 <span class="text-success"><i class="fa fa-sort-up small text-success"></i> 0.15 (0.13%)</span></h3>
 									</div>
 									<div class="card-footer clearfix">
 										<div class="pull-left">by <span class="text-success">John Smith</span>

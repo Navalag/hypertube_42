@@ -25,6 +25,7 @@ function get_movie_data(movie_id)
 		},
 		success: function (response) {
 			var idarr = response;
+			console.log('server response: ',idarr);
 			//idarr[0] - tmdb_id, adarr[1] - imdb_id, idarr[2] - type(movies or tvshows)
 			get_movie_data_by_id(idarr[0], idarr[1], idarr[2], lang);
 			get_movie_link_by_id(idarr[1], idarr[2], lang);
@@ -51,9 +52,8 @@ function get_movie_cast(movie_id, type)
 		success: function (response) {
 			cast_container.setAttribute("class", "cast_container");
 			var list = JSON.parse(response);
-	   //     console.log(list);
+	    console.log('cast info: ', list);
 			var  len = Object.keys(list.cast).length;
-
 
 			for (var i = 0; i < 12 && i < len; i++)
 			{

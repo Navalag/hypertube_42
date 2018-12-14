@@ -1,4 +1,5 @@
-<?php namespace App\Library;
+<?php 
+namespace App\Library;
 
 use TorrentAPI\TorrentAPI;
 use Xurumelous\TorrentScraper\TorrentScraperService;
@@ -142,8 +143,7 @@ class SearchClass
 
     public function details_request($id, $type, $lang)
     {
-
-        if($type != null)
+        if ($type != null)
         {
             ($type == "movies") ? $detailed = 'https://api.themoviedb.org/3/movie/' . $id . '?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
             ($type == "tvshows") ? $detailed = 'https://api.themoviedb.org/3/tv/' . $id . '?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
@@ -158,17 +158,14 @@ class SearchClass
 
     public function getcast_request($id, $type)
     {
-
         //other language then en-us is not supported!
         ($type == "movies") ? $cast = 'https://api.themoviedb.org/3/movie/'.$id.'/credits?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
         ($type == "tvshows") ? $cast = 'https://api.themoviedb.org/3/tv/'.$id.'/credits?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
-
 
         $cast_res = file_get_contents($cast);
 
         return ($cast_res);
     }
-
 
     public function links_request($id, $type, $lang)
     {

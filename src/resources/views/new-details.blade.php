@@ -87,8 +87,6 @@
 							</div>
 							<div id="links_response" class="message-body" ></div>
 						</div>
-
-
 					</section>
 					<section class="cast-trailer_wrapper">
 						<div class="movie-cast-trailer_container">
@@ -99,7 +97,6 @@
 								<div id="cast-info" class="cast_container"></div>
 								<button class="button is-primary show_crew" onclick="get_full_movie_cast()">Show all cast and crew</button>
 								<button class="button is-primary show_cast" onclick="get_short_movie_cast()">Show only cast</button>
-
 							</div>
 							<div id="trailer" class=" message comments_container">
 								<div class="message-header">

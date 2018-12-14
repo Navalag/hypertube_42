@@ -20,11 +20,36 @@ class DetailsController extends Controller {
 
     public function getDetails($id)
     {
+        $search = new SearchClass;
+        $id_arr = explode('_', $id);
+        $type = $id_arr[0];
+        $id = (int)$id_arr[1];
+        // dd($id);
+        if($id != null)
+        {
+            ($type == "movies") ? $str = 'https://api.themoviedb.org/3/movie/'.$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
+            ($type == "tvshows") ? $str = 'https://api.themoviedb.org/3/tv/'.$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
+            $data = file_get_contents($str);
+            $imdb_arr = json_decode($data, true);
+            // dd($data);
+            $imdb_id = $imdb_arr['imdb_id'];
+
+            $res[0] = $id;
+            $res[1] = $imdb_id;
+            $res[2] = $type;
+        }
+        $detailed = $search->details_request($id, $type, 'uk-UA');
+        $imdb_arr = json_decode($detailed, true);
+
+        $movie_cast = $search->getcast_request($id, $type);
+        $imdb_arr = json_decode($movie_cast, true);
+        dd($imdb_arr);
+
         return view('details')
+             // ->with('movie_info', $res)
              ->with('movie_id', $id)
              ->with('user_info', \Auth::user());
     }
-
 
     public function putDetails(Request $request)
     {
@@ -39,36 +64,32 @@ class DetailsController extends Controller {
         which resulting with this motherfucking symbols \u0000*\u0000 in array keys. It is possible to access this properties
         in json parsed array, but will look like "object.property.["motherfucking\u0000*\u0000property"].property", so i have
         added a dumb crutch which  cuts fucking symbols*/
-            foreach ($result['subs'] as $key => $value)
-            {
-                if($key[1] === "*") {
-                    $result['subs'][substr($key, 3)] = $result['subs'][$key];
-                    unset($result['subs'][$key]);
-                }
+        foreach ($result['subs'] as $key => $value)
+        {
+            if($key[1] === "*") {
+                $result['subs'][substr($key, 3)] = $result['subs'][$key];
+                unset($result['subs'][$key]);
             }
+        }
         return json_encode($result);
     }
-
 
     public function postDetails(Request $request)
     {
         $search = new SearchClass;
         $params = $request->all();
 
-        if(isset($params['raw_id']))
+        if (isset($params['raw_id']))
         {
             $id_arr = explode('_', $params['raw_id']);
-
             $type = $id_arr[0];
             $id = (int)$id_arr[1];
-
         }
         $res = [];
-        if($params['method'] == "ignition")
+        if ($params['method'] == "ignition")
         {
             if($id != null)
             {
-
                 ($type == "movies") ? $str = 'https://api.themoviedb.org/3/movie/'.$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
                 ($type == "tvshows") ? $str = 'https://api.themoviedb.org/3/tv/'.$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
                 $data = file_get_contents($str);
@@ -83,23 +104,23 @@ class DetailsController extends Controller {
             else
                 return ;
         }
-        if($params['method'] == "details")
+        if ($params['method'] == "details")
         {
             $detailed = $search->details_request($params['id'], $params['type'], $params['lang']);
 
             return ($detailed);
         }
-        if($params['method'] == "getcast")
+        if ($params['method'] == "getcast")
         {
             $movie_cast = $search->getcast_request($params['id'], $params['type']);
 
             return ($movie_cast);
         }
-        if($params['method'] == "link")
+        if ($params['method'] == "link")
         {
             $links = $search->links_request($params['id'], $params['type'], $params['lang']);
 
-          return ($links);
+            return ($links);
         }
          //   $title = $detailed_res['movie_results'][0]['title'];
         /*echo "<pre>";
