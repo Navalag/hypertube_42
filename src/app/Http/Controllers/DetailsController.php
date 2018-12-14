@@ -72,10 +72,14 @@ class DetailsController extends Controller {
                 $data = file_get_contents($str);
                 $imdb_arr = json_decode($data, true);
                 $imdb_id = $imdb_arr['imdb_id'];
-
+                $detailed = json_decode($search->details_request($id, $type, $params['lang']), true);
                 $res[0] = $id;
                 $res[1] = $imdb_id;
                 $res[2] = $type;
+                if($type == "tvshows")
+                    $res[3] = $detailed['name'];
+                else if($type == "movies")
+                    $res[3] = $detailed['title'];
                 return ($res);
             }
             else
@@ -95,7 +99,7 @@ class DetailsController extends Controller {
         }
         if($params['method'] == "link")
         {
-            $links = $search->links_request($params['id'], $params['type'], $params['lang']);
+            $links = $search->links_request($params['id'], $params['type'], $params['title'], $params['lang']);
 
           return ($links);
         }
