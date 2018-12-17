@@ -36,7 +36,7 @@
             this.$status.length && new stepsForm(this.$status.get(0), {
                 onSubmit: function(form) {
                     _this.$status.find('.status-form-inner').addClass('hide');
-                    // form.submit()
+                    form.submit();
                     // show success message
                     _this.$status.find('.final-message').html('<i class="far fa-check-circle"></i> We will add your feedback soon!').addClass('show');
                 }

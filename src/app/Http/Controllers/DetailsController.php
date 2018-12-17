@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Library\SearchClass;
+use App\Http\Controllers\Comment\CommentController;
 
 
 class DetailsController extends Controller {
@@ -18,10 +19,11 @@ class DetailsController extends Controller {
         $this->middleware(['auth', 'verified']);
     }
 
-    public function getDetails($id)
+    public function getDetails($movie_id)
     {
         $search = new SearchClass;
-        $id_arr = explode('_', $id);
+        $comments = new CommentController;
+        $id_arr = explode('_', $movie_id);
         $type = $id_arr[0];
         $id = (int)$id_arr[1];
         // dd($id);
@@ -32,12 +34,16 @@ class DetailsController extends Controller {
         $cast_details = $search->getcast_request($id, $type);
         // $cast_details = json_decode($cast_details, true);
         // dd($cast_details);
+        $all_comments = $comments->getAllCommentsForFilm($movie_id);
+        // dd($all_comments[0]->body);
 
         return view('details')
              ->with('user_info', \Auth::user())
+             ->with('movie_id', $movie_id)
              ->with('external_ids', $external_ids)
              ->with('details', json_decode($details, true))
-             ->with('cast_details', json_decode($cast_details, true));
+             ->with('cast_details', json_decode($cast_details, true))
+             ->with('comments', $all_comments);
     }
 
     public function putDetails(Request $request)

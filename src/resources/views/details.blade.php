@@ -81,14 +81,15 @@
 								<!-- END ITEM -->
 								<!-- START ITEM -->
 								<div class="card social-card col2 padding-20" data-social="item">
-									<form class="simform no-margin" autocomplete="off" data-social="status">
+									<form class="simform no-margin" autocomplete="off" data-social="status" action="{{ route('comment.add') }}" method="POST">
+										@csrf
 										<div class="status-form-inner">
 											<ol class="questions">
 												<li>
 													<span>
 														<label for="status-q1">What do you think about this film?</label>
 													</span>
-													<input id="status-q1" name="q1" type="text" />
+													<input id="status-q1" name="comment_body" type="text" />
 												</li>
 											</ol>
 											<!-- /questions -->
@@ -106,27 +107,28 @@
 										</div>
 										<!-- /simform-inner -->
 										<span class="final-message"></span>
+										<input name="movie_id" type="hidden" value="{{ $movie_id }}" />
 									</form>
 									<!-- /simform -->
 								</div>
 								<!-- END ITEM -->
 								<!-- START ITEM -->
-								<div class="card social-card share  col1" data-social="item">
-									<div class="circle" data-toggle="tooltip" title="Label" data-container="body">
-									</div>
-									<div class="card-header clearfix">
-										<div class="user-pic">
-											<img alt="Profile Image" width="33" height="33" data-src-retina="assets/img/profiles/4x.jpg" data-src="assets/img/profiles/4.jpg" src="assets/img/profiles/4x.jpg">
+								@foreach($comments as $comment)
+									<div class="card social-card share  col1" data-social="item">
+										<div class="circle" data-toggle="tooltip" title="Label" data-container="body">
 										</div>
-										<h5>Andy Young</h5>
-										<h6>Updated his status
-											<span class="location semi-bold"><i class="fa fa-map-marker"></i> NYC, New York</span>
-										</h6>
+										<div class="card-header clearfix">
+											<div class="user-pic">
+												<img alt="Profile Image" width="33" height="33" data-src-retina="{{ $user_info->photo_src }}" data-src="{{ $user_info->photo_src }}" src="{{ $user_info->photo_src }}">
+											</div>
+											<h5>{{ $user_info->first_name }} {{ $user_info->last_name }}</h5>
+											<h6>Posted a comment</h6>
+										</div>
+										<div class="card-description">
+											<p>{{ $comment->body }}</p>
+										</div>
 									</div>
-									<div class="card-description">
-										<p>What a lovely day! I think I should go and play outside.</p>
-									</div>
-								</div>
+								@endforeach
 								<!-- END ITEM -->
 							</div>
 							<!-- END DAY -->
@@ -150,7 +152,7 @@
 	<script type="text/javascript">
 		var movie_id = "{{ $external_ids['tmdb_id'] }}";
 	</script>
-	<script src="{{ asset('pages/js/details.js') }}"></script>
+	<!-- <script src="{{ asset('pages/js/details.js') }}"></script> -->
 
 	<script src="{{ asset('assets/plugins/classie/classie.js') }}"></script>
 	<script src="{{ asset('assets/plugins/codrops-stepsform/js/stepsForm.js') }}"></script>
