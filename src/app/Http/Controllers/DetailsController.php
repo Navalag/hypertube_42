@@ -25,30 +25,19 @@ class DetailsController extends Controller {
         $type = $id_arr[0];
         $id = (int)$id_arr[1];
         // dd($id);
-        if($id != null)
-        {
-            ($type == "movies") ? $str = 'https://api.themoviedb.org/3/movie/'.$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
-            ($type == "tvshows") ? $str = 'https://api.themoviedb.org/3/tv/'.$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
-            $data = file_get_contents($str);
-            $imdb_arr = json_decode($data, true);
-            // dd($data);
-            $imdb_id = $imdb_arr['imdb_id'];
-
-            $res[0] = $id;
-            $res[1] = $imdb_id;
-            $res[2] = $type;
-        }
-        $detailed = $search->details_request($id, $type, 'uk-UA');
-        $imdb_arr = json_decode($detailed, true);
-
-        $movie_cast = $search->getcast_request($id, $type);
-        $imdb_arr = json_decode($movie_cast, true);
-        dd($imdb_arr);
+        $external_ids = $search->get_external_ids_request($type, $id);
+        // $external_ids = json_decode($external_ids, true);
+        $details = $search->details_request($id, $type, 'uk-UA');
+        // $details = json_decode($details, true);
+        $cast_details = $search->getcast_request($id, $type);
+        // $cast_details = json_decode($cast_details, true);
+        // dd($cast_details);
 
         return view('details')
-             // ->with('movie_info', $res)
-             ->with('movie_id', $id)
-             ->with('user_info', \Auth::user());
+             ->with('user_info', \Auth::user())
+             ->with('external_ids', $external_ids)
+             ->with('details', json_decode($details, true))
+             ->with('cast_details', json_decode($cast_details, true));
     }
 
     public function putDetails(Request $request)

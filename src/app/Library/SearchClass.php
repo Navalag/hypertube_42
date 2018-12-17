@@ -9,6 +9,7 @@ class SearchClass
     public function discover_request($page, $sort, $years, $rate, $genres, $type, $lang)
     {
         $res = [];
+        $str = '';
        // dd($genres);
         if ($genres != null) {
 
@@ -251,6 +252,20 @@ class SearchClass
         return (json_encode($res));
     }
 
+    public function get_external_ids_request($type, $id) {
+        $uri = '';
+
+        ($type == "movies") ? $uri = 'https://api.themoviedb.org/3/movie/'.$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
+        ($type == "tvshows") ? $uri = 'https://api.themoviedb.org/3/tv/'.$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
+        $data = file_get_contents($uri);
+        $imdb_arr = json_decode($data, true);
+        $imdb_id = $imdb_arr['imdb_id'];
+
+        $res['tmdb_id'] = $id;
+        $res['imdb_id'] = $imdb_id;
+
+        return $res;
+    }
 
     public function get_subtitles_list($title, $imdb)
     {
