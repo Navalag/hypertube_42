@@ -119,9 +119,9 @@
 										</div>
 										<div class="card-header clearfix">
 											<div class="user-pic">
-												<img alt="Profile Image" width="33" height="33" data-src-retina="{{ $user_info->photo_src }}" data-src="{{ $user_info->photo_src }}" src="{{ $user_info->photo_src }}">
+												<img alt="Profile Image" width="33" height="33" data-src-retina="{{ $comment->user->photo_src }}" data-src="{{ $comment->user->photo_src }}" src="{{ $comment->user->photo_src }}">
 											</div>
-											<h5>{{ $user_info->first_name }} {{ $user_info->last_name }}</h5>
+											<h5>{{ $comment->user->first_name }} {{ $comment->user->last_name }}</h5>
 											<h6>Posted a comment</h6>
 										</div>
 										<div class="card-description">
@@ -142,7 +142,7 @@
 		</div>
 		<!-- END PAGE CONTENT -->
 		<!-- START COPYRIGHT -->
-			@include('layouts.footer')
+		@include('layouts.footer')
 		<!-- END COPYRIGHT -->
 	<!-- END PAGE CONTAINER -->
 	</div>

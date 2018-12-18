@@ -35,7 +35,7 @@ class DetailsController extends Controller {
         // $cast_details = json_decode($cast_details, true);
         // dd($cast_details);
         $all_comments = $comments->getAllCommentsForFilm($movie_id);
-        // dd($all_comments[0]->body);
+        // dd($all_comments[0]->user->first_name);
 
         return view('details')
              ->with('user_info', \Auth::user())
