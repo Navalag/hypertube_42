@@ -20,3 +20,59 @@
     width: 337px;
     text-align: center;
 }
+
+/*  --  Bootstrap 4 responsive card-deck (Grid layout)  --  */
+
+/*.card-deck {
+  display: grid;
+}
+
+@media (min-width: 0) {
+  .card-deck {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (min-width: 576px) {
+  .card-deck {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 768px) {
+  .card-deck {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .card-deck {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .card-deck {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+.card-deck .card:not(:last-child) {
+	margin: 0;
+}
+.card-deck .card:not(:first-child) {
+	margin: 0;
+}*/
+
+.card {
+	/*max-width: 200px;*/
+}
+
+.card-img-top {
+	width: 100%;
+}
+
+.card-img-top {
+	border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.card .card-block {
+	padding: 10px;
+}

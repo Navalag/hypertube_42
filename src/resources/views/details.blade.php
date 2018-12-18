@@ -29,29 +29,25 @@
 						</div>
 					</div>
 					<!-- END JUMBOTRON -->
-					<div class=" container-fluid   container-fixed-lg sm-p-l-0 sm-p-r-0">
+					<div class="container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
 						<div class="feed">
 							<!-- START DAY -->
 							<div class="day" data-social="day">
 								<!-- START ITEM -->
-								<div class="card no-border bg-transparent full-width" data-social="item">
-									<!-- START CONTAINER FLUID -->
-									<!-- <div class="container-fluid p-t-30 p-b-30 "> -->
-										<div class="row">
-											<div class="col-lg-6">
-												<p id="movie-overview" class="no-margin fs-16">{{ $details['overview'] }}</p>
-											</div>
-											<div class="col-lg-6">
-												<h5 class="no-margin p-b-5">Grade - <span id="grade_response">{{ $details['vote_average'] }}</span></h5>
-												<h5 class="no-margin p-b-5">Release - <span id="year_response">{{ $details['release_date'] }}</span></h5>
-												<h5 class="no-margin p-b-5">Budget - <span id="budget_response">${{ $details['budget'] }}</span></h5>
-												<h5 class="no-margin p-b-5">Revenue - <span id="revenue_response">${{ $details['revenue'] }}</span></h5>
-												<h5 class="no-margin p-b-5">Original Language - <span id="lang_response">{{ $details['original_language'] }}</span></h5>
-												<h5 class="no-margin p-b-5">Runtime - <span id="runtime_response">{{ $details['runtime'] }} min</span></h5>
-											</div>
-										</div>
-									<!-- </div> -->
-									<!-- END CONTAINER FLUID -->
+								<div class="card social-card no-border bg-transparent col2" data-social="item">
+									<div class="card-description">
+										<p class="no-margin fs-16">{{ $details['overview'] }}</p>
+									</div>
+								</div>
+								<!-- END ITEM -->
+								<!-- START ITEM -->
+								<div class="card social-card status col1" data-social="item">
+									<h4 class="no-margin p-b-5">Grade - <span id="grade_response">{{ $details['vote_average'] }}</span></h4>
+									<h4 class="no-margin p-b-5">Release - <span id="year_response">{{ $details['release_date'] }}</span></h4>
+									<h4 class="no-margin p-b-5">Budget - <span id="budget_response">${{ $details['budget'] }}</span></h4>
+									<h4 class="no-margin p-b-5">Revenue - <span id="revenue_response">${{ $details['revenue'] }}</span></h4>
+									<h4 class="no-margin p-b-5">Original Language - <span id="lang_response">{{ $details['original_language'] }}</span></h4>
+									<h4 class="no-margin p-b-5">Runtime - <span id="runtime_response">{{ $details['runtime'] }} min</span></h4>
 								</div>
 								<!-- END ITEM -->
 								<!-- START ITEM -->
@@ -60,19 +56,202 @@
 								</div>
 								<!-- END ITEM -->
 								<!-- START ITEM -->
-								@foreach(array_slice($cast_details['cast'], 0, 8) as $cast)
-									<div class="card social-card share share-other col1" data-social="item">
-										<div class="card-content">
-											<img alt="Actor img" src="https://image.tmdb.org/t/p/w200/{{ $cast['profile_path'] }}">
-											<!-- <div id="cast-info" class="cast_container"></div> -->
+								<div class="card no-border bg-transparent full-width" data-social="item">
+									<!-- <div class="container-fluid"> -->
+										<div class="row">
+										@foreach(array_slice($cast_details['cast'], 0, 6) as $cast)
+											<div class="col-lg-2">
+												<div class="card">
+												  <img class="card-img-top" src="https://image.tmdb.org/t/p/w200/{{ $cast['profile_path'] }}" alt="Actor img">
+												  <div class="card-block">
+												    <h5><span class="semi-bold">{{ $cast['name'] }}</span></h5>
+												    <p>{{ $cast['character'] }}</p>
+												  </div>
+												</div>
+											</div>
+										@endforeach
 										</div>
-										<div class="card-description">
-											<p>{{ $cast['name'] }}</p>
-											<div class="via m-b-10">{{ $cast['character'] }}</div>
-											<!-- <h6></h6> -->
+									<!-- </div> -->
+								</div>
+								<!-- <div class="container">
+									<div class="card-columns">
+										<div class="card">
+											<img alt="Card image cap" class="card-img-top img-fluid" src="https://www.fillmurray.com/420/200">
+											<div class="card-block">
+												<h4 class="card-title">Boating is the new canoeing</h4>
+												<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+											</div>
 										</div>
+										<div class="card">
+											<img alt="Card image cap" class="card-img-top img-fluid" src="https://www.fillmurray.com/414/200">
+											<div class="card-block">
+												<h4 class="card-title">This almost brought the Internet to its knees</h4>
+												<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+											</div>
+										</div>
+										<div class="card">
+											<img alt="Card image cap" class="card-img-top img-fluid" src="https://www.fillmurray.com/412/200">
+											<div class="card-block">
+												<h4 class="card-title">Try not to gasp when you find out who painted this.</h4>
+												<span class="badge badge-success">Health</span>
+												<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+											</div>
+										</div>
+										<div class="card">
+											<img alt="Card image cap" class="card-img-top img-fluid" src="https://www.fillmurray.com/411/200">
+											<div class="card-block">
+												<h4 class="card-title">Lower back pain treatments</h4>
+												<span class="badge badge-warning">Health</span>
+												<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+											</div>
+										</div>
+										<div class="card">
+											<img alt="Card image cap" class="card-img-top img-fluid" src="https://www.fillmurray.com/415/200">
+											<div class="card-block">
+												<h4 class="card-title">How to keep a straight face</h4>
+												<span class="badge badge-primary">Social</span>
+												<p class="card-text">Keeping a straight face in a conversation can be more difficult than it seems.</p>
+											</div>
+										</div>		
+										<div class="card p-3">
+											<blockquote class="card-block card-blockquote">
+												<p>Of course I talk to myself, sometimes I need an expert opinion.</p>
+												<footer>
+													<small class="text-muted">William James Murray <cite title="Source Title">Caddyshack</cite></small>
+												</footer>
+											</blockquote>
+										</div>
+										<div class="card">
+											<img alt="Card image cap" class="card-img-top img-fluid" src="https://www.fillmurray.com/360/200">
+											<div class="card-block">
+												<h4 class="card-title">Best Horror Movies of 2017</h4>
+												<span class="badge badge-info">Movies</span>
+												<p class="card-text"></p>
+												<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+											</div>
+										</div>
+										<div class="card card-inverse card-primary p-3 text-center">
+											<blockquote class="card-blockquote">
+												<p>Movie acting suits me because I only need to be good for ninety seconds at a time.</p>
+												<footer>
+													<small>Billy Murray</small>
+												</footer>
+											</blockquote>
+										</div>
+										<div class="card text-center">
+											<div class="card-block">
+												<h4 class="card-title">Deep-thoughts</h4>
+												<p class="card-text">Sometimes I snore, like when I get really tired.</p>
+												<p class="card-text"><small class="text-muted">Willy M Murray</small></p>
+											</div>
+										</div>
+										<div class="card"><img alt="Card image" class="card-img img-fluid" src="https://www.fillmurray.com/400/200"></div>
+										<div class="card p-3 text-right">
+											<blockquote class="card-blockquote">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+												<footer>
+													<small class="text-muted">Someone famous in <cite title="Source Title">Source Title</cite></small>
+												</footer>
+											</blockquote>
+										</div>
+										<div class="card">
+											<div class="card-block">
+												<h4 class="card-title">Golf Tales</h4>
+												<p class="card-text">When you see grown men near to tears because they've missed hitting a little white ball into a hole from three feet, it makes you laugh.</p>
+												<p class="card-text"><small class="text-muted">Bill M</small></p>
+											</div>
+										</div>		
 									</div>
-								@endforeach
+									<div class="card-columns">
+										<div class="card">
+											<img alt="Card image cap" class="card-img-top img-fluid" src="https://www.fillmurray.com/414/200">
+											<div class="card-block">
+												<h4 class="card-title">This almost brought the Internet to its knees</h4>
+												<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+											</div>
+										</div>
+										<div class="card">
+											<img alt="Card image cap" class="card-img-top img-fluid" src="https://www.fillmurray.com/412/200">
+											<div class="card-block">
+												<h4 class="card-title">Try not to gasp when you find out who painted this.</h4>
+												<span class="badge badge-success">Health</span>
+												<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+											</div>
+										</div>
+										<div class="card">
+											<img alt="Card image cap" class="card-img-top img-fluid" src="https://www.fillmurray.com/411/200">
+											<div class="card-block">
+												<h4 class="card-title">Lower back pain treatments</h4>
+												<span class="badge badge-warning">Health</span>
+												<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+											</div>
+										</div>
+										<div class="card card-inverse card-primary p-3 text-center">
+											<blockquote class="card-blockquote">
+												<p>Movie acting suits me because I only need to be good for ninety seconds at a time.</p>
+												<footer>
+													<small>Billy Murray</small>
+												</footer>
+											</blockquote>
+										</div>		
+										<div class="card">
+											<img alt="Card image cap" class="card-img-top img-fluid" src="https://www.fillmurray.com/415/200">
+											<div class="card-block">
+												<h4 class="card-title">How to keep a straight face</h4>
+												<span class="badge badge-primary">Social</span>
+												<p class="card-text">Keeping a straight face in a conversation can be more difficult than it seems.</p>
+											</div>
+										</div>
+										<div class="card">
+											<img alt="Card image cap" class="card-img-top img-fluid" src="https://www.fillmurray.com/420/200">
+											<div class="card-block">
+												<h4 class="card-title">Boating is the new canoeing</h4>
+												<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+											</div>
+										</div>		
+										<div class="card">
+											<div class="card-block">
+												<h4 class="card-title">Golf Tales</h4>
+												<p class="card-text">When you see grown men near to tears because they've missed hitting a little white ball into a hole from three feet, it makes you laugh.</p>
+												<p class="card-text"><small class="text-muted">Bill M</small></p>
+											</div>
+										</div>			
+										<div class="card p-3">
+											<blockquote class="card-block card-blockquote">
+												<p>Of course I talk to myself, sometimes I need an expert opinion.</p>
+												<footer>
+													<small class="text-muted">William James Murray <cite title="Source Title">Caddyshack</cite></small>
+												</footer>
+											</blockquote>
+										</div>
+										<div class="card">
+											<img alt="Card image cap" class="card-img-top img-fluid" src="https://www.fillmurray.com/360/200">
+											<div class="card-block">
+												<h4 class="card-title">Best Horror Movies of 2017</h4>
+												<span class="badge badge-info">Movies</span>
+												<p class="card-text"></p>
+												<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+											</div>
+										</div>
+										<div class="card text-center">
+											<div class="card-block">
+												<h4 class="card-title">Deep-thoughts</h4>
+												<p class="card-text">Sometimes I snore, like when I get really tired.</p>
+												<p class="card-text"><small class="text-muted">Willy M Murray</small></p>
+											</div>
+										</div>
+										<div class="card"><img alt="Card image" class="card-img img-fluid" src="https://www.fillmurray.com/400/200"></div>
+										<div class="card p-3 text-right">
+											<blockquote class="card-blockquote">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+												<footer>
+													<small class="text-muted">Someone famous in <cite title="Source Title">Source Title</cite></small>
+												</footer>
+											</blockquote>
+										</div>
+									
+									</div>	
+								</div> -->
 								<!-- END ITEM -->
 								<!-- START ITEM -->
 								<div class="card no-border bg-transparent full-width" data-social="item">
@@ -114,9 +293,7 @@
 								<!-- END ITEM -->
 								<!-- START ITEM -->
 								@foreach($comments as $comment)
-									<div class="card social-card share  col1" data-social="item">
-										<div class="circle" data-toggle="tooltip" title="Label" data-container="body">
-										</div>
+									<div class="card social-card share col1" data-social="item">
 										<div class="card-header clearfix">
 											<div class="user-pic">
 												<img alt="Profile Image" width="33" height="33" data-src-retina="{{ $comment->user->photo_src }}" data-src="{{ $comment->user->photo_src }}" src="{{ $comment->user->photo_src }}">
