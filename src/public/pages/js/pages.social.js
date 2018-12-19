@@ -45,7 +45,7 @@
 
         }
         // Prevent 'vh' bug on iOS7
-        if($.Pages.getUserAgent() == 'mobile'){
+        if($.Pages.getUserAgent() == 'mobile') {
             //var wh = $(window).height();
             this.$cover.length && this.$cover.css('height', 400);
         }
@@ -101,7 +101,7 @@
         day: '[data-social="day"]',
         status: '[data-social="status"]',
         item: '[data-social="item"]',
-        colWidth: 300
+        colWidth: 140
     }
 
     // SOCIAL NO CONFLICT
@@ -134,7 +134,7 @@
             clearTimeout($social.data('pg.social').resizeTimeout);
 
             $social.data('pg.social').resizeTimeout = setTimeout(function() {
-                // $social.data('pg.social').setContainerWidth();
+                $social.data('pg.social').setContainerWidth();
                 $social.data('pg.social').$day.isotope('layout');
             }, 300);
 
