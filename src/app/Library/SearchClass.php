@@ -202,6 +202,7 @@ class SearchClass
                 {
                     $new = [];
                     $new['lang'] = $value['language'];
+                    $new['imdb'] = $value['imdb_code'];
                     foreach($value['torrents'] as $subvalue)
                     {
 
@@ -217,115 +218,89 @@ class SearchClass
                  }
             }
 
-           // dd($yts_imdb_id);
             $res['popcorn'] = [];
             $title = $pop_data['title'];
             $pop_torrents = $pop_data['torrents'];
             $i = 0;
-            echo "<pre>";
-                print_r($pop_torrents);
-            echo "<pre>";
             foreach ($pop_torrents as $key => $value) {
+                $new = [];
+                $new['lang'] = $key;
                 foreach ($value as $key => $subvalue) {
-                    $new = [];
-
-                    $new['resolution'] = $key;
-                    $new['data'] = $subvalue;
-                    $new['data']['title'] = $title;
-                    $new['data']['imdb'] = $id;
+                    $new['quality'] = $key;
+                    $new['size'] = $subvalue['filesize'];
+                    $new['magnet'] = $subvalue['url'];
                     $res['popcorn'][$i] =  $new;
                 }
-                // array_push($res[], $value);
+                 //$res['popcorn'] = $new;
                 $i++;
             }
-            echo "<pre>";
-                print_r($res);
-            echo "<pre>";
         }
         else if ($type == "tvshows")
         {
-
-
-          /* $ch = curl_init();
-
-            curl_setopt($ch, CURLOPT_URL, "https://oneom.tk/search/".$title);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, "
-        {\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"shows.Top\",\n  \"params\": {\n    \"mode\": \"all\",\n    \"count\": 500\n  },\n  \"id\": 1\n\n}");
-            curl_setopt($ch, CURLOPT_POST, 1);
-
-            $headers = array();
-            $headers[] = "Accept: application/json";
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-            $result = curl_exec($ch);
-            if (curl_errno($ch)) {
-                echo 'Error:' . curl_error($ch);
-            }
-            curl_close ($ch);*/
-
-           /* $opts = [
-                "http" => [
-                    "method" => "GET",
-                    "header" => "Accept: application/json"
-                ]
-            ];
-            $context = stream_context_create($opts);
-            $oneOm_str = 'https://oneom.tk/ep';
-            $oneOm_data = file_get_contents($oneOm_str);
-            dd($oneOm_data);*/
             $pop_str = 'https://tv-v2.api-fetch.website/show/' . $id;
             $pop_data = json_decode(file_get_contents($pop_str), true);
-            dd($pop_data);
+            $res = $pop_data['episodes'];
         }
-       // $more_str = 'https://hydramovies.com/api-v2/?source=http://hydramovies.com/api-v2/current-Movie-Data.csv&imdb_id='.$id;
-       // $more_data = json_decode(file_get_contents($more_str), true);
-
-       /* $torrentAPI = new TorrentAPI('Hypertube');
-
-        $popularMovies = $torrentAPI->query([
-            "mode" => "search",
-            "search_string" => $title,
-            "category" => "movie",
-
-        ]);*/
-
-
-      // $token = file_get_contents('https://torrentapi.org/pubapi_v2.php?get_token=get_token');
-      // dd($token);
-
-
-     // $API_URL = 'https://api.myshows.me/v2/rpc/';
-
-        //working request to myshows api
-
-
-     //   $str = 'https://tv-v2.api-fetch.website/animes/page?sort=rating&order=-1&genre=all';
-      //  $result = file_get_contents($str);
-      /*  echo "<pre>";
-        print_r(json_decode($result));
-        echo "<pre>";*/
-
         return (json_encode($res));
     }
 
 
-    public function get_subtitles_list($title, $imdb)
+    public function get_subtitles_list($title, $imdb, $type, $season, $episode, $lang)
     {
         $result = [];
+
         $client = \KickAssSubtitles\OpenSubtitles\Client::create([
             'username'  => '',
             'password'  => '',
             'useragent' => 'hypertube2'
         ]);
+        if($type == "movies")
+        {
+            if($lang != null) {
+                $response = $client->searchSubtitles([
+                    [
+                        'sublanguageid' => $lang,
+                        //'imdbid' => $imdb,
+                        'query' => $title
+                    ]
+                ]);
+            }
+            else if($lang == null)
+            {
+                $response = $client->searchSubtitles([
+                    [
+                        'query' => $title
+                    ]
+                ]);
+            }
+        }
+        else if($type == "tvshows")
+        {
+            if($lang != null) {
+                $response = $client->searchSubtitles([
+                    [
+                        'sublanguageid' => $lang,
+                        'query' => $title,
+                        'season' => $season,
+                        'episode' => $episode
+                        //'imdbid' => $imdb,
 
-        $response = $client->searchSubtitles([
-            [
-                'sublanguageid' => 'eng',
-                //'imdbid' => $imdb,
-                'query' => $title
-            ]
-        ]);
+                    ]
+                ]);
+            }
+            else if($lang == null)
+            {
+                $response = $client->searchSubtitles([
+                    [
+                        'query' => $title,
+                        'season' => $season,
+                        'episode' => $episode
+                        //'imdbid' => $imdb,
+
+                    ]
+                ]);
+            }
+        }
         return $response;
     }
 

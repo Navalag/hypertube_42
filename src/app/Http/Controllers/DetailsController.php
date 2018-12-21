@@ -29,7 +29,10 @@ class DetailsController extends Controller {
         $search = new SearchClass;
         $params = $request->all();
         $result = [];
-        $subtitles = $search->get_subtitles_list($params['title'], $params['imdb']);
+        $lang = null;
+        ($params['lang'] == "en-US") ? $lang = 'eng' : 0;
+        ($params['lang'] == "uk-UA") ? $lang = 'ukr' : 0;
+        $subtitles = $search->get_subtitles_list($params['title'], $params['imdb'], $params['type'], $params['season'], $params['episode'], $lang);
 
         $result['movie'] = $params;
         $result['subs'] = (array)$subtitles;
@@ -44,6 +47,18 @@ class DetailsController extends Controller {
                     unset($result['subs'][$key]);
                 }
             }
+        $subtitles_all = $search->get_subtitles_list($params['title'], $params['imdb'], $params['type'], $params['season'], $params['episode'], null);
+
+         $result['allsubs'] =  (array)$subtitles_all;
+
+        foreach ($result['allsubs'] as $key => $value)
+        {
+            if($key[1] === "*") {
+                $result['allsubs'][substr($key, 3)] = $result['allsubs'][$key];
+                unset($result['allsubs'][$key]);
+            }
+        }
+
         return json_encode($result);
     }
 
@@ -79,7 +94,7 @@ class DetailsController extends Controller {
                 if($type == "tvshows")
                     $res[3] = $detailed['name'];
                 else if($type == "movies")
-                    $res[3] = $detailed['title'];
+                    $res[3] = $detailed['original_title'];
                 return ($res);
             }
             else
