@@ -56,7 +56,7 @@
 								</div>
 								<!-- END ITEM -->
 								<!-- START ITEM -->
-								@foreach(array_slice($cast_details['cast'], 0, 8) as $cast)
+								@foreach(array_slice($cast_details['cast'], 0, 6) as $cast)
 									<div class="card social-card share col1" data-social="item">
 									  <div class="card-content">
 									    <img alt="Actor img" src="https://image.tmdb.org/t/p/w200/{{ $cast['profile_path'] }}">
@@ -145,7 +145,6 @@
 		var movie_id = "{{ $external_ids['tmdb_id'] }}";
 	</script>
 	<!-- <script src="{{ asset('pages/js/details.js') }}"></script> -->
-
 	<script src="{{ asset('assets/plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
 	<script src="{{ asset('assets/plugins/classie/classie.js') }}"></script>
 	<script src="{{ asset('assets/plugins/codrops-stepsform/js/stepsForm.js') }}"></script>

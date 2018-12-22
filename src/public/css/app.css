@@ -4,35 +4,35 @@
 
 /*  --  Logo styles  --  */
 .logo {
-    font-size: 22px;
-    font-weight: 900;
-    margin: 0;
+	font-size: 22px;
+	font-weight: 900;
+	margin: 0;
 }
 .logo.white {
-    color: white;
-    padding: 7px 0;
+	color: white;
+	padding: 7px 0;
 }
 .logo-fa {
-    padding-left: 5px;
+	padding-left: 5px;
 }
 .header .brand {
-    vertical-align: middle;
-    width: 337px;
-    text-align: center;
+	vertical-align: middle;
+	width: 230px;
+	text-align: right;
 }
 
 /*  --  Pages social grid  --  */
 
 .social-card.col1 {
-    width: 140px;
+	width: 140px;
 }
 
 .social-card.col2 {
-    width: 300px;
+	width: 300px;
 }
 
 .social-card.col4 {
-    width: 620px;
+	width: 620px;
 }
 
 .card-description h6 {

@@ -41,8 +41,6 @@
                     _this.$status.find('.final-message').html('<i class="far fa-check-circle"></i> We will add your feedback soon!').addClass('show');
                 }
             });
-
-
         }
         // Prevent 'vh' bug on iOS7
         if($.Pages.getUserAgent() == 'mobile') {
