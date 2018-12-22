@@ -1,4 +1,5 @@
-<?php namespace App\Library;
+<?php 
+namespace App\Library;
 
 use TorrentAPI\TorrentAPI;
 use Xurumelous\TorrentScraper\TorrentScraperService;
@@ -8,6 +9,7 @@ class SearchClass
     public function discover_request($page, $sort, $years, $rate, $genres, $type, $lang)
     {
         $res = [];
+        $str = '';
        // dd($genres);
         if ($genres != null) {
 
@@ -142,8 +144,7 @@ class SearchClass
 
     public function details_request($id, $type, $lang)
     {
-
-        if($type != null)
+        if ($type != null)
         {
             ($type == "movies") ? $detailed = 'https://api.themoviedb.org/3/movie/' . $id . '?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
             ($type == "tvshows") ? $detailed = 'https://api.themoviedb.org/3/tv/' . $id . '?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
@@ -161,11 +162,9 @@ class SearchClass
 
     public function getcast_request($id, $type)
     {
-
         //other language then en-us is not supported!
         ($type == "movies") ? $cast = 'https://api.themoviedb.org/3/movie/'.$id.'/credits?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
         ($type == "tvshows") ? $cast = 'https://api.themoviedb.org/3/tv/'.$id.'/credits?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
-
 
         $cast_res = file_get_contents($cast);
 
@@ -179,6 +178,7 @@ class SearchClass
 
 
     public function links_request($id, $type, $title, $lang)
+
     {
 
         if($type == "movies")
@@ -244,6 +244,20 @@ class SearchClass
         return (json_encode($res));
     }
 
+    public function get_external_ids_request($type, $id) {
+        $uri = '';
+
+        ($type == "movies") ? $uri = 'https://api.themoviedb.org/3/movie/'.$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
+        ($type == "tvshows") ? $uri = 'https://api.themoviedb.org/3/tv/'.$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
+        $data = file_get_contents($uri);
+        $imdb_arr = json_decode($data, true);
+        $imdb_id = $imdb_arr['imdb_id'];
+
+        $res['tmdb_id'] = $id;
+        $res['imdb_id'] = $imdb_id;
+
+        return $res;
+    }
 
     public function get_subtitles_list($title, $imdb, $type, $season, $episode, $lang)
     {

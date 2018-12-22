@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <script type="text/javascript">
 window.onload = function()
 {

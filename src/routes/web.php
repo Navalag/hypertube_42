@@ -24,6 +24,7 @@ Route::group(['middleware' => ['language']], function () {
 	Route::get('/details/{id}', 'DetailsController@getDetails');
 	Route::post('/details/', 'DetailsController@postDetails');
 	Route::put('/details/', 'DetailsController@putDetails');
+	Route::post('/comment/store', 'Comment\CommentController@store')->name('comment.add');
 
 	Route::post('/user/edit_profile', 'User\EditUserInfo@edit')->name('user.edit_prof');
 	Route::get('/user/set_lang', 'User\EditUserInfo@setLanguage')->name('user.set_lang');

@@ -2,323 +2,153 @@
 
 @section('content')
 <!-- BEGIN SIDEBPANEL-->
-
-<nav class="page-sidebar" data-pages="sidebar">
-    <!-- BEGIN SIDEBAR MENU HEADER-->
-    <div class="sidebar-header">
-        <!-- <h3 class="brand">HyperTube 42</h3> -->
-
-       <img src="{{ asset('assets/img/logo1.png') }}" alt="logo" class="brand" data-src="{{ asset('assets/img/logo1.png') }}" data-src-retina={{ asset('assets/img/logo1.png') }} width="78" height="22">
-    </div>
-    <!-- END SIDEBAR MENU HEADER-->
-    <!-- START SIDEBAR MENU -->
-    <div class="sidebar-menu">
-        <!-- BEGIN SIDEBAR MENU ITEMS-->
-        <ul class="menu-items">
-            <li class="m-t-30 ">
-                <a href="#" class="detailed">
-                    <span class="title_aside">Genres</span>
-                </a>
-
-
-
-                <span class="bg-success icon-thumbnail"><i class="fas fa-film"></i></span>
-            </li>
-            <li class="">
-                <a href="" class="genre_direct_link" >
-                    <span class="title_aside" data="Action">Action</span>
-                    <!--<button class="add_button" data="Action">+</button>-->
-                </a>
-                <span class="icon-thumbnail"><i class="pg-mail"></i></span>
-            </li>
-            <li class="">
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="Adventure">Adventure</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-social"></i></span>
-            </li>
-            <li>
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="Animation">Animation</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-calender"></i></span>
-            </li>
-            <li class="">
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="Comedy">Comedy</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-layouts"></i></span>
-            </li>
-            <li>
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="Crime">Crime</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-layouts2"></i></span>
-            </li>
-            <li>
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="Documentary">Documentary</span>
-                </a>
-                <span class="icon-thumbnail">Ui</span>
-            </li>
-            <li>
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="Drama">Drama</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-form"></i></span>
-
-            </li>
-            <li class="">
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="Family">Family</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-grid"></i></span>
-            </li>
-            <li class="">
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="Fantasy">Fantasy</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-grid"></i></span>
-            </li>
-            <li class="">
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="History">History</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-grid"></i></span>
-            </li>
-            <li class="">
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="Horror">Horror</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-grid"></i></span>
-            </li>
-            <li class="">
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="Music">Music</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-grid"></i></span>
-            </li>
-            <li class="">
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="Mystery">Mystery</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-grid"></i></span>
-            </li>
-            <li class="">
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="Romance">Romance</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-grid"></i></span>
-            </li>
-            <li class="">
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="Science Fiction">Science Fiction</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-grid"></i></span>
-            </li>
-            <li class="">
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="TV movie">TV movie</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-grid"></i></span>
-            </li>
-            <li class="">
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="Thriller">Thriller</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-grid"></i></span>
-            </li>
-            <li class="">
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="War">War</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-grid"></i></span>
-            </li>
-            <li class="">
-                <a href="" class="genre_direct_link">
-                    <span class="title_aside" data="Western">Western</span>
-                </a>
-                <span class="icon-thumbnail"><i class="pg-grid"></i></span>
-            </li>
-
-        </ul>
-        <div class="clearfix"></div>
-    </div>
-    <!-- END SIDEBAR MENU -->
-</nav>
-<!-- END SIDEBAR -->
+	@include('layouts.menu')
 <!-- END SIDEBPANEL-->
-<!-- START PAGE-CONTAINER -->
 <div class="page-container ">
-    <!-- START HEADER -->
-
-    <div class="header ">
-        <!-- START MOBILE SIDEBAR TOGGLE -->
-        <a href="#" class="btn-link toggle-sidebar hidden-lg-up pg pg-menu" data-toggle="sidebar">
-        </a>
-        <!-- END MOBILE SIDEBAR TOGGLE -->
-        <div class="">
-            <div class="brand inline   ">
-                <!-- <h3>HyperTube 42</h3> -->
-                <img src="{{ asset('assets/img/logo1.png') }}" alt="logo" data-src="{{ asset('assets/img/logo1.png') }}" data-src-retina={{ asset('assets/img/logo1.png') }} width="78" height="22">
-            </div>
-            <!-- START NOTIFICATION LIST -->
-            <!-- END NOTIFICATIONS LIST -->
-        </div>
-        <div class="live_load_container">
-            <input id="live_search_input" type="text" name="live_search" placeholder="Fuck" value="" class="live_search" autocomplete="on">
-            <button id="reset_button">Reset</button>
-        </div>
-        <div class="d-flex align-items-center">
-            <!-- START User Info-->
-            <div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
-                <span class="semi-bold">David</span> <span class="text-master">Nest</span>
-            </div>
-            <div class="dropdown pull-right hidden-md-down">
-                <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<span class="thumbnail-wrapper d32 circular inline">
-					<!--<img src="assets/img/profiles/avatar.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">-->
-					</span>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-                    <a href="#" class="dropdown-item" data-target="#modalSlideLeft" data-toggle="modal"><i class="pg-settings_small"></i> Settings</a>
-                    <a href="#" class="dropdown-item"><i class="pg-outdent"></i> Feedback</a>
-                    <a href="#" class="dropdown-item"><i class="pg-signals"></i> Help</a>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
-													 document.getElementById('logout-form').submit();" class="clearfix bg-master-lighter dropdown-item">
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                        <span class="pull-left">Logout</span>
-                        <span class="pull-right"><i class="pg-power"></i></span>
-                    </a>
-                </div>
-            </div>
-            <!-- END User Info-->
-            <a href="#" class="header-icon pg pg-alt_menu btn-link m-l-10 sm-no-margin d-inline-block"></a><!--data-toggle="quickview" data-toggle-element="#quickview" -->
-        </div>
-
-    </div>
-    <!-- END HEADER -->
-    <!-- START PAGE CONTENT WRAPPER -->
-    <div class="page-content-wrapper ">
-
-        <!-- START PAGE CONTENT -->
-        <div class="content ">
-
-
-            <div class="social-wrapper">
-                <div class="social " data-pages="social">
-                    <!-- START JUMBOTRON -->
-                    <div class="jumbotron" data-pages="parallax" data-social="cover">
-                        <div class="cover-photo" id="backdrop_im">
-                            <img alt="Cover photo"  src="{{ asset('assets/img/abstractshit.jpg') }}">
-                        </div>
-                        <div class=" container-fluid   container-fixed-lg sm-p-l-0 sm-p-r-0">
-                            <div class="inner">
-                                <div class="pull-bottom bottom-left m-b-40 sm-p-l-15">
-                                    <h1 class="text-white no-margin" id="details_movie-title"></h1>
-                                    <h5 class="text-white no-margin" id="details_movie-tagline"></h5>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <section class="movie-info_container field is-grouped is-grouped-multiline">
-                        <div class="control">
-                            <div class="tags has-addons">
-                                <span class="tag is-dark">Release </span>
-                                <div id="year_response" class="tag is-info"></div>
-                            </div>
-                        </div>
-
-                        <div class="control">
-                            <div class="tags has-addons">
-                                <span class="tag is-dark">Runtime </span>
-                                <div id="runtime_response" class="tag is-primary"></div>
-                            </div>
-                        </div>
-
-                        <div class="control">
-                            <div class="tags has-addons">
-                                <span class="tag is-dark">Language </span>
-                                <div id="lang_response" class="tag is-link"></div>
-                            </div>
-                        </div>
-
-
-                        <div class="control">
-                            <div class="tags has-addons">
-                                <span class="tag is-dark">Grade </span>
-                                <div id="grade_response" class="tag is-success"></div>
-                            </div>
-                        </div>
-
-                        <div class="control">
-                            <div class="tags has-addons">
-                                <span class="tag is-dark">Budget </span>
-                                <div id="budget_response" class="tag is-warning"></div>
-                            </div>
-                        </div>
-
-                        <div class="control">
-                            <div class="tags has-addons">
-                                <span class="tag is-dark">Revenue </span>
-                                <div id="revenue_response" class="tag is-danger"></div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="movie-overview-links_container">
-                            <div class="message is-dark movie-overview_response">
-                                <div class="message-header">
-                                    <p>Overview</p>
-                                </div>
-                                <div id="movie-overview" class="message-body"></div>
-                            </div>
-
-                        <div class="message is-dark movie-links_response">
-                            <div class="message-header">
-                                <p>Play movie</p>
-                            </div>
-                            <div id="links_response" class="message-body" ></div>
-                        </div>
-
-
-                    </section>
-                    <section class="cast-trailer_wrapper">
-                        <div class="movie-cast-trailer_container">
-                            <div class=" message cast-crew_wrapper">
-                                <div class="message-header">
-                                    <p>Cast</p>
-                                </div>
-                                <div id="cast-info" class="cast_container"></div>
-                                <button class="button is-primary show_crew" onclick="get_full_movie_cast()">Show all cast and crew</button>
-                                <button class="button is-primary show_cast" onclick="get_short_movie_cast()">Show only cast</button>
-
-                            </div>
-                            <div id="trailer" class=" message comments_container">
-                                <div class="message-header">
-                                    <p>Comments</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="player_container">
-                        <div id="player"></div>
-                    </section>
-                    <section id="details_response"></section>
-                    <!-- END JUMBOTRON -->
-
-    <!-- END PAGE CONTENT WRAPPER -->
-</section>
-<!-- END PAGE CONTAINER -->
-<!--START QUICKVIEW -->
-<!-- END OVERLAY -->
+	<!-- START HEADER -->
+		@include('layouts.header')
+	<!-- END HEADER -->
+	<!-- START PAGE CONTENT WRAPPER -->
+	<div class="page-content-wrapper ">
+		<!-- START PAGE CONTENT -->
+		<div class="content ">
+			<div class="social-wrapper">
+				<div class="social " data-pages="social">
+					<!-- START JUMBOTRON -->
+					<div class="jumbotron" data-pages="parallax" data-social="cover">
+						<div class="cover-photo" id="backdrop_im">
+							<img alt="Cover photo" src="https://image.tmdb.org/t/p/original/{{ $details['backdrop_path'] }}" />
+						</div>
+						<div class=" container-fluid   container-fixed-lg sm-p-l-0 sm-p-r-0">
+							<div class="inner">
+								<div class="pull-bottom bottom-left m-b-40 sm-p-l-15">
+									<h1 class="text-white no-margin" id="details_movie-title">{{ $details['title'] }}</h1>
+									<h5 class="text-white no-margin" id="details_movie-tagline">{{ $details['tagline'] }}</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- END JUMBOTRON -->
+					<div class="container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
+						<div class="feed">
+							<!-- START DAY -->
+							<div class="day" data-social="day">
+								<!-- START ITEM -->
+								<div class="card social-card no-border bg-transparent col4" data-social="item">
+									<div class="card-description">
+										<p class="no-margin fs-16">{{ $details['overview'] }}</p>
+									</div>
+								</div>
+								<!-- END ITEM -->
+								<!-- START ITEM -->
+								<div class="card social-card status col2" data-social="item">
+									<h4 class="no-margin p-b-5">Grade - <span id="grade_response">{{ $details['vote_average'] }}</span></h4>
+									<h4 class="no-margin p-b-5">Release - <span id="year_response">{{ $details['release_date'] }}</span></h4>
+									<h4 class="no-margin p-b-5">Budget - <span id="budget_response">${{ $details['budget'] }}</span></h4>
+									<h4 class="no-margin p-b-5">Revenue - <span id="revenue_response">${{ $details['revenue'] }}</span></h4>
+									<h4 class="no-margin p-b-5">Original Language - <span id="lang_response">{{ $details['original_language'] }}</span></h4>
+									<h4 class="no-margin p-b-5">Runtime - <span id="runtime_response">{{ $details['runtime'] }} min</span></h4>
+								</div>
+								<!-- END ITEM -->
+								<!-- START ITEM -->
+								<div class="card no-border bg-transparent full-width" data-social="item">
+									<h3 class="no-margin p-b-5">Top Billed Cast</h3>
+								</div>
+								<!-- END ITEM -->
+								<!-- START ITEM -->
+								@foreach(array_slice($cast_details['cast'], 0, 6) as $cast)
+									<div class="card social-card share col1" data-social="item">
+									  <div class="card-content">
+									    <img alt="Actor img" src="https://image.tmdb.org/t/p/w200/{{ $cast['profile_path'] }}">
+									  </div>
+									  <div class="card-description">
+									    <h6><span class="semi-bold">{{ $cast['name'] }}</span></h6>
+									    <p class="via m-b-10">{{ $cast['character'] }}</p>
+									  </div>
+									</div>
+								@endforeach
+								<!-- END ITEM -->
+								<!-- START ITEM -->
+								<div class="card no-border bg-transparent full-width" data-social="item">
+									<h3 class="no-margin p-b-5">Reviews From Our Users</h3>
+								</div>
+								<!-- END ITEM -->
+								<!-- START ITEM -->
+								<div class="card social-card col4 padding-20" data-social="item">
+									<form class="simform no-margin" autocomplete="off" data-social="status" action="{{ route('comment.add') }}" method="POST">
+										@csrf
+										<div class="status-form-inner">
+											<ol class="questions">
+												<li>
+													<span>
+														<label for="status-q1">What do you think about this film?</label>
+													</span>
+													<input id="status-q1" name="comment_body" type="text" />
+												</li>
+											</ol>
+											<!-- /questions -->
+											<button class="submit" type="submit">Send answers</button>
+											<div class="controls">
+												<button class="next"></button>
+												<div class="progress"></div>
+												<span class="number">
+													<span class="number-current"></span>
+												<span class="number-total"></span>
+												</span>
+												<span class="error-message"></span>
+											</div>
+											<!-- / controls -->
+										</div>
+										<!-- /simform-inner -->
+										<span class="final-message"></span>
+										<input name="movie_id" type="hidden" value="{{ $movie_id }}" />
+									</form>
+									<!-- /simform -->
+								</div>
+								<!-- END ITEM -->
+								<!-- START ITEM -->
+								@foreach($comments as $comment)
+									<div class="card social-card share col2" data-social="item">
+										<div class="card-header clearfix">
+											<div class="user-pic">
+												<img alt="Profile Image" width="33" height="33" data-src-retina="{{ $comment->user->photo_src }}" data-src="{{ $comment->user->photo_src }}" src="{{ $comment->user->photo_src }}">
+											</div>
+											<h5>{{ $comment->user->first_name }} {{ $comment->user->last_name }}</h5>
+											<h6>Posted a comment</h6>
+										</div>
+										<div class="card-description">
+											<p>{{ $comment->body }}</p>
+										</div>
+									</div>
+								@endforeach
+								<!-- END ITEM -->
+							</div>
+							<!-- END DAY -->
+						</div>
+						<!-- END FEED -->
+					</div>
+					<!-- END CONTAINER FLUID -->
+				</div>
+				<!-- /container -->
+			</div>
+		</div>
+		<!-- END PAGE CONTENT -->
+		<!-- START COPYRIGHT -->
+		@include('layouts.footer')
+		<!-- END COPYRIGHT -->
+	<!-- END PAGE CONTAINER -->
+	</div>
+</div>
 @endsection
 @push('scripts')
-    <script type="text/javascript">
-        var movie_id = "{{ $movie_id }}";
-    </script>
-    <script src="{{ asset('pages/js/details.js') }}"></script>
+	<script type="text/javascript">
+		var movie_id = "{{ $external_ids['tmdb_id'] }}";
+	</script>
+	<!-- <script src="{{ asset('pages/js/details.js') }}"></script> -->
+	<script src="{{ asset('assets/plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+	<script src="{{ asset('assets/plugins/classie/classie.js') }}"></script>
+	<script src="{{ asset('assets/plugins/codrops-stepsform/js/stepsForm.js') }}"></script>
+	<script src="{{ asset('assets/plugins/jquery-isotope/isotope.pkgd.min.js') }}"></script>
+
+	<script src="{{ asset('pages/js/pages.social.js') }}"></script>
 @endpush

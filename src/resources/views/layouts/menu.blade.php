@@ -2,7 +2,7 @@
 <nav class="page-sidebar" data-pages="sidebar">
 	<!-- BEGIN SIDEBAR MENU HEADER-->
 	<div class="sidebar-header">
-		<h2 class="logo white"><b>HyperTube</b><i class="logo-fa fas fa-play-circle"></i></h1>
+		<a href="/"><h2 class="logo white"><b>HyperTube</b><i class="logo-fa fas fa-play-circle"></i></h2></a>
 		<!-- <img src="assets/img/logo_white.png" alt="logo" class="brand" data-src="assets/img/logo_white.png" data-src-retina="assets/img/logo_white_2x.png" width="78" height="22"> -->
 	</div>
 	<!-- END SIDEBAR MENU HEADER-->

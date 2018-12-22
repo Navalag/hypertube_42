@@ -36,16 +36,14 @@
             this.$status.length && new stepsForm(this.$status.get(0), {
                 onSubmit: function(form) {
                     _this.$status.find('.status-form-inner').addClass('hide');
-                    // form.submit()
+                    form.submit();
                     // show success message
-                    _this.$status.find('.final-message').html('<i class="fa fa-check-circle-o"></i> Status updated').addClass('show');
+                    _this.$status.find('.final-message').html('<i class="far fa-check-circle"></i> We will add your feedback soon!').addClass('show');
                 }
             });
-
-
         }
         // Prevent 'vh' bug on iOS7
-        if($.Pages.getUserAgent() == 'mobile'){
+        if($.Pages.getUserAgent() == 'mobile') {
             //var wh = $(window).height();
             this.$cover.length && this.$cover.css('height', 400);
         }
@@ -101,7 +99,7 @@
         day: '[data-social="day"]',
         status: '[data-social="status"]',
         item: '[data-social="item"]',
-        colWidth: 300
+        colWidth: 140
     }
 
     // SOCIAL NO CONFLICT
@@ -134,7 +132,7 @@
             clearTimeout($social.data('pg.social').resizeTimeout);
 
             $social.data('pg.social').resizeTimeout = setTimeout(function() {
-                // $social.data('pg.social').setContainerWidth();
+                $social.data('pg.social').setContainerWidth();
                 $social.data('pg.social').$day.isotope('layout');
             }, 300);
 

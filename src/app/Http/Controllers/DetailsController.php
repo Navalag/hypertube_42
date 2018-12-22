@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Library\SearchClass;
+use App\Http\Controllers\Comment\CommentController;
 
 
 class DetailsController extends Controller {
@@ -18,11 +19,32 @@ class DetailsController extends Controller {
         $this->middleware(['auth', 'verified']);
     }
 
-    public function getDetails($id)
+    public function getDetails($movie_id)
     {
-        return view('details')->with('movie_id', $id);
-    }
+        $search = new SearchClass;
+        $comments = new CommentController;
+        $id_arr = explode('_', $movie_id);
+        $type = $id_arr[0];
+        $id = (int)$id_arr[1];
+        // dd($id);
+        $external_ids = $search->get_external_ids_request($type, $id);
+        // $external_ids = json_decode($external_ids, true);
+        $details = $search->details_request($id, $type, 'uk-UA');
+        // $details = json_decode($details, true);
+        $cast_details = $search->getcast_request($id, $type);
+        // $cast_details = json_decode($cast_details, true);
+        // dd($cast_details);
+        $all_comments = $comments->getAllCommentsForFilm($movie_id);
+        // dd($all_comments[0]->user->first_name);
 
+        return view('details')
+             ->with('user_info', \Auth::user())
+             ->with('movie_id', $movie_id)
+             ->with('external_ids', $external_ids)
+             ->with('details', json_decode($details, true))
+             ->with('cast_details', json_decode($cast_details, true))
+             ->with('comments', $all_comments);
+    }
 
     public function putDetails(Request $request)
     {
@@ -40,13 +62,13 @@ class DetailsController extends Controller {
         which resulting with this motherfucking symbols \u0000*\u0000 in array keys. It is possible to access this properties
         in json parsed array, but will look like "object.property.["motherfucking\u0000*\u0000property"].property", so i have
         added a dumb crutch which  cuts fucking symbols*/
-            foreach ($result['subs'] as $key => $value)
-            {
-                if($key[1] === "*") {
-                    $result['subs'][substr($key, 3)] = $result['subs'][$key];
-                    unset($result['subs'][$key]);
-                }
+        foreach ($result['subs'] as $key => $value)
+        {
+            if($key[1] === "*") {
+                $result['subs'][substr($key, 3)] = $result['subs'][$key];
+                unset($result['subs'][$key]);
             }
+
         $subtitles_all = $search->get_subtitles_list($params['title'], $params['imdb'], $params['type'], $params['season'], $params['episode'], null);
 
          $result['allsubs'] =  (array)$subtitles_all;
@@ -62,26 +84,22 @@ class DetailsController extends Controller {
         return json_encode($result);
     }
 
-
     public function postDetails(Request $request)
     {
         $search = new SearchClass;
         $params = $request->all();
 
-        if(isset($params['raw_id']))
+        if (isset($params['raw_id']))
         {
             $id_arr = explode('_', $params['raw_id']);
-
             $type = $id_arr[0];
             $id = (int)$id_arr[1];
-
         }
         $res = [];
-        if($params['method'] == "ignition")
+        if ($params['method'] == "ignition")
         {
             if($id != null)
             {
-
                 ($type == "movies") ? $str = 'https://api.themoviedb.org/3/movie/'.$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
                 ($type == "tvshows") ? $str = 'https://api.themoviedb.org/3/tv/'.$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442' : 0;
                 $data = file_get_contents($str);
@@ -100,23 +118,23 @@ class DetailsController extends Controller {
             else
                 return ;
         }
-        if($params['method'] == "details")
+        if ($params['method'] == "details")
         {
             $detailed = $search->details_request($params['id'], $params['type'], $params['lang']);
 
             return ($detailed);
         }
-        if($params['method'] == "getcast")
+        if ($params['method'] == "getcast")
         {
             $movie_cast = $search->getcast_request($params['id'], $params['type']);
 
             return ($movie_cast);
         }
-        if($params['method'] == "link")
+        if ($params['method'] == "link")
         {
             $links = $search->links_request($params['id'], $params['type'], $params['title'], $params['lang']);
 
-          return ($links);
+            return ($links);
         }
          //   $title = $detailed_res['movie_results'][0]['title'];
         /*echo "<pre>";
