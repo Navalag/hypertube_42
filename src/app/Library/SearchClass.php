@@ -149,6 +149,7 @@ class SearchClass
             ($type == "movies") ? $detailed = 'https://api.themoviedb.org/3/movie/' . $id . '?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
             ($type == "tvshows") ? $detailed = 'https://api.themoviedb.org/3/tv/' . $id . '?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
 
+
             $detailed_res = file_get_contents($detailed);
 
             return ($detailed_res);
@@ -168,87 +169,81 @@ class SearchClass
         return ($cast_res);
     }
 
-    public function links_request($id, $type, $lang)
+    private function make_magnet($hash)
+    {
+        return ("fuck");
+    }
+
+
+    public function links_request($id, $type, $title, $lang)
+
     {
 
         if($type == "movies")
         {
             $pop_str = 'https://tv-v2.api-fetch.website/movie/' . $id;
             $pop_data = json_decode(file_get_contents($pop_str), true);
+            $list_from_yts_str = 'https://yts.am/api/v2/list_movies.json?query_term='.urlencode($title);
+            $list_from_yts_arr = json_decode(file_get_contents($list_from_yts_str), true);
+            //$yts_imdb_id = $list_from_yts_arr['data']['movies'][0]['imdb_code'];
+           // echo "<pre>";
+            //    print_r($list_from_yts_arr);
+            //echo "<pre>";
+            $inner_movies_arr = $list_from_yts_arr['data']['movies'];
+            $yts_torr_arr = [];
             $res = [];
             $i = 0;
+            $res['YTS'] = [];
+            if($inner_movies_arr)
+            {
+                foreach($inner_movies_arr as $value)
+                {
+                    if($value['imdb_code'] == $id)
+                    {
+                        $new = [];
+                        $new['lang'] = $value['language'];
+                        $new['imdb'] = $value['imdb_code'];
+                        foreach($value['torrents'] as $subvalue)
+                        {
+
+                            $new['hash'] = $subvalue['hash'];
+                            $new['quality'] = $subvalue['quality'];
+                            $new['size'] = $subvalue['size'];
+                            $new['magnet'] = $this->make_magnet($subvalue['hash']);
+                            //print_r($new);
+                            $res['YTS'][$i] = $new;
+                            $i++;
+                        }
+
+                     }
+                }
+            }
+            $res['popcorn'] = [];
             $title = $pop_data['title'];
             $pop_torrents = $pop_data['torrents'];
-
-            foreach ($pop_torrents as $key => $value) {
-                $new = [];
-                $new['lang'] = $key;
-                $res[$i] = $new;
-                foreach ($value as $key => $subvalue) {
+            $i = 0;
+            if($pop_torrents)
+            {
+                foreach ($pop_torrents as $key => $value) {
                     $new = [];
-                    /* echo "<pre>";
-                         print_r($value);
-                         echo "<hr>";
-                     echo "<pre>";*/
-                    $new['resolution'] = $key;
-                    $new['data'] = $subvalue;
-                    $new['data']['title'] = $title;
-                    $new['data']['imdb'] = $id;
-                    array_push($res[$i], $new);
+                    $new['lang'] = $key;
+                    foreach ($value as $key => $subvalue) {
+                        $new['quality'] = $key;
+                        $new['size'] = $subvalue['filesize'];
+                        $new['magnet'] = $subvalue['url'];
+                        $res['popcorn'][$i] =  $new;
+                    }
+                     //$res['popcorn'] = $new;
+                    $i++;
                 }
-                // array_push($res[], $value);
-                $i++;
             }
         }
         else if ($type == "tvshows")
         {
-
+            $pop_str = 'https://tv-v2.api-fetch.website/show/' . $id;
+            $pop_data = json_decode(file_get_contents($pop_str), true);
+            $res = $pop_data['episodes'];
         }
-       // $more_str = 'https://hydramovies.com/api-v2/?source=http://hydramovies.com/api-v2/current-Movie-Data.csv&imdb_id='.$id;
-       // $more_data = json_decode(file_get_contents($more_str), true);
-
-       /* $torrentAPI = new TorrentAPI('Hypertube');
-
-        $popularMovies = $torrentAPI->query([
-            "mode" => "search",
-            "search_string" => $title,
-            "category" => "movie",
-
-        ]);*/
-
-
-      // $token = file_get_contents('https://torrentapi.org/pubapi_v2.php?get_token=get_token');
-      // dd($token);
-
-
-     // $API_URL = 'https://api.myshows.me/v2/rpc/';
-
-        //working request to myshows api
-       /* $ch = curl_init();
-
-        curl_setopt($ch, CURLOPT_URL, "https://api.myshows.me/v2/rpc/");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, "
-        {\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"shows.Top\",\n  \"params\": {\n    \"mode\": \"all\",\n    \"count\": 500\n  },\n  \"id\": 1\n\n}");
-        curl_setopt($ch, CURLOPT_POST, 1);
-
-        $headers = array();
-        $headers[] = "Content-Type: application/json";
-        $headers[] = "Accept: application/json";
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-        $result = curl_exec($ch);
-        if (curl_errno($ch)) {
-            echo 'Error:' . curl_error($ch);
-        }
-        curl_close ($ch);*/
-
-     //   $str = 'https://tv-v2.api-fetch.website/animes/page?sort=rating&order=-1&genre=all';
-      //  $result = file_get_contents($str);
-      /*  echo "<pre>";
-        print_r(json_decode($result));
-        echo "<pre>";*/
-
         return (json_encode($res));
     }
 
@@ -267,22 +262,62 @@ class SearchClass
         return $res;
     }
 
-    public function get_subtitles_list($title, $imdb)
+    public function get_subtitles_list($title, $imdb, $type, $season, $episode, $lang)
     {
         $result = [];
+
         $client = \KickAssSubtitles\OpenSubtitles\Client::create([
             'username'  => '',
             'password'  => '',
             'useragent' => 'hypertube2'
         ]);
+        if($type == "movies")
+        {
+            if($lang != null) {
+                $response = $client->searchSubtitles([
+                    [
+                        'sublanguageid' => $lang,
+                        //'imdbid' => $imdb,
+                        'query' => $title
+                    ]
+                ]);
+            }
+            else if($lang == null)
+            {
+                $response = $client->searchSubtitles([
+                    [
+                        'query' => $title
+                    ]
+                ]);
+            }
+        }
+        else if($type == "tvshows")
+        {
+            if($lang != null) {
+                $response = $client->searchSubtitles([
+                    [
+                        'sublanguageid' => $lang,
+                        'query' => $title,
+                        'season' => $season,
+                        'episode' => $episode
+                        //'imdbid' => $imdb,
 
-        $response = $client->searchSubtitles([
-            [
-                'sublanguageid' => 'eng',
-                //'imdbid' => $imdb,
-                'query' => $title
-            ]
-        ]);
+                    ]
+                ]);
+            }
+            else if($lang == null)
+            {
+                $response = $client->searchSubtitles([
+                    [
+                        'query' => $title,
+                        'season' => $season,
+                        'episode' => $episode
+                        //'imdbid' => $imdb,
+
+                    ]
+                ]);
+            }
+        }
         return $response;
     }
 

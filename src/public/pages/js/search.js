@@ -581,6 +581,7 @@ if (response)
 		}
 	});
 
+
 }
 
 $(".chosen-select").chosen();
