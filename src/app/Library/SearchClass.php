@@ -150,8 +150,6 @@ class SearchClass
             ($type == "tvshows") ? $detailed = 'https://api.themoviedb.org/3/tv/' . $id . '?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
 
 
-           // $detailed ="https://yts.am/api/v2/list_movies.json?query_term=Venom";
-
             $detailed_res = file_get_contents($detailed);
 
             return ($detailed_res);
@@ -196,43 +194,48 @@ class SearchClass
             $res = [];
             $i = 0;
             $res['YTS'] = [];
-            foreach($inner_movies_arr as $value)
+            if($inner_movies_arr)
             {
-                if($value['imdb_code'] == $id)
+                foreach($inner_movies_arr as $value)
                 {
-                    $new = [];
-                    $new['lang'] = $value['language'];
-                    $new['imdb'] = $value['imdb_code'];
-                    foreach($value['torrents'] as $subvalue)
+                    if($value['imdb_code'] == $id)
                     {
+                        $new = [];
+                        $new['lang'] = $value['language'];
+                        $new['imdb'] = $value['imdb_code'];
+                        foreach($value['torrents'] as $subvalue)
+                        {
 
-                        $new['hash'] = $subvalue['hash'];
-                        $new['quality'] = $subvalue['quality'];
-                        $new['size'] = $subvalue['size'];
-                        $new['magnet'] = $this->make_magnet($subvalue['hash']);
-                        //print_r($new);
-                        $res['YTS'][$i] = $new;
-                        $i++;
-                    }
+                            $new['hash'] = $subvalue['hash'];
+                            $new['quality'] = $subvalue['quality'];
+                            $new['size'] = $subvalue['size'];
+                            $new['magnet'] = $this->make_magnet($subvalue['hash']);
+                            //print_r($new);
+                            $res['YTS'][$i] = $new;
+                            $i++;
+                        }
 
-                 }
+                     }
+                }
             }
-
             $res['popcorn'] = [];
             $title = $pop_data['title'];
             $pop_torrents = $pop_data['torrents'];
             $i = 0;
-            foreach ($pop_torrents as $key => $value) {
-                $new = [];
-                $new['lang'] = $key;
-                foreach ($value as $key => $subvalue) {
-                    $new['quality'] = $key;
-                    $new['size'] = $subvalue['filesize'];
-                    $new['magnet'] = $subvalue['url'];
-                    $res['popcorn'][$i] =  $new;
+            if($pop_torrents)
+            {
+                foreach ($pop_torrents as $key => $value) {
+                    $new = [];
+                    $new['lang'] = $key;
+                    foreach ($value as $key => $subvalue) {
+                        $new['quality'] = $key;
+                        $new['size'] = $subvalue['filesize'];
+                        $new['magnet'] = $subvalue['url'];
+                        $res['popcorn'][$i] =  $new;
+                    }
+                     //$res['popcorn'] = $new;
+                    $i++;
                 }
-                 //$res['popcorn'] = $new;
-                $i++;
             }
         }
         else if ($type == "tvshows")

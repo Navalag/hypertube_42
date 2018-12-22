@@ -21,7 +21,9 @@ function get_movie_data(movie_id)
             {
                 'method': 'ignition',
                 'raw_id': movie_id,
-                'lang': lang
+                'lang': lang,
+                'type': type,
+                'imdb_id': imdb_id
             },
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -31,14 +33,14 @@ function get_movie_data(movie_id)
             console.log(response);
 
             //idarr[0] - tmdb_id, adarr[1] - imdb_id, idarr[2] - type(movies or tvshows) idarr[3] - title
-            get_movie_data_by_id(idarr[0], idarr[1], idarr[2], lang);
+           // get_movie_data_by_id(idarr[0], idarr[1], idarr[2], lang);
             get_movie_link_by_id(idarr[1], idarr[2], idarr[3], lang);
-            get_movie_cast(idarr[0], idarr[2]);
+            //get_movie_cast(idarr[0], idarr[2]);
         }
     });
 }
 
-function get_movie_cast(movie_id, type)
+/*function get_movie_cast(movie_id, type)
 {
 	var cast_container = document.getElementById('cast-info');
 	$.ajax({
@@ -236,8 +238,9 @@ function get_movie_data_by_id(movie_id, imdb_id, type, language)
 
 		}
 	});
-}
-function get_movie_link_by_id(imdb_id, type, title, language)
+}*/
+
+function get_movie_link_by_id()
 {
     $.ajax({
         type: 'POST',
@@ -247,7 +250,7 @@ function get_movie_link_by_id(imdb_id, type, title, language)
                 'method': 'link',
                 'id': imdb_id,
                 'type': type,
-                'lang': language,
+                'lang': lang,
                 'title': title
             },
         headers: {

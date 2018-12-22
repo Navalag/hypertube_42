@@ -28,8 +28,13 @@ class DetailsController extends Controller {
         $id = (int)$id_arr[1];
         // dd($id);
         $external_ids = $search->get_external_ids_request($type, $id);
+       // dd($external_ids);
         // $external_ids = json_decode($external_ids, true);
         $details = $search->details_request($id, $type, 'uk-UA');
+        $details_temp = json_decode($details, true);
+        ($type == "movies") ? $title = $details_temp['original_title'] : 0;
+        ($type == "tvshows") ? $title = $details_temp['original_name'] : 0;
+        unset($details_temp);
         // $details = json_decode($details, true);
         $cast_details = $search->getcast_request($id, $type);
         // $cast_details = json_decode($cast_details, true);
@@ -43,7 +48,9 @@ class DetailsController extends Controller {
              ->with('external_ids', $external_ids)
              ->with('details', json_decode($details, true))
              ->with('cast_details', json_decode($cast_details, true))
-             ->with('comments', $all_comments);
+             ->with('comments', $all_comments)
+             ->with('type', $type)
+             ->with('title', $title);
     }
 
     public function putDetails(Request $request)
@@ -82,6 +89,7 @@ class DetailsController extends Controller {
         }
 
         return json_encode($result);
+        }
     }
 
     public function postDetails(Request $request)
@@ -89,14 +97,16 @@ class DetailsController extends Controller {
         $search = new SearchClass;
         $params = $request->all();
 
-        if (isset($params['raw_id']))
+       /* if (isset($params['raw_id']))
         {
+            dd($params);
             $id_arr = explode('_', $params['raw_id']);
+
             $type = $id_arr[0];
             $id = (int)$id_arr[1];
-        }
-        $res = [];
-        if ($params['method'] == "ignition")
+        }*/
+       // $res = [];
+       /* if ($params['method'] == "ignition")
         {
             if($id != null)
             {
@@ -117,7 +127,7 @@ class DetailsController extends Controller {
             }
             else
                 return ;
-        }
+        }*/
         if ($params['method'] == "details")
         {
             $detailed = $search->details_request($params['id'], $params['type'], $params['lang']);
