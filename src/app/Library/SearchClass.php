@@ -186,44 +186,47 @@ class SearchClass
             $list_from_yts_str = 'https://yts.am/api/v2/list_movies.json?query_term='.urlencode($title);
             $list_from_yts_arr = json_decode(file_get_contents($list_from_yts_str), true);
             //$yts_imdb_id = $list_from_yts_arr['data']['movies'][0]['imdb_code'];
-           // echo "<pre>";
-            //    print_r($list_from_yts_arr);
-            //echo "<pre>";
-            $inner_movies_arr = $list_from_yts_arr['data']['movies'];
-            $yts_torr_arr = [];
+           /* echo "<pre>";
+                print_r($list_from_yts_arr);
+            echo "<pre>";*/
             $res = [];
             $i = 0;
-            $res['YTS'] = [];
-            if($inner_movies_arr)
+            if(isset($list_from_yts_arr['data']['movies']))
             {
-                foreach($inner_movies_arr as $value)
-                {
-                    if($value['imdb_code'] == $id)
+                $inner_movies_arr = $list_from_yts_arr['data']['movies'];
+                $yts_torr_arr = [];
+
+                $res['YTS'] = [];
+
+                    foreach($inner_movies_arr as $value)
                     {
-                        $new = [];
-                        $new['lang'] = $value['language'];
-                        $new['imdb'] = $value['imdb_code'];
-                        foreach($value['torrents'] as $subvalue)
+                        if($value['imdb_code'] == $id)
                         {
+                            $new = [];
+                            $new['lang'] = $value['language'];
+                            $new['imdb'] = $value['imdb_code'];
+                            foreach($value['torrents'] as $subvalue)
+                            {
 
-                            $new['hash'] = $subvalue['hash'];
-                            $new['quality'] = $subvalue['quality'];
-                            $new['size'] = $subvalue['size'];
-                            $new['magnet'] = $this->make_magnet($subvalue['hash']);
-                            //print_r($new);
-                            $res['YTS'][$i] = $new;
-                            $i++;
-                        }
+                                $new['hash'] = $subvalue['hash'];
+                                $new['quality'] = $subvalue['quality'];
+                                $new['size'] = $subvalue['size'];
+                                $new['magnet'] = $this->make_magnet($subvalue['hash']);
+                                //print_r($new);
+                                $res['YTS'][$i] = $new;
+                                $i++;
+                            }
 
-                     }
-                }
+                         }
+                    }
             }
+            if($pop_data)
+            {
             $res['popcorn'] = [];
             $title = $pop_data['title'];
             $pop_torrents = $pop_data['torrents'];
             $i = 0;
-            if($pop_torrents)
-            {
+
                 foreach ($pop_torrents as $key => $value) {
                     $new = [];
                     $new['lang'] = $key;

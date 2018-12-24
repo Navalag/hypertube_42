@@ -261,7 +261,7 @@ function get_movie_link_by_id()
             var list = JSON.parse(response);
             console.log(list);
             var container = document.getElementById('links_response');
-            if(type == "movies")
+            if(type == "movies" && Object.keys(list).lenght > 0 )
             {
                 var  lenYTS = Object.keys(list.YTS).length;
                 var lenPop = Object.keys(list.popcorn).length;
@@ -319,7 +319,7 @@ function get_movie_link_by_id()
                         container.append(POP);
                     }
             }
-            else if(type == "tvshows")
+            else if(type == "tvshows" && Object.keys(list).lenght)
             {
                 list.sort(function(obj1, obj2)
                 {
