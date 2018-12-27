@@ -10,24 +10,11 @@
 	@include('layouts.header')
 	<!-- END HEADER -->
 	<!-- START PAGE CONTENT WRAPPER -->
-	<div class="page-content-wrapper">
+	<div class="page-content-wrapper ">
 		<!-- START PAGE CONTENT -->
-		<div class="content">
-			<div class="container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
+		<div class="content ">
+			<div class=" container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
 				<!-- START CATEGORY -->
-				<div class="gallery">
-					<div class="gallery-filters p-t-20 p-b-10">
-					  <ul class="list-inline text-right">
-					    <li class="hint-text">Sort by: </li>
-					    <li><a href="#" class="active text-master p-r-5 p-l-5">Name</a></li>
-					    <li><a href="#" class="text-master hint-text p-r-5 p-l-5">Views</a></li>
-					    <li><a href="#" class="text-master hint-text p-r-5 p-l-5">Cost</a></li>
-					    <li>
-					      <button class="btn btn-primary m-l-10" data-toggle="filters">More filters</button>
-					    </li>
-					  </ul>
-					</div>
-				</div>
 				<div class="search_field">
 					<div class="switch_buttons">
 						<button class="switch button is-active" onclick="switch_type(event);" id="movie_switch" data="movies">Movies</button>
@@ -152,7 +139,6 @@
 @endsection
 
 @push('scripts')
-	<script src="{{ asset('assets/plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
 	<script src="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.min.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('assets/js/gallery.js') }}" type="text/javascript"></script>
 @endpush

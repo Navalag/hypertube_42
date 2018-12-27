@@ -38,3 +38,9 @@
 .card-description h6 {
 	font-size: .9rem;
 }
+
+/*  --  Pages gallery grid  --  */
+
+.gallery-item[data-height="1"] {
+	height: 420px;
+}

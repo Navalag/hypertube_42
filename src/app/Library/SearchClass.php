@@ -116,7 +116,6 @@ class SearchClass
             $years_arr['max'] = $years[2].'-12-31';
             ($type == "movies") ? $str .='&primary_release_date.gte='.$years_arr['min'].'&primary_release_date.lte='.$years_arr['max'] : 0;
             ($type == "tvshows") ? $str .='&first_air_date.gte='.$years_arr['min'].'&first_air_date.lte='.$years_arr['max'] : 0;
-
         }
         if($rate != null)
         {
