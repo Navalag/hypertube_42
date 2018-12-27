@@ -40,7 +40,6 @@ var lang = "uk-UA";
 //var lang = "en-US";
 
 
-
 //const observer = lozad(); // lazy loads elements with default selector as ".lozad"
 //observer.observe();
 
@@ -88,7 +87,7 @@ function set_filters_on_reload_page()
 		genres_list.innerHTML = storedGenres.replace(/,/g, '/');
 	}
 	else
-	  genres_list.innerHTML = "";
+		genres_list.innerHTML = "";
 	(storedSort != null && storedSwitcher === "movies") ? document.getElementById('sort_select').value = storedSort : 0;
 	(storedSort != null && storedSwitcher === "tvshows") ? document.getElementById('sort_select_tv').value = storedSort : 0;
 	if(storedYears != null)
@@ -115,16 +114,16 @@ if (response)
 	$(document).ready(function () {
 
 		var type = null;
-	  //  console.log("sort on ready:", sortparam.data);
-	  //  console.log("years on ready:", yearsparam.data);
-	  //  console.log("rate: on ready", rateparam.data);
-	  //  console.log("genres on ready:", genresparam.data);
-	  //  console.log("stored sort on ready:", storedSort);
-	  //  console.log("stored years on ready:", storedYears);
-	  //  console.log("stored rate on ready:", storedRate);
-	  //  console.log("stored genres on ready:", storedGenres);
+		//  console.log("sort on ready:", sortparam.data);
+		//  console.log("years on ready:", yearsparam.data);
+		//  console.log("rate: on ready", rateparam.data);
+		//  console.log("genres on ready:", genresparam.data);
+		//  console.log("stored sort on ready:", storedSort);
+		//  console.log("stored years on ready:", storedYears);
+		//  console.log("stored rate on ready:", storedRate);
+		//  console.log("stored genres on ready:", storedGenres);
 		// observer.observe();
-	   //// console.log(sessionStorage.getItem('scroll'));
+		 //// console.log(sessionStorage.getItem('scroll'));
 		if(storedSwitcher != null)
 			general_type.data = storedSwitcher;
 		else if(switcher.data != null)
@@ -143,16 +142,16 @@ if (response)
 		}
 		else if (storedMethod === "static_load" && storedArr) {
 
-		   //// console.log('Bitch');
+			 //// console.log('Bitch');
 			var len = Object.keys(storedArr).length;
 			render(storedArr, len);
-		  //  window.scrollTo(0, scrollPos);
+			//  window.scrollTo(0, scrollPos);
 
 		}
 		else if (storedMethod === "live_load" && storedArr) {
 			var len = Object.keys(storedArr).length;
 			render(storedArr, len);
-		   //  window.scrollTo(0, scrollPos);
+			 //  window.scrollTo(0, scrollPos);
 
 		}
 		//live_load(needle.data, storedPage);
@@ -179,9 +178,9 @@ if (response)
 			if ($(document).height() - win.height() == win.scrollTop()) {
 
 				console.log('inscroll');
-				//// console.log("page: ", storedPage);
-				//// console.log("limit: ", storedLimit);
-				//// console.log("limit.data: ", limit.data);
+				console.log("page: ", storedPage);
+				console.log("limit: ", storedLimit);
+				console.log("limit.data: ", limit.data);
 				if ((limit.data == 0 || (limit.data > 0 && storedPage < limit.data)) && storedPage < 1000) {
 					storedPage += 1;
 					// //// console.log("page in: ", storedPage);
@@ -199,12 +198,12 @@ if (response)
 						//  console.log("stored genres:", storedGenres);
 
 						if (sortparam.data != null || yearsparam.data != null || rateparam.data != null || genresparam.data != null || switcher.data != null) {
-							console.log('fuck');
+							// console.log('fuck');
 							static_load(storedPage, sortparam.data, yearsparam.data, rateparam.data, genresparam.data, general_type.data, lang);
 						}
 						else
 						{
-							console.log('bitch');
+							// console.log('bitch');
 							console.log(storedGenres);
 							var res = null;
 							if(storedGenres)
@@ -233,7 +232,6 @@ if (response)
 
 	function reset()
 	{
-
 		sessionStorage.removeItem('method');
 		sessionStorage.removeItem('page');
 		sessionStorage.removeItem('scroll');
@@ -261,11 +259,6 @@ if (response)
 		storedGenres = null;
 		var genres_list = document.getElementById('genre_response');
 		genres_list.innerHTML = "";
-
-
-
-
-
 	}
 
 	$('#reset_button').click(function () {
@@ -280,13 +273,13 @@ if (response)
 		document.getElementById('sort_select_tv').value = "none";
 		//var type = null;
 		//// console.log("method: ", storedMethod);
-	   //// console.log("page: ", storedPage);
+		 //// console.log("page: ", storedPage);
 //////console.log(storedArr);
 //////console.log(trigger.data);
-	   //// console.log("scroll: ", scrollPos);
-	   //// console.log("needle: ", storedNeedle);
-	   //// console.log("limit: ", storedLimit);
-	   //// console.log("limit.data in reset: ", limit.data);
+		 //// console.log("scroll: ", scrollPos);
+		 //// console.log("needle: ", storedNeedle);
+		 //// console.log("limit: ", storedLimit);
+		 //// console.log("limit.data in reset: ", limit.data);
 		document.getElementById("response").innerHTML = "";
 		//hide_show_genres_list(type, movies_genres, tv_genres);
 		(switcher.data != null) ?  static_load(1, null, null, null, null, switcher.data, lang) : 0;
@@ -316,12 +309,12 @@ if (response)
 				var list = JSON.parse(response);
 				// console.log(response);
 				//document.getElementById('response').innerHTML = "sdg";
-			  //document.getElementById('form-response').innerHTML = response;
+				//document.getElementById('form-response').innerHTML = response;
 				var len = Object.keys(list.results).length;
 				if (len % 20 != 0) {
 					sessionStorage.setItem('limit', i);
 					limit.data = i;
-				   //// console.log("in load:", limit.data);
+					 //// console.log("in load:", limit.data);
 				}
 				console.log(list.results, len);
 				render(list.results, len);
@@ -356,46 +349,72 @@ if (response)
 
 
 	function render(list, len) {
+
 		if(general_type.data == "movies") {
 			for (var i = 0; i < len; i++) {
 				var gal_item = 
 				'<div class="gallery-item " data-width="1" data-height="1">'+
-				  '<img src="'+'https://image.tmdb.org/t/p/original/' + list[i].poster_path+'" alt="" class="image-responsive-height">'+
-				  '<div class="overlayer bottom-left full-width">'+
-				    '<div class="overlayer-wrapper item-info ">'+
-				      '<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">'+
-				        '<div class="">'+
-				          // '<p class="pull-left bold text-white fs-14 p-t-10">'+list[i].title+'</p>'+
-				          '<h5 class="pull-left semi-bold text-white">'+list[i].title+'</h5>'+
-				          '<div class="clearfix"></div>'+
-				        '</div>'+
-				        '<div class="m-t-10">'+
-				          // '<div class="thumbnail-wrapper d32 circular m-t-5">'+
-				            // '<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'+
-				          // '</div>'+
-				          '<div class="inline m-l-10">'+
-				            '<p class="no-margin text-white fs-12">'+list[i].release_date+'</p>'+
-				            '<p class="no-margin text-white fs-12">'+list[i].vote_average+'</p>'+
-				            // '<p class="rating">'+
-				            //   '<i class="fa fa-star rated"></i>'+
-				            //   '<i class="fa fa-star rated"></i>'+
-				            //   '<i class="fa fa-star rated"></i>'+
-				            //   '<i class="fa fa-star rated"></i>'+
-				            //   '<i class="fa fa-star"></i>'+
-				            // '</p>'+
-				          '</div>'+
-				          // '<div class="pull-right m-t-10">'+
-				          //   '<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>'+
-				          // '</div>'+
-				          '<div class="clearfix"></div>'+
-				        '</div>'+
-				      '</div>'+
-				    '</div>'+
-				  '</div>'+
+					'<img src="'+'https://image.tmdb.org/t/p/original/' + list[i].poster_path+'" alt="" class="image-responsive-height">'+
+					'<div class="overlayer bottom-left full-width">'+
+						'<div class="overlayer-wrapper item-info ">'+
+							'<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">'+
+								'<div class="">'+
+									// '<p class="pull-left bold text-white fs-14 p-t-10">'+list[i].title+'</p>'+
+									'<h5 class="pull-left semi-bold text-white">'+list[i].title+'</h5>'+
+									'<div class="clearfix"></div>'+
+								'</div>'+
+								'<div class="m-t-10">'+
+									// '<div class="thumbnail-wrapper d32 circular m-t-5">'+
+										// '<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'+
+									// '</div>'+
+									'<div class="inline m-l-10">'+
+										'<p class="no-margin text-white fs-12">'+list[i].release_date+'</p>'+
+										'<p class="no-margin text-white fs-12">'+list[i].vote_average+'</p>'+
+										// '<p class="rating">'+
+										//   '<i class="fa fa-star rated"></i>'+
+										//   '<i class="fa fa-star rated"></i>'+
+										//   '<i class="fa fa-star rated"></i>'+
+										//   '<i class="fa fa-star rated"></i>'+
+										//   '<i class="fa fa-star"></i>'+
+										// '</p>'+
+									'</div>'+
+									// '<div class="pull-right m-t-10">'+
+									//   '<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>'+
+									// '</div>'+
+									'<div class="clearfix"></div>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+					'</div>'+
 				'</div>';
 
 				$(".gallery").append(gal_item);
 			}
+		}
+		/* 
+			Wait for the images to be loaded before applying
+			Isotope plugin.
+		*/
+		var $gallery = $('.gallery');
+		$gallery.imagesLoaded(function() {
+			applyIsotope();
+			console.log('gallery check');
+		});
+
+		/*
+			Apply Isotope plugin 
+			isotope.metafizzy.co
+		*/
+		var applyIsotope = function() {
+			$gallery.isotope('destroy');
+			$gallery.isotope({
+				itemSelector: '.gallery-item',
+				masonry: {
+					columnWidth: 280,
+					gutter: 10,
+					isFitWidth: true
+				}
+			});
 		}
 	}
 
@@ -561,7 +580,7 @@ if (response)
 				////// console.log("len in live_load", len);
 				////// console.log(len % 20);
 				if (len % 20 > 0) {
-				   //// console.log('Bitch...bitch');
+					 //// console.log('Bitch...bitch');
 					sessionStorage.setItem('limit', page);
 					limit.data = page;
 				}
@@ -787,12 +806,12 @@ function hide_show_filters(type)
 {
 	if(type === "movies")
 	{
-	  movie_form.style.display = "flex";
-	  tv_form.style.display = "none";
+		movie_form.style.display = "flex";
+		tv_form.style.display = "none";
 	}
 	else if(type === "tvshows")
 	{
-	   tv_form.style.display = "flex";
-	   movie_form.style.display = "none";
+		 tv_form.style.display = "flex";
+		 movie_form.style.display = "none";
 	}
 }

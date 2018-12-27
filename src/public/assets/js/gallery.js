@@ -13,25 +13,27 @@ $(function() {
 		Wait for the images to be loaded before applying
 		Isotope plugin.
 	*/
-	var $gallery = $('.gallery');
-	$gallery.imagesLoaded(function() {
-		applyIsotope();
-	});
+	// var $gallery = $('.gallery');
+	// $gallery.imagesLoaded(function() {
+	// 	applyIsotope();
+	// 	console.log('gallery check');
+	// });
 
-	/*
-		Apply Isotope plugin 
-		isotope.metafizzy.co
-	*/
-	var applyIsotope = function() {
-		$gallery.isotope({
-			itemSelector: '.gallery-item',
-			masonry: {
-				columnWidth: 280,
-				gutter: 10,
-				isFitWidth: true
-			}
-		});
-	}
+	// /*
+	// 	Apply Isotope plugin 
+	// 	isotope.metafizzy.co
+	// */
+	// var applyIsotope = function() {
+	// 	$gallery.isotope('destroy');
+	// 	$gallery.isotope({
+	// 		itemSelector: '.gallery-item',
+	// 		masonry: {
+	// 			columnWidth: 280,
+	// 			gutter: 10,
+	// 			isFitWidth: true
+	// 		}
+	// 	});
+	// }
 	
 	/*
 		Show a sliding item using MetroJS
