@@ -22,8 +22,12 @@
 						<div class=" container-fluid   container-fixed-lg sm-p-l-0 sm-p-r-0">
 							<div class="inner">
 								<div class="pull-bottom bottom-left m-b-40 sm-p-l-15">
+									@if ($type == "movies")
 									<h1 class="text-white no-margin" id="details_movie-title">{{ $details['title'] }}</h1>
 									<h5 class="text-white no-margin" id="details_movie-tagline">{{ $details['tagline'] }}</h5>
+									@elseif ($type == "tvshows")
+									<h1 class="text-white no-margin" id="details_movie-title">{{ $details['name'] }}</h1>
+									@endif
 								</div>
 							</div>
 						</div>
@@ -41,6 +45,7 @@
 								</div>
 								<!-- END ITEM -->
 								<!-- START ITEM -->
+								@if ($type == "movies")
 								<div class="card social-card status col2" data-social="item">
 									<h4 class="no-margin p-b-5">Grade - <span id="grade_response">{{ $details['vote_average'] }}</span></h4>
 									<h4 class="no-margin p-b-5">Release - <span id="year_response">{{ $details['release_date'] }}</span></h4>
@@ -49,6 +54,13 @@
 									<h4 class="no-margin p-b-5">Original Language - <span id="lang_response">{{ $details['original_language'] }}</span></h4>
 									<h4 class="no-margin p-b-5">Runtime - <span id="runtime_response">{{ $details['runtime'] }} min</span></h4>
 								</div>
+								@elseif ($type == "tvshows")
+								<div class="card social-card status col2" data-social="item">
+									<h4 class="no-margin p-b-5">Grade - <span id="grade_response">{{ $details['vote_average'] }}</span></h4>
+									<h4 class="no-margin p-b-5">Release - <span id="year_response">{{ $details['first_air_date'] }}</span></h4>
+									<h4 class="no-margin p-b-5">Original Language - <span id="lang_response">{{ $details['original_language'] }}</span></h4>
+								</div>
+								@endif
 								<!-- END ITEM -->
 								<!-- START ITEM -->
 								<div class="card no-border bg-transparent full-width" data-social="item">
@@ -69,6 +81,7 @@
 								@endforeach
 								<!-- END ITEM -->
 								<!-- START ITEM -->
+
 								<div class="card no-border bg-transparent full-width" data-social="item">
 									<h3 class="no-margin p-b-5">Reviews From Our Users</h3>
 								</div>
@@ -132,6 +145,7 @@
 				<!-- /container -->
 			</div>
 		</div>
+		<section id="links_response"></section>
 		<!-- END PAGE CONTENT -->
 		<!-- START COPYRIGHT -->
 		@include('layouts.footer')
@@ -143,6 +157,9 @@
 @push('scripts')
 	<script type="text/javascript">
 		var movie_id = "{{ $external_ids['tmdb_id'] }}";
+		var imdb_id = "{{ $external_ids['imdb_id'] }}";
+		var type = "{{ $type }}";
+		var title = "{{ $title }}";
 	</script>
 	<!-- <script src="{{ asset('pages/js/details.js') }}"></script> -->
 	<script src="{{ asset('assets/plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
@@ -151,4 +168,5 @@
 	<script src="{{ asset('assets/plugins/jquery-isotope/isotope.pkgd.min.js') }}"></script>
 
 	<script src="{{ asset('pages/js/pages.social.js') }}"></script>
+	<script src="{{ asset('pages/js/details.js') }}"></script>
 @endpush

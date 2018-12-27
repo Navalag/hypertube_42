@@ -289,7 +289,7 @@ if (response)
 	   //// console.log("limit.data in reset: ", limit.data);
 		document.getElementById("response").innerHTML = "";
 		//hide_show_genres_list(type, movies_genres, tv_genres);
-		(switcher.data != null) ?  static_load(1, null, null, null, null, switcher.data) : 0;
+		(switcher.data != null) ?  static_load(1, null, null, null, null, switcher.data, lang) : 0;
 		(switcher.data == null && storedSwitcher != null) ?  static_load(1, null, null, null, null, storedSwitcher, lang) : 0;
 		(switcher.data == null && storedSwitcher == null) ?  static_load(1, null, null, null, null, "movies", lang) : 0;
 	});
@@ -624,6 +624,7 @@ if (response)
 			}, 500);
 		}
 	});
+
 
 }
 
