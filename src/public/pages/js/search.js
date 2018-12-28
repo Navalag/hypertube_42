@@ -76,7 +76,6 @@ function setformdata()
 	set_filters_on_reload_page();
 }
 
-
 function set_filters_on_reload_page()
 {
 
@@ -348,214 +347,213 @@ if (response)
 	}
 
 
+	// function render(list, len) {
+	// 	if(general_type.data == "movies") {
+	// 		for (var i = 0; i < len; i++) {
+	// 			var gal_item = 
+	// 			'<div class="gallery-item " data-width="1" data-height="1">'+
+	// 				'<img src="'+'https://image.tmdb.org/t/p/original/' + list[i].poster_path+'" alt="" class="image-responsive-height">'+
+	// 				'<div class="overlayer bottom-left full-width">'+
+	// 					'<div class="overlayer-wrapper item-info ">'+
+	// 						'<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">'+
+	// 							'<div class="">'+
+	// 								// '<p class="pull-left bold text-white fs-14 p-t-10">'+list[i].title+'</p>'+
+	// 								'<h5 class="pull-left semi-bold text-white">'+list[i].title+'</h5>'+
+	// 								'<div class="clearfix"></div>'+
+	// 							'</div>'+
+	// 							'<div class="m-t-10">'+
+	// 								// '<div class="thumbnail-wrapper d32 circular m-t-5">'+
+	// 									// '<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'+
+	// 								// '</div>'+
+	// 								'<div class="inline m-l-10">'+
+	// 									'<p class="no-margin text-white fs-12">'+list[i].release_date+'</p>'+
+	// 									'<p class="no-margin text-white fs-12">'+list[i].vote_average+'</p>'+
+	// 									// '<p class="rating">'+
+	// 									//   '<i class="fa fa-star rated"></i>'+
+	// 									//   '<i class="fa fa-star rated"></i>'+
+	// 									//   '<i class="fa fa-star rated"></i>'+
+	// 									//   '<i class="fa fa-star rated"></i>'+
+	// 									//   '<i class="fa fa-star"></i>'+
+	// 									// '</p>'+
+	// 								'</div>'+
+	// 								// '<div class="pull-right m-t-10">'+
+	// 								//   '<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>'+
+	// 								// '</div>'+
+	// 								'<div class="clearfix"></div>'+
+	// 							'</div>'+
+	// 						'</div>'+
+	// 					'</div>'+
+	// 				'</div>'+
+	// 			'</div>';
+
+	// 			$(".gallery").append(gal_item);
+	// 		}
+	// 	}
+	// 	/* 
+	// 		Wait for the images to be loaded before applying
+	// 		Isotope plugin.
+	// 	*/
+	// 	var $gallery = $('.gallery');
+	// 	$gallery.imagesLoaded(function() {
+	// 		applyIsotope();
+	// 		console.log('gallery check');
+	// 	});
+
+	// 	/*
+	// 		Apply Isotope plugin 
+	// 		isotope.metafizzy.co
+	// 	*/
+	// 	var applyIsotope = function() {
+	// 		$gallery.isotope('destroy');
+	// 		$gallery.isotope({
+	// 			itemSelector: '.gallery-item',
+	// 			masonry: {
+	// 				columnWidth: 280,
+	// 				gutter: 10,
+	// 				isFitWidth: true
+	// 			}
+	// 		});
+	// 	}
+	// }
+
 	function render(list, len) {
 
-		if(general_type.data == "movies") {
-			for (var i = 0; i < len; i++) {
-				var gal_item = 
-				'<div class="gallery-item " data-width="1" data-height="1">'+
-					'<img src="'+'https://image.tmdb.org/t/p/original/' + list[i].poster_path+'" alt="" class="image-responsive-height">'+
-					'<div class="overlayer bottom-left full-width">'+
-						'<div class="overlayer-wrapper item-info ">'+
-							'<div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">'+
-								'<div class="">'+
-									// '<p class="pull-left bold text-white fs-14 p-t-10">'+list[i].title+'</p>'+
-									'<h5 class="pull-left semi-bold text-white">'+list[i].title+'</h5>'+
-									'<div class="clearfix"></div>'+
-								'</div>'+
-								'<div class="m-t-10">'+
-									// '<div class="thumbnail-wrapper d32 circular m-t-5">'+
-										// '<img width="40" height="40" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'+
-									// '</div>'+
-									'<div class="inline m-l-10">'+
-										'<p class="no-margin text-white fs-12">'+list[i].release_date+'</p>'+
-										'<p class="no-margin text-white fs-12">'+list[i].vote_average+'</p>'+
-										// '<p class="rating">'+
-										//   '<i class="fa fa-star rated"></i>'+
-										//   '<i class="fa fa-star rated"></i>'+
-										//   '<i class="fa fa-star rated"></i>'+
-										//   '<i class="fa fa-star rated"></i>'+
-										//   '<i class="fa fa-star"></i>'+
-										// '</p>'+
-									'</div>'+
-									// '<div class="pull-right m-t-10">'+
-									//   '<button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>'+
-									// '</div>'+
-									'<div class="clearfix"></div>'+
-								'</div>'+
-							'</div>'+
-						'</div>'+
-					'</div>'+
-				'</div>';
+	  //  console.log(list);
+		//   document.getElementById("response").innerHTML = response;
+		//  var observer = lozad();
+	   /* var type = null;
+		if(switcher.data != null)
+		{
+			type = switcher.data;
+		}
+		else if(storedSwitcher != null)
+		{
+				type = storedSwitcher;
+		}
+		else
+			{
+				type  = "movies";
+			}*/
+	   // console.log(list);
+	   if(general_type.data == "movies") {
+		   for (var i = 0; i < len; i++) {
+			   var gal_item = document.createElement('div');
+			   var gal_item_img_container = document.createElement('div');
+			   var img_link = document.createElement('a');
+			   var img = document.createElement('img');
+			   var overlayer = document.createElement('div');
+			   var overlayer_wrap = document.createElement('div');
+			   var gradient = document.createElement('div');
+			   var void_div = document.createElement('div');
+			   var item_title = document.createElement('p');
+			   var item_rate = document.createElement('p');
+			   var date = document.createElement('p');
+			   var clearfix = document.createElement('div');
+			   var block = document.createElement('div');
+			   block.setAttribute("class", "hide_block");
+			   gal_item_img_container.setAttribute("class", "img_link");
 
-				$(".gallery").append(gal_item);
+			   gal_item.setAttribute("class", "gallery-item");
+			   clearfix.setAttribute("class", "clearfix");
+			   img_link.setAttribute("href", baseUrl + 'details/' + general_type.data + '_' + list[i].id);
+			   img.setAttribute("class", "image-responsive-height lozad");
+			   if (list[i].poster_path != null) {
+				   img.setAttribute("src", baseUrl + '/assets/img/blur2.png');
+				   img.setAttribute("data-src", 'https://image.tmdb.org/t/p/original/' + list[i].poster_path);
+			   }
+			   else
+				   img.setAttribute("data-src", baseUrl + '/public/img/blur2.png');
+			   overlayer.setAttribute("class", "overlayer bottom-left full-width");
+			   overlayer_wrap.setAttribute("class", "overlayer-wrapper item-info");
+			   gradient.setAttribute("class", "gradient-grey");
+			   item_title.setAttribute("class", "");
+			   item_rate.setAttribute("class", "");
+			   item_rate.innerHTML = list[i].vote_average;
+			   item_title.innerHTML = list[i].title;
+			   date.innerHTML = list[i].release_date;
+			   gal_item_img_container.append(img_link);
+
+			   // void_div.append(item_title);
+			   // void_div.append(item_rate);
+			   // void_div.append(clearfix);
+			   // gradient.append(void_div);
+			   // overlayer_wrap.append(gradient);
+			   //  overlayer.append(overlayer_wrap);
+			   img_link.append(img);
+			   gal_item.append(gal_item_img_container);
+			   block.append(item_title);
+			   gal_item.append(block);
+			   gal_item.append(item_rate);
+			   gal_item.append(date);
+			   document.getElementById("response").append(gal_item);
+		   }
+	   }
+	   else if(general_type.data == "tvshows")
+	   {
+		   for (var i = 0; i < len; i++) {
+			   var gal_item = document.createElement('div');
+			   var gal_item_img_container = document.createElement('div');
+			   var img_link = document.createElement('a');
+			   var img = document.createElement('img');
+			   var overlayer = document.createElement('div');
+			   var overlayer_wrap = document.createElement('div');
+			   var gradient = document.createElement('div');
+			   var void_div = document.createElement('div');
+			   var item_title = document.createElement('p');
+			   var item_rate = document.createElement('p');
+			   var date = document.createElement('p');
+			   var clearfix = document.createElement('div');
+			   var block = document.createElement('div');
+			   block.setAttribute("class", "hide_block");
+			   gal_item_img_container.setAttribute("class", "img_link");
+
+
+			   gal_item.setAttribute("class", "gallery-item");
+			   clearfix.setAttribute("class", "clearfix");
+			   img_link.setAttribute("href", baseUrl + 'details/' + general_type.data + '_' + list[i].id);
+			   img.setAttribute("class", "image-responsive-height lozad");
+			   if (list[i].poster_path != null) {
+				   img.setAttribute("src", baseUrl + '/assets/img/blur2.png');
+				   img.setAttribute("data-src", 'https://image.tmdb.org/t/p/original/' + list[i].poster_path);
+			   }
+			   else
+				   img.setAttribute("data-src", baseUrl + '/public/img/blur2.png');
+			   overlayer.setAttribute("class", "overlayer bottom-left full-width");
+			   overlayer_wrap.setAttribute("class", "overlayer-wrapper item-info");
+			   gradient.setAttribute("class", "gradient-grey");
+			   item_title.setAttribute("class", "");
+			   item_rate.setAttribute("class", "");
+			   item_rate.innerHTML = list[i].vote_average;
+			   item_title.innerHTML = list[i].name;
+			   date.innerHTML = list[i].first_air_date;
+			   gal_item_img_container.append(img_link);
+
+			   // void_div.append(item_title);
+			   // void_div.append(item_rate);
+			   // void_div.append(clearfix);
+			   // gradient.append(void_div);
+			   // overlayer_wrap.append(gradient);
+			   //  overlayer.append(overlayer_wrap);
+			   img_link.append(img);
+			   gal_item.append(gal_item_img_container);
+			   block.append(item_title);
+			   gal_item.append(block);
+			   gal_item.append(item_rate);
+			   gal_item.append(date);
+			   document.getElementById("response").append(gal_item);
+
+		   }
+	   }
+		//observer.observe();
+		lozad('.lozad', {
+			load: function (el) {
+				el.src = el.dataset.src;
+				el.classList.add('faded');
 			}
-		}
-		/* 
-			Wait for the images to be loaded before applying
-			Isotope plugin.
-		*/
-		var $gallery = $('.gallery');
-		$gallery.imagesLoaded(function() {
-			applyIsotope();
-			console.log('gallery check');
-		});
+		}).observe();
+		// observer.observe();
 
-		/*
-			Apply Isotope plugin 
-			isotope.metafizzy.co
-		*/
-		var applyIsotope = function() {
-			$gallery.isotope('destroy');
-			$gallery.isotope({
-				itemSelector: '.gallery-item',
-				masonry: {
-					columnWidth: 280,
-					gutter: 10,
-					isFitWidth: true
-				}
-			});
-		}
 	}
-
-	// function render(list, len) {
-
-	//   //  console.log(list);
-	// 	//   document.getElementById("response").innerHTML = response;
-	// 	//  var observer = lozad();
-	//    /* var type = null;
-	// 	if(switcher.data != null)
-	// 	{
-	// 		type = switcher.data;
-	// 	}
-	// 	else if(storedSwitcher != null)
-	// 	{
-	// 			type = storedSwitcher;
-	// 	}
-	// 	else
-	// 		{
-	// 			type  = "movies";
-	// 		}*/
-	//    // console.log(list);
-	//    if(general_type.data == "movies") {
-	// 	   for (var i = 0; i < len; i++) {
-	// 		   var gal_item = document.createElement('div');
-	// 		   var gal_item_img_container = document.createElement('div');
-	// 		   var img_link = document.createElement('a');
-	// 		   var img = document.createElement('img');
-	// 		   var overlayer = document.createElement('div');
-	// 		   var overlayer_wrap = document.createElement('div');
-	// 		   var gradient = document.createElement('div');
-	// 		   var void_div = document.createElement('div');
-	// 		   var item_title = document.createElement('p');
-	// 		   var item_rate = document.createElement('p');
-	// 		   var date = document.createElement('p');
-	// 		   var clearfix = document.createElement('div');
-	// 		   var block = document.createElement('div');
-	// 		   block.setAttribute("class", "hide_block");
-	// 		   gal_item_img_container.setAttribute("class", "img_link");
-
-	// 		   gal_item.setAttribute("class", "gallery-item");
-	// 		   clearfix.setAttribute("class", "clearfix");
-	// 		   img_link.setAttribute("href", baseUrl + 'details/' + general_type.data + '_' + list[i].id);
-	// 		   img.setAttribute("class", "image-responsive-height lozad");
-	// 		   if (list[i].poster_path != null) {
-	// 			   img.setAttribute("src", baseUrl + '/assets/img/blur2.png');
-	// 			   img.setAttribute("data-src", 'https://image.tmdb.org/t/p/original/' + list[i].poster_path);
-	// 		   }
-	// 		   else
-	// 			   img.setAttribute("data-src", baseUrl + '/public/img/blur2.png');
-	// 		   overlayer.setAttribute("class", "overlayer bottom-left full-width");
-	// 		   overlayer_wrap.setAttribute("class", "overlayer-wrapper item-info");
-	// 		   gradient.setAttribute("class", "gradient-grey");
-	// 		   item_title.setAttribute("class", "");
-	// 		   item_rate.setAttribute("class", "");
-	// 		   item_rate.innerHTML = list[i].vote_average;
-	// 		   item_title.innerHTML = list[i].title;
-	// 		   date.innerHTML = list[i].release_date;
-	// 		   gal_item_img_container.append(img_link);
-
-	// 		   // void_div.append(item_title);
-	// 		   // void_div.append(item_rate);
-	// 		   // void_div.append(clearfix);
-	// 		   // gradient.append(void_div);
-	// 		   // overlayer_wrap.append(gradient);
-	// 		   //  overlayer.append(overlayer_wrap);
-	// 		   img_link.append(img);
-	// 		   gal_item.append(gal_item_img_container);
-	// 		   block.append(item_title);
-	// 		   gal_item.append(block);
-	// 		   gal_item.append(item_rate);
-	// 		   gal_item.append(date);
-	// 		   document.getElementById("response").append(gal_item);
-	// 	   }
-	//    }
-	//    else if(general_type.data == "tvshows")
-	//    {
-	// 	   for (var i = 0; i < len; i++) {
-	// 		   var gal_item = document.createElement('div');
-	// 		   var gal_item_img_container = document.createElement('div');
-	// 		   var img_link = document.createElement('a');
-	// 		   var img = document.createElement('img');
-	// 		   var overlayer = document.createElement('div');
-	// 		   var overlayer_wrap = document.createElement('div');
-	// 		   var gradient = document.createElement('div');
-	// 		   var void_div = document.createElement('div');
-	// 		   var item_title = document.createElement('p');
-	// 		   var item_rate = document.createElement('p');
-	// 		   var date = document.createElement('p');
-	// 		   var clearfix = document.createElement('div');
-	// 		   var block = document.createElement('div');
-	// 		   block.setAttribute("class", "hide_block");
-	// 		   gal_item_img_container.setAttribute("class", "img_link");
-
-
-	// 		   gal_item.setAttribute("class", "gallery-item");
-	// 		   clearfix.setAttribute("class", "clearfix");
-	// 		   img_link.setAttribute("href", baseUrl + 'details/' + general_type.data + '_' + list[i].id);
-	// 		   img.setAttribute("class", "image-responsive-height lozad");
-	// 		   if (list[i].poster_path != null) {
-	// 			   img.setAttribute("src", baseUrl + '/assets/img/blur2.png');
-	// 			   img.setAttribute("data-src", 'https://image.tmdb.org/t/p/original/' + list[i].poster_path);
-	// 		   }
-	// 		   else
-	// 			   img.setAttribute("data-src", baseUrl + '/public/img/blur2.png');
-	// 		   overlayer.setAttribute("class", "overlayer bottom-left full-width");
-	// 		   overlayer_wrap.setAttribute("class", "overlayer-wrapper item-info");
-	// 		   gradient.setAttribute("class", "gradient-grey");
-	// 		   item_title.setAttribute("class", "");
-	// 		   item_rate.setAttribute("class", "");
-	// 		   item_rate.innerHTML = list[i].vote_average;
-	// 		   item_title.innerHTML = list[i].name;
-	// 		   date.innerHTML = list[i].first_air_date;
-	// 		   gal_item_img_container.append(img_link);
-
-	// 		   // void_div.append(item_title);
-	// 		   // void_div.append(item_rate);
-	// 		   // void_div.append(clearfix);
-	// 		   // gradient.append(void_div);
-	// 		   // overlayer_wrap.append(gradient);
-	// 		   //  overlayer.append(overlayer_wrap);
-	// 		   img_link.append(img);
-	// 		   gal_item.append(gal_item_img_container);
-	// 		   block.append(item_title);
-	// 		   gal_item.append(block);
-	// 		   gal_item.append(item_rate);
-	// 		   gal_item.append(date);
-	// 		   document.getElementById("response").append(gal_item);
-
-	// 	   }
-	//    }
-	// 	//observer.observe();
-	// 	lozad('.lozad', {
-	// 		load: function (el) {
-	// 			el.src = el.dataset.src;
-	// 			el.classList.add('faded');
-	// 		}
-	// 	}).observe();
-	// 	// observer.observe();
-
-	// }
 
 	function live_load(needle, page, lang) {
 
@@ -712,7 +710,6 @@ $('.genre_direct_link').click(function (e)
 		document.getElementById("response").innerHTML = "";
 		static_load(1, null, null, null, res, general_type.data, lang);
 	}
-
 });
 /*$('.search-choice-close').click( function (e)
 {
