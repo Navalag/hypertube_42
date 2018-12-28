@@ -17,25 +17,25 @@ class SearchClass
             if ($type == "movies") {
                 $i = 0;
                 foreach ($genres as $value) {
-                    ($value == "Action") ? $res[$i] = '28' : 0;
-                    ($value == "Adventure") ? $res[$i] = '12' : 0;
-                    ($value == "Animation") ? $res[$i] = '16' : 0;
-                    ($value == "Comedy") ? $res[$i] = '35' : 0;
-                    ($value == "Crime") ? $res[$i] = '80' : 0;
-                    ($value == "Documentary") ? $res[$i] = '99' : 0;
-                    ($value == "Drama") ? $res[$i] = '18' : 0;
-                    ($value == "Family") ? $res[$i] = '10751' : 0;
-                    ($value == "Fantasy") ? $res[$i] = '14' : 0;
-                    ($value == "History") ? $res[$i] = '36' : 0;
-                    ($value == "Horror") ? $res[$i] = '27' : 0;
-                    ($value == "Music") ? $res[$i] = '10402' : 0;
-                    ($value == "Mystery") ? $res[$i] = '9648' : 0;
-                    ($value == "Romance") ? $res[$i] = '10749' : 0;
-                    ($value == "Science Fiction") ? $res[$i] = '878' : 0;
+                    ($value == "Action" || $value == "Бойовик") ? $res[$i] = '28' : 0;
+                    ($value == "Adventure" || $value == "Пригоди") ? $res[$i] = '12' : 0;
+                    ($value == "Animation" || $value == "Мультфільм") ? $res[$i] = '16' : 0;
+                    ($value == "Comedy" || $value == "Комедія") ? $res[$i] = '35' : 0;
+                    ($value == "Crime" || $value == "Кримінал") ? $res[$i] = '80' : 0;
+                    ($value == "Documentary" || $value == "Документальний") ? $res[$i] = '99' : 0;
+                    ($value == "Drama" || $value == "Драма") ? $res[$i] = '18' : 0;
+                    ($value == "Family" || $value == "Сімейний") ? $res[$i] = '10751' : 0;
+                    ($value == "Fantasy" || $value == "Фвнтастика") ? $res[$i] = '14' : 0;
+                    ($value == "History" || $value == "Історичний") ? $res[$i] = '36' : 0;
+                    ($value == "Horror" || $value == "Жахи") ? $res[$i] = '27' : 0;
+                    ($value == "Music" || $value == "Мюзикл") ? $res[$i] = '10402' : 0;
+                    ($value == "Mystery" || $value == "Детектив") ? $res[$i] = '9648' : 0;
+                    ($value == "Romance" || $value == "Романтичний") ? $res[$i] = '10749' : 0;
+                    ($value == "Science Fiction" || $value == "Наукова фантастика") ? $res[$i] = '878' : 0;
                     ($value == "TV Movie") ? $res[$i] = '10770' : 0;
-                    ($value == "Thriller") ? $res[$i] = '53' : 0;
-                    ($value == "War") ? $res[$i] = '10752' : 0;
-                    ($value == "Western") ? $res[$i] = '37' : 0;
+                    ($value == "Thriller" || $value == "Трилер") ? $res[$i] = '53' : 0;
+                    ($value == "War" || $value == "Військовий") ? $res[$i] = '10752' : 0;
+                    ($value == "Western" || $value == "Вестерн") ? $res[$i] = '37' : 0;
                     $i++;
                 }
             }
@@ -43,22 +43,22 @@ class SearchClass
             {
                 $i = 0;
                 foreach ($genres as $value) {
-                    ($value == "Action & Adventure") ? $res[$i] = '10759' : 0;
-                    ($value == "Animation") ? $res[$i] = '16' : 0;
-                    ($value == "Comedy") ? $res[$i] = '35' : 0;
-                    ($value == "Crime") ? $res[$i] = '80' : 0;
-                    ($value == "Documentary") ? $res[$i] = '99' : 0;
-                    ($value == "Drama") ? $res[$i] = '18' : 0;
-                    ($value == "Family") ? $res[$i] = '10751' : 0;
+                    ($value == "Action & Adventure" || $value == "") ? $res[$i] = '10759' : 0;
+                    ($value == "Animation" || $value == "Мультфільм") ? $res[$i] = '16' : 0;
+                    ($value == "Comedy" || $value == "Комедія") ? $res[$i] = '35' : 0;
+                    ($value == "Crime" || $value == "Кримінал") ? $res[$i] = '80' : 0;
+                    ($value == "Documentary" || $value == "Документальний") ? $res[$i] = '99' : 0;
+                    ($value == "Drama" || $value == "Драма") ? $res[$i] = '18' : 0;
+                    ($value == "Family" || $value == "Сімейний") ? $res[$i] = '10751' : 0;
                     ($value == "Kids") ? $res[$i] = '10762' : 0;
-                    ($value == "Mystery") ? $res[$i] = '9648' : 0;
+                    ($value == "Mystery" || $value == "Детектив") ? $res[$i] = '9648' : 0;
                     ($value == "News") ? $res[$i] = '10763' : 0;
                     ($value == "Reality") ? $res[$i] = '10764' : 0;
                     ($value == "Sci-Fi & Fantasy") ? $res[$i] = '10765' : 0;
                     ($value == "Soap") ? $res[$i] = '10766' : 0;
                     ($value == "Talk") ? $res[$i] = '10767' : 0;
                     ($value == "War & Politics") ? $res[$i] = '10768' : 0;
-                    ($value == "Western") ? $res[$i] = '37' : 0;
+                    ($value == "Western" || $value == "Вестерн") ? $res[$i] = '37' : 0;
                     $i++;
                 }
 
@@ -82,29 +82,29 @@ class SearchClass
         if($sort != null)
         {
             if($type == "movies") {
-                ($sort == "Popularity Descending") ? $sort = 'popularity.desc' : 0;
-                ($sort == "Popularity Ascending") ? $sort = 'popularity.asc' : 0;
-                ($sort == "Rating Descending") ? $sort = 'vote_average.desc' : 0;
-                ($sort == "Rating Ascending") ? $sort = 'vote_average.asc' : 0;
-                ($sort == "Release Date Descending") ? $sort = 'primary_release_date.desc' : 0;
-                ($sort == "Release Date Ascending") ? $sort = 'primary_release_date.asc' : 0;
-                ($sort == "Title Descending") ? $sort = 'original_title.desc' : 0;
-                ($sort == "Title Ascending") ? $sort = 'original_title.asc' : 0;
-                ($sort == "Revenue Descending") ? $sort = 'revenue.desc' : 0;
-                ($sort == "Revenue Ascending") ? $sort = 'revenue.asc' : 0;
-                ($sort != "none") ? $str .= '&sort_by=' . $sort : 0;
+                ($sort == "Popularity Descending" || $sort == "Популярність висока") ? $sort = 'popularity.desc' : 0;
+                ($sort == "Popularity Ascending" || $sort == "Популярність низька") ? $sort = 'popularity.asc' : 0;
+                ($sort == "Rating Descending" || $sort == "Рейтинг високий") ? $sort = 'vote_average.desc' : 0;
+                ($sort == "Rating Ascending" || $sort == "Рейтинг низький") ? $sort = 'vote_average.asc' : 0;
+                ($sort == "Release Date Descending" || $sort == "Реліз свіжий") ? $sort = 'primary_release_date.desc' : 0;
+                ($sort == "Release Date Ascending" || $sort == "Реліз давній") ? $sort = 'primary_release_date.asc' : 0;
+                ($sort == "Title Descending" || $sort == "Назва (А-Я)") ? $sort = 'original_title.desc' : 0;
+                ($sort == "Title Ascending" || $sort == "Назва (Я-А)") ? $sort = 'original_title.asc' : 0;
+                ($sort == "Revenue Descending" || $sort == "Бюджет зростання") ? $sort = 'revenue.desc' : 0;
+                ($sort == "Revenue Ascending" || $sort == "Бюджет спадання") ? $sort = 'revenue.asc' : 0;
+                ($sort != "none" && $sort != "-") ? $str .= '&sort_by=' . $sort : 0;
             }
             else if($type == "tvshows")
             {
-                ($sort == "Popularity Descending") ? $sort = 'popularity.desc' : 0;
-                ($sort == "Popularity Ascending") ? $sort = 'popularity.asc' : 0;
-                ($sort == "Rating Descending") ? $sort = 'vote_average.desc' : 0;
-                ($sort == "Rating Ascending") ? $sort = 'vote_average.asc' : 0;
-                ($sort == "Release Date Descending") ? $sort = 'first_air_date.desc' : 0;
-                ($sort == "Release Date Ascending") ? $sort = 'first_air_date.asc' : 0;
-                ($sort == "Title Descending") ? $sort = 'original_title.desc' : 0;
-                ($sort == "Title Ascending") ? $sort = 'original_title.asc' : 0;
-                ($sort != "none") ? $str .= '&sort_by=' . $sort : 0;
+                ($sort == "Popularity Descending" || $sort == "Популярність висока") ? $sort = 'popularity.desc' : 0;
+                ($sort == "Popularity Ascending" || $sort == "Популярність низька") ? $sort = 'popularity.asc' : 0;
+                ($sort == "Rating Descending" || $sort == "Рейтинг високий") ? $sort = 'vote_average.desc' : 0;
+                ($sort == "Rating Ascending" || $sort == "Рейтинг низький") ? $sort = 'vote_average.asc' : 0;
+                ($sort == "Release Date Descending" || $sort == "Реліз свіжий") ? $sort = 'first_air_date.desc' : 0;
+                ($sort == "Release Date Ascending" || $sort == "Реліз давній") ? $sort = 'first_air_date.asc' : 0;
+                ($sort == "Title Descending" || $sort == "Назва (А-Я)") ? $sort = 'original_title.desc' : 0;
+                ($sort == "Title Ascending" || $sort == "Назва (Я-А)") ? $sort = 'original_title.asc' : 0;
+                ($sort != "none" && $sort != "-") ? $str .= '&sort_by=' . $sort : 0;
             }
         }
 

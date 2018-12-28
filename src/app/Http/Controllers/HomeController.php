@@ -30,6 +30,7 @@ class HomeController extends Controller
 
     public function validate_search_request($params)
     {
+
         return true;
     }
 
@@ -37,7 +38,6 @@ class HomeController extends Controller
     {
         $search = new SearchClass;
         $params = $request->all();
-        //htmlcharsrequest
         if($params['method'] == "search")
         {
             if($this->validate_search_request($params)) {

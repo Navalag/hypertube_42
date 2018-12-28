@@ -301,3 +301,17 @@ html {
     margin: 0 auto;
     margin-bottom: 3%;
 }
+
+#links_response
+{
+    min-height: 200px;
+    max-height: 400px;
+}
+.no_result_links
+{
+    display: none;
+}
+.no_result_links img
+{
+    width: 300px;
+}

@@ -33,6 +33,8 @@
 						</div>
 					</div>
 					<!-- END JUMBOTRON -->
+
+
 					<div class="container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
 						<div class="feed">
 							<!-- START DAY -->
@@ -53,6 +55,7 @@
 									<h4 class="no-margin p-b-5">Revenue - <span id="revenue_response">${{ $details['revenue'] }}</span></h4>
 									<h4 class="no-margin p-b-5">Original Language - <span id="lang_response">{{ $details['original_language'] }}</span></h4>
 									<h4 class="no-margin p-b-5">Runtime - <span id="runtime_response">{{ $details['runtime'] }} min</span></h4>
+
 								</div>
 								@elseif ($type == "tvshows")
 								<div class="card social-card status col2" data-social="item">
@@ -61,11 +64,21 @@
 									<h4 class="no-margin p-b-5">Original Language - <span id="lang_response">{{ $details['original_language'] }}</span></h4>
 								</div>
 								@endif
+
+
+
 								<!-- END ITEM -->
 								<!-- START ITEM -->
+
+								<div class="card no-border bg-transparent full-width" data-social="item">
+									<section id="links_response">
+										<div class="no_result_links"><img src="{{ asset('assets/img/no_result_cactus.png') }}"></div>
+									</section>
+								</div>
 								<div class="card no-border bg-transparent full-width" data-social="item">
 									<h3 class="no-margin p-b-5">Top Billed Cast</h3>
 								</div>
+
 								<!-- END ITEM -->
 								<!-- START ITEM -->
 								@foreach(array_slice($cast_details['cast'], 0, 6) as $cast)
@@ -117,7 +130,9 @@
 										<input name="movie_id" type="hidden" value="{{ $movie_id }}" />
 									</form>
 									<!-- /simform -->
+
 								</div>
+
 								<!-- END ITEM -->
 								<!-- START ITEM -->
 								@foreach($comments as $comment)
@@ -145,7 +160,7 @@
 				<!-- /container -->
 			</div>
 		</div>
-		<section id="links_response"></section>
+
 		<!-- END PAGE CONTENT -->
 		<!-- START COPYRIGHT -->
 		@include('layouts.footer')
