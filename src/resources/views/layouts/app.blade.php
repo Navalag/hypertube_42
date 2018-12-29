@@ -80,7 +80,6 @@
 		<script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js" type="text/javascript"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js" type="text/javascript"></script>
 		<script src="{{ asset('assets/js/chosen/chosen.jquery.js') }}"></script>
-		<script src="{{ asset('pages/js/gap.js') }}"></script>
 		@stack('scripts')
 
 	</body>

@@ -143,6 +143,5 @@
 <!-- END MODAL STICK UP SMALL ALERT -->
 
 @push('scripts')
-	<script src="{{ asset('pages/js/search.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('js/app.js') }}"></script>
 @endpush

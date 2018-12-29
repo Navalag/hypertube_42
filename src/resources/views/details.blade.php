@@ -42,7 +42,11 @@
 								<!-- START ITEM -->
 								<div class="card social-card no-border bg-transparent col4" data-social="item">
 									<div class="card-description">
-										<p class="no-margin fs-16">{{ $details['overview'] }}</p>
+										@if($details['overview'])
+											<p class="no-margin fs-16">{{ $details['overview'] }}</p>
+										@else
+											<div class="no_result_overview"><img src="{{ asset('assets/img/no-results_loupe.png') }}"></div>
+										@endif
 									</div>
 								</div>
 								<!-- END ITEM -->

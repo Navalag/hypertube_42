@@ -262,7 +262,7 @@ function get_movie_link_by_id()
             var list = JSON.parse(response);
             var container = document.getElementById('links_response');
             console.log(list);
-            if (list.length > 0) {
+            if (list != null && list.length > 0) {
                 if (type == "movies") {
                     if(list.YTS) {
                         var lenYTS = Object.keys(list.YTS).length;

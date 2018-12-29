@@ -74,6 +74,8 @@ p
 .gallery-item
 {
     margin-left: 10px;
+    min-height: 400px;
+    border: 1px solid crimson;
 }
 .live_load_container
 {
@@ -310,6 +312,7 @@ html {
 .no_result_links
 {
     display: none;
+    text-align: center;
 }
 .no_result_links img
 {

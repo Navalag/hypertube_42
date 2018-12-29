@@ -36,9 +36,10 @@ var tv_len = tv_genres.length;
 var movie_form = document.getElementById('movie_form');
 var tv_form = document.getElementById('tv_form');
 var general_type = {data: null};
-var lang = "uk-UA";
+//var lang = "uk-UA";
 //var lang = "en-US";
 
+console.log(lang);
 
 //const observer = lozad(); // lazy loads elements with default selector as ".lozad"
 //observer.observe();
@@ -82,23 +83,24 @@ function set_filters_on_reload_page()
 	var genres_list = document.getElementById('genre_response');
 	if(storedGenres != "null" && storedGenres != null)
 	{
-		console.log('fuck');
 		genres_list.innerHTML = storedGenres.replace(/,/g, '/');
 	}
 	else
 		genres_list.innerHTML = "";
+    (storedSort != null && !storedSwitcher) ? document.getElementById('sort_select').value = storedSort : 0;
 	(storedSort != null && storedSwitcher === "movies") ? document.getElementById('sort_select').value = storedSort : 0;
 	(storedSort != null && storedSwitcher === "tvshows") ? document.getElementById('sort_select_tv').value = storedSort : 0;
 	if(storedYears != null)
 	{
 		var years = storedYears.split('-');
+		(!storedSwitcher) ? year_gap(years[0], years[1]) : 0;
 		(storedSwitcher === "movies") ? year_gap(years[0], years[1]) : 0;
 		(storedSwitcher === "tvshows") ? year_gap_tv(years[0], years[1]) : 0;
 	}
 	if(storedRate != null)
 	{
 		var rate = storedRate.split('-');
-
+        (!storedSwitcher) ? rate_gap(years[0], years[1]) : 0;
 		(storedSwitcher === "movies") ? rate_gap(rate[0], rate[1]) : 0;
 		(storedSwitcher === "tvshows") ? rate_gap_tv(rate[0], rate[1]) : 0;
 	}
@@ -112,6 +114,7 @@ if (response)
 {
 	$(document).ready(function () {
 
+		console.log('inreload');
 		var type = null;
 		//  console.log("sort on ready:", sortparam.data);
 		//  console.log("years on ready:", yearsparam.data);
@@ -139,47 +142,59 @@ if (response)
 		if (storedMethod == null) {
 			static_load(1, null, null, null, null, "movies", lang);
 		}
-		else if (storedMethod === "static_load" && storedArr) {
+		else if (storedMethod === "static_load" && storedArr && sessionStorage.getItem('lang') === lang) {
 
-			 //// console.log('Bitch');
+			  console.log('Bitch');
 			var len = Object.keys(storedArr).length;
 			render(storedArr, len);
 			//  window.scrollTo(0, scrollPos);
 
 		}
-		else if (storedMethod === "live_load" && storedArr) {
+		else if (storedMethod === "live_load" && storedArr && sessionStorage.getItem('lang') === lang) {
 			var len = Object.keys(storedArr).length;
 			render(storedArr, len);
 			 //  window.scrollTo(0, scrollPos);
 
 		}
+		else {
+			reset();
+            static_load(1, null, null, null, null, general_type.data, lang);
+        }
 		//live_load(needle.data, storedPage);
 		//  render(i);
 	});
+
+
 
 	var win = $(window);
 
 	var scrolling = false;
 
-	$( window ).scroll( function() {
+    $( window ).scroll(ScrollHandler);
+
+    function ScrollHandler()
+	{
 		if(win.scrollTop() < 2)
 		{
 			window.scrollTo(0, 3);
 		}
 		scrolling = true;
-	});
+
+	};
 
 	setInterval( function() {
 		if ( scrolling ) {
 			scrolling = false;
+
+
 			// Do your thang!
 
-			if ($(document).height() - win.height() == win.scrollTop()) {
+			if ($(window).scrollTop() + $(window).height() == $(document).height()) {
 
 				console.log('inscroll');
-				console.log("page: ", storedPage);
-				console.log("limit: ", storedLimit);
-				console.log("limit.data: ", limit.data);
+			//	console.log("page: ", storedPage);
+			//	console.log("limit: ", storedLimit);
+			//	console.log("limit.data: ", limit.data);
 				if ((limit.data == 0 || (limit.data > 0 && storedPage < limit.data)) && storedPage < 1000) {
 					storedPage += 1;
 					// //// console.log("page in: ", storedPage);
@@ -223,14 +238,17 @@ if (response)
 					}
 				}
 				// render(i);
+
 			}
+
 		}
-	}, 750 );
+	}, 1000 );
 
 
 
 	function reset()
 	{
+		//sessionStorage.clear();
 		sessionStorage.removeItem('method');
 		sessionStorage.removeItem('page');
 		sessionStorage.removeItem('scroll');
@@ -252,6 +270,10 @@ if (response)
 		//  sessionStorage.setItem("years", years);
 		//  sessionStorage.setItem("rate", rate);
 		// sessionStorage.setItem("genres", genres);
+         sortparam.data = null;
+         yearsparam.data = null;
+        rateparam.data = null;
+        genresparam.data = null;
 		storedSort = null;
 		storedYears = null;
 		storedRate = null;
@@ -262,6 +284,8 @@ if (response)
 
 	$('#reset_button').click(function () {
 
+		console.log('inreset');
+		//$(window).unbind('scroll');
 		reset();
 		year_gap(1888, 2018);
 		year_gap_tv(1928, 2018);
@@ -270,6 +294,7 @@ if (response)
 		$(".chosen-select").val('').trigger("chosen:updated");
 		document.getElementById('sort_select').value = "none";
 		document.getElementById('sort_select_tv').value = "none";
+       // window.scrollTo(0, 3);
 		//var type = null;
 		//// console.log("method: ", storedMethod);
 		 //// console.log("page: ", storedPage);
@@ -284,6 +309,15 @@ if (response)
 		(switcher.data != null) ?  static_load(1, null, null, null, null, switcher.data, lang) : 0;
 		(switcher.data == null && storedSwitcher != null) ?  static_load(1, null, null, null, null, storedSwitcher, lang) : 0;
 		(switcher.data == null && storedSwitcher == null) ?  static_load(1, null, null, null, null, "movies", lang) : 0;
+		/*var timer = setTimeout(function tick()
+			{
+				$(window).bind('scroll', ScrollHandler);
+				//alert('fuck');
+				timer = setTimeout(tick, 2000);
+            }, 2000);*/
+		//clearInterval(timer);
+
+
 	});
 
 	function static_load(i, sort, years, rate, genres, type, lang) {
@@ -306,6 +340,7 @@ if (response)
 			},
 			success: function (response) {
 				var list = JSON.parse(response);
+				//console.log(list);
 				// console.log(response);
 				//document.getElementById('response').innerHTML = "sdg";
 				//document.getElementById('form-response').innerHTML = response;
@@ -315,11 +350,13 @@ if (response)
 					limit.data = i;
 					 //// console.log("in load:", limit.data);
 				}
-				console.log(list.results, len);
+				//console.log(list.results, len);
+				//console.log('instatic');
 				render(list.results, len);
 				trigger.data = "static_load";
 				sessionStorage.setItem('method', 'static_load');
 				sessionArr = sessionStorage.getItem('arr');
+                sessionStorage.setItem('lang', lang);
 				// console.log('type: ' ,type);
 				// console.log('switcher.data', switcher.data);
 				// console.log('storedSwitcher', storedSwitcher);
@@ -418,7 +455,7 @@ if (response)
 
 	function render(list, len) {
 
-	  //  console.log(list);
+	   // console.log('inrender');
 		//   document.getElementById("response").innerHTML = response;
 		//  var observer = lozad();
 	   /* var type = null;
@@ -544,6 +581,7 @@ if (response)
 
 		   }
 	   }
+
 		//observer.observe();
 		lozad('.lozad', {
 			load: function (el) {
