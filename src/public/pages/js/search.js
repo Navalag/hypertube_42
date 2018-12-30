@@ -52,18 +52,18 @@ function setformdata()
 	{
 		if(storedSwitcher === "movies")
 		{
-			movie_switch.setAttribute("class", "button is-active");
-			shows_switch.removeAttribute("class", "is-active");
-			shows_switch.setAttribute("class", "button");
+			movie_switch.setAttribute("class", "btn btn-success");
+			shows_switch.removeAttribute("class", "btn-success");
+			shows_switch.setAttribute("class", "btn btn-primary");
 			sessionStorage.setItem("switcher", "movies");
 			hide_show_genres_list("movies", movies_genres, tv_genres);
 			hide_show_filters("movies");
 		}
 		else if(storedSwitcher === "tvshows")
 		{
-			shows_switch.setAttribute("class", "button is-active");
-			movie_switch.removeAttribute("class", "is-active");
-			movie_switch.setAttribute("class", "button");
+			shows_switch.setAttribute("class", "btn btn-success");
+			movie_switch.removeAttribute("class", "btn-success");
+			movie_switch.setAttribute("class", "btn btn-primary");
 			sessionStorage.setItem("switcher", "tvshows");
 			hide_show_genres_list("tvshows", movies_genres, tv_genres);
 			hide_show_filters("tvshows");
@@ -144,7 +144,6 @@ if (response)
 		}
 		else if (storedMethod === "static_load" && storedArr && sessionStorage.getItem('lang') === lang) {
 
-			  console.log('Bitch');
 			var len = Object.keys(storedArr).length;
 			render(storedArr, len);
 			//  window.scrollTo(0, scrollPos);
@@ -789,9 +788,9 @@ function switch_type(event)
 	document.getElementById('sort_select_tv').value = "none";
 	if(target.getAttribute('id') == "movie_switch")
 	{
-		movie_switch.setAttribute("class", "button is-active");
-		shows_switch.removeAttribute("class", "is-active");
-		shows_switch.setAttribute("class", "button");
+		movie_switch.setAttribute("class", "btn btn-success");
+		shows_switch.removeAttribute("class", "btn-success");
+		shows_switch.setAttribute("class", "btn btn-primary");
 		document.getElementById("response").innerHTML = "";
 		hide_show_genres_list(type, movies_genres, tv_genres);
 		sessionStorage.removeItem('arr');
@@ -800,9 +799,9 @@ function switch_type(event)
 	}
 	else if(target.getAttribute('id') == "tvshows_switch")
 	{
-		shows_switch.setAttribute("class", "button is-active");
-		movie_switch.removeAttribute("class", "is-active");
-		movie_switch.setAttribute("class", "button");
+		shows_switch.setAttribute("class", "btn btn-success");
+		movie_switch.removeAttribute("class", "btn-success");
+		movie_switch.setAttribute("class", "btn btn-primary");
 		sessionStorage.removeItem('arr');
 		document.getElementById("response").innerHTML = "";
 		hide_show_genres_list(type, movies_genres, tv_genres);

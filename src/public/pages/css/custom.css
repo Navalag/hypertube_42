@@ -27,6 +27,22 @@ p
     border: 1px solid gold;
     flex: 0 0 auto;
 }
+
+
+
+
+
+.search_field
+{
+    display: flex;
+}
+.search_form
+{
+    flex: 2;
+    display: flex;
+}
+
+
 .thumbnails_container
 {
     width: 100%;
@@ -79,12 +95,15 @@ p
 }
 .live_load_container
 {
-    box-sizing: border-box;
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
 
 }
 .live_search
 {
-    width: 300px;
+    width: 250px;
+    margin-left: 20px;
     box-sizing: border-box;
 }
 .switch_buttons
@@ -98,7 +117,6 @@ p
 }
 .search_form
 {
-
     display: flex;
     justify-content: space-around;
 }
@@ -271,13 +289,115 @@ html {
     flex: 1;
 }
 
+
+/*mediaa for form */
+@media (max-width: 1300px)
+{
+    .search_field
+    {
+        flex-direction: column;
+    }
+    .switch_buttons
+    {
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 1150px)
+{
+    .search_form
+    {
+        flex-direction: column;
+    }
+    .select_sort
+    {
+        width: 250px;
+    }
+    .gap_field
+    {
+        margin-top: 20px;
+    }
+    .slider-range_wrapper
+    {
+        width: 200px;
+    }
+    .genres_field
+    {
+        margin-top: 20px;
+    }
+    .search_button
+    {
+        margin-top: 10px;
+    }
+
+}
+@media(max-width: 900px)
+{
+    .logo_container
+    {
+        display: none;
+    }
+}
+@media(max-width: 800px)
+{
+    .search_form
+    {
+        align-items: center;
+    }
+    .switch_buttons
+    {
+        display: flex;
+        justify-content: center;
+    }
+    .switch_buttons button
+    {
+        margin-left: 5px;
+    }
+    .chosen-select
+    {
+        width: 250px;
+    }
+}
 /* media for cast */
+
 
 @media (max-width: 768px)
 {
     .movie-cast-trailer_container
     {
         flex-direction: column;
+    }
+
+
+}
+@media (max-width: 600px)
+{
+    .header
+    {
+        display: flex;
+        flex-direction: column;
+        min-height: 100px;
+    }
+    .live_load_container
+    {
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .live_search
+    {
+        width: 160px;
+    }
+
+    .reset-button
+    {
+        width: 30%;
+        margin-left: 5px;
+        align-self: center;
+    }
+    .menu_button
+    {
+        align-self: flex-start;
+        margin-top: 5px;
     }
 }
 

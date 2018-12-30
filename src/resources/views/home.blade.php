@@ -17,12 +17,12 @@
 				<!-- START CATEGORY -->
 				<div class="search_field">
 					<div class="switch_buttons">
-						<button class="switch button is-active" onclick="switch_type(event);" id="movie_switch" data="movies">Movies</button>
-						<button class="switch button" onclick="switch_type(event);" id="tvshows_switch" data="tvshows">TV Shows</button>
+						<button class="switch btn btn-primary" onclick="switch_type(event);" id="movie_switch" data="movies">Movies</button>
+						<button class="switch btn btn-primary" onclick="switch_type(event);" id="tvshows_switch" data="tvshows">TV Shows</button>
 					</div>
 					<form method="POST" class="search_form" id="movie_form">
 						<div class="sort_field">
-							<select name="sort" id="sort_select">
+							<select class="form-control select_sort" name="sort" id="sort_select">
 								<option>{{ __('none') }}</option>
 								<option>{{ __('Title Ascending') }}</option>
 								<option>{{ __('Title Descending') }}</option>
@@ -67,13 +67,13 @@
 								<option>{{ __('Western') }}</option>
 							</select>
 						</div>
-						<div>
-							<button id="search_submit">{{ __('search') }}</button>
+						<div class="search_button">
+							<button  class="btn btn-primary" id="search_submit">{{ __('search') }}</button>
 						</div>
 					</form>
 					<form method="POST" class="search_form" id="tv_form">
 						<div class="sort_field">
-							<select name="sort" id="sort_select_tv">
+							<select class="form-control select_sort " name="sort" id="sort_select_tv">
 								<option>{{ __('none') }}</option>
 								<option>{{ __('Title Ascending') }}</option>
 								<option>{{ __('Title Descending') }}</option>
@@ -113,8 +113,8 @@
 								<option>{{ __('Western') }}</option>
 							</select>
 						</div>
-						<div>
-							<button id="search_submit_tv">{{ __('search') }}</button>
+						<div class="search_button">
+							<button class="btn btn-primary" id="search_submit_tv">{{ __('search') }}</button>
 						</div>
 					</form>
 					<div id="form-response"></div>

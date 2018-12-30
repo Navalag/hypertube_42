@@ -1,29 +1,32 @@
 <!-- START HEADER -->
 <div class="header ">
 	<!-- START MOBILE SIDEBAR TOGGLE -->
-	<a href="#" class="btn-link toggle-sidebar hidden-lg-up pg pg-menu" data-toggle="sidebar"></a>
+	<a href="#" class="btn-link toggle-sidebar hidden-lg-up pg pg-menu menu_button" data-toggle="sidebar"></a>
 	<!-- END MOBILE SIDEBAR TOGGLE -->
-	<div class="">
+	<div class="logo_container">
 		<div class="brand inline">
 			<a href="/"><h2 class="logo"><b>HyperTube</b><i class="logo-fa fas fa-play-circle"></i></h2></a>
 			<!-- <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22"> -->
 		</div>
 	</div>
 	<div class="live_load_container">
-		<input id="live_search_input" type="text" name="live_search" placeholder="{{ __('Type here to search...') }}" value="" class="live_search" autocomplete="on">
-		<button id="reset_button">{{ __('search') }}</button>
+		<input id="live_search_input" type="text" name="live_search" placeholder="{{ __('Type here to search...') }}" value="" class="live_search form-control" autocomplete="on">
+		<button class="btn btn-primary reset-button" id="reset_button">{{ __('search') }}</button>
 	</div>
 	<div class="d-flex align-items-center">
 		<!-- START User Info-->
 		<div class="dropdown dropdown-default m-r-20">
+
     <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       {{Session::get('locale')=='ua' ? 'Українська' : 'English'}}
     </button>
+
     <div class="dropdown-menu">
       <a class="dropdown-item" href="/user/set_lang?lang=en">English</a>
       <a class="dropdown-item" href="/user/set_lang?lang=ua">Українська</a>
     </div>
-  </div>
+        </div>
+
 		<div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
 			<span class="semi-bold" id="firstName">{{ $user_info->first_name }}</span> <span class="text-master" id="lastName">{{ $user_info->last_name }}</span>
 		</div>
