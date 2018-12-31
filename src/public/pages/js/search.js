@@ -489,7 +489,7 @@ if (response)
 			   block.setAttribute("class", "hide_block");
 			   gal_item_img_container.setAttribute("class", "img_link");
 
-			   gal_item.setAttribute("class", "gallery-item");
+			   gal_item.setAttribute("class", "gallery-item_custom");
 			   clearfix.setAttribute("class", "clearfix");
 			   img_link.setAttribute("href", baseUrl + 'details/' + general_type.data + '_' + list[i].id);
 			   img.setAttribute("class", "image-responsive-height lozad");
@@ -518,9 +518,11 @@ if (response)
 			   img_link.append(img);
 			   gal_item.append(gal_item_img_container);
 			   block.append(item_title);
+			   block.append(item_rate);
+			   block.append(date);
 			   gal_item.append(block);
-			   gal_item.append(item_rate);
-			   gal_item.append(date);
+			  // gal_item.append(item_rate);
+			  // gal_item.append(date);
 			   document.getElementById("response").append(gal_item);
 		   }
 	   }
