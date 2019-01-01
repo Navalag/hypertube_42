@@ -477,20 +477,27 @@ if (response)
 			   var gal_item_img_container = document.createElement('div');
 			   var img_link = document.createElement('a');
 			   var img = document.createElement('img');
-			   var overlayer = document.createElement('div');
-			   var overlayer_wrap = document.createElement('div');
-			   var gradient = document.createElement('div');
-			   var void_div = document.createElement('div');
+			  // var overlayer = document.createElement('div');
+			  // var overlayer_wrap = document.createElement('div');
+			  // var gradient = document.createElement('div');
+			  // var void_div = document.createElement('div');
+			   var item_year_box = document.createElement('div');
+			   var item_rate_box = document.createElement('div');
+			   item_year_box.setAttribute("class", "item_year_box");
+			   item_rate_box.setAttribute("class", "item_rate_box");
+			   var item_year_icon_box = document.createElement('div');
+			   var item_rate_icon_box = document.createElement('div');
 			   var item_title = document.createElement('p');
 			   var item_rate = document.createElement('p');
 			   var date = document.createElement('p');
+			   date.setAttribute("class", "item_year");
 			   var clearfix = document.createElement('div');
 			   var block = document.createElement('div');
 			   block.setAttribute("class", "hide_block");
 			   gal_item_img_container.setAttribute("class", "img_link");
 
 			   gal_item.setAttribute("class", "gallery-item_custom");
-			   clearfix.setAttribute("class", "clearfix");
+			 //  clearfix.setAttribute("class", "clearfix");
 			   img_link.setAttribute("href", baseUrl + 'details/' + general_type.data + '_' + list[i].id);
 			   img.setAttribute("class", "image-responsive-height lozad");
 			   if (list[i].poster_path != null) {
@@ -499,11 +506,11 @@ if (response)
 			   }
 			   else
 				   img.setAttribute("data-src", baseUrl + '/public/img/blur2.png');
-			   overlayer.setAttribute("class", "overlayer bottom-left full-width");
-			   overlayer_wrap.setAttribute("class", "overlayer-wrapper item-info");
-			   gradient.setAttribute("class", "gradient-grey");
-			   item_title.setAttribute("class", "");
-			   item_rate.setAttribute("class", "");
+			  // overlayer.setAttribute("class", "overlayer bottom-left full-width");
+			  // overlayer_wrap.setAttribute("class", "overlayer-wrapper item-info");
+			  // gradient.setAttribute("class", "gradient-grey");
+			   item_title.setAttribute("class", "item_title");
+			   item_rate.setAttribute("class", "item_rate");
 			   item_rate.innerHTML = list[i].vote_average;
 			   item_title.innerHTML = list[i].title;
 			   date.innerHTML = list[i].release_date;
@@ -515,11 +522,25 @@ if (response)
 			   // gradient.append(void_div);
 			   // overlayer_wrap.append(gradient);
 			   //  overlayer.append(overlayer_wrap);
+               var icon_rate = document.createElement('img');
+               var icon_year = document.createElement('img');
+               icon_rate.setAttribute("class", "icon_rate");
+               icon_rate.setAttribute("src", baseUrl + '/assets/img/review.svg');
+               item_rate_icon_box.append(icon_rate);
+               icon_year.setAttribute("class", "icon_year");
+               icon_year.setAttribute("src", baseUrl + '/assets/img/calendar.svg');
+               item_year_icon_box.append(icon_year);
 			   img_link.append(img);
 			   gal_item.append(gal_item_img_container);
+               item_rate_box.append(item_rate_icon_box);
+			   item_rate_box.append(item_rate);
+               item_year_box.append(item_year_icon_box);
+			   item_year_box.append(date);
 			   block.append(item_title);
-			   block.append(item_rate);
-			   block.append(date);
+
+			   block.append(item_rate_box);
+               block.append(item_year_box);
+			  // block.append(date);
 			   gal_item.append(block);
 			  // gal_item.append(item_rate);
 			  // gal_item.append(date);
@@ -537,17 +558,28 @@ if (response)
 			   var overlayer_wrap = document.createElement('div');
 			   var gradient = document.createElement('div');
 			   var void_div = document.createElement('div');
+
+               var item_year_box = document.createElement('div');
+               var item_rate_box = document.createElement('div');
+               item_year_box.setAttribute("class", "item_year_box");
+               item_rate_box.setAttribute("class", "item_rate_box");
+               var item_year_icon_box = document.createElement('div');
+               var item_rate_icon_box = document.createElement('div');
+
+
+
 			   var item_title = document.createElement('p');
 			   var item_rate = document.createElement('p');
 			   var date = document.createElement('p');
-			   var clearfix = document.createElement('div');
+			    date.setAttribute("class", "item_year");
+			  // var clearfix = document.createElement('div');
 			   var block = document.createElement('div');
 			   block.setAttribute("class", "hide_block");
 			   gal_item_img_container.setAttribute("class", "img_link");
 
 
-			   gal_item.setAttribute("class", "gallery-item");
-			   clearfix.setAttribute("class", "clearfix");
+			   gal_item.setAttribute("class", "gallery-item_custom");
+			  // clearfix.setAttribute("class", "clearfix");
 			   img_link.setAttribute("href", baseUrl + 'details/' + general_type.data + '_' + list[i].id);
 			   img.setAttribute("class", "image-responsive-height lozad");
 			   if (list[i].poster_path != null) {
@@ -556,11 +588,11 @@ if (response)
 			   }
 			   else
 				   img.setAttribute("data-src", baseUrl + '/public/img/blur2.png');
-			   overlayer.setAttribute("class", "overlayer bottom-left full-width");
-			   overlayer_wrap.setAttribute("class", "overlayer-wrapper item-info");
-			   gradient.setAttribute("class", "gradient-grey");
-			   item_title.setAttribute("class", "");
-			   item_rate.setAttribute("class", "");
+			  // overlayer.setAttribute("class", "overlayer bottom-left full-width");
+			 //  overlayer_wrap.setAttribute("class", "overlayer-wrapper item-info");
+			  // gradient.setAttribute("class", "gradient-grey");
+			   item_title.setAttribute("class", "item_title");
+			   item_rate.setAttribute("class", "item_rate");
 			   item_rate.innerHTML = list[i].vote_average;
 			   item_title.innerHTML = list[i].name;
 			   date.innerHTML = list[i].first_air_date;
@@ -572,12 +604,42 @@ if (response)
 			   // gradient.append(void_div);
 			   // overlayer_wrap.append(gradient);
 			   //  overlayer.append(overlayer_wrap);
-			   img_link.append(img);
-			   gal_item.append(gal_item_img_container);
-			   block.append(item_title);
+
+               var icon_rate = document.createElement('img');
+               var icon_year = document.createElement('img');
+               icon_rate.setAttribute("class", "icon_rate");
+               icon_rate.setAttribute("src", baseUrl + '/assets/img/review.svg');
+               item_rate_icon_box.append(icon_rate);
+               icon_year.setAttribute("class", "icon_year");
+               icon_year.setAttribute("src", baseUrl + '/assets/img/calendar.svg');
+               item_year_icon_box.append(icon_year);
+
+               img_link.append(img);
+               gal_item.append(gal_item_img_container);
+               item_rate_box.append(item_rate_icon_box);
+               item_rate_box.append(item_rate);
+               item_year_box.append(item_year_icon_box);
+               item_year_box.append(date);
+
+               block.append(item_title);
+
+               block.append(item_rate_box);
+               block.append(item_year_box);
+               // block.append(date);
+
+               gal_item.append(block);
+
+
+
+
+
+
+
+
+			   /*
 			   gal_item.append(block);
 			   gal_item.append(item_rate);
-			   gal_item.append(date);
+			   gal_item.append(date);*/
 			   document.getElementById("response").append(gal_item);
 
 		   }

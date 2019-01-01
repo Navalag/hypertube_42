@@ -75,7 +75,7 @@
 								<!-- START ITEM -->
 
 								<div class="card no-border bg-transparent full-width" data-social="item">
-									<section id="links_response">
+									<section id="links_response" class="links-response">
 										<div class="no_result_links"><img src="{{ asset('assets/img/no_result_cactus.png') }}"></div>
 									</section>
 								</div>

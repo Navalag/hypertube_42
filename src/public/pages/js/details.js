@@ -262,7 +262,11 @@ function get_movie_link_by_id()
             var list = JSON.parse(response);
             var container = document.getElementById('links_response');
             console.log(list);
-            if (list != null && list.length > 0) {
+            if(list != null && list.length == 0)
+            {
+                document.querySelector('.no_result_links').style.display = "block";
+            }
+            else if (list != null) {
                 if (type == "movies") {
                     if(list.YTS) {
                         var lenYTS = Object.keys(list.YTS).length;
@@ -276,10 +280,17 @@ function get_movie_link_by_id()
 
 
                                 var YTS = document.createElement('div');
+                                YTS.setAttribute("class", "button_box");
                                 var play_label = document.createElement('div');
+                                play_label.setAttribute("class", "play_label");
+                                var language = document.createElement('div');
+                                language.setAttribute("class", "link_language");
+                                language.innerHTML = list.YTS[i].lang;
                                 play_label.innerHTML = list.YTS[i].quality;
                                 var play_form = document.createElement('div');
+                                play_form.setAttribute("class", "play_button_box");
                                 var play_button = document.createElement('button');
+                                play_button.setAttribute("class", "play_button btn btn-primary");
                                 play_button.setAttribute('name', "play");
                                 play_button.setAttribute('type', "submit");
                                 play_button.innerHTML = "Play";
@@ -288,6 +299,7 @@ function get_movie_link_by_id()
                                 play_button.setAttribute('data-title', title);
                                 play_button.setAttribute('data-imdb', imdb_id);
                                 play_form.append(play_button);
+                                YTS.append(language);
                                 YTS.append(play_label);
                                 YTS.append(play_form);
                                 // play_form.append(play_input_hidden);
@@ -306,10 +318,17 @@ function get_movie_link_by_id()
                         for (var i = 0; i < lenPop; i++) {
 
                             var POP = document.createElement('div');
+                            POP.setAttribute("class", "button_box");
                             var play_label = document.createElement('div');
+                            play_label.setAttribute("class", "play_label");
                             play_label.innerHTML = list.popcorn[i].quality;
+                            var language = document.createElement('div');
+                            language.setAttribute("class", "link_language");
+                            language.innerHTML = list.popcorn[i].lang;
                             var play_form = document.createElement('div');
+                            play_form.setAttribute("class", "play_button_box");
                             var play_button = document.createElement('button');
+                            play_button.setAttribute("class", "play_button btn btn-primary");
                             play_button.setAttribute('name', "play");
                             play_button.setAttribute('type', "submit");
                             play_button.innerHTML = "Play";
@@ -319,6 +338,7 @@ function get_movie_link_by_id()
                             play_button.setAttribute('data-title', title);
                             play_button.setAttribute('data-imdb', imdb_id);
                             play_form.append(play_button);
+                            POP.append(language);
                             POP.append(play_label);
                             POP.append(play_form);
                             // play_form.append(play_input_hidden);
@@ -349,7 +369,7 @@ function get_movie_link_by_id()
                             var play_button = document.createElement('button');
                             play_button.setAttribute('name', "play");
                             play_button.setAttribute('type', "submit");
-                            play_button.innerHTML = "Play";
+                            play_button.innerHTML = "Play"
                             play_button.setAttribute("onclick", "playButton(event)");
                             play_button.setAttribute('data-type', type);
                             play_button.setAttribute('data-link', list[i].torrents[key].url);
