@@ -10,8 +10,8 @@ var page = {data: 1};
 var storedMethod = sessionStorage.getItem('method');
 var storedPage = +sessionStorage.getItem('page');
 var scrollPos = sessionStorage.getItem('scroll');
-if(scrollPos === null)
-	scrollPos = 0;
+//if(scrollPos === null)
+//	scrollPos = 0;
 var storedNeedle = sessionStorage.getItem('needle');
 var storedLimit = sessionStorage.getItem('limit');
 var sortparam = {data: null};
@@ -50,6 +50,7 @@ function setformdata()
 {
 	if(storedSwitcher != null)
 	{
+
 		if(storedSwitcher === "movies")
 		{
 			movie_switch.setAttribute("class", "btn btn-success");
@@ -68,6 +69,8 @@ function setformdata()
 			hide_show_genres_list("tvshows", movies_genres, tv_genres);
 			hide_show_filters("tvshows");
 		}
+		var live_str = sessionStorage.getItem("live_str");
+		(live_str != null) ? document.getElementById('live_search_input').value = live_str : 0;
 	}
 	else if(switcher.data == null)
 	{
@@ -87,17 +90,17 @@ function set_filters_on_reload_page()
 	}
 	else
 		genres_list.innerHTML = "";
-    (storedSort != null && !storedSwitcher) ? document.getElementById('sort_select').value = storedSort : 0;
-	(storedSort != null && storedSwitcher === "movies") ? document.getElementById('sort_select').value = storedSort : 0;
-	(storedSort != null && storedSwitcher === "tvshows") ? document.getElementById('sort_select_tv').value = storedSort : 0;
-	if(storedYears != null)
+    (storedSort != null && !storedSwitcher && sessionStorage.getItem('lang') === lang) ? document.getElementById('sort_select').value = storedSort : 0;
+	(storedSort != null && storedSwitcher === "movies" && sessionStorage.getItem('lang') === lang) ? document.getElementById('sort_select').value = storedSort : 0;
+	(storedSort != null && storedSwitcher === "tvshows" && sessionStorage.getItem('lang') === lang) ? document.getElementById('sort_select_tv').value = storedSort : 0;
+	if(storedYears != null && sessionStorage.getItem('lang') === lang)
 	{
 		var years = storedYears.split('-');
 		(!storedSwitcher) ? year_gap(years[0], years[1]) : 0;
 		(storedSwitcher === "movies") ? year_gap(years[0], years[1]) : 0;
 		(storedSwitcher === "tvshows") ? year_gap_tv(years[0], years[1]) : 0;
 	}
-	if(storedRate != null)
+	if(storedRate != null && sessionStorage.getItem('lang') === lang)
 	{
 		var rate = storedRate.split('-');
         (!storedSwitcher) ? rate_gap(years[0], years[1]) : 0;
@@ -133,12 +136,14 @@ if (response)
 		else
 			general_type.data = "movies";
 		setformdata();
-		$(document).ajaxStart(function () {
+		/*$(document).ajaxStart(function () {
 			$("#load_gif").show();
 		}).ajaxStop(function () {
 			$("#load_gif").hide();
-		});
-
+		});*/
+		console.log(storedMethod);
+		console.log(storedArr);
+		console.log(sessionStorage.getItem('lang'));
 		if (storedMethod == null) {
 			static_load(1, null, null, null, null, "movies", lang);
 		}
@@ -190,7 +195,8 @@ if (response)
 
 			if ($(window).scrollTop() + $(window).height() == $(document).height()) {
 
-				console.log('inscroll');
+				console.log('inscroll method ', storedMethod);
+				console.log('inscroll trigger ', trigger.data);
 			//	console.log("page: ", storedPage);
 			//	console.log("limit: ", storedLimit);
 			//	console.log("limit.data: ", limit.data);
@@ -198,7 +204,7 @@ if (response)
 					storedPage += 1;
 					// //// console.log("page in: ", storedPage);
 					//// console.log("trigger.data:", trigger.data);
-					if ((storedMethod == "static_load" && trigger.data != "live_load") || trigger.data == "static_load") {
+					if ( trigger.data === "static_load" || storedMethod === "static_load" ) {
 						////// console.log("in static_load");
 						sessionStorage.setItem('page', storedPage);
 						//  console.log("sort:", sortparam.data);
@@ -211,13 +217,12 @@ if (response)
 						//  console.log("stored genres:", storedGenres);
 
 						if (sortparam.data != null || yearsparam.data != null || rateparam.data != null || genresparam.data != null || switcher.data != null) {
-							// console.log('fuck');
+							 console.log('fuck');
 							static_load(storedPage, sortparam.data, yearsparam.data, rateparam.data, genresparam.data, general_type.data, lang);
 						}
 						else
 						{
-							// console.log('bitch');
-							console.log(storedGenres);
+							 console.log('bitch');
 							var res = null;
 							if(storedGenres)
 								 res = storedGenres.split(',');
@@ -225,14 +230,16 @@ if (response)
 						}
 					}
 					else if (storedMethod == "live_load" || trigger.data == "live_load") {
-						//// console.log("in live_load");
+						//console.log("in live_load");
+						//console.log(needle.data);
+						//console.log(storedNeedle);
 						//// console.log("page in live_load: ", storedPage);
 						//// console.log("storedNeedle :", storedNeedle);
 						//// console.log("needle.data: ", needle.data);
 						sessionStorage.setItem('page', storedPage);
-						if (needle.data == '' && storedNeedle != null)
+						if (needle.data == '' && storedNeedle )
 							live_load(storedNeedle, storedPage, lang);
-						else if (storedNeedle == null && needle.data != '')
+						else if (!storedNeedle && needle.data != '')
 							live_load(needle.data, storedPage, lang);
 					}
 				}
@@ -258,7 +265,7 @@ if (response)
 		sessionStorage.removeItem('rate');
 		sessionStorage.removeItem('genres');
 		sessionStorage.removeItem('arr');
-		sessionStorage.removeItem('method');
+		sessionStorage.removeItem('live_str');
 		storedMethod = null;
 		storedPage = 1;
 		//scrollPos = 5;
@@ -269,8 +276,8 @@ if (response)
 		//  sessionStorage.setItem("years", years);
 		//  sessionStorage.setItem("rate", rate);
 		// sessionStorage.setItem("genres", genres);
-         sortparam.data = null;
-         yearsparam.data = null;
+		sortparam.data = null;
+		yearsparam.data = null;
         rateparam.data = null;
         genresparam.data = null;
 		storedSort = null;
@@ -283,9 +290,9 @@ if (response)
 
 	$('#reset_button').click(function () {
 
-		console.log('inreset');
 		//$(window).unbind('scroll');
 		reset();
+        document.getElementById('live_search_input').value = null;
 		year_gap(1888, 2018);
 		year_gap_tv(1928, 2018);
 		rate_gap(0, 10);
@@ -470,7 +477,7 @@ if (response)
 			{
 				type  = "movies";
 			}*/
-	   // console.log(list);
+	    console.log(list);
 	   if(general_type.data == "movies") {
 		   for (var i = 0; i < len; i++) {
 			   var gal_item = document.createElement('div');
@@ -501,11 +508,11 @@ if (response)
 			   img_link.setAttribute("href", baseUrl + 'details/' + general_type.data + '_' + list[i].id);
 			   img.setAttribute("class", "image-responsive-height lozad");
 			   if (list[i].poster_path != null) {
-				   img.setAttribute("src", baseUrl + '/assets/img/blur2.png');
+				   img.setAttribute("src", baseUrl + '/assets/img/loading5.gif');
 				   img.setAttribute("data-src", 'https://image.tmdb.org/t/p/original/' + list[i].poster_path);
 			   }
 			   else
-				   img.setAttribute("data-src", baseUrl + '/public/img/blur2.png');
+				   img.setAttribute("data-src", baseUrl + '/assets/img/blur2.png');
 			  // overlayer.setAttribute("class", "overlayer bottom-left full-width");
 			  // overlayer_wrap.setAttribute("class", "overlayer-wrapper item-info");
 			  // gradient.setAttribute("class", "gradient-grey");
@@ -583,11 +590,11 @@ if (response)
 			   img_link.setAttribute("href", baseUrl + 'details/' + general_type.data + '_' + list[i].id);
 			   img.setAttribute("class", "image-responsive-height lozad");
 			   if (list[i].poster_path != null) {
-				   img.setAttribute("src", baseUrl + '/assets/img/blur2.png');
+				   img.setAttribute("src", baseUrl + '/assets/img/loading5.gif');
 				   img.setAttribute("data-src", 'https://image.tmdb.org/t/p/original/' + list[i].poster_path);
 			   }
 			   else
-				   img.setAttribute("data-src", baseUrl + '/public/img/blur2.png');
+				   img.setAttribute("data-src", baseUrl + '/assets/img/blur2.png');
 			  // overlayer.setAttribute("class", "overlayer bottom-left full-width");
 			 //  overlayer_wrap.setAttribute("class", "overlayer-wrapper item-info");
 			  // gradient.setAttribute("class", "gradient-grey");
@@ -684,11 +691,14 @@ if (response)
 					limit.data = page;
 				}
 				render(list.results, len);
-				trigger.data = "live_load";
+
 				if (storedMethod === "static_load") {
 					sessionStorage.removeItem('arr');
 				}
-				sessionStorage.setItem('method', 'live_load');
+
+                sessionStorage.setItem('lang', lang);
+                sessionStorage.setItem("switcher", general_type.data);
+                sessionStorage.setItem("live_str", needle);
 				sessionArr = sessionStorage.getItem('arr');
 				if (sessionArr) {
 					var arr1 = JSON.parse(sessionArr);
@@ -720,8 +730,10 @@ if (response)
 			clearTimeout(timer);
 			timer = setTimeout(function () {
 				sessionStorage.setItem('needle', needle.data);
+                sessionStorage.setItem('method', 'live_load');
 				document.getElementById("response").innerHTML = "";
-				sessionStorage.clear();
+                trigger.data = "live_load";
+				//sessionStorage.clear();
 				sessionStorage.removeItem('arr');
 				storedArr = null;
 				storedMethod = null;
@@ -730,6 +742,7 @@ if (response)
 				storedNeedle = null;
 				storedLimit = null;
 				limit.data = 0;
+				//reset();
 				live_load(needle.data, 1, lang);
 			}, 500);
 		}
@@ -827,6 +840,7 @@ function switch_type(event)
 	switcher.data = type;
 	general_type.data = type;
 	sessionStorage.setItem("switcher", type);
+    document.getElementById('live_search_input').value = null;
 	reset();
 	year_gap(1888, 2018);
 	year_gap_tv(1928, 2018);
@@ -890,7 +904,6 @@ function hide_show_genres_list(type, movies_genres, tv_genres)
 	}
 	else if(type === "tvshows")
 	{
-		console.log('in there');
 		for (var i = 0; i < movies_len; i++) {
 			movies_genres[i].style.display = "none";
 		}

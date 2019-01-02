@@ -429,6 +429,93 @@ html {
 
 
 }
+
+
+
+/*.comments_container
+{
+    flex: 1;
+    margin-left: 1%;
+    margin-right: 1%;
+}*/
+
+.hidden_genres_list
+{
+    display: none;
+}
+
+.showed_genres_list
+{
+    display: block;
+}
+.links-response
+{
+    min-height: 300px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.button_box
+{
+    display: flex;
+    align-items: center;
+    width: 360px;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+/*tv-shows links*/
+.each_episode_container
+{
+
+}
+.episode_season_label
+{
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.play_button
+{
+    flex: 1;
+}
+.each_title, .link_language
+{
+    flex: 2;
+}
+.resolution
+{
+    flex: 1;
+    margin-left: 3%;
+}
+/*.link_language, .play_label, .play_button_box
+{
+    margin-left: 2%;
+}*/
+.genre_list
+{
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 3%;
+}
+
+
+.no_result_links
+{
+    display: none;
+
+}
+.no_result_links img
+{
+    width: 300px;
+
+}
+.no_result_overview
+{
+    width: 300px;
+}
+
 @media (max-width: 600px)
 {
     .header
@@ -459,57 +546,12 @@ html {
         align-self: flex-start;
         margin-top: 5px;
     }
-}
-
-
-/*.comments_container
-{
-    flex: 1;
-    margin-left: 1%;
-    margin-right: 1%;
-}*/
-
-.hidden_genres_list
-{
-    display: none;
-}
-
-.showed_genres_list
-{
-    display: block;
-}
-.links-response
-{
-    min-height: 300px;
-    max-height: 300px;
-    overflow-y: scroll;
-}
-.button_box
-{
-    display: flex;
-    align-items: center;
-    width: 300px;
-    margin-top: 10px;
-    justify-content: space-between;
-}
-/*.link_language, .play_label, .play_button_box
-{
-    margin-left: 2%;
-}*/
-.genre_list
-{
-    width: 90%;
-    margin: 0 auto;
-    margin-bottom: 3%;
-}
-
-
-.no_result_links
-{
-    display: none;
-    text-align: center;
-}
-.no_result_links img
-{
-    width: 300px;
+    .button_box
+    {
+        width: 300px;
+    }
+    .each_title
+    {
+        font-size: 12px;
+    }
 }

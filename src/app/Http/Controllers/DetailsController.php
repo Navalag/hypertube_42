@@ -142,9 +142,12 @@ class DetailsController extends Controller {
         }
         if ($params['method'] == "link")
         {
-            $links = $search->links_request($params['id'], $params['type'], $params['title'], $params['lang']);
-
-            return ($links);
+            if($params['id'] != null) {
+                $links = $search->links_request($params['id'], $params['type'], $params['title'], $params['lang']);
+                return ($links);
+            }
+            else
+                return ("noID");
         }
          //   $title = $detailed_res['movie_results'][0]['title'];
         /*echo "<pre>";
