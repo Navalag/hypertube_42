@@ -151,12 +151,14 @@ if (response)
 
 			var len = Object.keys(storedArr).length;
 			render(storedArr, len);
+            set_mark(storedArr);
 			//  window.scrollTo(0, scrollPos);
 
 		}
 		else if (storedMethod === "live_load" && storedArr && sessionStorage.getItem('lang') === lang) {
 			var len = Object.keys(storedArr).length;
 			render(storedArr, len);
+            set_mark(storedArr);
 			 //  window.scrollTo(0, scrollPos);
 
 		}
@@ -541,7 +543,8 @@ if (response)
                item_year_icon_box.append(icon_year);
                var mark = document.createElement("div");
                mark.setAttribute("class", "hide_mark");
-               mark.innerHTML = "already seen";
+               (lang == "en-US") ?  mark.innerHTML = "already seen" : 0;
+               (lang == "uk-UA") ?  mark.innerHTML = "переглянуто" : 0;
 			   img_link.append(img);
 			   gal_item.append(mark);
 			   gal_item.append(gal_item_img_container);
