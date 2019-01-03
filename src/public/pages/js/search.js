@@ -359,6 +359,7 @@ if (response)
 				//console.log(list.results, len);
 				//console.log('instatic');
 				render(list.results, len);
+				set_mark(list.results);
 				trigger.data = "static_load";
 				sessionStorage.setItem('method', 'static_load');
 				sessionArr = sessionStorage.getItem('arr');
@@ -504,6 +505,7 @@ if (response)
 			   gal_item_img_container.setAttribute("class", "img_link");
 
 			   gal_item.setAttribute("class", "gallery-item_custom");
+			   gal_item.setAttribute("data", list[i].original_title);
 			 //  clearfix.setAttribute("class", "clearfix");
 			   img_link.setAttribute("href", baseUrl + 'details/' + general_type.data + '_' + list[i].id);
 			   img.setAttribute("class", "image-responsive-height lozad");
@@ -537,7 +539,11 @@ if (response)
                icon_year.setAttribute("class", "icon_year");
                icon_year.setAttribute("src", baseUrl + '/assets/img/calendar.svg');
                item_year_icon_box.append(icon_year);
+               var mark = document.createElement("div");
+               mark.setAttribute("class", "hide_mark");
+               mark.innerHTML = "already seen";
 			   img_link.append(img);
+			   gal_item.append(mark);
 			   gal_item.append(gal_item_img_container);
                item_rate_box.append(item_rate_icon_box);
 			   item_rate_box.append(item_rate);
@@ -586,6 +592,7 @@ if (response)
 
 
 			   gal_item.setAttribute("class", "gallery-item_custom");
+               gal_item.setAttribute("data", list[i].original_title);
 			  // clearfix.setAttribute("class", "clearfix");
 			   img_link.setAttribute("href", baseUrl + 'details/' + general_type.data + '_' + list[i].id);
 			   img.setAttribute("class", "image-responsive-height lozad");
@@ -663,6 +670,50 @@ if (response)
 
 	}
 
+function set_mark(list)
+{
+    $.ajax({
+        type: 'post',
+        url: baseUrl + '/',
+        data:
+            {
+                'method': 'set_mark'
+            },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function (response) {
+
+        		console.log('in set mark');
+        		console.log(list);
+        		console.log(response);
+           		 var len = Object.keys(list).length;
+           		 var response_len = Object.keys(response).length;
+        		for (var i = 0; i < len; i++)
+        		{
+					for(var j = 0; j < response_len; j++)
+					{
+						if(list[i].original_title === response[j])
+						{
+                            var child_hide_mark = document.querySelector("[data='" + list[i].original_title + "']").children[0];
+                            if(child_hide_mark)
+                            	child_hide_mark.style.visibility = "visible";
+                            console.log("damn");
+						}
+					}
+				}
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
 	function live_load(needle, page, lang) {
 
 		$.ajax({
@@ -691,6 +742,7 @@ if (response)
 					limit.data = page;
 				}
 				render(list.results, len);
+                set_mark(list.results);
 
 				if (storedMethod === "static_load") {
 					sessionStorage.removeItem('arr');
@@ -718,7 +770,7 @@ if (response)
 
 			}
 
-		})
+		});
 	}
 
 

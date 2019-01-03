@@ -97,6 +97,18 @@ p
     width: 260px;
     margin-top: 5px;
 }
+.hide_mark
+{
+    visibility: hidden;
+    transform: translateY(40px);
+    color: white;
+    width: 100px;
+    display: flex;
+    margin-left: 15px;
+    justify-content: center;
+    background-color: #0aa699;
+    border-radius: 5px;
+}
 .hide_block
 {
     display: flex;
