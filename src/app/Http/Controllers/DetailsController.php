@@ -30,7 +30,10 @@ class DetailsController extends Controller {
         $external_ids = $search->get_external_ids_request($type, $id);
        // dd($external_ids);
         // $external_ids = json_decode($external_ids, true);
-        $details = $search->details_request($id, $type, 'uk-UA');
+        $lang = \Session::get('locale')=='ua' ? 'Українська' : 'English';
+        ($lang == "English") ? $lang = "en-US" : 0;
+        ($lang == "Українська") ? $lang = "uk-UA" : 0;
+        $details = $search->details_request($id, $type, $lang);
         $details_temp = json_decode($details, true);
         ($type == "movies") ? $title = $details_temp['original_title'] : 0;
         ($type == "tvshows") ? $title = $details_temp['original_name'] : 0;
@@ -50,7 +53,8 @@ class DetailsController extends Controller {
              ->with('cast_details', json_decode($cast_details, true))
              ->with('comments', $all_comments)
              ->with('type', $type)
-             ->with('title', $title);
+             ->with('title', $title)
+             ->with('lang', \Session::get('locale')=='ua' ? 'Українська' : 'English');
     }
 
     public function putDetails(Request $request)

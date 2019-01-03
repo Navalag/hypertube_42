@@ -179,6 +179,9 @@
 		var imdb_id = "{{ $external_ids['imdb_id'] }}";
 		var type = "{{ $type }}";
 		var title = "{{ $title }}";
+        var lang = "{{ $lang }}";
+        (lang == "English") ? lang = "en-US" : 0;
+        (lang == "Українська") ? lang = "uk-UA" : 0;
 	</script>
 	<!-- <script src="{{ asset('pages/js/details.js') }}"></script> -->
 	<script src="{{ asset('assets/plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>

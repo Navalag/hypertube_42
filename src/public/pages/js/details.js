@@ -1,10 +1,11 @@
 var getUrl = window.location;
 var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
-var lang = "en-US";
+//var lang = "en-US";
 //var lang = "uk-UA";
 
 
 console.log(movie_id);
+console.log(lang);
 $(document).ready(function() {
 
 	//get_movie_data(movie_id);
@@ -297,6 +298,7 @@ function get_movie_link_by_id()
                                     play_button.setAttribute("onclick", "playButton(event)");
                                     play_button.setAttribute('data-link', list.YTS[i].magnet);
                                     play_button.setAttribute('data-title', title);
+                                    play_button.setAttribute('data-type', type);
                                     play_button.setAttribute('data-imdb', imdb_id);
                                     play_form.append(play_button);
                                     YTS.append(language);
@@ -467,6 +469,7 @@ function playButton(event)
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (response) {
+                //console.log(response);
                 var links = JSON.parse(response);
                 console.log("returned from server with subs : ", links);
                 console.log("exactly link returned from server. This may come with huge delay(depends of how many results api return) : ", links.movie.magnet);

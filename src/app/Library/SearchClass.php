@@ -170,7 +170,10 @@ class SearchClass
 
     private function make_magnet($hash)
     {
-        return ("fuck");
+       $magnet =  'magnet:?xt=urn:btih:'.$hash.'&tr=udp://open.demonii.com:1337/announce&tr=udp://tracker.openbittorrent.com:80&tr=udp://tracker.coppersurfer.tk:6969
+       &tr=udp://glotorrents.pw:6969/announce&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://torrent.gresille.org:80/announce&tr=udp://p4p.arenabg.com:1337
+       &tr=udp://tracker.leechers-paradise.org:6969';
+        return ($magnet);
     }
 
 
@@ -267,7 +270,6 @@ class SearchClass
     public function get_subtitles_list($title, $imdb, $type, $season, $episode, $lang)
     {
         $result = [];
-
         $client = \KickAssSubtitles\OpenSubtitles\Client::create([
             'username'  => '',
             'password'  => '',
