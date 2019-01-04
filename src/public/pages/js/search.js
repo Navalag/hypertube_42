@@ -532,10 +532,10 @@ if (response)
                var icon_rate = document.createElement('img');
                var icon_year = document.createElement('img');
                icon_rate.setAttribute("class", "icon_rate");
-               icon_rate.setAttribute("src", baseUrl + '/assets/img/review.svg');
+               icon_rate.setAttribute("src", baseUrl + 'assets/img/review.svg');
                item_rate_icon_box.append(icon_rate);
                icon_year.setAttribute("class", "icon_year");
-               icon_year.setAttribute("src", baseUrl + '/assets/img/calendar.svg');
+               icon_year.setAttribute("src", baseUrl + 'assets/img/calendar.svg');
                item_year_icon_box.append(icon_year);
 			   img_link.append(img);
 			   gal_item.append(gal_item_img_container);
@@ -615,10 +615,10 @@ if (response)
                var icon_rate = document.createElement('img');
                var icon_year = document.createElement('img');
                icon_rate.setAttribute("class", "icon_rate");
-               icon_rate.setAttribute("src", baseUrl + '/assets/img/review.svg');
+               icon_rate.setAttribute("src", baseUrl + 'assets/img/review.svg');
                item_rate_icon_box.append(icon_rate);
                icon_year.setAttribute("class", "icon_year");
-               icon_year.setAttribute("src", baseUrl + '/assets/img/calendar.svg');
+               icon_year.setAttribute("src", baseUrl + 'assets/img/calendar.svg');
                item_year_icon_box.append(icon_year);
 
                img_link.append(img);
