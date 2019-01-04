@@ -143,7 +143,7 @@
 									<div class="card social-card share col2" data-social="item">
 										<div class="card-header clearfix">
 											<div class="user-pic">
-												<img alt="Profile Image" width="33" height="33" data-src-retina="{{ $comment->user->photo_src }}" data-src="{{ $comment->user->photo_src }}" src="{{ $comment->user->photo_src }}">
+												<img alt="Profile Image" width="33" height="33" data-src-retina="{{ url($comment->user->photo_src) }}" data-src="{{ url($comment->user->photo_src) }}" src="{{ url($comment->user->photo_src) }}">
 											</div>
 											<h5>{{ $comment->user->first_name }} {{ $comment->user->last_name }}</h5>
 											<h6>Posted a comment</h6>

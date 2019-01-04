@@ -140,9 +140,9 @@
 
 @push('scripts')
 		<script type="text/javascript">
-            var lang = "{{ $lang }}";
+      var lang = "{{ $lang }}";
 			(lang == "English") ? lang = "en-US" : 0;
-            (lang == "Українська") ? lang = "uk-UA" : 0;
+      (lang == "Українська") ? lang = "uk-UA" : 0;
 		</script>
 		<script src="{{ asset('pages/js/search.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('pages/js/gap.js') }}"></script>

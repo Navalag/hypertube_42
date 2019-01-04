@@ -33,7 +33,7 @@
 		<div class="dropdown pull-right hidden-md-down">
 			<button class="profile-dropdown-toggle p-r-15">
 				<span class="thumbnail-wrapper d32 circular inline">
-				<img id="avatar" src="{{ $user_info->photo_src }}" alt="" data-src="{{ $user_info->photo_src }}" data-src-retina="{{ $user_info->photo_src }}" width="32" height="32">
+				<img id="avatar" src="{{ url($user_info->photo_src) }}" alt="" data-src="{{ url($user_info->photo_src) }}" data-src-retina="{{ url($user_info->photo_src) }}" width="32" height="32">
 				</span>
 			</button>
 		</div>
