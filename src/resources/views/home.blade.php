@@ -41,7 +41,7 @@
 							<div class="slider-range_wrapper" id="slider-range_year"></div>
 						</div>
 						<div class="gap_field">
-							<input  name="rate_gap" id="rate_gap">
+							<input  name="rate_gap" id="rate_gap" >
 							<div class = "slider-range_wrapper" id="slider-range_rate"></div>
 						</div>
 						<div class="genres_field">

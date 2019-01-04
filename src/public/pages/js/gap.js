@@ -1,6 +1,6 @@
-year_gap(1888, 2018);
+year_gap(1888, 2019);
 rate_gap(0, 10);
-year_gap_tv(1928, 2018);
+year_gap_tv(1928, 2019);
 rate_gap_tv(0, 10);
 
 
@@ -9,7 +9,7 @@ function year_gap(start, end) {
     $( "#slider-range_year" ).slider({
         range: true,
         min: 1888,
-        max: 2018,
+        max: 2019,
         values: [ start, end],
         slide: function( event, ui ) {
             $( "#year_gap" ).val(ui.values[ 0 ] + " - " + ui.values[ 1 ] );
@@ -38,7 +38,7 @@ function year_gap_tv(start, end) {
     $( "#slider-range_year_tv" ).slider({
         range: true,
         min: 1928,
-        max: 2018,
+        max: 2019,
         values: [ start, end],
         slide: function( event, ui ) {
             $( "#year_gap_tv" ).val(ui.values[ 0 ] + " - " + ui.values[ 1 ] );

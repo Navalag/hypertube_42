@@ -30,14 +30,70 @@ class HomeController extends Controller
 
     public function validate_search_request($params)
     {
+        //dd($params);
+        $error = 1;
+       //(preg_match('(ˆ[0-9]$)', $params['page'])) ? 0 : $error = 1;
 
-        return true;
+            if (!is_null($params['sort'])) {
+                if($params['lang'] == "en-US") {
+                    if (preg_match('/^[a-zA-Z\s]*$/', $params['sort']))
+                        ;
+                    else
+                        $error = 0;
+                }
+                if($params['lang'] == "uk-UA") {
+                    if (preg_match('/^[a-zA-Z\p{Cyrillic}\s\-]+$/u', $params['sort']))
+                        ;
+                    else
+                        $error = 0;
+                }
+            }
+            if (!is_null($params['years'])) {
+                if (preg_match('(^\d{1,4}\s{1}[-]{1}\s{1}\d{1,4}$)', $params['years']))
+                    ;
+                else
+                    $error = 0;
+            }
+            if (!is_null($params['rate'])) {
+                if (preg_match('(^\d{1,2}\s{1}[-]{1}\s{1}\d{1,2}$)', $params['rate']))
+                    ;
+                else
+                    $error = 0;
+            }
+            if (!is_null($params['genres'])) {
+                if($params['lang'] == "en-US") {
+                    foreach ($params['genres'] as $value) {
+                        if (preg_match('/^[a-zA-Z\s]*$/', $value))
+                            ;
+                        else
+                            $error = 0;
+                    }
+                }
+                if($params['lang'] == "uk-UA") {
+                    foreach ($params['genres'] as $value) {
+                        if (preg_match('/^[a-zA-Z\p{Cyrillic}\s\-]+$/u', $value))
+                            ;
+                        else
+                            $error = 0;
+                    }
+                }
+            }
+
+
+
+        /*if($params['rate'] != null && preg_match('(^\d{1,4}\s{1}[-]{1}\s{1}\d{1,4}$)', $params['years']))
+            ;
+        else
+            $error = 0;*/
+      //  dd($error);
+        return $error;
     }
 
     public function postHome(Request $request)
     {
         $search = new SearchClass;
         $params = $request->all();
+       // dd($params);
         if($params['method'] == "search")
         {
             if($this->validate_search_request($params)) {
@@ -47,8 +103,7 @@ class HomeController extends Controller
             }
             else
             {
-                //return penetration view;
-                return ;
+                return "penetration";
             }
         }
         if($params['method'] == "live_search")
@@ -64,6 +119,7 @@ class HomeController extends Controller
             $arr = [];
             $arr[0] = "Venom";
             $arr[1] = "Bird Box";
+            $arr[2] = "Creed II";
             return ($arr);
         }
            // $id_request = 'https://api.themoviedb.org/3/movie/'.(int)$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442';

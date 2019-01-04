@@ -96,18 +96,26 @@ function set_filters_on_reload_page()
 	if(storedYears != null && sessionStorage.getItem('lang') === lang)
 	{
 		var years = storedYears.split('-');
-		(!storedSwitcher) ? year_gap(years[0], years[1]) : 0;
+		(isNaN(years[0]) && storedSwitcher == "movies") ? years[0] = 1888 : 0;
+        (isNaN(years[1]) && storedSwitcher == "movies") ? years[1] = 2019 : 0;
+        (isNaN(years[0]) && storedSwitcher == "tvshows") ? years[0] = 1928 : 0;
+        (isNaN(years[1]) && storedSwitcher == "tvshows") ? years[1] = 2019 : 0;
+        (!storedSwitcher) ? year_gap(years[0], years[1]) : 0;
 		(storedSwitcher === "movies") ? year_gap(years[0], years[1]) : 0;
 		(storedSwitcher === "tvshows") ? year_gap_tv(years[0], years[1]) : 0;
 	}
 	if(storedRate != null && sessionStorage.getItem('lang') === lang)
 	{
 		var rate = storedRate.split('-');
-        (!storedSwitcher) ? rate_gap(years[0], years[1]) : 0;
+        (isNaN(rate[0]) && storedSwitcher == "movies") ? rate[0] = 0 : 0;
+        (isNaN(rate[1]) && storedSwitcher == "movies") ? rate[1] = 10 : 0;
+        (isNaN(rate[0]) && storedSwitcher == "tvshows") ? rate[0] = 0 : 0;
+        (isNaN(rate[1]) && storedSwitcher == "tvshows") ? rate[1] = 10 : 0;
+        (!storedSwitcher) ? rate_gap(rate[0], rate[1]) : 0;
 		(storedSwitcher === "movies") ? rate_gap(rate[0], rate[1]) : 0;
 		(storedSwitcher === "tvshows") ? rate_gap_tv(rate[0], rate[1]) : 0;
 	}
-	//(storedYears != null && storedSwitcher === "movies") ? document.getElementById('year_gap').value = storedYears : 0;
+
 
 }
 
@@ -295,8 +303,8 @@ if (response)
 		//$(window).unbind('scroll');
 		reset();
         document.getElementById('live_search_input').value = null;
-		year_gap(1888, 2018);
-		year_gap_tv(1928, 2018);
+		year_gap(1888, 2019);
+		year_gap_tv(1928, 2019);
 		rate_gap(0, 10);
 		rate_gap_tv(0, 10);
 		$(".chosen-select").val('').trigger("chosen:updated");
@@ -347,48 +355,54 @@ if (response)
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			},
 			success: function (response) {
-				var list = JSON.parse(response);
-				//console.log(list);
-				// console.log(response);
-				//document.getElementById('response').innerHTML = "sdg";
-				//document.getElementById('form-response').innerHTML = response;
-				var len = Object.keys(list.results).length;
-				if (len % 20 != 0) {
-					sessionStorage.setItem('limit', i);
-					limit.data = i;
-					 //// console.log("in load:", limit.data);
-				}
-				//console.log(list.results, len);
-				//console.log('instatic');
-				render(list.results, len);
-				set_mark(list.results);
-				trigger.data = "static_load";
-				sessionStorage.setItem('method', 'static_load');
-				sessionArr = sessionStorage.getItem('arr');
-                sessionStorage.setItem('lang', lang);
-				// console.log('type: ' ,type);
-				// console.log('switcher.data', switcher.data);
-				// console.log('storedSwitcher', storedSwitcher);
-				// console.log('gen', general_type.data);
-				if (sessionArr && (general_type.data === type)) {
-					var arr1 = JSON.parse(sessionArr);
-					// //// console.log(arr1);
-					var arr2 = arr1.concat(list.results);
-					////// console.log(arr2);
-					try {
-						sessionStorage.setItem('arr', JSON.stringify(arr2));
-					} catch (e) {
-						//this piece of code probably will never be executed
-						if (e == QUOTA_EXCEEDED_ERR) {
-							sessionStorage.clear();
-							sessionStorage.setItem('arr', JSON.stringify(list.results));
-						}
-					}
-				}
-				else
-					sessionStorage.setItem('arr', JSON.stringify(list.results));
+                if (response != "penetration") {
+                    var list = JSON.parse(response);
+                    //console.log(list);
+                    // console.log(response);
+                    //document.getElementById('response').innerHTML = "sdg";
+                    //document.getElementById('form-response').innerHTML = response;
+                    var len = Object.keys(list.results).length;
+                    if (len % 20 != 0) {
+                        sessionStorage.setItem('limit', i);
+                        limit.data = i;
+                        //// console.log("in load:", limit.data);
+                    }
+                    //console.log(list.results, len);
+                    //console.log('instatic');
+                    render(list.results, len);
+                    set_mark(list.results);
+                    trigger.data = "static_load";
+                    sessionStorage.setItem('method', 'static_load');
+                    sessionArr = sessionStorage.getItem('arr');
+                    sessionStorage.setItem('lang', lang);
+                    // console.log('type: ' ,type);
+                    // console.log('switcher.data', switcher.data);
+                    // console.log('storedSwitcher', storedSwitcher);
+                    // console.log('gen', general_type.data);
+                    if (sessionArr && (general_type.data === type)) {
+                        var arr1 = JSON.parse(sessionArr);
+                        // //// console.log(arr1);
+                        var arr2 = arr1.concat(list.results);
+                        ////// console.log(arr2);
+                        try {
+                            sessionStorage.setItem('arr', JSON.stringify(arr2));
+                        } catch (e) {
+                            //this piece of code probably will never be executed
+                            if (e == QUOTA_EXCEEDED_ERR) {
+                                sessionStorage.clear();
+                                sessionStorage.setItem('arr', JSON.stringify(list.results));
+                            }
+                        }
+                    }
+                    else
+                        sessionStorage.setItem('arr', JSON.stringify(list.results));
 
-			}
+                }
+                else {
+
+                    alert("bitch!");
+                }
+            }
 		});
 	}
 
@@ -545,8 +559,10 @@ if (response)
                mark.setAttribute("class", "hide_mark");
                (lang == "en-US") ?  mark.innerHTML = "already seen" : 0;
                (lang == "uk-UA") ?  mark.innerHTML = "переглянуто" : 0;
+
+               gal_item.append(mark);
 			   img_link.append(img);
-			   gal_item.append(mark);
+
 			   gal_item.append(gal_item_img_container);
                item_rate_box.append(item_rate_icon_box);
 			   item_rate_box.append(item_rate);
@@ -837,6 +853,7 @@ $('#search_submit').click(function (e)
 	static_load(1, sort, years, rate, genres, general_type.data, lang);
 	(genres != null) ? genres_list.innerHTML = genres.join().replace(/,/g,'/') : 0;
 	(genres == null) ? genres_list.innerHTML = "" : 0;
+    document.getElementById('live_search_input').value = null;
 
 });
 
@@ -897,8 +914,8 @@ function switch_type(event)
 	sessionStorage.setItem("switcher", type);
     document.getElementById('live_search_input').value = null;
 	reset();
-	year_gap(1888, 2018);
-	year_gap_tv(1928, 2018);
+	year_gap(1888, 2019);
+	year_gap_tv(1928, 2019);
 	rate_gap(0, 10);
 	rate_gap_tv(0, 10);
 	/*var remove_choice = document.querySelectorAll('.search-choice');
