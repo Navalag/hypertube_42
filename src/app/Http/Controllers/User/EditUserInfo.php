@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use Intervention\Image\ImageManagerStatic as Image;
+use Validator;
 
 class EditUserInfo extends Controller
 {
@@ -27,7 +28,7 @@ class EditUserInfo extends Controller
 	 */
 	public function edit(Request $request)
 	{
-		$request->validate([
+		$validator = Validator::make($request->all(), [
 			'username'=> ['required', 'string', 'max:255', 'unique:users,username,'.\Auth::user()->id],
 			'firstName'=> ['required', 'string', 'max:255'],
 			'lastName' => ['required', 'string', 'max:255'],
@@ -35,6 +36,12 @@ class EditUserInfo extends Controller
 			'oldPass' => ['nullable', 'string'],
 			'newPassword' => ['nullable', 'string', 'min:6', 'confirmed'],
 		]);
+
+		if ($validator->fails()) {
+			return response()->json([
+				'errors' => [$validator->errors()->all()],
+			]);
+		}
 
 		$user = User::find(\Auth::user()->id);
 		$user->username = $request->get('username');
@@ -46,14 +53,16 @@ class EditUserInfo extends Controller
 			if (Hash::check($request->get('oldPass'), \Auth::user()->password)) {
 				$user->password = Hash::make($request->get('newPassword'));
 			} else {
-				return response()->json(['errors' => ['oldPassword' => 'Old password is incorrect']], 422);
+				return response()->json([
+					'errors' => [['Old password is incorrect']],
+				]);
 			}
 		}
 		$user->save();
 
 		return response()->json([
-		    'success' => 'Your account was updated',
-		    'user_info' => $user
+			'success' => 'Your account was updated',
+			'user_info' => $user
 		]);
 	}
 
@@ -89,8 +98,8 @@ class EditUserInfo extends Controller
 		$user->save();
 
 		return response()->json([
-		    'success' => 'Your avatar was updated',
-		    'image' => $user->photo_src
+			'success' => 'Your avatar was updated',
+			'image' => $user->photo_src
 		]);
 	}
 }
