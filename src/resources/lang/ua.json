@@ -1,4 +1,7 @@
 {
+	"Movies": "Фільми",
+	"TV Shows": "Серіали",
+
  	"Avatar": "Ваше фото",
 	"Chouse profile photo": "Виберіть фото для профіля",
 	"Basic Information": "Основна інформація",
@@ -13,6 +16,9 @@
 	"New Password": "Новий пароль",
 	"Repeat New Password": "Повторіть новий пароль",
 	"Update Profile": "Підтвердити зміни",
+	"To change password type an old one here": "Щоб змінити пароль введіть старий пароль тут",
+	"Minimum of 6 Charactors": "Мінімум 6 символів",
+	"Confirm new password": "Повторіть новий пароль",
 
 
 	"A web application that allows users to research and watch videos": "Веб додаток, що дає можливість знаходити та переглядати відео",
@@ -70,7 +76,17 @@
 	"War": "Військовий",
 	"Western": "Вестерн",
 
-	"none": "-",
+	"Action & Adventure": "Пригоди",
+	"Animation": "Анімація",
+	"Kids": "Дитячий",
+	"News": "Новини",
+	"Reality": "Реаліті",
+	"Sci-Fi & Fantasy": "Фантастика",
+	"Soap": "Мильні драми",
+	"Talk": "Шоу",
+	"War & Politics": "Війна та політика",
+
+	"none": " - ",
 	"Title Ascending": "Назва (А-Я)",
 	"Title Descending": "Назва (Я-А)",
 	"Rating Ascending": "Рейтинг високий",
@@ -83,5 +99,22 @@
 	"Revenue Descending": "Бюджет спадання",
 
 	"search": "пошук",
-	"Type here to search...": "Натисніть тут для пошуку..."
+	"Type here to search...": "Натисніть тут для пошуку...",
+
+
+	"Grade": "Рейтинг",
+	"Release": "Реліз",
+	"Budget": "Бюджет",
+	"Revenue": "Збори",
+	"Original Language": "Мова оригіналу",
+	"Runtime": "Тривалість",
+	"min": "хв",
+
+	"Top Billed Cast": "В головних ролях",
+
+	"Reviews From Our Users": "Відгуки наших користувачів",
+	"What do you think about this film?": "Що Ви думаєте про цю стрічку",
+	"Send answers": "Відправити відгук",
+
+	"Posted a comment": "Опублікував коментар"
 }

@@ -110,19 +110,19 @@
 										<div class="form-group-attached">
 											<div class="form-group form-group-default">
 												<label>{{ __('Old Password') }}</label>
-												<input type="password" class="form-control" name="oldPass" placeholder="To change password type an old one here">
+												<input type="password" class="form-control" name="oldPass" placeholder="{{ __('To change password type an old one here') }}">
 											</div>
 											<div class="row clearfix">
 												<div class="col-md-6">
 													<div class="form-group form-group-default">
 														<label>{{ __('New Password') }}</label>
-														<input type="password" class="form-control" name="newPassword" placeholder="Minimum of 6 Charactors">
+														<input type="password" class="form-control" name="newPassword" placeholder="{{ __('Minimum of 6 Charactors') }}">
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group form-group-default">
 														<label>{{ __('Repeat New Password') }}</label>
-														<input type="password" class="form-control" name="newPassword_confirmation" placeholder="Confirm new password">
+														<input type="password" class="form-control" name="newPassword_confirmation" placeholder="{{ __('Confirm new password') }}">
 													</div>
 												</div>
 											</div>

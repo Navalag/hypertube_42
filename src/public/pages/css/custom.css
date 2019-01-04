@@ -95,7 +95,7 @@ p
     max-height: 400px;
     overflow-y: hidden;
     width: 260px;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 .hide_block
 {
@@ -173,7 +173,7 @@ p
 .search_field
 {
     margin-top: 3%;
-    padding-top: 60px;
+    /*padding-top: 60px;*/
 }
 .search_form
 {
