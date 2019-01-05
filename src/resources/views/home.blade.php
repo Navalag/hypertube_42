@@ -37,11 +37,11 @@
 							</select>
 						</div>
 						<div class="gap_field">
-							<input  name="year_gap" id="year_gap">
+							<input  name="year_gap" id="year_gap" class="form-control">
 							<div class="slider-range_wrapper" id="slider-range_year"></div>
 						</div>
 						<div class="gap_field">
-							<input  name="rate_gap" id="rate_gap" >
+							<input  name="rate_gap" id="rate_gap" class="form-control">
 							<div class = "slider-range_wrapper" id="slider-range_rate"></div>
 						</div>
 						<div class="genres_field">
@@ -73,7 +73,7 @@
 					</form>
 					<form method="POST" class="search_form" id="tv_form">
 						<div class="sort_field">
-							<select class="form-control select_sort " name="sort" id="sort_select_tv">
+							<select class="form-control select_sort" name="sort" id="sort_select_tv">
 								<option>{{ __('none') }}</option>
 								<option>{{ __('Title Ascending') }}</option>
 								<option>{{ __('Title Descending') }}</option>
@@ -86,11 +86,11 @@
 							</select>
 						</div>
 						<div class="gap_field">
-							<input  name="year_gap" id="year_gap_tv">
+							<input  name="year_gap" id="year_gap_tv" class="form-control">
 							<div class="slider-range_wrapper" id="slider-range_year_tv"></div>
 						</div>
 						<div class="gap_field">
-							<input  name="rate_gap" id="rate_gap_tv">
+							<input  name="rate_gap" id="rate_gap_tv" class="form-control">
 							<div class = "slider-range_wrapper" id="slider-range_rate_tv"></div>
 						</div>
 						<div class="genres_field">
@@ -143,6 +143,7 @@
             var lang = "{{ $lang }}";
 			(lang == "English") ? lang = "en-US" : 0;
             (lang == "Українська") ? lang = "uk-UA" : 0;
+
 		</script>
 		<script src="{{ asset('pages/js/search.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('pages/js/gap.js') }}"></script>

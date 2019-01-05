@@ -41,6 +41,8 @@ var general_type = {data: null};
 
 console.log(lang);
 
+
+
 //const observer = lozad(); // lazy loads elements with default selector as ".lozad"
 //observer.observe();
 
@@ -607,7 +609,7 @@ if (response)
 			  // var clearfix = document.createElement('div');
 			   var block = document.createElement('div');
 			   block.setAttribute("class", "hide_block");
-			   gal_item_img_container.setAttribute("class", "img_link");
+               gal_item_img_container.setAttribute("class", "img_link_tv");
 
 
 			   gal_item.setAttribute("class", "gallery-item_custom");
@@ -963,6 +965,7 @@ function switch_type(event)
 
 function hide_show_genres_list(type, movies_genres, tv_genres)
 {
+    console.log(movies_genres);
 	if(type === "movies")
 	{
 		for (var i = 0; i < movies_len; i++)

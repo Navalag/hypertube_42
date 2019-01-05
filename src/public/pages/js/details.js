@@ -6,9 +6,15 @@ var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split
 
 console.log(movie_id);
 console.log(lang);
+var movies_genres = document.querySelectorAll('.movie_genre');
+var tv_genres = document.querySelectorAll('.tv_genre');
+var movies_len = movies_genres.length;
+var tv_len = tv_genres.length;
+
 $(document).ready(function() {
 
 	//get_movie_data(movie_id);
+    hide_show_genres_list(type, movies_genres, tv_genres);
 	get_movie_link_by_id();
 
 });
@@ -482,3 +488,60 @@ function playButton(event)
 
 }
 
+$('.genre_direct_link').click(function (e)
+{
+    e.preventDefault();
+    var target = e.target;
+    if(target.className == "title_aside")
+    {
+        var genres = target.getAttribute('data');
+        var res = [genres];
+
+        $.ajax({
+            type: 'POST',
+            url: baseUrl + '/',
+            data:
+                {
+                    'method' : "redirect",
+                    'genre' : res,
+                    'type' : type
+                },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function () {
+               // console.log(response);
+
+                    // data.redirect contains the string URL to redirect to
+                   // window.location.href = response.redirect;
+                    top.location.href = getUrl.protocol + "//" + getUrl.host;
+            }
+        });
+
+
+    }
+});
+
+function hide_show_genres_list(type, movies_genres, tv_genres)
+{
+    if(type === "movies")
+    {
+        for (var i = 0; i < movies_len; i++)
+        {
+            movies_genres[i].style.display = "block";
+        }
+        for (var i = 0; i < tv_len; i++)
+        {
+            tv_genres[i].style.display = "none";
+        }
+    }
+    else if(type === "tvshows")
+    {
+        for (var i = 0; i < movies_len; i++) {
+            movies_genres[i].style.display = "none";
+        }
+        for (var i = 0; i < tv_len; i++) {
+            tv_genres[i].style.display = "block";
+        }
+    }
+}

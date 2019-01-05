@@ -153,6 +153,11 @@ class DetailsController extends Controller {
             else
                 return ("noID");
         }
+        if ($params['method'] == "redirect")
+        {
+
+            return redirect('/');
+        }
          //   $title = $detailed_res['movie_results'][0]['title'];
         /*echo "<pre>";
             print_r($detailed_res);

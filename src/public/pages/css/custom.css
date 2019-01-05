@@ -125,14 +125,14 @@ p
     transition-duration: .2s;
     overflow-y: hidden;
 }
-.gallery-item_custom:hover .img_link
+.gallery-item_custom:hover .img_link, .gallery-item_custom:hover .img_link_tv
 {
-
+    filter: sepia(90%);
 
 }
 .gallery-item_custom:hover .hide_block
 {
-    transform: translateY(-150px);
+    transform: translateY(-160px);
 }
 .item_title
 {
@@ -384,7 +384,7 @@ html {
     {
         flex-direction: column;
     }
-    .select_sort
+    .select_sort, #rate_gap, #year_gap, #rate_gap_tv, #year_gap_tv
     {
         width: 250px;
     }
@@ -570,4 +570,8 @@ html {
     {
         font-size: 12px;
     }
+}
+.search-choice {
+
+    border-radius: 10px !important;
 }
