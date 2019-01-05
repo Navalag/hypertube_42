@@ -19,6 +19,8 @@ class AuthCheckLanguage
 
         if ($lang != null) {
             app()->setLocale($lang);
+        } else {
+            session(['locale' => 'en']);
         }
 
         return $next($request);

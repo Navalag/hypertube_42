@@ -16,16 +16,14 @@
 	<div class="d-flex align-items-center">
 		<!-- START User Info-->
 		<div class="dropdown dropdown-default m-r-20">
-
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      {{Session::get('locale')=='ua' ? 'Українська' : 'English'}}
-    </button>
-
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="/user/set_lang?lang=en">English</a>
-      <a class="dropdown-item" href="/user/set_lang?lang=ua">Українська</a>
-    </div>
-        </div>
+			<button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				{{ Session::get('locale')=='ua' ? 'Українська' : 'English' }}
+			</button>
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="/user/set_lang?lang=en">English</a>
+				<a class="dropdown-item" href="/user/set_lang?lang=ua">Українська</a>
+			</div>
+		</div>
 
 		<div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
 			<span class="semi-bold" id="firstName">{{ $user_info->first_name }}</span> <span class="text-master" id="lastName">{{ $user_info->last_name }}</span>
