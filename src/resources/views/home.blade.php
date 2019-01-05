@@ -139,14 +139,11 @@
 @endsection
 
 @push('scripts')
-		<script type="text/javascript">
-      var lang = "{{ $lang }}";
-			(lang == "English") ? lang = "en-US" : 0;
-      (lang == "Українська") ? lang = "uk-UA" : 0;
-		</script>
-		<script src="{{ asset('pages/js/search.js') }}" type="text/javascript"></script>
-		<script src="{{ asset('pages/js/gap.js') }}"></script>
-	<!-- <script src="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.min.js') }}" type="text/javascript"></script> -->
-	<!-- <script src="{{ asset('assets/js/gallery.js') }}" type="text/javascript"></script> -->
-
+<script type="text/javascript">
+	var lang = "{{ $lang }}";
+	(lang == "English") ? lang = "en-US" : 0;
+	(lang == "Українська") ? lang = "uk-UA" : 0;
+</script>
+<script src="{{ asset('pages/js/search.js') }}" type="text/javascript"></script>
+<script src="{{ asset('pages/js/gap.js') }}"></script>
 @endpush

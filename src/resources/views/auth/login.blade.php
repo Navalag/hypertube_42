@@ -29,7 +29,6 @@ window.onload = function()
 	<!-- START Login Right Container-->
 	<div class="login-container bg-white">
 		<div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
-			<!-- <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22"> -->
 			<h2 class="logo"><b>HyperTube</b><i class="logo-fa fas fa-play-circle"></i></h1>
 			<p class="p-t-35">{{ __('Sign in to see all the movies on this planet') }}</p>
 			<!-- START Login Form -->
