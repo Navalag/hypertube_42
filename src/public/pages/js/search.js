@@ -36,10 +36,21 @@ var tv_len = tv_genres.length;
 var movie_form = document.getElementById('movie_form');
 var tv_form = document.getElementById('tv_form');
 var general_type = {data: null};
+var redirected_type = localStorage.getItem("redirected_type");
+var redirected_genre = [localStorage.getItem("redirected_genre")];
+var live_redirect = localStorage.getItem("live_redirect");
+var reset_redirect = localStorage.getItem("reset_redirect");
+
+console.log(redirected_genre);
+console.log(redirected_type);
+
 //var lang = "uk-UA";
 //var lang = "en-US";
 
 console.log(lang);
+
+//console.log(redirected_type);
+//console.log(redirected_genre);
 
 
 
@@ -72,8 +83,10 @@ function setformdata()
 			hide_show_filters("tvshows");
 		}
 		var live_str = sessionStorage.getItem("live_str");
-		(live_str != null) ? document.getElementById('live_search_input').value = live_str : 0;
-	}
+		(live_str != null && !live_redirect) ? document.getElementById('live_search_input').value = live_str : 0;
+        (!live_str && live_redirect != null) ? document.getElementById('live_search_input').value = live_redirect : 0;
+
+    }
 	else if(switcher.data == null)
 	{
 		hide_show_genres_list("movies", movies_genres, tv_genres);
@@ -128,6 +141,7 @@ if (response)
 	$(document).ready(function () {
 
 		console.log('inreload');
+		console.log(reset_redirect);
 		var type = null;
 		//  console.log("sort on ready:", sortparam.data);
 		//  console.log("years on ready:", yearsparam.data);
@@ -154,10 +168,33 @@ if (response)
 		console.log(storedMethod);
 		console.log(storedArr);
 		console.log(sessionStorage.getItem('lang'));
-		if (storedMethod == null) {
+		console.log(live_redirect);
+		if(live_redirect != null)
+		{
+			reset();
+			console.log(live_redirect);
+            $('#live_search_input').value = live_redirect;
+            trigger.data = "live_load";
+            needle.data = live_redirect;
+            sessionStorage.setItem("live_str", needle);
+			live_load(live_redirect, 1, lang);
+
+		}
+		else if(redirected_type != null && redirected_genre != null)
+		{
+			console.log("FUUUUCK");
+			console.log(redirected_genre);
+			reset();
+			static_load(1, null, null, null, redirected_genre, redirected_type, lang);
+            //localStorage.removeItem('redirected_type');
+            //localStorage.removeItem('redirected_genre');
+		}
+		else if (storedMethod == null) {
+
 			static_load(1, null, null, null, null, "movies", lang);
 		}
 		else if (storedMethod === "static_load" && storedArr && sessionStorage.getItem('lang') === lang) {
+
 
 			var len = Object.keys(storedArr).length;
 			render(storedArr, len);
@@ -165,7 +202,7 @@ if (response)
 			//  window.scrollTo(0, scrollPos);
 
 		}
-		else if (storedMethod === "live_load" && storedArr && sessionStorage.getItem('lang') === lang) {
+		else if (storedMethod === "live_load" && storedArr && sessionStorage.getItem('lang') === lang && !reset_redirect) {
 			var len = Object.keys(storedArr).length;
 			render(storedArr, len);
             set_mark(storedArr);
@@ -173,6 +210,7 @@ if (response)
 
 		}
 		else {
+            console.log('in fuck');
 			reset();
             static_load(1, null, null, null, null, general_type.data, lang);
         }
@@ -216,7 +254,7 @@ if (response)
 					storedPage += 1;
 					// //// console.log("page in: ", storedPage);
 					//// console.log("trigger.data:", trigger.data);
-					if ( trigger.data === "static_load" || storedMethod === "static_load" ) {
+					if ( trigger.data === "static_load" || storedMethod === "static_load") {
 						////// console.log("in static_load");
 						sessionStorage.setItem('page', storedPage);
 						//  console.log("sort:", sortparam.data);
@@ -234,17 +272,17 @@ if (response)
 						}
 						else
 						{
-							 console.log('bitch');
+							 console.log('bitchoooooooooooo');
 							var res = null;
 							if(storedGenres)
 								 res = storedGenres.split(',');
 							static_load(storedPage, storedSort, storedYears, storedRate, res, general_type.data, lang);
 						}
 					}
-					else if (storedMethod == "live_load" || trigger.data == "live_load") {
-						//console.log("in live_load");
-						//console.log(needle.data);
-						//console.log(storedNeedle);
+					else if (storedMethod === "live_load" || trigger.data === "live_load") {
+						console.log("in live_load");
+						console.log(needle.data);
+						console.log(storedNeedle);
 						//// console.log("page in live_load: ", storedPage);
 						//// console.log("storedNeedle :", storedNeedle);
 						//// console.log("needle.data: ", needle.data);
@@ -278,6 +316,10 @@ if (response)
 		sessionStorage.removeItem('genres');
 		sessionStorage.removeItem('arr');
 		sessionStorage.removeItem('live_str');
+		localStorage.removeItem('redirected_type');
+		localStorage.removeItem('redirected_genre');
+		localStorage.removeItem('live_redirect');
+		localStorage.removeItem('reset_redirect');
 		storedMethod = null;
 		storedPage = 1;
 		//scrollPos = 5;
@@ -377,6 +419,7 @@ if (response)
                     sessionStorage.setItem('method', 'static_load');
                     sessionArr = sessionStorage.getItem('arr');
                     sessionStorage.setItem('lang', lang);
+                    genresparam.data = genres;
                     // console.log('type: ' ,type);
                     // console.log('switcher.data', switcher.data);
                     // console.log('storedSwitcher', storedSwitcher);
@@ -768,11 +811,13 @@ function set_mark(list)
 				if (storedMethod === "static_load") {
 					sessionStorage.removeItem('arr');
 				}
-
+                sessionStorage.setItem('method', 'live_load');
                 sessionStorage.setItem('lang', lang);
                 sessionStorage.setItem("switcher", general_type.data);
                 sessionStorage.setItem("live_str", needle);
 				sessionArr = sessionStorage.getItem('arr');
+
+
 				if (sessionArr) {
 					var arr1 = JSON.parse(sessionArr);
 					var arr2 = arr1.concat(list.results);

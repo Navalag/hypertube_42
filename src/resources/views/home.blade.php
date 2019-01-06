@@ -46,6 +46,7 @@
 						</div>
 						<div class="genres_field">
 							<select multiple class="chosen-select" name="genre" id="genre_select">
+
 								<option>{{ __('Action') }}</option>
 								<option>{{ __('Adventure') }}</option>
 								<option>{{ __('Animation') }}</option>
@@ -143,6 +144,8 @@
             var lang = "{{ $lang }}";
 			(lang == "English") ? lang = "en-US" : 0;
             (lang == "Українська") ? lang = "uk-UA" : 0;
+
+
 
 		</script>
 		<script src="{{ asset('pages/js/search.js') }}" type="text/javascript"></script>

@@ -496,25 +496,24 @@ $('.genre_direct_link').click(function (e)
     {
         var genres = target.getAttribute('data');
         var res = [genres];
-
+        console.log(res);
         $.ajax({
             type: 'POST',
             url: baseUrl + '/',
             data:
                 {
-                    'method' : "redirect",
-                    'genre' : res,
-                    'type' : type
+                    'method' : "redirect"
                 },
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            success: function () {
-               // console.log(response);
-
+            success: function (response) {
                     // data.redirect contains the string URL to redirect to
-                   // window.location.href = response.redirect;
-                    top.location.href = getUrl.protocol + "//" + getUrl.host;
+                    localStorage.setItem("redirected_type", type);
+                    localStorage.setItem("redirected_genre", res);
+                    window.location.href = response.redirect;
+
+                //     top.location.href = getUrl.protocol + "//" + getUrl.host;
             }
         });
 
@@ -545,3 +544,51 @@ function hide_show_genres_list(type, movies_genres, tv_genres)
         }
     }
 }
+
+$('#reset_button').click(function () {
+
+    //$(window).unbind('scroll');
+    $.ajax({
+        type: 'POST',
+        url: baseUrl + '/',
+        data:
+            {
+                'method' : "redirect"
+            },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function (response) {
+           localStorage.setItem("reset_redirect", 1);
+            window.location.href = response.redirect;
+        }
+    });
+
+});
+
+var timer;
+
+$('#live_search_input').bind("input", function () {
+    if (this.value.length >= 1) {
+        var needle = this.value;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+            $.ajax({
+                type: 'POST',
+                url: baseUrl + '/',
+                data:
+                    {
+                        'method' : "redirect"
+                    },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (response) {
+                    localStorage.setItem("live_redirect", needle);
+                    window.location.href = response.redirect;
+                }
+            });
+        }, 500);
+    }
+
+});

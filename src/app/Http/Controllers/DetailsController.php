@@ -156,7 +156,11 @@ class DetailsController extends Controller {
         if ($params['method'] == "redirect")
         {
 
-            return redirect('/');
+            return response()->json([
+                'redirect' => url('/')
+            ]);
+            //return redirect()->route('home')->with('v', "fuck");
+           // return redirect('/');
         }
          //   $title = $detailed_res['movie_results'][0]['title'];
         /*echo "<pre>";
