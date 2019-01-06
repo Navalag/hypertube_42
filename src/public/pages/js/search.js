@@ -651,7 +651,7 @@ if (response)
 			    date.setAttribute("class", "item_year");
 			  // var clearfix = document.createElement('div');
 			   var block = document.createElement('div');
-			   block.setAttribute("class", "hide_block");
+			   block.setAttribute("class", "hide_block hide_block_tv");
                gal_item_img_container.setAttribute("class", "img_link_tv");
 
 
@@ -748,24 +748,23 @@ function set_mark(list)
         },
         success: function (response) {
 
-        		console.log('in set mark');
-        		console.log(list);
-        		console.log(response);
-           		 var len = Object.keys(list).length;
-           		 var response_len = Object.keys(response).length;
-        		for (var i = 0; i < len; i++)
-        		{
-					for(var j = 0; j < response_len; j++)
-					{
-						if(list[i].original_title === response[j])
-						{
+            console.log('in set mark');
+            console.log(list);
+            console.log(response);
+            if (list) {
+                var len = Object.keys(list).length;
+                var response_len = Object.keys(response).length;
+                for (var i = 0; i < len; i++) {
+                    for (var j = 0; j < response_len; j++) {
+                        if (list[i].original_title === response[j]) {
                             var child_hide_mark = document.querySelector("[data='" + list[i].original_title + "']").children[0];
-                            if(child_hide_mark)
-                            	child_hide_mark.style.visibility = "visible";
+                            if (child_hide_mark)
+                                child_hide_mark.style.visibility = "visible";
                             console.log("damn");
-						}
-					}
-				}
+                        }
+                    }
+                }
+            }
         }
     });
 }

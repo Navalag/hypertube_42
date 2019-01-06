@@ -21,12 +21,6 @@ p
     width: 80%;
     margin: 0 auto;
 }
-.common_footer
-{
-    width: 100%;
-    border: 1px solid gold;
-    flex: 0 0 auto;
-}
 
 
 
@@ -87,6 +81,7 @@ p
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    min-height: 800px;
 }
 
 .gallery-item_custom
@@ -133,6 +128,10 @@ p
 .gallery-item_custom:hover .hide_block
 {
     transform: translateY(-160px);
+}
+.gallery-item_custom:hover .hide_block_tv
+{
+    transform: translateY(-140px);
 }
 .item_title
 {
@@ -367,84 +366,7 @@ html {
 
 
 /*mediaa for form */
-@media (max-width: 1300px)
-{
-    .search_field
-    {
-        flex-direction: column;
-    }
-    .switch_buttons
-    {
-        margin-bottom: 20px;
-    }
-}
-@media (max-width: 1150px)
-{
-    .search_form
-    {
-        flex-direction: column;
-    }
-    .select_sort, #rate_gap, #year_gap, #rate_gap_tv, #year_gap_tv
-    {
-        width: 250px;
-    }
-    .gap_field
-    {
-        margin-top: 20px;
-    }
-    .slider-range_wrapper
-    {
-        width: 200px;
-    }
-    .genres_field
-    {
-        margin-top: 20px;
-    }
-    .search_button
-    {
-        margin-top: 10px;
-    }
 
-}
-@media(max-width: 900px)
-{
-    .logo_container
-    {
-        display: none;
-    }
-}
-@media(max-width: 800px)
-{
-    .search_form
-    {
-        align-items: center;
-    }
-    .switch_buttons
-    {
-        display: flex;
-        justify-content: center;
-    }
-    .switch_buttons button
-    {
-        margin-left: 5px;
-    }
-    .chosen-select
-    {
-        width: 250px;
-    }
-}
-/* media for cast */
-
-
-@media (max-width: 768px)
-{
-    .movie-cast-trailer_container
-    {
-        flex-direction: column;
-    }
-
-
-}
 
 
 
@@ -531,7 +453,88 @@ html {
 {
     width: 300px;
 }
+.search-choice {
 
+    border-radius: 10px !important;
+}
+@media (max-width: 1300px)
+{
+    .search_field
+    {
+        flex-direction: column;
+    }
+    .switch_buttons
+    {
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 1150px)
+{
+    .search_form
+    {
+        flex-direction: column;
+    }
+    .select_sort, #rate_gap, #year_gap, #rate_gap_tv, #year_gap_tv
+    {
+        width: 250px;
+    }
+    .gap_field
+    {
+        margin-top: 20px;
+    }
+    .slider-range_wrapper
+    {
+        width: 200px;
+    }
+    .genres_field
+    {
+        margin-top: 20px;
+    }
+    .search_button
+    {
+        margin-top: 10px;
+    }
+
+}
+@media(max-width: 900px)
+{
+    .logo_container
+    {
+        display: none;
+    }
+}
+@media(max-width: 800px)
+{
+    .search_form
+    {
+        align-items: center;
+    }
+    .switch_buttons
+    {
+        display: flex;
+        justify-content: center;
+    }
+    .switch_buttons button
+    {
+        margin-left: 5px;
+    }
+    .chosen-select
+    {
+        width: 250px;
+    }
+}
+/* media for cast */
+
+
+@media (max-width: 768px)
+{
+    .movie-cast-trailer_container
+    {
+        flex-direction: column;
+    }
+
+
+}
 @media (max-width: 600px)
 {
     .header
@@ -570,8 +573,6 @@ html {
     {
         font-size: 12px;
     }
-}
-.search-choice {
 
-    border-radius: 10px !important;
+
 }

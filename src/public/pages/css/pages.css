@@ -1665,7 +1665,6 @@ body.menu-pin .overlay .overlay-brand {
 }
 .page-container .page-content-wrapper .footer {
   /* Footer */
-  position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
