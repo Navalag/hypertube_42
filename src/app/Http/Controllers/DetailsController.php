@@ -66,32 +66,31 @@ class DetailsController extends Controller {
         ($params['lang'] == "en-US") ? $lang = 'eng' : 0;
         ($params['lang'] == "uk-UA") ? $lang = 'ukr' : 0;
         $subtitles = $search->get_subtitles_list($params['title'], $params['imdb'], $params['type'], $params['season'], $params['episode'], $lang);
+        if($subtitles != "penetration") {
+            $result['movie'] = $params;
+            $result['subs'] = (array)$subtitles;
 
-        $result['movie'] = $params;
-        $result['subs'] = (array)$subtitles;
         /* very dumb crutch below. i don't know how to convert object to array properly, so there is used (array) typecast,
         which resulting with this motherfucking symbols \u0000*\u0000 in array keys. It is possible to access this properties
         in json parsed array, but will look like "object.property.["motherfucking\u0000*\u0000property"].property", so i have
         added a dumb crutch which  cuts fucking symbols*/
-        foreach ($result['subs'] as $key => $value)
-        {
-            if($key[1] === "*") {
+        foreach ($result['subs'] as $key => $value) {
+            if ($key[1] === "*") {
                 $result['subs'][substr($key, 3)] = $result['subs'][$key];
                 unset($result['subs'][$key]);
             }
-
-        $subtitles_all = $search->get_subtitles_list($params['title'], $params['imdb'], $params['type'], $params['season'], $params['episode'], null);
-
-         $result['allsubs'] =  (array)$subtitles_all;
-
-        foreach ($result['allsubs'] as $key => $value)
-        {
-            if($key[1] === "*") {
-                $result['allsubs'][substr($key, 3)] = $result['allsubs'][$key];
-                unset($result['allsubs'][$key]);
-            }
         }
+        $subtitles_all = $search->get_subtitles_list($params['title'], $params['imdb'], $params['type'], $params['season'], $params['episode'], null);
+         if($subtitles_all != "penetration") {
+             $result['allsubs'] = (array)$subtitles_all;
 
+             foreach ($result['allsubs'] as $key => $value) {
+                 if ($key[1] === "*") {
+                     $result['allsubs'][substr($key, 3)] = $result['allsubs'][$key];
+                     unset($result['allsubs'][$key]);
+                 }
+             }
+         }
         return json_encode($result);
         }
     }
@@ -132,18 +131,18 @@ class DetailsController extends Controller {
             else
                 return ;
         }*/
-        if ($params['method'] == "details")
+       /* if ($params['method'] == "details")
         {
             $detailed = $search->details_request($params['id'], $params['type'], $params['lang']);
 
             return ($detailed);
-        }
-        if ($params['method'] == "getcast")
+        }*/
+       /* if ($params['method'] == "getcast")
         {
             $movie_cast = $search->getcast_request($params['id'], $params['type']);
 
             return ($movie_cast);
-        }
+        }*/
         if ($params['method'] == "link")
         {
             if($params['id'] != null) {
@@ -155,10 +154,7 @@ class DetailsController extends Controller {
         }
         if ($params['method'] == "redirect")
         {
-
-            return response()->json([
-                'redirect' => url('/')
-            ]);
+            return response()->json(['redirect' => url('/')]);
             //return redirect()->route('home')->with('v', "fuck");
            // return redirect('/');
         }

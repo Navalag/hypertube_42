@@ -130,8 +130,6 @@ function set_filters_on_reload_page()
 		(storedSwitcher === "movies") ? rate_gap(rate[0], rate[1]) : 0;
 		(storedSwitcher === "tvshows") ? rate_gap_tv(rate[0], rate[1]) : 0;
 	}
-
-
 }
 
 
@@ -143,16 +141,6 @@ if (response)
 		console.log('inreload');
 		console.log(reset_redirect);
 		var type = null;
-		//  console.log("sort on ready:", sortparam.data);
-		//  console.log("years on ready:", yearsparam.data);
-		//  console.log("rate: on ready", rateparam.data);
-		//  console.log("genres on ready:", genresparam.data);
-		//  console.log("stored sort on ready:", storedSort);
-		//  console.log("stored years on ready:", storedYears);
-		//  console.log("stored rate on ready:", storedRate);
-		//  console.log("stored genres on ready:", storedGenres);
-		// observer.observe();
-		 //// console.log(sessionStorage.getItem('scroll'));
 		if(storedSwitcher != null)
 			general_type.data = storedSwitcher;
 		else if(switcher.data != null)
@@ -252,20 +240,9 @@ if (response)
 			//	console.log("limit.data: ", limit.data);
 				if ((limit.data == 0 || (limit.data > 0 && storedPage < limit.data)) && storedPage < 1000) {
 					storedPage += 1;
-					// //// console.log("page in: ", storedPage);
-					//// console.log("trigger.data:", trigger.data);
 					if ( trigger.data === "static_load" || storedMethod === "static_load") {
 						////// console.log("in static_load");
 						sessionStorage.setItem('page', storedPage);
-						//  console.log("sort:", sortparam.data);
-						//  console.log("years:", yearsparam.data);
-						//  console.log("rate:", rateparam.data);
-						//  console.log("genres:", genresparam.data);
-						//  console.log("stored sort:", storedSort);
-						//  console.log("stored years:", storedYears);
-						//  console.log("stored rate:", storedRate);
-						//  console.log("stored genres:", storedGenres);
-
 						if (sortparam.data != null || yearsparam.data != null || rateparam.data != null || genresparam.data != null || switcher.data != null) {
 							 console.log('fuck');
 							static_load(storedPage, sortparam.data, yearsparam.data, rateparam.data, genresparam.data, general_type.data, lang);
@@ -401,47 +378,38 @@ if (response)
 			success: function (response) {
                 if (response != "penetration") {
                     var list = JSON.parse(response);
-                    //console.log(list);
-                    // console.log(response);
-                    //document.getElementById('response').innerHTML = "sdg";
-                    //document.getElementById('form-response').innerHTML = response;
-                    var len = Object.keys(list.results).length;
-                    if (len % 20 != 0) {
-                        sessionStorage.setItem('limit', i);
-                        limit.data = i;
-                        //// console.log("in load:", limit.data);
-                    }
-                    //console.log(list.results, len);
-                    //console.log('instatic');
-                    render(list.results, len);
-                    set_mark(list.results);
-                    trigger.data = "static_load";
-                    sessionStorage.setItem('method', 'static_load');
-                    sessionArr = sessionStorage.getItem('arr');
-                    sessionStorage.setItem('lang', lang);
-                    genresparam.data = genres;
-                    // console.log('type: ' ,type);
-                    // console.log('switcher.data', switcher.data);
-                    // console.log('storedSwitcher', storedSwitcher);
-                    // console.log('gen', general_type.data);
-                    if (sessionArr && (general_type.data === type)) {
-                        var arr1 = JSON.parse(sessionArr);
-                        // //// console.log(arr1);
-                        var arr2 = arr1.concat(list.results);
-                        ////// console.log(arr2);
-                        try {
-                            sessionStorage.setItem('arr', JSON.stringify(arr2));
-                        } catch (e) {
-                            //this piece of code probably will never be executed
-                            if (e == QUOTA_EXCEEDED_ERR) {
-                                sessionStorage.clear();
-                                sessionStorage.setItem('arr', JSON.stringify(list.results));
+                    if (list) {
+
+                        var len = Object.keys(list.results).length;
+                        if (len % 20 != 0) {
+                            sessionStorage.setItem('limit', i);
+                            limit.data = i;
+                        }
+                        render(list.results, len);
+                        set_mark(list.results);
+                        trigger.data = "static_load";
+                        sessionStorage.setItem('method', 'static_load');
+                        sessionArr = sessionStorage.getItem('arr');
+                        sessionStorage.setItem('lang', lang);
+                        genresparam.data = genres;
+                        if (sessionArr && (general_type.data === type)) {
+                            var arr1 = JSON.parse(sessionArr);
+                            // //// console.log(arr1);
+                            var arr2 = arr1.concat(list.results);
+                            ////// console.log(arr2);
+                            try {
+                                sessionStorage.setItem('arr', JSON.stringify(arr2));
+                            } catch (e) {
+                                //this piece of code probably will never be executed
+                                if (e == QUOTA_EXCEEDED_ERR) {
+                                    sessionStorage.clear();
+                                    sessionStorage.setItem('arr', JSON.stringify(list.results));
+                                }
                             }
                         }
+                        else
+                            sessionStorage.setItem('arr', JSON.stringify(list.results));
                     }
-                    else
-                        sessionStorage.setItem('arr', JSON.stringify(list.results));
-
                 }
                 else {
 
@@ -575,7 +543,7 @@ if (response)
 				   img.setAttribute("data-src", 'https://image.tmdb.org/t/p/original/' + list[i].poster_path);
 			   }
 			   else
-				   img.setAttribute("data-src", baseUrl + '/assets/img/blur2.png');
+				   img.setAttribute("data-src", baseUrl + '/assets/img/white-blur.jpg');
 			  // overlayer.setAttribute("class", "overlayer bottom-left full-width");
 			  // overlayer_wrap.setAttribute("class", "overlayer-wrapper item-info");
 			  // gradient.setAttribute("class", "gradient-grey");
@@ -665,24 +633,13 @@ if (response)
 				   img.setAttribute("data-src", 'https://image.tmdb.org/t/p/original/' + list[i].poster_path);
 			   }
 			   else
-				   img.setAttribute("data-src", baseUrl + '/assets/img/blur2.png');
-			  // overlayer.setAttribute("class", "overlayer bottom-left full-width");
-			 //  overlayer_wrap.setAttribute("class", "overlayer-wrapper item-info");
-			  // gradient.setAttribute("class", "gradient-grey");
+				   img.setAttribute("data-src", baseUrl + '/assets/img/white-blur.jpg');
 			   item_title.setAttribute("class", "item_title");
 			   item_rate.setAttribute("class", "item_rate");
 			   item_rate.innerHTML = list[i].vote_average;
 			   item_title.innerHTML = list[i].name;
 			   date.innerHTML = list[i].first_air_date;
 			   gal_item_img_container.append(img_link);
-
-			   // void_div.append(item_title);
-			   // void_div.append(item_rate);
-			   // void_div.append(clearfix);
-			   // gradient.append(void_div);
-			   // overlayer_wrap.append(gradient);
-			   //  overlayer.append(overlayer_wrap);
-
                var icon_rate = document.createElement('img');
                var icon_year = document.createElement('img');
                icon_rate.setAttribute("class", "icon_rate");
@@ -706,14 +663,6 @@ if (response)
                // block.append(date);
 
                gal_item.append(block);
-
-
-
-
-
-
-
-
 			   /*
 			   gal_item.append(block);
 			   gal_item.append(item_rate);
@@ -769,14 +718,6 @@ function set_mark(list)
     });
 }
 
-
-
-
-
-
-
-
-
 	function live_load(needle, page, lang) {
 
 		$.ajax({
@@ -794,46 +735,45 @@ function set_mark(list)
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			},
 			success: function (response) {
-				var list = JSON.parse(response);
-				////// console.log("list in live load: ", list);
-				len = Object.keys(list.results).length;
-				////// console.log("len in live_load", len);
-				////// console.log(len % 20);
-				if (len % 20 > 0) {
-					 //// console.log('Bitch...bitch');
-					sessionStorage.setItem('limit', page);
-					limit.data = page;
-				}
-				render(list.results, len);
-                set_mark(list.results);
+                var list = JSON.parse(response);
+                if (list) {
+                    len = Object.keys(list.results).length;
+                    if (len % 20 > 0) {
+                        //// console.log('Bitch...bitch');
+                        sessionStorage.setItem('limit', page);
+                        limit.data = page;
+                    }
+                    render(list.results, len);
+                    set_mark(list.results);
 
-				if (storedMethod === "static_load") {
-					sessionStorage.removeItem('arr');
-				}
-                sessionStorage.setItem('method', 'live_load');
-                sessionStorage.setItem('lang', lang);
-                sessionStorage.setItem("switcher", general_type.data);
-                sessionStorage.setItem("live_str", needle);
-				sessionArr = sessionStorage.getItem('arr');
+                    if (storedMethod === "static_load") {
+                        sessionStorage.removeItem('arr');
+                    }
+                    sessionStorage.setItem('method', 'live_load');
+                    sessionStorage.setItem('lang', lang);
+                    sessionStorage.setItem("switcher", general_type.data);
+                    sessionStorage.setItem("live_str", needle);
+                    sessionArr = sessionStorage.getItem('arr');
 
 
-				if (sessionArr) {
-					var arr1 = JSON.parse(sessionArr);
-					var arr2 = arr1.concat(list.results);
-					try {
-						sessionStorage.setItem('arr', JSON.stringify(arr2));
-					} catch (e) {
-						//this piece of code probably will never be executed
-						if (e == QUOTA_EXCEEDED_ERR) {
-							sessionStorage.clear();
-							sessionStorage.setItem('arr', JSON.stringify(list.results));
-						}
-					}
-				}
-				else
-					sessionStorage.setItem('arr', JSON.stringify(list.results));
+                    if (sessionArr) {
+                        var arr1 = JSON.parse(sessionArr);
+                        var arr2 = arr1.concat(list.results);
+                        try {
+                            sessionStorage.setItem('arr', JSON.stringify(arr2));
+                        } catch (e) {
+                            //this piece of code probably will never be executed
+                            if (e == QUOTA_EXCEEDED_ERR) {
+                                sessionStorage.clear();
+                                sessionStorage.setItem('arr', JSON.stringify(list.results));
+                            }
+                        }
+                    }
+                    else
+                        sessionStorage.setItem('arr', JSON.stringify(list.results));
 
-			}
+                }
+            }
 
 		});
 	}
@@ -964,21 +904,6 @@ function switch_type(event)
 	year_gap_tv(1928, 2019);
 	rate_gap(0, 10);
 	rate_gap_tv(0, 10);
-	/*var remove_choice = document.querySelectorAll('.search-choice');
-	if (remove_choice)
-	{
-		for (var i = 0; i < remove_choice.length; i++)
-			remove_choice[i].remove();
-	}
-	var active_choice = document.querySelectorAll('.result-selected');
-	if (active_choice)
-	{
-		for (var i = 0; i < active_choice.length; i++)
-		{
-			console.log(i);
-			active_choice[i].setAttribute("class", "active-result");
-		}
-	}*/
 	$(".chosen-select").val('').trigger("chosen:updated");
 	document.getElementById('sort_select').value = "none";
 	document.getElementById('sort_select_tv').value = "none";

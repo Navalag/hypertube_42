@@ -39,10 +39,11 @@ function get_movie_data(movie_id)
         success: function (response) {
             var idarr = response;
             console.log(response);
-
-            //idarr[0] - tmdb_id, adarr[1] - imdb_id, idarr[2] - type(movies or tvshows) idarr[3] - title
-           // get_movie_data_by_id(idarr[0], idarr[1], idarr[2], lang);
-            get_movie_link_by_id(idarr[1], idarr[2], idarr[3], lang);
+            if(idarr) {
+                //idarr[0] - tmdb_id, adarr[1] - imdb_id, idarr[2] - type(movies or tvshows) idarr[3] - title
+                // get_movie_data_by_id(idarr[0], idarr[1], idarr[2], lang);
+                get_movie_link_by_id(idarr[1], idarr[2], idarr[3], lang);
+            }
             //get_movie_cast(idarr[0], idarr[2]);
         }
     });
@@ -269,7 +270,6 @@ function get_movie_link_by_id()
             if (response != "noID") {
                 var list = JSON.parse(response);
                 var container = document.getElementById('links_response');
-                console.log(list);
                 if (list != null && list.length == 0) {
                     document.querySelector('.no_result_links').style.display = "block";
                 }
@@ -475,15 +475,21 @@ function playButton(event)
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (response) {
-                //console.log(response);
-                var links = JSON.parse(response);
-                console.log("returned from server with subs : ", links);
-                console.log("exactly link returned from server. This may come with huge delay(depends of how many results api return) : ", links.movie.magnet);
-               // console.log(links.subs["\u0000*\u0000response"].data[0].SubDownloadLink);
-                 console.log("one of subs link returned from server, just for example : ", links.subs.response.data[0].SubDownloadLink); //indexes count may be up to 500
+                console.log(response);
+                if(response){
+                    var links = JSON.parse(response);
+                    console.log(links);
+                    console.log("returned from server with subs : ", links);
+                    console.log("exactly link returned from server. This may come with huge delay(depends of how many results api return) : ", links.movie.magnet);
+                    // console.log(links.subs["\u0000*\u0000response"].data[0].SubDownloadLink);
+                    console.log("one of subs link returned from server, just for example : ", links.subs.response.data[0].SubDownloadLink); //indexes count may be up to 500
 
 
+                }
+                else
+                    alert("bitch!");
             }
+
         });
 
 }
