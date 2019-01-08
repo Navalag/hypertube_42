@@ -167,7 +167,7 @@ class SearchClass
     public function links_request($id, $type, $title, $lang)
 
     {
-
+        $res = null;
         if ($type == "movies") {
             $pop_str = 'https://tv-v2.api-fetch.website/movie/' . $id;
             $pop_data = json_decode(file_get_contents($pop_str), true);

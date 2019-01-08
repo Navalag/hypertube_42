@@ -31,6 +31,8 @@ Route::group(['middleware' => ['language']], function () {
 	Route::post('/user/upload_avatar', 'User\EditUserInfo@uploadPhoto')->name('user.upload_avatar');
 });
 
+Route::get('/penetration', 'PenetrationController@index')->name('penetration');
+
 /*
 ** OAuth routes
 */

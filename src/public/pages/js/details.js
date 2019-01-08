@@ -270,10 +270,11 @@ function get_movie_link_by_id()
             if (response != "noID") {
                 var list = JSON.parse(response);
                 var container = document.getElementById('links_response');
-                if (list != null && list.length == 0) {
+                if ((list != null && list.length == 0) || (type == "movies" && list.YTS != null && list.YTS.length == 0)) {
                     document.querySelector('.no_result_links').style.display = "block";
                 }
                 else if (list != null) {
+
                     if (type == "movies") {
                         if (list.YTS) {
                             var lenYTS = Object.keys(list.YTS).length;
@@ -475,7 +476,7 @@ function playButton(event)
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (response) {
-                console.log(response);
+               // console.log(response);
                 if(response){
                     var links = JSON.parse(response);
                     console.log(links);
@@ -486,8 +487,9 @@ function playButton(event)
 
 
                 }
-                else
-                    alert("bitch!");
+                else {
+                    window.location.href = getUrl.protocol + "//" + getUrl.host + "/penetration";
+                }
             }
 
         });
@@ -565,7 +567,7 @@ $('#reset_button').click(function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function (response) {
-           localStorage.setItem("reset_redirect", 1);
+            localStorage.setItem("reset_redirect", 1);
             window.location.href = response.redirect;
         }
     });

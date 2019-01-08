@@ -42,8 +42,8 @@ class HomeController extends Controller
                     else
                         $error = 0;
                 }
-                if($params['lang'] == "uk-UA") {
-                    if (preg_match('/^[a-zA-Z\p{Cyrillic}\s\-]+$/u', $params['sort']))
+               if($params['lang'] == "uk-UA") {
+                    if (preg_match('/^[a-zA-Z\p{Cyrillic}\s\-()]+$/u', $params['sort']))
                         ;
                     else
                         $error = 0;
@@ -86,7 +86,7 @@ class HomeController extends Controller
             ;
         else
             $error = 0;*/
-      //  dd($error);
+       // dd($error);
         return $error;
     }
 

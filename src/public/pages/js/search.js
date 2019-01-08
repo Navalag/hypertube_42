@@ -412,8 +412,7 @@ if (response)
                     }
                 }
                 else {
-
-                    alert("bitch!");
+                    window.location.href = getUrl.protocol + "//" + getUrl.host + "/penetration";
                 }
             }
 		});
@@ -880,6 +879,7 @@ $('.genre_direct_link').click(function (e)
 		sessionStorage.setItem("genres", res);
 		genresparam.data = res;
 		document.getElementById("response").innerHTML = "";
+		window.scrollTo(0, 3);
 		static_load(1, null, null, null, res, general_type.data, lang);
 	}
 });
