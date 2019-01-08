@@ -462,7 +462,6 @@ function set_mark(list)
                             var child_hide_mark = document.querySelector("[data='" + list[i].original_title + "']").children[0];
                             if (child_hide_mark)
                                 child_hide_mark.style.visibility = "visible";
-                            console.log("damn");
                         }
                     }
                 }
@@ -667,7 +666,6 @@ function switch_type(event)
 
 function hide_show_genres_list(type, movies_genres, tv_genres)
 {
-    console.log(movies_genres);
 	if(type === "movies")
 	{
 		for (var i = 0; i < movies_len; i++)

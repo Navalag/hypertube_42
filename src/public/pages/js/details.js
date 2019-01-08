@@ -249,7 +249,6 @@ $('.genre_direct_link').click(function (e)
     {
         var genres = target.getAttribute('data');
         var res = [genres];
-        console.log(res);
         $.ajax({
             type: 'POST',
             url: baseUrl + '/',
