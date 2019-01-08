@@ -68,7 +68,7 @@ class DetailsController extends Controller {
                 unset($result['subs'][$key]);
             }
         }
-        $subtitles_all = $search->get_subtitles_list($params['title'], $params['imdb'], $params['type'], $params['season'], $params['episode'], null);
+        $subtitles_all = $search->get_subtitles_list($params['title'],  $params['type'], $params['season'], $params['episode'], null);
          if($subtitles_all != "penetration") {
              $result['allsubs'] = (array)$subtitles_all;
 
