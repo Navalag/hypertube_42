@@ -314,6 +314,7 @@ if (response)
 	}
 
 	function render(list, len) {
+
 	   if(general_type.data == "movies") {
 		   for (var i = 0; i < len; i++) {
 			   var gal_item = document.createElement('div');
@@ -438,6 +439,7 @@ if (response)
 				el.classList.add('faded');
 			}
 		}).observe();
+        enable_switch();
 	}
 
 function set_mark(list)
@@ -621,6 +623,11 @@ $('.genre_direct_link').click(function (e)
 		static_load(1, null, null, null, res, general_type.data, lang);
 	}
 });
+function enable_switch()
+{
+    document.getElementById('tvshows_switch').disabled = false;
+    document.getElementById('movie_switch').disabled = false;
+}
 
 function switch_type(event)
 {
@@ -631,6 +638,8 @@ function switch_type(event)
 	general_type.data = type;
 	sessionStorage.setItem("switcher", type);
     document.getElementById('live_search_input').value = null;
+    document.getElementById('tvshows_switch').disabled = true;
+    document.getElementById('movie_switch').disabled = true;
 	reset();
 	year_gap(1888, 2019);
 	year_gap_tv(1928, 2019);
