@@ -72,9 +72,6 @@ class SearchClass
             ($type == "movies") ? $str = 'https://api.themoviedb.org/3/discover/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
             ($type == "tvshows") ? $str = 'https://api.themoviedb.org/3/discover/tv?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang : 0;
         }
-        //else
-        //  $str = 'https://api.themoviedb.org/3/discover/movie?api_key=838ad56065a20c3380e39bdcd7c02442&language=' . $lang;
-
 
         if ($sort != null) {
             if ($type == "movies") {
@@ -177,8 +174,6 @@ class SearchClass
             $i = 0;
             if (isset($list_from_yts_arr['data']['movies'])) {
                 $inner_movies_arr = $list_from_yts_arr['data']['movies'];
-                $yts_torr_arr = [];
-
                 $res['YTS'] = [];
 
                 foreach ($inner_movies_arr as $value) {
@@ -192,7 +187,6 @@ class SearchClass
                             $new['quality'] = $subvalue['quality'];
                             $new['size'] = $subvalue['size'];
                             $new['magnet'] = $this->make_magnet($subvalue['hash']);
-                            //print_r($new);
                             $res['YTS'][$i] = $new;
                             $i++;
                         }
@@ -202,7 +196,6 @@ class SearchClass
             }
             if ($pop_data) {
                 $res['popcorn'] = [];
-                $title = $pop_data['title'];
                 $pop_torrents = $pop_data['torrents'];
                 $i = 0;
 
@@ -215,7 +208,6 @@ class SearchClass
                         $new['magnet'] = $subvalue['url'];
                         $res['popcorn'][$i] = $new;
                     }
-                    //$res['popcorn'] = $new;
                     $i++;
                 }
             }
@@ -244,10 +236,9 @@ class SearchClass
         return $res;
     }
 
-    public function get_subtitles_list($title, $imdb, $type, $season, $episode, $lang)
+    public function get_subtitles_list($title, $type, $season, $episode, $lang)
     {
-       // $result = [];
-        if  ($this->validate_subtitles_request($title,  $type, $season, $episode, $lang)) {
+        if  ($this->validate_subtitles_request($type, $season, $episode)) {
             $response = null;
             $client = \KickAssSubtitles\OpenSubtitles\Client::create([
                 'username' => '',
@@ -259,7 +250,6 @@ class SearchClass
                     $response = $client->searchSubtitles([
                         [
                             'sublanguageid' => $lang,
-                            //'imdbid' => $imdb,
                             'query' => $title
                         ]
                     ]);
@@ -278,8 +268,6 @@ class SearchClass
                             'query' => $title,
                             'season' => $season,
                             'episode' => $episode
-                            //'imdbid' => $imdb,
-
                         ]
                     ]);
                 } else if ($lang == null) {
@@ -288,8 +276,6 @@ class SearchClass
                             'query' => $title,
                             'season' => $season,
                             'episode' => $episode
-                            //'imdbid' => $imdb,
-
                         ]
                     ]);
                 }
@@ -300,7 +286,7 @@ class SearchClass
             return "penetration";
     }
 
-    private function validate_subtitles_request($title, $type, $season, $episode, $lang)
+    private function validate_subtitles_request( $type, $season, $episode)
     {
         $error = 1;
         if (!is_null($type)) {
