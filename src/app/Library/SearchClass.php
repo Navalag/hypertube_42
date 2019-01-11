@@ -40,21 +40,21 @@ class SearchClass
             } else if ($type == "tvshows") {
                 $i = 0;
                 foreach ($genres as $value) {
-                    ($value == "Action & Adventure" || $value == "") ? $res[$i] = '10759' : 0;
+                    ($value == "Action & Adventure" || $value == "Бойовик") ? $res[$i] = '10759' : 0;
                     ($value == "Animation" || $value == "Мультфільм") ? $res[$i] = '16' : 0;
                     ($value == "Comedy" || $value == "Комедія") ? $res[$i] = '35' : 0;
                     ($value == "Crime" || $value == "Кримінал") ? $res[$i] = '80' : 0;
                     ($value == "Documentary" || $value == "Документальний") ? $res[$i] = '99' : 0;
                     ($value == "Drama" || $value == "Драма") ? $res[$i] = '18' : 0;
                     ($value == "Family" || $value == "Сімейний") ? $res[$i] = '10751' : 0;
-                    ($value == "Kids") ? $res[$i] = '10762' : 0;
+                    ($value == "Kids" || $value == "Дитячий") ? $res[$i] = '10762' : 0;
                     ($value == "Mystery" || $value == "Детектив") ? $res[$i] = '9648' : 0;
-                    ($value == "News") ? $res[$i] = '10763' : 0;
-                    ($value == "Reality") ? $res[$i] = '10764' : 0;
-                    ($value == "Sci-Fi & Fantasy") ? $res[$i] = '10765' : 0;
-                    ($value == "Soap") ? $res[$i] = '10766' : 0;
-                    ($value == "Talk") ? $res[$i] = '10767' : 0;
-                    ($value == "War & Politics") ? $res[$i] = '10768' : 0;
+                    ($value == "News" || $value == "Новини") ? $res[$i] = '10763' : 0;
+                    ($value == "Reality" || $value == "Реаліті") ? $res[$i] = '10764' : 0;
+                    ($value == "Sci-Fi & Fantasy" || $value == "Фантастика") ? $res[$i] = '10765' : 0;
+                    ($value == "Soap" || $value == "Мильні драми") ? $res[$i] = '10766' : 0;
+                    ($value == "Talk" || $value == "Шоу") ? $res[$i] = '10767' : 0;
+                    ($value == "War & Politics" || $value == "Війна та політика") ? $res[$i] = '10768' : 0;
                     ($value == "Western" || $value == "Вестерн") ? $res[$i] = '37' : 0;
                     $i++;
                 }

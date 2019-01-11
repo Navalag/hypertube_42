@@ -250,6 +250,7 @@ if (response)
 		document.getElementById('sort_select').value = "none";
 		document.getElementById('sort_select_tv').value = "none";
 		document.getElementById("response").innerHTML = "";
+		window.scrollTo(0, 3);
 		(switcher.data != null) ?  static_load(1, null, null, null, null, switcher.data, lang) : 0;
 		(switcher.data == null && storedSwitcher != null) ?  static_load(1, null, null, null, null, storedSwitcher, lang) : 0;
 		(switcher.data == null && storedSwitcher == null) ?  static_load(1, null, null, null, null, "movies", lang) : 0;

@@ -64,7 +64,7 @@ class HomeController extends Controller
             if (!is_null($params['genres'])) {
                 if($params['lang'] == "en-US") {
                     foreach ($params['genres'] as $value) {
-                        if (preg_match('/^[a-zA-Z\s]*$/', $value))
+                        if (preg_match('/^[a-zA-Z\s&amp\-]*$/', $value))
                             ;
                         else
                             $error = 0;
@@ -72,7 +72,7 @@ class HomeController extends Controller
                 }
                 if($params['lang'] == "uk-UA") {
                     foreach ($params['genres'] as $value) {
-                        if (preg_match('/^[a-zA-Z\p{Cyrillic}\s\-]+$/u', $value))
+                        if (preg_match('/^[a-zA-Z\p{Cyrillic}\s&amp\-]+$/u', $value))
                             ;
                         else
                             $error = 0;

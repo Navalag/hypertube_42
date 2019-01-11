@@ -38,7 +38,18 @@
     justify-content: center;
     min-height: 1000px;
 }
-
+.genre_direct_link
+{
+    padding-left: 0 !important;
+    width: 65% !important;
+}
+.title_aside
+{
+    display: block;
+    padding-left: 32px;
+    height: 100% !important;
+    width: 100% !important;
+}
 .gallery-item_custom
 {
     margin-left: 10px;

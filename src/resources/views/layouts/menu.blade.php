@@ -132,7 +132,7 @@
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link" >
-					<span class="title_aside" data="Action & Adventure">{{ __('Action & Adventure') }}</span>
+					<span class="title_aside" data="Action &amp Adventure">{{ __('Action & Adventure') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="fab fa-accessible-icon"></i></span>
 			</li>
@@ -199,7 +199,7 @@
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="Sci-Fi & Fantasy">{{ __('Sci-Fi & Fantasy') }}</span>
+					<span class="title_aside" data="Sci-Fi &amp Fantasy">{{ __('Sci-Fi & Fantasy') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="fas fa-dragon"></i></span>
 			</li>
@@ -217,7 +217,7 @@
 			</li>
 			<li class="tv_genre">
 				<a href="" class="genre_direct_link">
-					<span class="title_aside" data="War & Politics">{{ __('War & Politics') }}</span>
+					<span class="title_aside" data="War &amp Politics">{{ __('War & Politics') }}</span>
 				</a>
 				<span class="icon-thumbnail"><i class="fas fa-bomb"></i></span>
 			</li>
