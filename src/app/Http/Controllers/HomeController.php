@@ -31,10 +31,7 @@ class HomeController extends Controller
 
     public function validate_search_request($params)
     {
-        //dd($params);
         $error = 1;
-       //(preg_match('(ˆ[0-9]$)', $params['page'])) ? 0 : $error = 1;
-
             if (!is_null($params['sort'])) {
                 if($params['lang'] == "en-US") {
                     if (preg_match('/^[a-zA-Z\s]*$/', $params['sort']))
@@ -79,14 +76,6 @@ class HomeController extends Controller
                     }
                 }
             }
-
-
-
-        /*if($params['rate'] != null && preg_match('(^\d{1,4}\s{1}[-]{1}\s{1}\d{1,4}$)', $params['years']))
-            ;
-        else
-            $error = 0;*/
-       // dd($error);
         return $error;
     }
 
@@ -94,7 +83,6 @@ class HomeController extends Controller
     {
         $search = new SearchClass;
         $params = $request->all();
-       // dd($params);
         if($params['method'] == "search")
         {
             if($this->validate_search_request($params)) {
@@ -123,16 +111,6 @@ class HomeController extends Controller
             $arr[2] = "Creed II";
             return ($arr);
         }
-           // $id_request = 'https://api.themoviedb.org/3/movie/'.(int)$id.'/external_ids?api_key=838ad56065a20c3380e39bdcd7c02442';
-           // $movie_id = file_get_contents($id_request);
-
-
-
-
-            //$pop_str = 'https://tv-v2.api-fetch.website/movie/'.$imdb_id;
-            //$pop_data = file_get_contents($pop_str);
-            //var_dump($pop_data);
-
        return view('home');
     }
 }
