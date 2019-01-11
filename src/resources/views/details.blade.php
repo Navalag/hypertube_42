@@ -17,7 +17,11 @@
 					<!-- START JUMBOTRON -->
 					<div class="jumbotron" data-pages="parallax" data-social="cover">
 						<div class="cover-photo" id="backdrop_im">
-							<img alt="Cover photo" src="https://image.tmdb.org/t/p/original/{{ $details['backdrop_path'] }}" />
+							@if ($details['backdrop_path'])
+								<img alt="Cover photo" src="https://image.tmdb.org/t/p/original/{{ $details['backdrop_path'] }}" />
+							@else
+								<img alt="Cover photo" src="https://picsum.photos/1000/500?image=992" />
+							@endif
 						</div>
 						<div class=" container-fluid   container-fixed-lg sm-p-l-0 sm-p-r-0">
 							<div class="inner">
@@ -82,7 +86,11 @@
 								@foreach(array_slice($cast_details['cast'], 0, 6) as $cast)
 									<div class="card social-card share col1" data-social="item">
 										<div class="card-content">
-											<img alt="Actor img" src="https://image.tmdb.org/t/p/w200/{{ $cast['profile_path'] }}">
+											@if ($cast['profile_path'])
+												<img alt="Actor img" src="https://image.tmdb.org/t/p/w200/{{ $cast['profile_path'] }}">
+											@else
+												<img alt="Actor img" src="https://imgplaceholder.com/138x207/cccccc/757575/glyphicon-user/">
+											@endif
 										</div>
 										<div class="card-description">
 											<h6><span class="semi-bold">{{ $cast['name'] }}</span></h6>
@@ -137,7 +145,11 @@
 									<div class="card social-card share col2" data-social="item">
 										<div class="card-header clearfix">
 											<div class="user-pic">
-												<img alt="Profile Image" width="33" height="33" data-src-retina="{{ url($comment->user->photo_src) }}" data-src="{{ url($comment->user->photo_src) }}" src="{{ url($comment->user->photo_src) }}">
+												@if ($comment->user->photo_src)
+													<img alt="Profile Image" width="33" height="33" data-src-retina="{{ url($comment->user->photo_src) }}" data-src="{{ url($comment->user->photo_src) }}" src="{{ url($comment->user->photo_src) }}">
+												@else
+													<img alt="Profile Image" width="33" height="33" data-src-retina="{{ asset('assets/img/default-avatar-2.png') }}" data-src="{{ asset('assets/img/default-avatar-2.png') }}" src="{{ asset('assets/img/default-avatar-2.png') }}">
+											@endif
 											</div>
 											<h5>{{ $comment->user->first_name }} {{ $comment->user->last_name }}</h5>
 											<h6>{{ __('Posted a comment') }}</h6>
