@@ -340,11 +340,11 @@ if (response)
 			   img_link.setAttribute("href", baseUrl + 'details/' + general_type.data + '_' + list[i].id);
 			   img.setAttribute("class", "image-responsive-height lozad");
 			   if (list[i].poster_path != null) {
-				   img.setAttribute("src", baseUrl + '/assets/img/loading5.gif');
+				   img.setAttribute("src", baseUrl + 'assets/img/loading5.gif');
 				   img.setAttribute("data-src", 'https://image.tmdb.org/t/p/original/' + list[i].poster_path);
 			   }
 			   else
-				   img.setAttribute("data-src", baseUrl + '/assets/img/white-blur.jpg');
+				   img.setAttribute("data-src", baseUrl + 'assets/img/white-blur.jpg');
 			   item_title.setAttribute("class", "item_title");
 			   item_rate.setAttribute("class", "item_rate");
 			   item_rate.innerHTML = list[i].vote_average;
@@ -402,11 +402,11 @@ if (response)
 			   img_link.setAttribute("href", baseUrl + 'details/' + general_type.data + '_' + list[i].id);
 			   img.setAttribute("class", "image-responsive-height lozad");
 			   if (list[i].poster_path != null) {
-				   img.setAttribute("src", baseUrl + '/assets/img/loading5.gif');
+				   img.setAttribute("src", baseUrl + 'assets/img/loading5.gif');
 				   img.setAttribute("data-src", 'https://image.tmdb.org/t/p/original/' + list[i].poster_path);
 			   }
 			   else
-				   img.setAttribute("data-src", baseUrl + '/assets/img/white-blur.jpg');
+				   img.setAttribute("data-src", baseUrl + 'assets/img/white-blur.jpg');
 			   item_title.setAttribute("class", "item_title");
 			   item_rate.setAttribute("class", "item_rate");
 			   item_rate.innerHTML = list[i].vote_average;
