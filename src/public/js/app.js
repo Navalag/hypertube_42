@@ -4,25 +4,35 @@ $(document).ready(function() {
 
 		$.post('/user/edit_profile', $('form#form-project').serialize(), function(data) {
 				console.log(data);
-				$('#firstName').text(data.user_info.first_name);
-				$('#lastName').text(data.user_info.last_name);
-				// success notification
-				$("#alertNotification").html('<div class="alert alert-info d-flex m-t-15">'+data.success+'</div>');
-				window.setTimeout(function () {
-			    $(".alert").fadeTo(500, 0).slideUp(500, function () {
-			      $(this).remove();
-			    });
-				}, 2000);
-				
-		}).fail(function(response) {
-				// show error notifications
-		    var msg = '';
-		    console.log(response.responseJSON.errors);
-		    $.each(response.responseJSON.errors, function(index, item) {
-				  msg += '<p class="mr-auto overflow-ellipsis no-padding" id="alerText">'+item+'</p>'
-				});
-		    $("#alertNotification").html('<div class="alert alert-danger m-t-15">'+msg+'</div>');
-			});
+				if (data.success) {
+					$('#firstName').text(data.user_info.first_name);
+					$('#lastName').text(data.user_info.last_name);
+					// success notification
+					$("#alertNotification").html('<div class="alert alert-info d-flex m-t-15">'+data.success+'</div>');
+					window.setTimeout(function () {
+					$(".alert").fadeTo(500, 0).slideUp(500, function () {
+					  $(this).remove();
+					});
+					}, 2000);
+				}
+				else {
+					var msg = '';
+					console.log(data.errors);
+					$.each(data.errors[0], function(index, item) {
+					  msg += '<p class="mr-auto overflow-ellipsis no-padding" id="alerText">'+item+'</p>'
+					});
+					$("#alertNotification").html('<div class="alert alert-danger m-t-15">'+msg+'</div>');
+				}
+		});
+		// .fail(function(response) {
+		// 	// show error notifications
+		// 	var msg = '';
+		// 	console.log(response.responseJSON.errors);
+		// 	$.each(response.responseJSON.errors, function(index, item) {
+		// 		  msg += '<p class="mr-auto overflow-ellipsis no-padding" id="alerText">'+item+'</p>'
+		// 		});
+		// 	$("#alertNotification").html('<div class="alert alert-danger m-t-15">'+msg+'</div>');
+		// 	});
 	});
 
 	$('input#uploadAvatar').on('change', function(e) {
@@ -40,13 +50,15 @@ $(document).ready(function() {
 			type: 'POST',
 			success:function(response) {
 				console.log(response);
-				$('#avatar').attr("src", response.image);
+				$('#avatar').attr("src", 'http://127.0.0.1:8000/'+response.image);
+				$('#avatar').attr("data-src", 'http://127.0.0.1:8000/'+response.image);
+				$('#avatar').attr("data-src-retina", 'http://127.0.0.1:8000/'+response.image);
 				// success notification
 				$("#alertNotification").html('<div class="alert alert-info d-flex m-t-15">Your avatar was updated.</div>');
 				window.setTimeout(function () {
-			    $(".alert").fadeTo(500, 0).slideUp(500, function () {
-			      $(this).remove();
-			    });
+				$(".alert").fadeTo(500, 0).slideUp(500, function () {
+				  $(this).remove();
+				});
 				}, 2000);
 			}
 		});

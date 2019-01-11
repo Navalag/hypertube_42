@@ -6,7 +6,6 @@
 	<div class="logo_container">
 		<div class="brand inline">
 			<a href="/"><h2 class="logo"><b>HyperTube</b><i class="logo-fa fas fa-play-circle"></i></h2></a>
-			<!-- <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22"> -->
 		</div>
 	</div>
 	<div class="live_load_container">
@@ -16,16 +15,14 @@
 	<div class="d-flex align-items-center">
 		<!-- START User Info-->
 		<div class="dropdown dropdown-default m-r-20">
-
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      {{Session::get('locale')=='ua' ? 'Українська' : 'English'}}
-    </button>
-
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="/user/set_lang?lang=en">English</a>
-      <a class="dropdown-item" href="/user/set_lang?lang=ua">Українська</a>
-    </div>
-        </div>
+			<button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				{{ Session::get('locale')=='ua' ? 'Українська' : 'English' }}
+			</button>
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="/user/set_lang?lang=en">English</a>
+				<a class="dropdown-item" href="/user/set_lang?lang=ua">Українська</a>
+			</div>
+		</div>
 
 		<div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
 			<span class="semi-bold" id="firstName">{{ $user_info->first_name }}</span> <span class="text-master" id="lastName">{{ $user_info->last_name }}</span>
@@ -33,7 +30,11 @@
 		<div class="dropdown pull-right hidden-md-down">
 			<button class="profile-dropdown-toggle p-r-15">
 				<span class="thumbnail-wrapper d32 circular inline">
-				<img id="avatar" src="{{ $user_info->photo_src }}" alt="" data-src="{{ $user_info->photo_src }}" data-src-retina="{{ $user_info->photo_src }}" width="32" height="32">
+				@if ($user_info->photo_src)
+					<img id="avatar" src="{{ url($user_info->photo_src) }}" alt="" data-src="{{ url($user_info->photo_src) }}" data-src-retina="{{ url($user_info->photo_src) }}" width="32" height="32">
+				@else
+					<img id="avatar" src="{{ asset('assets/img/default-avatar-2.png') }}" alt="" data-src="{{ asset('assets/img/default-avatar-2.png') }}" data-src-retina="{{ asset('assets/img/default-avatar-2.png') }}" width="32" height="32">
+				@endif
 				</span>
 			</button>
 		</div>
@@ -110,19 +111,19 @@
 										<div class="form-group-attached">
 											<div class="form-group form-group-default">
 												<label>{{ __('Old Password') }}</label>
-												<input type="password" class="form-control" name="oldPass" placeholder="To change password type an old one here">
+												<input type="password" class="form-control" name="oldPass" placeholder="{{ __('To change password type an old one here') }}">
 											</div>
 											<div class="row clearfix">
 												<div class="col-md-6">
 													<div class="form-group form-group-default">
 														<label>{{ __('New Password') }}</label>
-														<input type="password" class="form-control" name="newPassword" placeholder="Minimum of 6 Charactors">
+														<input type="password" class="form-control" name="newPassword" placeholder="{{ __('Minimum of 6 Charactors') }}">
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group form-group-default">
 														<label>{{ __('Repeat New Password') }}</label>
-														<input type="password" class="form-control" name="newPassword_confirmation" placeholder="Confirm new password">
+														<input type="password" class="form-control" name="newPassword_confirmation" placeholder="{{ __('Confirm new password') }}">
 													</div>
 												</div>
 											</div>

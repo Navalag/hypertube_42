@@ -3,7 +3,6 @@
 	<!-- BEGIN SIDEBAR MENU HEADER-->
 	<div class="sidebar-header">
 		<a href="/"><h2 class="logo white"><b>HyperTube</b><i class="logo-fa fas fa-play-circle"></i></h2></a>
-		<!-- <img src="assets/img/logo_white.png" alt="logo" class="brand" data-src="assets/img/logo_white.png" data-src-retina="assets/img/logo_white_2x.png" width="78" height="22"> -->
 	</div>
 	<!-- END SIDEBAR MENU HEADER-->
 	<!-- START SIDEBAR MENU -->
@@ -19,7 +18,6 @@
 			<li class="movie_genre">
 				<a href="" class="genre_direct_link" >
 					<span class="title_aside" data="Action">{{ __('Action') }}</span>
-					<!--<button class="add_button" data="Action">+</button>-->
 				</a>
 				<span class="icon-thumbnail"><i class="fab fa-accessible-icon"></i></span>
 			</li>
@@ -232,7 +230,6 @@
 
 		</ul>
 		<!--TV shosw-->
-
 		<div class="clearfix"></div>
 	</div>
 	<!-- END SIDEBAR MENU -->

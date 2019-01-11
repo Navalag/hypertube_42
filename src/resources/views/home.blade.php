@@ -17,8 +17,8 @@
 				<!-- START CATEGORY -->
 				<div class="search_field">
 					<div class="switch_buttons">
-						<button class="switch btn btn-primary" onclick="switch_type(event);" id="movie_switch" data="movies">Movies</button>
-						<button class="switch btn btn-primary" onclick="switch_type(event);" id="tvshows_switch" data="tvshows">TV Shows</button>
+						<button class="switch btn btn-primary" onclick="switch_type(event);" id="movie_switch" data="movies">{{ __('Movies') }}</button>
+						<button class="switch btn btn-primary" onclick="switch_type(event);" id="tvshows_switch" data="tvshows">{{ __('TV Shows') }}</button>
 					</div>
 					<form method="POST" class="search_form" id="movie_form">
 						<div class="sort_field">
@@ -140,17 +140,11 @@
 @endsection
 
 @push('scripts')
-		<script type="text/javascript">
-            var lang = "{{ $lang }}";
-			(lang == "English") ? lang = "en-US" : 0;
-            (lang == "Українська") ? lang = "uk-UA" : 0;
-
-
-
-		</script>
-		<script src="{{ asset('pages/js/search.js') }}" type="text/javascript"></script>
-		<script src="{{ asset('pages/js/gap.js') }}"></script>
-	<!-- <script src="{{ asset('assets/plugins/jquery-nouislider/jquery.nouislider.min.js') }}" type="text/javascript"></script> -->
-	<!-- <script src="{{ asset('assets/js/gallery.js') }}" type="text/javascript"></script> -->
-
+<script type="text/javascript">
+	var lang = "{{ $lang }}";
+	(lang == "English") ? lang = "en-US" : 0;
+	(lang == "Українська") ? lang = "uk-UA" : 0;
+</script>
+<script src="{{ asset('pages/js/search.js') }}" type="text/javascript"></script>
+<script src="{{ asset('pages/js/gap.js') }}"></script>
 @endpush

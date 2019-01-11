@@ -17,7 +17,11 @@
 					<!-- START JUMBOTRON -->
 					<div class="jumbotron" data-pages="parallax" data-social="cover">
 						<div class="cover-photo" id="backdrop_im">
-							<img alt="Cover photo" src="https://image.tmdb.org/t/p/original/{{ $details['backdrop_path'] }}" />
+							@if ($details['backdrop_path'])
+								<img alt="Cover photo" src="https://image.tmdb.org/t/p/original/{{ $details['backdrop_path'] }}" />
+							@else
+								<img alt="Cover photo" src="https://picsum.photos/1000/500?image=992" />
+							@endif
 						</div>
 						<div class=" container-fluid   container-fixed-lg sm-p-l-0 sm-p-r-0">
 							<div class="inner">
@@ -33,7 +37,6 @@
 						</div>
 					</div>
 					<!-- END JUMBOTRON -->
-
 
 					<div class="container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
 						<div class="feed">
@@ -53,54 +56,53 @@
 								<!-- START ITEM -->
 								@if ($type == "movies")
 								<div class="card social-card status col2" data-social="item">
-									<h4 class="no-margin p-b-5">Grade - <span id="grade_response">{{ $details['vote_average'] }}</span></h4>
-									<h4 class="no-margin p-b-5">Release - <span id="year_response">{{ $details['release_date'] }}</span></h4>
-									<h4 class="no-margin p-b-5">Budget - <span id="budget_response">${{ $details['budget'] }}</span></h4>
-									<h4 class="no-margin p-b-5">Revenue - <span id="revenue_response">${{ $details['revenue'] }}</span></h4>
-									<h4 class="no-margin p-b-5">Original Language - <span id="lang_response">{{ $details['original_language'] }}</span></h4>
-									<h4 class="no-margin p-b-5">Runtime - <span id="runtime_response">{{ $details['runtime'] }} min</span></h4>
-
+									<h4 class="no-margin p-b-5">{{ __('Grade') }} - <span id="grade_response">{{ $details['vote_average'] }}</span></h4>
+									<h4 class="no-margin p-b-5">{{ __('Release') }} - <span id="year_response">{{ $details['release_date'] }}</span></h4>
+									<h4 class="no-margin p-b-5">{{ __('Budget') }} - <span id="budget_response">${{ $details['budget'] }}</span></h4>
+									<h4 class="no-margin p-b-5">{{ __('Revenue') }} - <span id="revenue_response">${{ $details['revenue'] }}</span></h4>
+									<h4 class="no-margin p-b-5">{{ __('Original Language') }} - <span id="lang_response">{{ $details['original_language'] }}</span></h4>
+									<h4 class="no-margin p-b-5">{{ __('Runtime') }} - <span id="runtime_response">{{ $details['runtime'] }} {{ __('min') }}</span></h4>
 								</div>
 								@elseif ($type == "tvshows")
 								<div class="card social-card status col2" data-social="item">
-									<h4 class="no-margin p-b-5">Grade - <span id="grade_response">{{ $details['vote_average'] }}</span></h4>
-									<h4 class="no-margin p-b-5">Release - <span id="year_response">{{ $details['first_air_date'] }}</span></h4>
-									<h4 class="no-margin p-b-5">Original Language - <span id="lang_response">{{ $details['original_language'] }}</span></h4>
+									<h4 class="no-margin p-b-5">{{ __('Grade') }} - <span id="grade_response">{{ $details['vote_average'] }}</span></h4>
+									<h4 class="no-margin p-b-5">{{ __('Release') }} - <span id="year_response">{{ $details['first_air_date'] }}</span></h4>
+									<h4 class="no-margin p-b-5">{{ __('Original Language') }} - <span id="lang_response">{{ $details['original_language'] }}</span></h4>
 								</div>
 								@endif
-
-
-
 								<!-- END ITEM -->
 								<!-- START ITEM -->
-
 								<div class="card no-border bg-transparent full-width" data-social="item">
 									<section id="links_response" class="links-response">
 										<div class="no_result_links"><img src="{{ asset('assets/img/no_result_cactus.png') }}"></div>
 									</section>
 								</div>
 								<div class="card no-border bg-transparent full-width" data-social="item">
-									<h3 class="no-margin p-b-5">Top Billed Cast</h3>
+									<h3 class="no-margin p-b-5">{{ __('Top Billed Cast') }}</h3>
 								</div>
 
 								<!-- END ITEM -->
 								<!-- START ITEM -->
 								@foreach(array_slice($cast_details['cast'], 0, 6) as $cast)
 									<div class="card social-card share col1" data-social="item">
-									  <div class="card-content">
-									    <img alt="Actor img" src="https://image.tmdb.org/t/p/w200/{{ $cast['profile_path'] }}">
-									  </div>
-									  <div class="card-description">
-									    <h6><span class="semi-bold">{{ $cast['name'] }}</span></h6>
-									    <p class="via m-b-10">{{ $cast['character'] }}</p>
-									  </div>
+										<div class="card-content">
+											@if ($cast['profile_path'])
+												<img alt="Actor img" src="https://image.tmdb.org/t/p/w200/{{ $cast['profile_path'] }}">
+											@else
+												<img alt="Actor img" src="https://imgplaceholder.com/138x207/cccccc/757575/glyphicon-user/">
+											@endif
+										</div>
+										<div class="card-description">
+											<h6><span class="semi-bold">{{ $cast['name'] }}</span></h6>
+											<p class="via m-b-10">{{ $cast['character'] }}</p>
+										</div>
 									</div>
 								@endforeach
 								<!-- END ITEM -->
 								<!-- START ITEM -->
 
 								<div class="card no-border bg-transparent full-width" data-social="item">
-									<h3 class="no-margin p-b-5">Reviews From Our Users</h3>
+									<h3 class="no-margin p-b-5">{{ __('Reviews From Our Users') }}</h3>
 								</div>
 								<!-- END ITEM -->
 								<!-- START ITEM -->
@@ -111,13 +113,13 @@
 											<ol class="questions">
 												<li>
 													<span>
-														<label for="status-q1">What do you think about this film?</label>
+														<label for="status-q1">{{ __('What do you think about this film?') }}</label>
 													</span>
 													<input id="status-q1" name="comment_body" type="text" />
 												</li>
 											</ol>
 											<!-- /questions -->
-											<button class="submit" type="submit">Send answers</button>
+											<button class="submit" type="submit">{{ __('Send answers') }}</button>
 											<div class="controls">
 												<button class="next"></button>
 												<div class="progress"></div>
@@ -143,10 +145,14 @@
 									<div class="card social-card share col2" data-social="item">
 										<div class="card-header clearfix">
 											<div class="user-pic">
-												<img alt="Profile Image" width="33" height="33" data-src-retina="{{ $comment->user->photo_src }}" data-src="{{ $comment->user->photo_src }}" src="{{ $comment->user->photo_src }}">
+												@if ($comment->user->photo_src)
+													<img alt="Profile Image" width="33" height="33" data-src-retina="{{ url($comment->user->photo_src) }}" data-src="{{ url($comment->user->photo_src) }}" src="{{ url($comment->user->photo_src) }}">
+												@else
+													<img alt="Profile Image" width="33" height="33" data-src-retina="{{ asset('assets/img/default-avatar-2.png') }}" data-src="{{ asset('assets/img/default-avatar-2.png') }}" src="{{ asset('assets/img/default-avatar-2.png') }}">
+											@endif
 											</div>
 											<h5>{{ $comment->user->first_name }} {{ $comment->user->last_name }}</h5>
-											<h6>Posted a comment</h6>
+											<h6>{{ __('Posted a comment') }}</h6>
 										</div>
 										<div class="card-description">
 											<p>{{ $comment->body }}</p>
@@ -179,9 +185,9 @@
 		var imdb_id = "{{ $external_ids['imdb_id'] }}";
 		var type = "{{ $type }}";
 		var title = "{{ $title }}";
-        var lang = "{{ $lang }}";
-        (lang == "English") ? lang = "en-US" : 0;
-        (lang == "Українська") ? lang = "uk-UA" : 0;
+		var lang = "{{ $lang }}";
+		(lang == "English") ? lang = "en-US" : 0;
+		(lang == "Українська") ? lang = "uk-UA" : 0;
 	</script>
 	<!-- <script src="{{ asset('pages/js/details.js') }}"></script> -->
 	<script src="{{ asset('assets/plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
