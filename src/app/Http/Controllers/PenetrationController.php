@@ -9,7 +9,7 @@ class PenetrationController extends Controller
     public function index()
     {
         return view('penetration');
-
     }
 }
+
 ?>
