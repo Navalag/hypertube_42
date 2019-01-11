@@ -71,7 +71,7 @@
 	"Mystery": "Детектив",
 	"Romance": "Романтичний",
 	"Science Fiction": "Наукова фантастика",
-	"TV movie": "Телефільм",
+	"TV Movie": "Телефільм",
 	"Thriller": "Трилер",
 	"War": "Військовий",
 	"Western": "Вестерн",
@@ -99,6 +99,7 @@
 	"Revenue Descending": "Бюджет спадання",
 
 	"search": "пошук",
+	"reset": "скинути",
 	"Type here to search...": "Натисніть тут для пошуку...",
 
 
