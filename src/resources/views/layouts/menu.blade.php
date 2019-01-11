@@ -119,7 +119,7 @@
 				</a>
 				<span class="icon-thumbnail"><i class="fas fa-bomb"></i></span>
 			</li>
-			<li class="movie_genre">
+			<li class="movie_genre m-b-30">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="Western">{{ __('Western') }}</span>
 				</a>
@@ -216,7 +216,7 @@
 				</a>
 				<span class="icon-thumbnail"><i class="fas fa-bomb"></i></span>
 			</li>
-			<li class="tv_genre">
+			<li class="tv_genre m-b-30">
 				<a href="" class="genre_direct_link">
 					<span class="title_aside" data="Western">{{ __('Western') }}</span>
 				</a>
