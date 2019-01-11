@@ -13,9 +13,9 @@
 		this.$element = $(element);
 		this.options = $.extend(true, {}, $.fn.social.defaults, options);
 		this.$day =
-			this.resizeTimeout =
-			this.columns =
-			this.colWidth = null;
+		this.resizeTimeout =
+		this.columns =
+		this.colWidth = null;
 		this.init();
 	}
 	Social.VERSION = "1.0.0";
@@ -118,9 +118,9 @@
 			var $social = $(this);
 			$social.social($social.data());
 
-			setTimeout(function() {
-				$social.find('[data-social="status"] li.current input').focus();
-			}, 1000);
+			// setTimeout(function() {
+			// 	$social.find('[data-social="status"] li.current input').focus();
+			// }, 1000);
 
 		})
 	})

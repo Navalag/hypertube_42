@@ -9,13 +9,8 @@
 	<div class="sidebar-menu">
 		<!-- BEGIN SIDEBAR MENU ITEMS-->
 		<ul class="menu-items movie-list" id="movies_list">
-			<li class="m-t-30 ">
-				<a href="#" class="detailed">
-					<span class="title_aside">{{ __('Genres') }}</span>
-				</a>
-				<span class="bg-success icon-thumbnail"><i class="fas fa-film"></i></span>
-			</li>
-			<li class="movie_genre">
+			
+			<li class="movie_genre m-t-30">
 				<a href="" class="genre_direct_link" >
 					<span class="title_aside" data="Action">{{ __('Action') }}</span>
 				</a>
@@ -130,7 +125,7 @@
 				</a>
 				<span class="icon-thumbnail"><i class="fab fa-sticker-mule"></i></span>
 			</li>
-			<li class="tv_genre">
+			<li class="tv_genre  m-t-30">
 				<a href="" class="genre_direct_link" >
 					<span class="title_aside" data="Action &amp Adventure">{{ __('Action & Adventure') }}</span>
 				</a>

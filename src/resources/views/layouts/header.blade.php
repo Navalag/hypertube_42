@@ -10,7 +10,7 @@
 	</div>
 	<div class="live_load_container">
 		<input id="live_search_input" type="text" name="live_search" placeholder="{{ __('Type here to search...') }}" value="" class="live_search form-control" autocomplete="on">
-		<button class="btn btn-primary reset-button" id="reset_button">{{ __('search') }}</button>
+		<button class="btn btn-primary reset-button" id="reset_button">{{ __('reset') }}</button>
 	</div>
 	<div class="d-flex align-items-center">
 		<!-- START User Info-->
