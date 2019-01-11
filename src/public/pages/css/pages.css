@@ -13771,10 +13771,10 @@ Main components
   .header .brand {
     width: auto;
   }
-  .header .notification-list,
+ /* .header .notification-list,
   .header .search-link {
     display: none;
-  }
+  }*/
   .header > .pull-left,
   .header > .pull-right {
     position: relative;
@@ -14273,10 +14273,10 @@ Main components
   .header {
     height: 48px;
   }
-  .header .notification-list,
+  /*.header .notification-list,
   .header .search-link {
     display: none;
-  }
+  }*/
   .header .header-inner {
     height: 48px;
   }
@@ -14578,17 +14578,17 @@ Main components
   body .header .header-inner .quickview-link {
     top: 14px;
   }
-  body .header .notification-list,
+  /*body .header .notification-list,
   body .header .search-link {
     display: none;
-  }
+  }*/
   body .header .dropdown-submenu {
     top: 12px;
   }
-  body .header .notification-list,
+  /*body .header .notification-list,
   body .header .search-link {
     display: none;
-  }
+  }*/
   body #overlay-search {
     font-size: 48px;
     height: 118px;

@@ -38,7 +38,7 @@
 				</span>
 			</button>
 		</div>
-		<ul class="hidden-md-down notification-list no-margin hidden-sm-down b-grey b-l b-r no-style p-l-10 p-r-10">
+		<ul class=" notification-list no-margin b-grey b-l b-r no-style p-l-10 p-r-10">
 			<li class="p-r-10 inline">
 				<a href="#" class="header-icon pg pg-settings" data-target="#modalSlideLeft" data-toggle="modal"></a>
 			</li>
