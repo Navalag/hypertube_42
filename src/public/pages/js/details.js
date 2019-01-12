@@ -4,6 +4,10 @@ var movies_genres = document.querySelectorAll('.movie_genre');
 var tv_genres = document.querySelectorAll('.tv_genre');
 var movies_len = movies_genres.length;
 var tv_len = tv_genres.length;
+const STREAM_PATH = getUrl.protocol + '//' + getUrl.host + '/stream/';
+console.log(STREAM_PATH);
+
+const player = new Plyr('#player');
 
 $(document).ready(function() {
     hide_show_genres_list(type, movies_genres, tv_genres);
@@ -208,6 +212,7 @@ function playButton(event)
     console.log("magnet available onclick :", link);
     var title = target.getAttribute('data-title');
     var imdb = target.getAttribute('data-imdb');
+
     $.ajax({
             type: 'PUT',
             url: baseUrl + '/',
@@ -226,16 +231,38 @@ function playButton(event)
             },
             success: function (response) {
                 if(response){
+                    var hash = link.split(':')[3].split('&')[0];
+
                     var links = JSON.parse(response);
+                    var subtitles_link = links.subs.response.data[0].SubDownloadLink;
                     console.log(links);
                     console.log("returned from server with subs : ", links);
                     console.log("exactly link returned from server. This may come with huge delay(depends of how many results api return) : ", links.movie.magnet);
                     // console.log(links.subs["\u0000*\u0000response"].data[0].SubDownloadLink);
-                    console.log("one of subs link returned from server, just for example : ", links.subs.response.data[0].SubDownloadLink); //indexes count may be up to 500
+                    console.log("one of subs link returned from server, just for example : ", subtitles_link); //indexes count may be up to 500
                 }
                 else {
                     window.location.href = getUrl.protocol + "//" + getUrl.host + "/penetration";
                 }
+                player.source = {
+                    type: 'video',
+                    title: title,
+                    poster: player_preview_img,
+                    sources: [
+                        {
+                            src: 'http://localhost:8888/' + links.movie.magnet,
+                            type: 'video/mp4',
+                        }
+                    ],
+                    tracks: [{
+                        kind: 'captions',
+                        label: 'English',
+                        srclang: 'en',
+                        src: subtitles_link,
+                        default: false,
+                      },
+                    ],
+                  };
             }
 
         });
@@ -339,3 +366,11 @@ $('#live_search_input').bind("input", function () {
     }
 
 });
+
+
+  
+
+
+
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Plyr</title>
+  <!-- Plyr Style sheet -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/plyr/3.1.0/plyr.css" />
+</head>
+
+<body>
+    <div style="width: 500px">
+        <!-- Plyr -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/plyr/3.1.0/plyr.min.js"></script>
+
+        <video id="player" width="320" height="240" controls>
+        </video>
+    </div>
+</body>
+
+<script type="text/javascript">
+  const player = new Plyr('#player');
+  player.source = {
+    type: 'video',
+    title: 'Elephant Dream',
+    sources: [
+        {
+            src: 'http://localhost:8888/magnet:?xt=urn:btih:B127082DEC04240FB9D617C23BFA3DF47E2DC0C7&tr=udp://glotorrents.pw:6969/announce&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://torrent.gresille.org:80/announce&tr=udp://tracker.openbittorrent.com:80&tr=udp://tracker.coppersurfer.tk:6969&tr=udp://tracker.leechers-paradise.org:6969&tr=udp://p4p.arenabg.ch:1337&tr=udp://tracker.internetwarriors.net:1337',
+            type: 'video/mp4',
+            size: 720,
+        },
+        {
+            src: 'http://localhost:8888/magnet:?xt=urn:btih:5FEFAC61C0F42FFC43946B3379A540D1A38F6480&tr=udp://glotorrents.pw:6969/announce&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://torrent.gresille.org:80/announce&tr=udp://tracker.openbittorrent.com:80&tr=udp://tracker.coppersurfer.tk:6969&tr=udp://tracker.leechers-paradise.org:6969&tr=udp://p4p.arenabg.ch:1337&tr=udp://tracker.internetwarriors.net:1337',
+            type: 'video/mp4',
+            size: 1080,
+        }
+    ],
+    tracks: [{
+        kind: 'captions',
+        label: 'English',
+        srclang: 'en',
+        src: '//iandevlin.github.io/mdn/video-player-with-captions/subtitles/vtt/sintel-en.vtt',
+        default: false,
+      },
+      {
+        kind: 'captions',
+        label: 'German',
+        srclang: 'de',
+        src: '//iandevlin.github.io/mdn/video-player-with-captions/subtitles/vtt/sintel-de.vtt',
+      },
+    ],
+  };
+</script>
+
+</html>

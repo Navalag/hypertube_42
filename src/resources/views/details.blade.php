@@ -78,6 +78,13 @@
 									</section>
 								</div>
 								<div class="card no-border bg-transparent full-width" data-social="item">
+									<div style="width: 500px">
+							        	<!-- Plyr -->
+								        <video id="player" width="320" height="240" controls>
+								        </video>
+								    </div>
+								</div>
+								<div class="card no-border bg-transparent full-width" data-social="item">
 									<h3 class="no-margin p-b-5">{{ __('Top Billed Cast') }}</h3>
 								</div>
 
@@ -186,6 +193,7 @@
 		var type = "{{ $type }}";
 		var title = "{{ $title }}";
 		var lang = "{{ $lang }}";
+		var player_preview_img = "{{ $player_preview_img }}";
 		(lang == "English") ? lang = "en-US" : 0;
 		(lang == "Українська") ? lang = "uk-UA" : 0;
 	</script>
@@ -196,5 +204,6 @@
 	<script src="{{ asset('assets/plugins/jquery-isotope/isotope.pkgd.min.js') }}"></script>
 
 	<script src="{{ asset('pages/js/pages.social.js') }}"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/plyr/3.1.0/plyr.min.js"></script>
 	<script src="{{ asset('pages/js/details.js') }}"></script>
 @endpush

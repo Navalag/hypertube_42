@@ -32,7 +32,10 @@ class DetailsController extends Controller {
         unset($details_temp);
         $cast_details = $search->getcast_request($id, $type);
         $all_comments = $comments->getAllCommentsForFilm($movie_id);
-
+        $details_temp = json_decode($details);
+        $image = 'https://image.tmdb.org/t/p/original'.$details_temp->backdrop_path;
+        unset($details_temp);
+        ///cOtB6A7yI1WtJaiKAlXbbqZ64lQ.jpg
         return view('details')
              ->with('user_info', \Auth::user())
              ->with('movie_id', $movie_id)
@@ -42,6 +45,7 @@ class DetailsController extends Controller {
              ->with('comments', $all_comments)
              ->with('type', $type)
              ->with('title', $title)
+             ->with('player_preview_img', $image)
              ->with('lang', \Session::get('locale')=='ua' ? 'Українська' : 'English');
     }
 
@@ -56,8 +60,7 @@ class DetailsController extends Controller {
         $subtitles = $search->get_subtitles_list($params['title'], $params['type'], $params['season'], $params['episode'], $lang);
         if($subtitles != "penetration") {
             $result['movie'] = $params;
-            $result['subs'] = (array)$subtitles;
-
+            $result['subs'] = (array)$subtitles;  
         /* very dumb crutch below. i don't know how to convert object to array properly, so there is used (array) typecast,
         which resulting with this motherfucking symbols \u0000*\u0000 in array keys. It is possible to access this properties
         in json parsed array, but will look like "object.property.["motherfucking\u0000*\u0000property"].property", so i have
@@ -79,6 +82,9 @@ class DetailsController extends Controller {
                  }
              }
          }
+      //   dd(public_path().'/subtitles/');
+        // $this->downloadFile($result['subs']['response']['data'][0]['SubDownloadLink'], public_path().'/subtitles');
+        
         return json_encode($result);
         }
     }
@@ -102,6 +108,26 @@ class DetailsController extends Controller {
             return response()->json(['redirect' => url('/')]);
         }
 
+    }
+
+    private function downloadFile($url, $path)
+    {
+        $newfname = $path;
+        $file = fopen ($url, 'rb');
+        if ($file) {
+            $newf = fopen ($newfname, 'wb');
+            if ($newf) {
+                while(!feof($file)) {
+                    fwrite($newf, fread($file, 1024 * 8), 1024 * 8);
+                }
+            }
+        }
+        if ($file) {
+            fclose($file);
+        }
+        if ($newf) {
+            fclose($newf);
+        }
     }
 
 }
