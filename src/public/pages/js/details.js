@@ -4,8 +4,9 @@ var movies_genres = document.querySelectorAll('.movie_genre');
 var tv_genres = document.querySelectorAll('.tv_genre');
 var movies_len = movies_genres.length;
 var tv_len = tv_genres.length;
-const STREAM_PATH = getUrl.protocol + '//' + getUrl.host + '/stream/';
+const STREAM_PATH = getUrl.protocol + '//' + getUrl.host;
 console.log(STREAM_PATH);
+console.log(movie_id);
 
 const player = new Plyr('#player');
 
@@ -212,6 +213,12 @@ function playButton(event)
     console.log("magnet available onclick :", link);
     var title = target.getAttribute('data-title');
     var imdb = target.getAttribute('data-imdb');
+    var sub_label_en = null;
+    var sub_srclang_en = null;
+    var sub_src_en = null;
+    var sub_label_uk = null;
+    var sub_srclang_uk = null;
+    var sub_src_uk = null;
 
     $.ajax({
             type: 'PUT',
@@ -224,7 +231,8 @@ function playButton(event)
                     'type': type,
                     'season': season,
                     'episode': episode,
-                    'lang': lang
+                    'lang': lang,
+                    'id': movie_id
                 },
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -232,19 +240,31 @@ function playButton(event)
             success: function (response) {
                 if(response){
                     var hash = link.split(':')[3].split('&')[0];
-                    var path = STREAM_PATH + '/' + hash;
-                    
+                    var path = STREAM_PATH + '/Venom.vtt';
+                    console.log('Path - ' + path);
+                    console.log(lang);
                     var links = JSON.parse(response);
-                    var subtitles_link = links.subs.response.data[0].SubDownloadLink;
-                    console.log(links);
+                   // var subtitles_link = links.subs.response.data[0].SubDownloadLink;
+                    console.log(links.subs_path);
                     console.log("returned from server with subs : ", links);
                     console.log("exactly link returned from server. This may come with huge delay(depends of how many results api return) : ", links.movie.magnet);
                     // console.log(links.subs["\u0000*\u0000response"].data[0].SubDownloadLink);
-                    console.log("one of subs link returned from server, just for example : ", subtitles_link); //indexes count may be up to 500
+                    //console.log("one of subs link returned from server, just for example : ", subtitles_link); //indexes count may be up to 500
                 }
                 else {
                     window.location.href = getUrl.protocol + "//" + getUrl.host + "/penetration";
                 }
+                if(links.subs_en) {
+                    sub_srclang_en = 'en';
+                    sub_label_en = 'English';
+                    sub_src_en = STREAM_PATH + '/subtitles/' + links.subs_en;
+                }
+                if(links.subs_uk) {
+                    sub_srclang_uk = 'uk';
+                    sub_label_uk = 'Ukrainian';
+                    sub_src_uk = STREAM_PATH + '/subtitles/' + links.subs_uk;
+                }
+
                 player.source = {
                     type: 'video',
                     title: title,
@@ -257,11 +277,18 @@ function playButton(event)
                     ],
                     tracks: [{
                         kind: 'captions',
-                        label: 'English',
-                        srclang: 'en',
-                        src: subtitles_link,
+                        label: sub_label_en,
+                        srclang: sub_srclang_en,
+                        src: sub_src_en,
                         default: false,
                       },
+                        {
+                            kind: 'captions',
+                            label: sub_label_uk,
+                            srclang: sub_srclang_uk,
+                            src: sub_src_uk,
+                            default: false,
+                        },
                     ],
                   };
             }

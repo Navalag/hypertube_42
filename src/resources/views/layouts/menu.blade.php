@@ -222,6 +222,11 @@
 				</a>
 				<span class="icon-thumbnail"><i class="fab fa-sticker-mule"></i></span>
 			</li>
+			<li class="library m-b-30">
+				<a href="{{ url('library') }}">
+					<span class="">My Library</span>
+				</a>
+			</li>
 
 		</ul>
 		<!--TV shosw-->

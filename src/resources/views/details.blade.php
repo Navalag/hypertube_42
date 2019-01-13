@@ -204,6 +204,6 @@
 	<script src="{{ asset('assets/plugins/jquery-isotope/isotope.pkgd.min.js') }}"></script>
 
 	<script src="{{ asset('pages/js/pages.social.js') }}"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/plyr/3.1.0/plyr.min.js"></script>
+	<script src="https://cdn.plyr.io/3.4.7/plyr.js"></script>
 	<script src="{{ asset('pages/js/details.js') }}"></script>
 @endpush
