@@ -14,6 +14,7 @@
 Route::group(['middleware' => ['auth.language']], function () {
 	Auth::routes(['verify' => true]);
 	Route::post('/set_locale', 'Auth\LoginController@setLanguage')->name('setLanguage');
+    Route::get('/library', 'LibraryController@index')->name('library');
 });
 
 Route::group(['middleware' => ['language']], function () {
@@ -29,9 +30,12 @@ Route::group(['middleware' => ['language']], function () {
 	Route::post('/user/edit_profile', 'User\EditUserInfo@edit')->name('user.edit_prof');
 	Route::get('/user/set_lang', 'User\EditUserInfo@setLanguage')->name('user.set_lang');
 	Route::post('/user/upload_avatar', 'User\EditUserInfo@uploadPhoto')->name('user.upload_avatar');
+
 });
 
 Route::get('/penetration', 'PenetrationController@index')->name('penetration');
+
+
 
 /*
 ** OAuth routes

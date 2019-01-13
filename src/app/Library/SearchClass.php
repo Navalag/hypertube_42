@@ -246,22 +246,15 @@ class SearchClass
                 'useragent' => 'hypertube2'
             ]);
             if ($type == "movies") {
-                if ($lang != null) {
+
                     $response = $client->searchSubtitles([
                         [
                             'sublanguageid' => $lang,
                             'query' => $title
                         ]
                     ]);
-                } else if ($lang == null) {
-                    $response = $client->searchSubtitles([
-                        [
-                            'query' => $title
-                        ]
-                    ]);
-                }
+
             } else if ($type == "tvshows") {
-                if ($lang != null) {
                     $response = $client->searchSubtitles([
                         [
                             'sublanguageid' => $lang,
@@ -270,15 +263,6 @@ class SearchClass
                             'episode' => $episode
                         ]
                     ]);
-                } else if ($lang == null) {
-                    $response = $client->searchSubtitles([
-                        [
-                            'query' => $title,
-                            'season' => $season,
-                            'episode' => $episode
-                        ]
-                    ]);
-                }
             }
             return $response;
         }

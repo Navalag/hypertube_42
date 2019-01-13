@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Library\SearchClass;
 use App\Http\Controllers\Comment\CommentController;
+use \Done\Subtitles\Subtitles;
 
 
 class DetailsController extends Controller {
@@ -57,7 +58,7 @@ class DetailsController extends Controller {
         $lang = null;
         ($params['lang'] == "en-US") ? $lang = 'eng' : 0;
         ($params['lang'] == "uk-UA") ? $lang = 'ukr' : 0;
-        $subtitles = $search->get_subtitles_list($params['title'], $params['type'], $params['season'], $params['episode'], $lang);
+        $subtitles = $search->get_subtitles_list($params['title'], $params['type'], $params['season'], $params['episode'], "ukr");
         if($subtitles != "penetration") {
             $result['movie'] = $params;
             $result['subs'] = (array)$subtitles;  
@@ -71,7 +72,7 @@ class DetailsController extends Controller {
                 unset($result['subs'][$key]);
             }
         }
-        $subtitles_all = $search->get_subtitles_list($params['title'],  $params['type'], $params['season'], $params['episode'], null);
+        $subtitles_all = $search->get_subtitles_list($params['title'],  $params['type'], $params['season'], $params['episode'], "eng");
          if($subtitles_all != "penetration") {
              $result['allsubs'] = (array)$subtitles_all;
 
@@ -82,9 +83,21 @@ class DetailsController extends Controller {
                  }
              }
          }
-      //   dd(public_path().'/subtitles/');
-        // $this->downloadFile($result['subs']['response']['data'][0]['SubDownloadLink'], public_path().'/subtitles');
-        
+         //   var hash = link.split(':')[3].split('&')[0];
+            $hash = explode(':', $result['movie']['magnet'])[3];
+            $hash = explode('&', $hash)[0];
+            $result['subs_en'] = null;
+            $result['subs_uk'] = null;
+
+         if(!empty($result['subs']['response']['data'])) {
+             $this->downloadFile($result['subs']['response']['data'][0]['SubDownloadLink'], $hash . 'uk');
+             $result['subs_uk'] = $hash . 'uk.vtt';
+         }
+         if(!empty($result['allsubs']['response']['data'])) {
+             $this->downloadFile($result['allsubs']['response']['data'][0]['SubDownloadLink'], $hash . 'en');
+             $result['subs_en'] = $hash . 'en.vtt';
+         }
+
         return json_encode($result);
         }
     }
@@ -110,24 +123,38 @@ class DetailsController extends Controller {
 
     }
 
-    private function downloadFile($url, $path)
-    {
-        $newfname = $path;
-        $file = fopen ($url, 'rb');
-        if ($file) {
-            $newf = fopen ($newfname, 'wb');
-            if ($newf) {
-                while(!feof($file)) {
-                    fwrite($newf, fread($file, 1024 * 8), 1024 * 8);
-                }
-            }
+    private function downloadFile($subtitles_url, $hash) {
+        $subtitles_path = public_path() . '/subtitles/' . $hash . '.gz';
+        $subtitles_gz = fopen($subtitles_path, "w") or die ("Unable to open file!");
+        file_put_contents($subtitles_path, fopen($subtitles_url, 'r'));
+        $this->unzipSubtitles($subtitles_path);
+        Subtitles::convert(public_path() . '/subtitles/' . $hash . '.srt', public_path() . '/subtitles/' . $hash . '.vtt');
+        unlink($subtitles_path);
+        unlink(public_path() . '/subtitles/' . $hash . '.srt');
+    }
+
+    private function unzipSubtitles($file_name) {
+        //This input should be from somewhere else, hard-coded in this example
+        //$file_name = '2013-07-16.dump.gz';
+
+        // Raising this value may increase performance
+        $buffer_size = 4096; // read 4kb at a time
+        $out_file_name = str_replace('.gz', '', $file_name . '.srt');
+
+        // Open our files (in binary mode)
+        $file = gzopen($file_name, 'rb');
+        $out_file = fopen($out_file_name, 'wb');
+
+        // Keep repeating until the end of the input file
+        while (!gzeof($file)) {
+            // Read buffer-size bytes
+            // Both fwrite and gzread and binary-safe
+            fwrite($out_file, gzread($file, $buffer_size));
         }
-        if ($file) {
-            fclose($file);
-        }
-        if ($newf) {
-            fclose($newf);
-        }
+
+        // Files are done, close files
+        fclose($out_file);
+        gzclose($file);
     }
 
 }
