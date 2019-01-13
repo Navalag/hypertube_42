@@ -11,6 +11,10 @@ app.get('/stream', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/subtitles/:hash/:subtitles', function(req, res){
+
+});
+
 app.get('/:magnet', function(req, res){
     //let opts = {tmp: './tmp'};
     //let magnet_link = 'magnet:?xt=urn:btih:B127082DEC04240FB9D617C23BFA3DF47E2DC0C7&tr=udp://glotorrents.pw:6969/announce&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://torrent.gresille.org:80/announce&tr=udp://tracker.openbittorrent.com:80&tr=udp://tracker.coppersurfer.tk:6969&tr=udp://tracker.leechers-paradise.org:6969&tr=udp://p4p.arenabg.ch:1337&tr=udp://tracker.internetwarriors.net:1337';
@@ -63,7 +67,7 @@ app.get('/:magnet', function(req, res){
 
                 fs.access(lp, fs.F_OK, (err) => {
                     if (!err && fs.statSync(lp).size === movie_full_length) {
-                        res.sendFile(lp)
+                        res.sendFile(lp);
                     } else {
                         let file = fs.createWriteStream(lp);
                         res.writeHead(206, head);

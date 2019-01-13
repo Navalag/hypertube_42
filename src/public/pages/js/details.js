@@ -232,7 +232,8 @@ function playButton(event)
             success: function (response) {
                 if(response){
                     var hash = link.split(':')[3].split('&')[0];
-
+                    var path = STREAM_PATH + '/' + hash;
+                    
                     var links = JSON.parse(response);
                     var subtitles_link = links.subs.response.data[0].SubDownloadLink;
                     console.log(links);
