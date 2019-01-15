@@ -19,9 +19,12 @@ class FilmController extends Controller
 
 	public function getWatchedFilmsForUser($user_id) {
 		$film = new FilmWatch;
-		$all_films = $film->where('user_id', $user_id)->get();
+		$films = $film->where('user_id', $user_id)->get();
 
-		dd($all_films);
-		return $all_films;
+		$films_id = [];
+		foreach ($films as $value) {
+			$films_ids[] = $value->movie_id;
+		}
+		return $films_ids;
 	}
 }

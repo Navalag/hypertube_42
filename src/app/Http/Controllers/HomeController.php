@@ -26,8 +26,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $film = new FilmController;
-        // $all_watched_films = $film->getWatchedFilmsForUser(\Auth::user()->id);
         return view('home')->with('user_info', \Auth::user())->with('lang', \Session::get('locale')=='ua' ? 'Українська' : 'English');
     }
 
@@ -106,15 +104,10 @@ class HomeController extends Controller
             $data = $search->search_request($needle, $page, $type, $params['lang']);
             return($data);
         }
-        $all_watched_films = $film->getWatchedFilmsForUser(\Auth::user()->id);
         if($params['method'] == "set_mark")
         {
-            $arr = [];
-            $arr[0] = "335983";
-            $arr[1] = "297802";
-            $arr[2] = "405774";
-            return ($arr);
+            return $film->getWatchedFilmsForUser(\Auth::user()->id);
         }
-       return view('home');
+        return view('home');
     }
 }
