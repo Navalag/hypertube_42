@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Library\SearchClass;
+use App\Http\Controllers\Film\FilmController;
 use App\User;
 
 class HomeController extends Controller
@@ -25,8 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // $film = new FilmController;
+        // $all_watched_films = $film->getWatchedFilmsForUser(\Auth::user()->id);
         return view('home')->with('user_info', \Auth::user())->with('lang', \Session::get('locale')=='ua' ? 'Українська' : 'English');
-
     }
 
     public function validate_search_request($params)
@@ -82,6 +84,7 @@ class HomeController extends Controller
     public function postHome(Request $request)
     {
         $search = new SearchClass;
+        $film = new FilmController;
         $params = $request->all();
         if($params['method'] == "search")
         {
@@ -103,6 +106,7 @@ class HomeController extends Controller
             $data = $search->search_request($needle, $page, $type, $params['lang']);
             return($data);
         }
+        $all_watched_films = $film->getWatchedFilmsForUser(\Auth::user()->id);
         if($params['method'] == "set_mark")
         {
             $arr = [];

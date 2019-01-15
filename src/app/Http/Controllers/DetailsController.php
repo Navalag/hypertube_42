@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Library\SearchClass;
 use App\Http\Controllers\Comment\CommentController;
+use App\Http\Controllers\Film\FilmController;
 use \Done\Subtitles\Subtitles;
 
 
@@ -53,6 +54,7 @@ class DetailsController extends Controller {
     public function putDetails(Request $request)
     {
         $search = new SearchClass;
+        $film = new FilmController;
         $params = $request->all();
         $result = [];
         $lang = null;
@@ -97,6 +99,8 @@ class DetailsController extends Controller {
              $this->downloadFile($result['allsubs']['response']['data'][0]['SubDownloadLink'], $hash . 'en');
              $result['subs_en'] = $hash . 'en.vtt';
          }
+
+        $film->setFilmAsWatched($request, $params['id']);
 
         return json_encode($result);
         }
