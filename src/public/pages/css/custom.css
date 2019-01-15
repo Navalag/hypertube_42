@@ -320,6 +320,12 @@ html {
     align-items: center;
 }
 
+#video_container
+{ 
+    margin-top: 40px!important;
+    width: 80%!important;
+}
+
 
 @media (max-width: 1300px)
 {

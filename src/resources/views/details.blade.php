@@ -77,10 +77,10 @@
 										<div class="no_result_links"><img src="{{ asset('assets/img/no_result_cactus.png') }}"></div>
 									</section>
 								</div>
-								<div class="card no-border bg-transparent full-width" data-social="item">
-									<div style="width: 500px">
+								<div class="card no-border bg-transparent full-width" id="video_container" data-social="item">
+									<div class="video_palyer_container">
 							        	<!-- Plyr -->
-								        <video id="player" width="320" height="240" controls>
+								        <video id="player" width="520" height="440" controls>
 								        </video>
 								    </div>
 								</div>

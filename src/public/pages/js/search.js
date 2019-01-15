@@ -336,7 +336,7 @@ if (response)
 			   block.setAttribute("class", "hide_block");
 			   gal_item_img_container.setAttribute("class", "img_link");
 			   gal_item.setAttribute("class", "gallery-item_custom");
-			   gal_item.setAttribute("data", list[i].original_title);
+			   gal_item.setAttribute("data", list[i].id);
 			   img_link.setAttribute("href", baseUrl + 'details/' + general_type.data + '_' + list[i].id);
 			   img.setAttribute("class", "image-responsive-height lozad");
 			   if (list[i].poster_path != null) {
@@ -461,8 +461,9 @@ function set_mark(list)
                 var response_len = Object.keys(response).length;
                 for (var i = 0; i < len; i++) {
                     for (var j = 0; j < response_len; j++) {
-                        if (list[i].original_title === response[j]) {
-                            var child_hide_mark = document.querySelector("[data='" + list[i].original_title + "']").children[0];
+                        if (String(list[i].id) === response[j]) {
+                            var child_hide_mark = document.querySelector("[data='" + list[i].id + "']").children[0];
+                            //console.log(child_hide_mark);
                             if (child_hide_mark)
                                 child_hide_mark.style.visibility = "visible";
                         }

@@ -110,9 +110,9 @@ class HomeController extends Controller
         if($params['method'] == "set_mark")
         {
             $arr = [];
-            $arr[0] = "Venom";
-            $arr[1] = "Bird Box";
-            $arr[2] = "Creed II";
+            $arr[0] = "335983";
+            $arr[1] = "297802";
+            $arr[2] = "405774";
             return ($arr);
         }
        return view('home');

@@ -1,2 +1,2 @@
 # hypertube_42
-A web application that allows the user to research and watch videos
+A web application that allows a user to research and watch videos
