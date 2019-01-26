@@ -23,8 +23,8 @@ class FilmController extends Controller
 
 		$films_id = [];
 		foreach ($films as $value) {
-			$films_ids[] = $value->movie_id;
+			$films_id[] = $value->movie_id;
 		}
-		return $films_ids;
+		return $films_id;
 	}
 }
