@@ -77,4 +77,6 @@ app.get('/:magnet', function(req, res){
     });
 });
 
-app.listen(8888);
+app.listen(8888, function () {
+  console.log('Example app listening on port 3000!');
+});
