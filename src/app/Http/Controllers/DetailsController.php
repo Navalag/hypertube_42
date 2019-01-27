@@ -60,9 +60,11 @@ class DetailsController extends Controller {
         $lang = null;
         ($params['lang'] == "en-US") ? $lang = 'eng' : 0;
         ($params['lang'] == "uk-UA") ? $lang = 'ukr' : 0;
-        $subtitles = $search->get_subtitles_list($params['title'], $params['type'], $params['season'], $params['episode'], "ukr");
+         $result['movie'] = $params;
+        $hash = explode(':', $result['movie']['magnet'])[3];
+        $hash = explode('&', $hash)[0];
+        $subtitles = $search->get_subtitles_list($params['title'], $params['type'], $params['season'], $params['episode'], $hash, "ukr");
         if($subtitles != "penetration") {
-            $result['movie'] = $params;
             $result['subs'] = (array)$subtitles;  
         /* very dumb crutch below. i don't know how to convert object to array properly, so there is used (array) typecast,
         which resulting with this motherfucking symbols \u0000*\u0000 in array keys. It is possible to access this properties
@@ -74,7 +76,7 @@ class DetailsController extends Controller {
                 unset($result['subs'][$key]);
             }
         }
-        $subtitles_all = $search->get_subtitles_list($params['title'],  $params['type'], $params['season'], $params['episode'], "eng");
+        $subtitles_all = $search->get_subtitles_list($params['title'],  $params['type'], $params['season'], $params['episode'], $hash, "eng");
          if($subtitles_all != "penetration") {
              $result['allsubs'] = (array)$subtitles_all;
              foreach ($result['allsubs'] as $key => $value) {
@@ -85,17 +87,35 @@ class DetailsController extends Controller {
              }
          }
          //   var hash = link.split(':')[3].split('&')[0];
-            $hash = explode(':', $result['movie']['magnet'])[3];
-            $hash = explode('&', $hash)[0];
+          
             $result['subs_en'] = null;
             $result['subs_uk'] = null;
          if(!empty($result['subs']['response']['data'])) {
-             $this->downloadFile($result['subs']['response']['data'][0]['SubDownloadLink'], $hash . 'uk');
+             foreach ($result['subs']['response']['data'] as $value)
+             {
+                if($value['MovieName'] == $params['title'])
+                {
+                     $this->downloadFile($value['SubDownloadLink'], $hash . 'uk');
              $result['subs_uk'] = $hash . 'uk.vtt';
+                    break ;
+                }
+                
+            }
+
+            
          }
          if(!empty($result['allsubs']['response']['data'])) {
-             $this->downloadFile($result['allsubs']['response']['data'][0]['SubDownloadLink'], $hash . 'en');
-             $result['subs_en'] = $hash . 'en.vtt';
+            foreach ($result['allsubs']['response']['data'] as $value)
+             {
+                if($value['MovieName'] == $params['title'])
+                {
+                     $this->downloadFile($value['SubDownloadLink'], $hash . 'en');
+                    $result['subs_en'] = $hash . 'en.vtt';
+                    break ;
+                }
+                
+            }
+            
          }
         $film->setFilmAsWatched($request, $params['id']);
         return json_encode($result);

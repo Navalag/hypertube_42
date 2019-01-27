@@ -236,7 +236,7 @@ class SearchClass
         return $res;
     }
 
-    public function get_subtitles_list($title, $type, $season, $episode, $lang)
+    public function get_subtitles_list($title, $type, $season, $episode, $hash,$lang)
     {
         if  ($this->validate_subtitles_request($type, $season, $episode)) {
             $response = null;
@@ -250,6 +250,7 @@ class SearchClass
                     $response = $client->searchSubtitles([
                         [
                             'sublanguageid' => $lang,
+                            'moviehash' => $hash,
                             'query' => $title
                         ]
                     ]);
@@ -258,6 +259,7 @@ class SearchClass
                     $response = $client->searchSubtitles([
                         [
                             'sublanguageid' => $lang,
+                            'moviehash' => $hash,
                             'query' => $title,
                             'season' => $season,
                             'episode' => $episode

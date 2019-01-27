@@ -73,12 +73,14 @@ if (response)
 
 			var len = Object.keys(storedArr).length;
 			render(storedArr, len);
-            set_mark(storedArr);
+			if(general_type.data == "movies")
+            	set_mark(storedArr);
 		}
 		else if (storedMethod === "live_load" && storedArr && sessionStorage.getItem('lang') === lang && !reset_redirect) {
 			var len = Object.keys(storedArr).length;
 			render(storedArr, len);
-            set_mark(storedArr);
+			if(general_type.data == "movies")
+            	set_mark(storedArr);
 		}
 		else {
 			reset();
@@ -285,7 +287,8 @@ if (response)
                             limit.data = i;
                         }
                         render(list.results, len);
-                        set_mark(list.results);
+                        if(general_type.data == "movies")
+                    		set_mark(list.results);
                         trigger.data = "static_load";
                         sessionStorage.setItem('method', 'static_load');
                         sessionArr = sessionStorage.getItem('arr');
@@ -456,7 +459,7 @@ function set_mark(list)
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function (response) {
-            if (list) {
+            if (list && general_type.data == "movies") {
                 var len = Object.keys(list).length;
                 var response_len = Object.keys(response).length;
                 for (var i = 0; i < len; i++) {
@@ -490,6 +493,7 @@ function live_load(needle, page, lang) {
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			},
 			success: function (response) {
+				enable_switch();
                 var list = JSON.parse(response);
                 if (list) {
                     len = Object.keys(list.results).length;
@@ -498,7 +502,8 @@ function live_load(needle, page, lang) {
                         limit.data = page;
                     }
                     render(list.results, len);
-                    set_mark(list.results);
+                    if(general_type.data == "movies")
+                    	set_mark(list.results);
 
                     if (storedMethod === "static_load") {
                         sessionStorage.removeItem('arr');
@@ -545,6 +550,8 @@ var timer;
 				storedNeedle = null;
 				storedLimit = null;
 				limit.data = 0;
+				 document.getElementById('tvshows_switch').disabled = true;
+			    document.getElementById('movie_switch').disabled = true;
 				live_load(needle.data, 1, lang);
 			}, 500);
 		}
@@ -629,6 +636,7 @@ function enable_switch()
 {
     document.getElementById('tvshows_switch').disabled = false;
     document.getElementById('movie_switch').disabled = false;
+     document.getElementById('live_search_input').disabled = false;
 }
 
 function switch_type(event)
@@ -642,6 +650,7 @@ function switch_type(event)
     document.getElementById('live_search_input').value = null;
     document.getElementById('tvshows_switch').disabled = true;
     document.getElementById('movie_switch').disabled = true;
+    document.getElementById('live_search_input').disabled = true;
 	reset();
 	year_gap(1888, 2019);
 	year_gap_tv(1928, 2019);
