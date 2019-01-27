@@ -5,8 +5,6 @@ var tv_genres = document.querySelectorAll('.tv_genre');
 var movies_len = movies_genres.length;
 var tv_len = tv_genres.length;
 const STREAM_PATH = getUrl.protocol + '//' + getUrl.host;
-console.log(STREAM_PATH);
-console.log(movie_id);
 
 const player = new Plyr('#player');
 
@@ -210,7 +208,6 @@ function playButton(event)
     var type = target.getAttribute('data-type');
     var season = target.getAttribute('data-season');
     var episode = target.getAttribute('data-episode');
-    console.log("magnet available onclick :", link);
     var title = target.getAttribute('data-title');
     var imdb = target.getAttribute('data-imdb');
     var sub_label_en = null;
@@ -241,15 +238,7 @@ function playButton(event)
                 if(response){
                     var hash = link.split(':')[3].split('&')[0];
                     var path = STREAM_PATH + '/Venom.vtt';
-                    console.log('Path - ' + path);
-                    console.log(lang);
                     var links = JSON.parse(response);
-                   // var subtitles_link = links.subs.response.data[0].SubDownloadLink;
-                    console.log(links.subs_path);
-                    console.log("returned from server with subs : ", links);
-                    console.log("exactly link returned from server. This may come with huge delay(depends of how many results api return) : ", links.movie.magnet);
-                    // console.log(links.subs["\u0000*\u0000response"].data[0].SubDownloadLink);
-                    //console.log("one of subs link returned from server, just for example : ", subtitles_link); //indexes count may be up to 500
                 }
                 else {
                     window.location.href = getUrl.protocol + "//" + getUrl.host + "/penetration";

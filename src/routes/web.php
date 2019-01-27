@@ -14,7 +14,6 @@
 Route::group(['middleware' => ['auth.language']], function () {
 	Auth::routes(['verify' => true]);
 	Route::post('/set_locale', 'Auth\LoginController@setLanguage')->name('setLanguage');
-    Route::get('/library', 'LibraryController@index')->name('library');
 });
 
 Route::group(['middleware' => ['language']], function () {

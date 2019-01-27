@@ -77,7 +77,6 @@ class DetailsController extends Controller {
         $subtitles_all = $search->get_subtitles_list($params['title'],  $params['type'], $params['season'], $params['episode'], "eng");
          if($subtitles_all != "penetration") {
              $result['allsubs'] = (array)$subtitles_all;
-
              foreach ($result['allsubs'] as $key => $value) {
                  if ($key[1] === "*") {
                      $result['allsubs'][substr($key, 3)] = $result['allsubs'][$key];
@@ -90,7 +89,6 @@ class DetailsController extends Controller {
             $hash = explode('&', $hash)[0];
             $result['subs_en'] = null;
             $result['subs_uk'] = null;
-
          if(!empty($result['subs']['response']['data'])) {
              $this->downloadFile($result['subs']['response']['data'][0]['SubDownloadLink'], $hash . 'uk');
              $result['subs_uk'] = $hash . 'uk.vtt';
@@ -99,9 +97,7 @@ class DetailsController extends Controller {
              $this->downloadFile($result['allsubs']['response']['data'][0]['SubDownloadLink'], $hash . 'en');
              $result['subs_en'] = $hash . 'en.vtt';
          }
-
         $film->setFilmAsWatched($request, $params['id']);
-
         return json_encode($result);
         }
     }
