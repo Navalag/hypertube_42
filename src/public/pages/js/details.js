@@ -284,6 +284,7 @@ function playButton(event)
                     var player = $('#player');
                     player.attr('poster', player_preview_img);
                     player.html('<source src="http://localhost:8888/' + links.movie.magnet + '" type="video/mp4"></source><track src="' + sub_src_en + '" kind="subtitles" srclang="en" label="English"><track src="' + sub_src_uk + '" kind="subtitles" srclang="uk" label="Ukrainian">');
+                    player.load();
                 }
 
         });
