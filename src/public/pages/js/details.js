@@ -6,7 +6,7 @@ var movies_len = movies_genres.length;
 var tv_len = tv_genres.length;
 const STREAM_PATH = getUrl.protocol + '//' + getUrl.host;
 
-const player = new Plyr('#player');
+//const player = new Plyr('#player');
 
 $(document).ready(function() {
     hide_show_genres_list(type, movies_genres, tv_genres);
@@ -254,7 +254,7 @@ function playButton(event)
                     sub_src_uk = STREAM_PATH + '/subtitles/' + links.subs_uk;
                 }
 
-                player.source = {
+                /*player.source = {
                     type: 'video',
                     title: title,
                     poster: player_preview_img,
@@ -279,8 +279,12 @@ function playButton(event)
                             default: false,
                         },
                     ],
-                  };
-            }
+                  };*/
+
+                    var player = $('#player');
+                    player.attr('poster', player_preview_img);
+                    player.html('<source src="http://localhost:8888/' + links.movie.magnet + '" type="video/mp4"></source><track src="' + sub_src_en + '" kind="subtitles" srclang="en" label="English"><track src="' + sub_src_uk + '" kind="subtitles" srclang="uk" label="Ukrainian">');
+                }
 
         });
 }
@@ -383,11 +387,4 @@ $('#live_search_input').bind("input", function () {
     }
 
 });
-
-
-  
-
-
-
-
 
