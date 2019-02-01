@@ -283,7 +283,18 @@ function playButton(event)
 
                     var player = $('#player');
                     player.attr('poster', player_preview_img);
-                    player.html('<source src="http://localhost:8888/' + links.movie.magnet + '" type="video/mp4"></source><track src="' + sub_src_en + '" kind="subtitles" srclang="en" label="English"><track src="' + sub_src_uk + '" kind="subtitles" srclang="uk" label="Ukrainian">');
+                    var source = '<source src="http://localhost:8888/' + links.movie.magnet + '" type="video/mp4"></source>';
+                    var en_sub = sub_src_en ? '<track src="' + sub_src_en + '" kind="subtitles" srclang="en" label="English">' : null;
+                    var uk_sub = sub_src_uk ? '<track src="' + sub_src_uk + '" kind="subtitles" srclang="uk" label="Ukrainian">' : null;
+                    var player_data = source;
+                    if(en_sub) {
+                        player_data += en_sub;
+                    }
+                    if(uk_sub){
+                        player_data += ua_sub;
+                    }
+                    console.log(player_data);
+                    player.html(player_data);
                     player.load();
                 }
 

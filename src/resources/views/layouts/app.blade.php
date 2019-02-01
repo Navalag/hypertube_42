@@ -40,7 +40,7 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet" type="text/css">
 		<link class="main-stylesheet" href="{{ asset('pages/css/pages.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="https://cdn.plyr.io/3.4.7/plyr.css">
+		<link rel="stylesheet" href="https://cdn.plyr.io/3.4.8/plyr.css">
 
 	</head>
 	<body class="fixed-header ">

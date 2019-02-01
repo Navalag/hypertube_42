@@ -80,7 +80,7 @@
 								<div class="card no-border bg-transparent full-width" id="video_container" data-social="item">
 									<div class="video_palyer_container">
 							        	<!-- Plyr -->
-								        <video id="player" width="520" height="440" controls>
+								        <video id="player" width="520" height="440" controls controlsList="nodownload">
 								        </video>
 								    </div>
 								</div>
@@ -204,6 +204,6 @@
 	<script src="{{ asset('assets/plugins/jquery-isotope/isotope.pkgd.min.js') }}"></script>
 
 	<script src="{{ asset('pages/js/pages.social.js') }}"></script>
-	<script src="https://cdn.plyr.io/3.4.7/plyr.js"></script>
+	<script src="https://cdn.plyr.io/3.4.8/plyr.js"></script>
 	<script src="{{ asset('pages/js/details.js') }}"></script>
 @endpush
