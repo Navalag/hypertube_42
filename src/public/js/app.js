@@ -3,7 +3,6 @@ $(document).ready(function() {
 		e.preventDefault();
 
 		$.post('/user/edit_profile', $('form#form-project').serialize(), function(data) {
-				console.log(data);
 				if (data.success) {
 					$('#firstName').text(data.user_info.first_name);
 					$('#lastName').text(data.user_info.last_name);
@@ -16,7 +15,6 @@ $(document).ready(function() {
 				}
 				else {
 					var msg = '';
-					console.log(data.errors);
 					$.each(data.errors[0], function(index, item) {
 					  msg += '<p class="mr-auto overflow-ellipsis no-padding" id="alerText">'+item+'</p>'
 					});
@@ -39,7 +37,6 @@ $(document).ready(function() {
 			processData: false,
 			type: 'POST',
 			success:function(response) {
-				console.log(response);
 				$('#avatar').attr("src", 'http://127.0.0.1:8000/'+response.image);
 				$('#avatar').attr("data-src", 'http://127.0.0.1:8000/'+response.image);
 				$('#avatar').attr("data-src-retina", 'http://127.0.0.1:8000/'+response.image);
