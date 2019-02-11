@@ -291,7 +291,7 @@ function playButton(event)
                         player_data += en_sub;
                     }
                     if(uk_sub){
-                        player_data += ua_sub;
+                        player_data += uk_sub;
                     }
                     console.log(player_data);
                     player.html(player_data);
