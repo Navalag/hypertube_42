@@ -22,7 +22,7 @@ Please find full description of the project :point_right: [here](hypertube.en.pd
 2. **Sign up** form.
 <img src="/screenshots/screen_3.png" alt="Sign up" title="Sign up">
 
-3. Home page with **search, filter feature and list of films**.
+3. Home page with **search and filter features and list of films**.
 <img src="/screenshots/screen_1.png" alt="search, filter and list of films" title="search, filter and list of films">
 
 4. Home page with **live search**.
@@ -52,7 +52,7 @@ git clone https://github.com/Navalag/hypertube_42.git
 cd hypertube_42(or your folder)/src
 ```
 
-3. Install composer
+3. Install composer (composer and laravel should be already installed, otherwise just google how to install)
 ```
 php composer.phar install
 ```
@@ -75,8 +75,9 @@ php artisan migrate
 ```
 php artisan serve
 cd src/public/stream
-bash start.sh
+bash start.sh (wait few minutes to install all dependencies)
 ```
+Now you can try to sign in with Oauth, to register with email you have to add MAIL_DRIVER to .env file.
 
 **Thats it!** :ok_hand: you can now open project in browser.
 
