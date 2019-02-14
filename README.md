@@ -82,3 +82,6 @@ Now you can try to sign in with Oauth, to register with email you have to add MA
 **Thats it!** :ok_hand: you can now open project in browser.
 
 #### Enjoy :joy:
+
+## How to contact me
+If you found mistake || bug || have any questions || suggestions, please feel free to contact me at telegram @Navalag.
