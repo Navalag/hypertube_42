@@ -34,7 +34,7 @@ Please find full description of the project :point_right: [here](hypertube.en.pd
 6. **Filter by genre**.
 <img src="/screenshots/screen_5.png" alt="Filter by genre" title="Filter by genre">
 
-7. **Edit user profile**.
+7. **Edit user's profile**.
 <img src="/screenshots/screen_6.png" alt="Edit user profile" title="Edit user profile">
 
 8. **Сomment field**.
